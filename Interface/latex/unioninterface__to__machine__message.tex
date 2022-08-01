@@ -1,0 +1,35 @@
+\hypertarget{unioninterface__to__machine__message}{}\doxysection{interface\+\_\+to\+\_\+machine\+\_\+message Union Reference}
+\label{unioninterface__to__machine__message}\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{unioninterface__to__machine__message_a3efa1d418d98e495dfa0806be4573d33}\label{unioninterface__to__machine__message_a3efa1d418d98e495dfa0806be4573d33}} 
+unsigned char {\bfseries payload} \mbox{[}interface\+\_\+payload\+\_\+size\mbox{]}
+\item 
+\mbox{\Hypertarget{unioninterface__to__machine__message_a93c81fa00a2e42df7eb4f362ef0d5ed1}\label{unioninterface__to__machine__message_a93c81fa00a2e42df7eb4f362ef0d5ed1}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint8\_t {\bfseries command}\\
+\mbox{\Hypertarget{structinterface__to__machine__message_1_1_0d0_a25245c2403bd6d73d63a96310bce08e8}\label{structinterface__to__machine__message_1_1_0d0_a25245c2403bd6d73d63a96310bce08e8}} 
+\>union \{\\
+\>\>uint16\_t {\bfseries pressure}\\
+\mbox{\Hypertarget{unioninterface__to__machine__message_1_1_0d0_1_1_0d2_a9b2aa697a98f82289634110ef62011b6}\label{unioninterface__to__machine__message_1_1_0d0_1_1_0d2_a9b2aa697a98f82289634110ef62011b6}} 
+\>\>struct \{\\
+\>\>\>uint16\_t {\bfseries distance}\\
+\>\>\>uint16\_t {\bfseries velocity}\\
+\>\>\} \\
+\mbox{\Hypertarget{unioninterface__to__machine__message_1_1_0d0_1_1_0d2_ad5b08bdfb2a32f7f670275faf87549a3}\label{unioninterface__to__machine__message_1_1_0d0_1_1_0d2_ad5b08bdfb2a32f7f670275faf87549a3}} 
+\>\>struct \{\\
+\>\>\>uint8\_t {\bfseries enabled}\\
+\>\>\>uint16\_t {\bfseries sample\_period}\\
+\>\>\} \\
+\>\} \\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+socket\+\_\+local.\+h\end{DoxyCompactItemize}

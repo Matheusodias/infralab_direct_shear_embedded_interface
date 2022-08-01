@@ -1,0 +1,53 @@
+\hypertarget{socket__local_8h_source}{}\doxysection{socket\+\_\+local.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SOCKET\_LOCAL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SOCKET\_LOCAL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QMetaType>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define interface\_payload\_size 3 * sizeof(uint16\_t)}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define machine\_payload\_size 8 * sizeof(uint32\_t)}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{unioninterface__to__machine__message}{interface\_to\_machine\_message}}\{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} payload[interface\_payload\_size];}
+\DoxyCodeLine{13     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{14         uint8\_t command;}
+\DoxyCodeLine{15         \textcolor{keyword}{union }\{}
+\DoxyCodeLine{16             uint16\_t pressure;}
+\DoxyCodeLine{17             \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{18                 uint16\_t distance;}
+\DoxyCodeLine{19                 uint16\_t velocity;}
+\DoxyCodeLine{20             \};}
+\DoxyCodeLine{21             \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{22                 uint8\_t enabled;}
+\DoxyCodeLine{23                 uint16\_t sample\_period;}
+\DoxyCodeLine{24             \};}
+\DoxyCodeLine{25         \};}
+\DoxyCodeLine{26     \};}
+\DoxyCodeLine{27 \} \mbox{\hyperlink{unioninterface__to__machine__message}{interface\_to\_machine\_message}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 \textcolor{keyword}{typedef} \textcolor{keyword}{union  }\mbox{\hyperlink{unionmachine__to__interface__message}{machine\_to\_interface\_message}}\{}
+\DoxyCodeLine{31     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} payload[machine\_payload\_size];}
+\DoxyCodeLine{32     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{33         uint32\_t sample\_number[2];}
+\DoxyCodeLine{34         uint32\_t date\_time[2];}
+\DoxyCodeLine{35         \textcolor{keywordtype}{float} displacement[2];}
+\DoxyCodeLine{36         \textcolor{keywordtype}{float} load[2];}
+\DoxyCodeLine{37     \};}
+\DoxyCodeLine{38 \} \mbox{\hyperlink{unionmachine__to__interface__message}{machine\_to\_interface\_message}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40 Q\_DECLARE\_METATYPE(\mbox{\hyperlink{unioninterface__to__machine__message}{interface\_to\_machine\_message}});}
+\DoxyCodeLine{41 Q\_DECLARE\_METATYPE(\mbox{\hyperlink{unionmachine__to__interface__message}{machine\_to\_interface\_message}});}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SOCKET\_LOCAL\_H}}
+
+\end{DoxyCode}

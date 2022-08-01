@@ -1,0 +1,38 @@
+\hypertarget{receivedata_8h_source}{}\doxysection{receivedata.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef RECEIVEDATA\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define RECEIVEDATA\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QThread>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}socket\_local.h"{}}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }\mbox{\hyperlink{classreceiveData}{receiveData}} : \textcolor{keyword}{public} QThread}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     \textcolor{keyword}{private}:}
+\DoxyCodeLine{11         }
+\DoxyCodeLine{12         }
+\DoxyCodeLine{13         }
+\DoxyCodeLine{14         \textcolor{keywordtype}{void} readClientMessage();}
+\DoxyCodeLine{15         \textcolor{keywordtype}{void} run() \textcolor{keyword}{override};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \textcolor{keyword}{public}:}
+\DoxyCodeLine{18         \textcolor{keywordtype}{char} server\_socket\_name[100];}
+\DoxyCodeLine{19         \textcolor{keywordtype}{int}  server\_socket\_id;}
+\DoxyCodeLine{20         \textcolor{keywordtype}{int}  client\_socket\_id;}
+\DoxyCodeLine{21         \mbox{\hyperlink{classreceiveData}{receiveData}}(QObject * parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{22         \mbox{\hyperlink{classreceiveData}{\string~receiveData}}();}
+\DoxyCodeLine{23         \textcolor{keywordtype}{void} init();}
+\DoxyCodeLine{24         \mbox{\hyperlink{unionmachine__to__interface__message}{machine\_to\_interface\_message}} machine\_message;}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26     \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     signals:}
+\DoxyCodeLine{29         }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 \};}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// RECEIVEDATA\_H}}
+
+\end{DoxyCode}
