@@ -15,7 +15,7 @@ typedef union interface_to_machine_message{
         union {
             uint16_t pressure;
             struct {
-                uint16_t distance;
+                int16_t distance;
                 uint16_t velocity;
             };
             struct {

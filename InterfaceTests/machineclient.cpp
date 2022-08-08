@@ -34,10 +34,11 @@ machineClient::machineClient()
 
     if(connect(this->socket_id, &name, strlen(name.sa_data) + sizeof(name.sa_family))!=0){
         qDebug() << "The last error message is: " << strerror(errno);
-        this->error=1;
+        this->errorOccurred=1;
         close(this->socket_id);
+        return;
     }
-    this->error=0;
+    this->errorOccurred=0;
     qDebug() << "Cliente se conectou";
 }
 /**
@@ -62,6 +63,11 @@ machineClient::~machineClient()
 
 void machineClient::sendMessages(int32_t i)
 {
+    if(this->errorOccurred){
+        qDebug() << "Ocorreu um erro anteriormente ao tentar se conectar ao servidor da Interface."; 
+        qDebug() << "Por favor tente novamente se conectar ao servidor e depois tente mandar mensagens";
+        return;
+    }
     machine_to_interface_message dados;
     dados.sample_number[0] = 10 + i;
     dados.sample_number[1] = 20 + i;

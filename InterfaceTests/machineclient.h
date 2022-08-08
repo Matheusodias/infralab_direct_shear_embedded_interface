@@ -32,7 +32,7 @@ class machineClient
          * O valor 1 significa que um erro ocorreu e que deve ocorrer uma nova tentativa de reconexão.
          * O valor 0 significa que não houve erro.
          */
-        uint8_t error;  
+        uint8_t errorOccurred;  
 
 
 

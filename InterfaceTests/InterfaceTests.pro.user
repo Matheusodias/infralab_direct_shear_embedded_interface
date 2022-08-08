@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2022-07-31T18:14:19. -->
+<!-- Written by QtCreator 7.0.2, 2022-08-05T15:40:38. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -71,6 +71,8 @@
     <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:SocketTests">Checked</value>
     <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:cleanupTestCase">Unchecked</value>
     <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:initTestCase">Unchecked</value>
+    <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:test_receiveDataFromInterface">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:test_receiveDataFromInterface_data">Unchecked</value>
     <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:test_receiveDataFromMachine">Checked</value>
     <value type="Qt::CheckState" key="1@/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests/tst_sockettests.cpp:test_receiveDataFromMachine_data">Checked</value>
    </valuemap>

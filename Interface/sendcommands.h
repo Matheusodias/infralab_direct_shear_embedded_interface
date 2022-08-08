@@ -14,9 +14,7 @@ class sendCommands
         bool enabled;
         int16_t sampling_period;
 
-        void setVelocity(uint8_t velocity);
-        void setDistance(int8_t distance);
-        void setPressure(uint8_t pressure);
+        
 
         void setEnabled(bool enabled);
         void setSamplingPeriod(int16_t sampling_period);
@@ -26,14 +24,20 @@ class sendCommands
         sendCommands();
         ~sendCommands();
         void setCommand(uint8_t command);
+        uint8_t errorOccurred;
+
         int16_t sendMessage();
         
-
-        int8_t getVelocity();
-        int8_t getDistance();
-        int8_t getPressure();
-        bool getEnabled();
-        int16_t getSamplingPeriod();
+        void setVelocity(uint8_t velocity);
+        void setDistance(int8_t distance);
+        void setPressure(uint8_t pressure);
+        void setEnabled(uint8_t enabled);
+        void setSamplingPeriod(uint16_t sample_period);
+        uint16_t getVelocity();
+        int16_t getDistance();
+        uint16_t getPressure();
+        uint8_t getEnabled();
+        uint16_t getSamplingPeriod();
 
 };
 

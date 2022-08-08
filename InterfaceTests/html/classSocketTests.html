@@ -108,8 +108,10 @@ Private Slots</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a62c3e73e2c8f854ab2e263f875a627e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketTests.html#a62c3e73e2c8f854ab2e263f875a627e3">compareStructIntElements</a> (int result, int expected)</td></tr>
+<tr class="memdesc:a62c3e73e2c8f854ab2e263f875a627e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara a variável result com a expected.  <a href="classSocketTests.html#a62c3e73e2c8f854ab2e263f875a627e3">More...</a><br /></td></tr>
 <tr class="separator:a62c3e73e2c8f854ab2e263f875a627e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa55d4c208dd05b9d807899729493f123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSocketTests.html#aa55d4c208dd05b9d807899729493f123">compareStructFloatElements</a> (float result, float expected)</td></tr>
+<tr class="memdesc:aa55d4c208dd05b9d807899729493f123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara a variável result com a expected.  <a href="classSocketTests.html#aa55d4c208dd05b9d807899729493f123">More...</a><br /></td></tr>
 <tr class="separator:aa55d4c208dd05b9d807899729493f123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -224,6 +226,16 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Compara a variável result com a expected. </p>
+<p >Esta função realiza uma comparação entre os 2 parâmetros do tipo float e apresenta um log caso haja diferenças. Ela foi criada para permitir diversas comparações em apenas 1 teste.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Resultado do envio de dados através do socket. </td></tr>
+    <tr><td class="paramname">expected</td><td>Valor experado que chegue através do socket. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a62c3e73e2c8f854ab2e263f875a627e3" name="a62c3e73e2c8f854ab2e263f875a627e3"></a>
@@ -259,6 +271,16 @@ Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Compara a variável result com a expected. </p>
+<p >Esta função realiza uma comparação entre os 2 parâmetros do tipo int e apresenta um log caso haja diferenças. Ela foi criada para permitir diversas comparações em apenas 1 teste.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Resultado do envio de dados através do socket. </td></tr>
+    <tr><td class="paramname">expected</td><td>Valor experado que chegue através do socket. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -368,7 +390,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A classe ThreadController cria o socket servidor que irá aguardar a conexão do cliente. </p>
-<p >A classe ThreadController cria um objeto da classe receiveData que é uma Thread. Fazendo com que a interface e o serviço dos sockets rode em paralelo. </p>
+<p >Instância um objeto da classe ThreadController, a qual cria um objeto da classe receiveData, que é uma Thread. Fazendo com que a interface e o serviço dos sockets rode em paralelo. </p>
 
 </div>
 </div>

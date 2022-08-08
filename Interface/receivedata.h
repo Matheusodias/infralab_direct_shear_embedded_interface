@@ -7,10 +7,8 @@
 
 class receiveData : public QThread
 {
+    Q_OBJECT
     private:
-        
-        
-        
         void readClientMessage();
         void run() override;
 
@@ -18,6 +16,7 @@ class receiveData : public QThread
         char server_socket_name[100];
         int  server_socket_id;
         int  client_socket_id;
+        uint8_t errorOccurred;;
         receiveData(QObject * parent = nullptr);
         ~receiveData();
         void init();

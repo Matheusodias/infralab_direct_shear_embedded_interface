@@ -33,9 +33,9 @@ void \mbox{\hyperlink{classSocketTests_a6fa5dc76962ef72f6704556c433f8fa8}{test\+
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{classSocketTests_a62c3e73e2c8f854ab2e263f875a627e3}{compare\+Struct\+Int\+Elements}} (int result, int expected)
-\item 
+\begin{DoxyCompactList}\small\item\em Compara a variável result com a expected. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSocketTests_aa55d4c208dd05b9d807899729493f123}{compare\+Struct\+Float\+Elements}} (float result, float expected)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Compara a variável result com a expected. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -88,12 +88,38 @@ Teste que roda ao final de todos os outros testes. Pode ser utilizado para algum
 \doxysubsubsection{\texorpdfstring{compareStructFloatElements()}{compareStructFloatElements()}}
 {\footnotesize\ttfamily void Socket\+Tests\+::compare\+Struct\+Float\+Elements (\begin{DoxyParamCaption}\item[{float}]{result,  }\item[{float}]{expected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Compara a variável result com a expected. 
+
+Esta função realiza uma comparação entre os 2 parâmetros do tipo float e apresenta um log caso haja diferenças. Ela foi criada para permitir diversas comparações em apenas 1 teste.
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Resultado do envio de dados através do socket. \\
+\hline
+{\em expected} & Valor experado que chegue através do socket. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSocketTests_a62c3e73e2c8f854ab2e263f875a627e3}\label{classSocketTests_a62c3e73e2c8f854ab2e263f875a627e3}} 
 \index{SocketTests@{SocketTests}!compareStructIntElements@{compareStructIntElements}}
 \index{compareStructIntElements@{compareStructIntElements}!SocketTests@{SocketTests}}
 \doxysubsubsection{\texorpdfstring{compareStructIntElements()}{compareStructIntElements()}}
 {\footnotesize\ttfamily void Socket\+Tests\+::compare\+Struct\+Int\+Elements (\begin{DoxyParamCaption}\item[{int}]{result,  }\item[{int}]{expected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
 
+
+
+Compara a variável result com a expected. 
+
+Esta função realiza uma comparação entre os 2 parâmetros do tipo int e apresenta um log caso haja diferenças. Ela foi criada para permitir diversas comparações em apenas 1 teste.
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Resultado do envio de dados através do socket. \\
+\hline
+{\em expected} & Valor experado que chegue através do socket. \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSocketTests_a1d96df93350f7c459cc67b2cfb98f427}\label{classSocketTests_a1d96df93350f7c459cc67b2cfb98f427}} 
 \index{SocketTests@{SocketTests}!initTestCase@{initTestCase}}
 \index{initTestCase@{initTestCase}!SocketTests@{SocketTests}}
@@ -137,7 +163,7 @@ Funções que terminam com \+\_\+data nos testes, tem a função de fornecerem o
 
 A classe Thread\+Controller cria o socket servidor que irá aguardar a conexão do cliente. 
 
-A classe Thread\+Controller cria um objeto da classe receive\+Data que é uma Thread. Fazendo com que a interface e o serviço dos sockets rode em paralelo. 
+Instância um objeto da classe Thread\+Controller, a qual cria um objeto da classe receive\+Data, que é uma Thread. Fazendo com que a interface e o serviço dos sockets rode em paralelo. 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
