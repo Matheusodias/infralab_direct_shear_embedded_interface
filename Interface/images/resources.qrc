@@ -1,5 +1,10 @@
 <RCC>
-    <qresource prefix="/images">
-        <file>Group 16.png</file>
+    <qresource prefix="/">
+        <file>darkExperiment.png</file>
+        <file>dark_history.png</file>
+        <file>darkHistory_withoutBackground.png</file>
+        <file>lightExperiment.png</file>
+        <file>lightHistory.png</file>
+        <file>lightHistory_withoutBackground.png</file>
     </qresource>
 </RCC>
