@@ -3,9 +3,16 @@
 
 #include <QWidget>
 #include <QPushButton>
+#include <QHBoxLayout>
 
-#define historyButton_lightOption 0
-#define historyButton_darkOption 1
+#define button_lightBackgroundColor 0
+#define button_darkBackgroundColor 1
+#define historyButton_LightIcon 0
+#define historyButton_DarkIcon 1
+#define experimentButton_LightIcon 2
+#define experimentButton_DarkIcon 3
+#define configurationButton_LightIcon 4
+#define configurationButton_DarkIcon 5
 
 class Button : public QWidget
 {
@@ -13,20 +20,21 @@ class Button : public QWidget
 public:
     Button(QWidget *parent = nullptr);
     void setButtonShadow(QPushButton * button);
-    void setButtonStyleSheet(QPushButton * button,int option);
+    void setButtonStyleSheet(QPushButton * button,uint8_t color, uint8_t icon);
+    void initialConfiguration_OutsideExperimentHeaderButtons(QHBoxLayout * layout);
+    void changeButtonStyle(QPushButton *button, uint8_t icon);
+
+
 
 private:
-    QString historyButton_LightStyleSheet;
-    QString historyButton_DarkStyleSheet;
-    QString experimentButton_LightStyleSheet;
-    QString experimentButton_DarkStyleSheet;
-    QString button_styleSheets[4];
+    QPushButton * clickedButton;
+    uint8_t clickedButtonIcon;
 
-    QString historyButton_LightImage;
-    QString historyButton_DarkImage;
-    QString experimentButton_LightImage;
-    QString experimentButton_DarkImage;
-    QString button_Images[4];
+    QString button_LightStyleSheet;
+    QString button_DarkStyleSheet;
+    QString button_styleSheets[2];
+    QString button_Images[6];
+    QIcon button_Icons[6];
 
 signals:
 

@@ -18,6 +18,10 @@ public:
 private slots:
     void on_historyButton_clicked();
 
+    void on_experimentButton_clicked();
+
+    void on_configurationButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     Button *setupButtons;
