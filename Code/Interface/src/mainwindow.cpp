@@ -15,8 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    setupButtons =new Button();
-    setupButtons->initialConfiguration_OutsideExperimentHeaderButtons(ui->outside_experiment_header_layout);
+    this->setupButtons =new Button();
+    this->setupButtons->initialConfiguration_OutsideExperimentHeaderButtons(ui->outside_experiment_header_layout);
+    this->setupButtons->changeButtonStyle(ui->experimentButton,experimentButton_LightIcon);
     ui->outside_experiment_stack->setCurrentIndex(2);
 }
 
