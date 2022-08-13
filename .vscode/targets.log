@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug  3 15:26:54 2022
+# Make data base, printed on Sat Aug 13 15:18:54 2022
 
 # Variables
 
@@ -21,11 +21,17 @@ SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 MANDATORY_PATH = /usr/share/gconf/ubuntu-xorg.mandatory.path
 # environment
+LC_NAME = pt_BR.UTF-8
+# environment
+LC_NUMERIC = pt_BR.UTF-8
+# environment
 VSCODE_CWD = /home/ivan/Documentos/2022/Codigo_TCC2
 # environment
 WINDOWPATH = 2
 # environment
 NVM_DIR = /home/ivan/.nvm
+# environment
+LC_ADDRESS = pt_BR.UTF-8
 # default
 MAKE_COMMAND := make
 # environment
@@ -43,7 +49,7 @@ PWD = /home/ivan/Documentos/2022/Codigo_TCC2
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-OLDPWD = /home/ivan
+OLDPWD = /home/ivan/Documentos/2022/Codigo_TCC2/Interface
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -51,7 +57,7 @@ OLDPWD = /home/ivan
 # environment
 NVM_INC = /home/ivan/.nvm/versions/node/v16.15.1/include/node
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ivan/.config/Code/CachedData/3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = /home/ivan/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
 # environment
 LANG = C
 # environment
@@ -61,13 +67,13 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.576
+GNOME_TERMINAL_SERVICE = :1.223
 # makefile
 MAKEFLAGS = pqrR
 # makefile
 CURDIR := /home/ivan/Documentos/2022/Codigo_TCC2
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -93,13 +99,13 @@ MAKEFILE_LIST := Makefile
 # makefile (from 'Makefile', line 1)
 path = ../../../../Qt/5.15.2/gcc_64
 # environment
-VSCODE_PID = 35099
+VSCODE_PID = 35367
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3367,unix/ivan-550XDA:/tmp/.ICE-unix/3367
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3481,unix/ivan-550XDA:/tmp/.ICE-unix/3481
 # automatic
 *F = $(notdir $*)
 # environment
@@ -109,7 +115,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"dc7ba51c4efcfec965eaa07de065afd6.pt-br","_translationsConfigFile":"/home/ivan/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/tcf.json","_cacheRoot":"/home/ivan/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br","_resolvedLanguagePackCoreLocation":"/home/ivan/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"/home/ivan/.config/Code/clp/dc7ba51c4efcfec965eaa07de065afd6.pt-br/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"89ebf7d0bb12d1282a52b02d65044dbc.pt-br","_translationsConfigFile":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br/tcf.json","_cacheRoot":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br","_resolvedLanguagePackCoreLocation":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br/da76f93349a72022ca4670c1b84860304616aaa2","_corruptedFile":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br/corrupted.info","_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -123,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/70a83b7c_9169_4730_bf20_6f8acd19da20
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a23c5f08_0593_4480_85cc_3aed9b5936fd
 # environment
 MAKELEVEL := 0
 # default
@@ -134,10 +140,16 @@ PATH = /home/ivan/.nvm/versions/node/v16.15.1/bin:/home/ivan/.local/bin:/usr/loc
 MAKEFILES := 
 # environment
 LANGUAGE = pt_BR:pt:en
+# environment
+LC_MONETARY = pt_BR.UTF-8
 # automatic
 ^F = $(notdir $^)
 # environment
+LC_TIME = pt_BR.UTF-8
+# environment
 USERNAME = ivan
+# environment
+LC_TELEPHONE = pt_BR.UTF-8
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -159,7 +171,7 @@ LOGNAME = ivan
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 3659
+SYSTEMD_EXEC_PID = 3755
 # environment
 DISPLAY = :0
 # environment
@@ -171,7 +183,11 @@ DEFAULTS_PATH = /usr/share/gconf/ubuntu-xorg.default.path
 # default
 MAKE_VERSION := 4.3
 # environment
+LC_MEASUREMENT = pt_BR.UTF-8
+# environment
 _ = /usr/bin/code
+# environment
+LC_PAPER = pt_BR.UTF-8
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -191,9 +207,11 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-168462f3-1.69.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-168462f3-1.70.0-main.sock
 # environment
 TERM = xterm-256color
+# environment
+PAPERSIZE = a4
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -212,8 +230,10 @@ VTE_VERSION = 6800
 XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = ubuntu-xorg
+# environment
+LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=101/1024=10%, Rehash=0, Collisions=10/134=7%
+# Load=111/1024=11%, Rehash=0, Collisions=11/144=8%
 
 # Pattern-specific Variable Values
 
@@ -221,9 +241,9 @@ GDMSESSION = ubuntu-xorg
 
 # Directories
 
-# . (device 66306, inode 3562735): 11 files, no impossibilities.
+# . (device 66306, inode 3562735): 8 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -279,6 +299,7 @@ all:
 	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o moc_threadcontroller.o moc_threadcontroller.cpp
 	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o tst_sockettests.o ../Codigo_TCC2/InterfaceTests/tst_sockettests.cpp
 	g++ -Wl,-rpath,/home/ivan/Qt/5.15.2/gcc_64/lib -o InterfaceTests tst_sockettests.o receivedata.o threadcontroller.o machineclient.o moc_threadcontroller.o   /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Gui.so /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Test.so /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Core.so -lGL -lpthread
+ 
 
 # Not a target:
 .SUFFIXES:
@@ -294,13 +315,12 @@ all:
 
 # No general ('VPATH' variable) search path.
 
- 
-# strcache buffers: 1 (0) / strings = 16 / storage = 179 B / avg = 11 B
-# current buf: size = 8162 B / used = 179 B / count = 16 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 13 / storage = 117 B / avg = 9 B
+# current buf: size = 8162 B / used = 117 B / count = 13 / avg = 9 B
 
-# strcache performance: lookups = 23 / hit rate = 30%
+# strcache performance: lookups = 20 / hit rate = 35%
 # hash-table stats:
-# Load=16/8192=0%, Rehash=0, Collisions=0/23=0%
-# Finished Make data base on Wed Aug  3 15:26:54 2022
+# Load=13/8192=0%, Rehash=0, Collisions=0/20=0%
+# Finished Make data base on Sat Aug 13 15:18:54 2022
 
  

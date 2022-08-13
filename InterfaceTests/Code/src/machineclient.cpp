@@ -1,11 +1,11 @@
-#include "machineclient.h"
+#include "../inc/machineclient.h"
 
 #include <QDebug>
 #include <errno.h>
 #include <sys/socket.h>
 #include <string.h>
 #include <unistd.h> 
-#include "../Interface/socket_local.h"
+#include "../Interface/Code/inc/socket_local.h"
 
 
 /**

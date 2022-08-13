@@ -3,11 +3,11 @@
 
 // add necessary includes here
 #include <QDebug>
-#include "machineclient.h"
-#include "../Interface/threadcontroller.h"
-#include "../Interface/socket_local.h"
-#include "../Interface/sendcommands.h"
-#include "machineserver.h"
+#include "inc/machineclient.h"
+#include "../Interface/Code/inc/threadcontroller.h"
+#include "../Interface/Code/inc/socket_local.h"
+#include "../Interface/Code/inc/sendcommands.h"
+#include "inc/machineserver.h"
 #include <unistd.h>
 
 /**

@@ -2,7 +2,7 @@
 #define MACHINESERVER_H
 
 #include <QThread>
-#include "../Interface/socket_local.h"
+#include "../Interface/Code/inc/socket_local.h"
 
 class machineServer : public QThread
 {

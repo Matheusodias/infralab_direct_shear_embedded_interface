@@ -1,4 +1,4 @@
-#include "machineserver.h"
+#include "inc/machineserver.h"
 #include <QDebug>
 #include <string.h>
 #include <unistd.h>

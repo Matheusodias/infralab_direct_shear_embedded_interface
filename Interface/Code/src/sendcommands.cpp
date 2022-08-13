@@ -1,4 +1,4 @@
-#include "sendcommands.h"
+#include "../inc/sendcommands.h"
 
 #include <errno.h>
 #include <sys/socket.h>

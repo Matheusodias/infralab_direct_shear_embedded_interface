@@ -1,8 +1,8 @@
 #include <QDebug>
 #include <stdint.h>
 
-#include "threadcontroller.h"
-#include "receivedata.h"
+#include "../inc/threadcontroller.h"
+#include "../inc/receivedata.h"
 
 ThreadController::ThreadController(QObject *parent)
     : QObject{parent}

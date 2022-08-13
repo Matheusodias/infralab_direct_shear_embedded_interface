@@ -1,4 +1,4 @@
-#include "receivedata.h"
+#include "../inc/receivedata.h"
 #include<QDebug>
 #include <string.h>
 #include <unistd.h>
