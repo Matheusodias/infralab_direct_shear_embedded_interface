@@ -9,20 +9,20 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    button.cpp \
-    main.cpp \
-    mainwindow.cpp \
-    receivedata.cpp \
-    sendcommands.cpp \
-    threadcontroller.cpp
+    src/button.cpp \
+    src/main.cpp \
+    src/mainwindow.cpp \
+    src/receivedata.cpp \
+    src/sendcommands.cpp \
+    src/threadcontroller.cpp
 
 HEADERS += \
-    button.h \
-    mainwindow.h \
-    receivedata.h \
-    sendcommands.h \
-    socket_local.h \
-    threadcontroller.h
+    inc/button.h \
+    inc/mainwindow.h \
+    inc/receivedata.h \
+    inc/sendcommands.h \
+    inc/socket_local.h \
+    inc/threadcontroller.h
 
 FORMS += \
     mainwindow.ui
