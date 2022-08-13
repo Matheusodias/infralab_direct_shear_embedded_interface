@@ -1,0 +1,50 @@
+\hypertarget{sendcommands_8h_source}{}\doxysection{sendcommands.\+h}
+\label{sendcommands_8h_source}\index{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/Code/inc/sendcommands.h@{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/Code/inc/sendcommands.h}}
+\mbox{\hyperlink{sendcommands_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SENDCOMMANDS\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SENDCOMMANDS\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{socket__local_8h}{socket\_local.h}}"{}}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{classsendCommands}{sendCommands}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{keyword}{private}:}
+\DoxyCodeLine{10         \textcolor{keywordtype}{int} \mbox{\hyperlink{classsendCommands_ac7c70a84924211dd4f425b53891de7b6}{socket\_id}};}
+\DoxyCodeLine{11         \textcolor{keywordtype}{char} \mbox{\hyperlink{classsendCommands_a62bf5fe9e92e48845d91f58b5ea7065d}{socket\_name}}[100];}
+\DoxyCodeLine{12         \mbox{\hyperlink{unioninterface__to__machine__message}{interface\_to\_machine\_message}} \mbox{\hyperlink{classsendCommands_abd07bf3370a7dcda9a481665f08a89bc}{interface\_message}};}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14         \textcolor{keywordtype}{bool} \mbox{\hyperlink{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}{enabled}};}
+\DoxyCodeLine{15         int16\_t \mbox{\hyperlink{classsendCommands_a69baca17b4bd0fb25cd386cb088f5d8f}{sampling\_period}};}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17         }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_a2b9b716edfc8045bbbfd557cdacd5095}{setEnabled}}(\textcolor{keywordtype}{bool} \mbox{\hyperlink{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}{enabled}});}
+\DoxyCodeLine{20         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_ace1f7fadf3d68bed765520f1ec4fd9b8}{setSamplingPeriod}}(int16\_t \mbox{\hyperlink{classsendCommands_a69baca17b4bd0fb25cd386cb088f5d8f}{sampling\_period}});}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \textcolor{keyword}{public}:}
+\DoxyCodeLine{24         \mbox{\hyperlink{classsendCommands_a806dbb004882e40770188242f790f8b7}{sendCommands}}();}
+\DoxyCodeLine{25         \mbox{\hyperlink{classsendCommands_a2e5473f4146cc0362cded4ebda1f0bc4}{\string~sendCommands}}();}
+\DoxyCodeLine{26         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_ac2379ecb47a657af12162a8ffa9f682b}{setCommand}}(uint8\_t command);}
+\DoxyCodeLine{27         uint8\_t \mbox{\hyperlink{classsendCommands_aa96989af7e8d997fd780067af998ab12}{errorOccurred}};}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29         int16\_t \mbox{\hyperlink{classsendCommands_a03950b488e1f0bd4f0c4802be7d2bc88}{sendMessage}}();}
+\DoxyCodeLine{30         }
+\DoxyCodeLine{31         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_a9092ca9f0a8255f701f1282dbb468044}{setVelocity}}(uint8\_t velocity);}
+\DoxyCodeLine{32         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_a729c6b51aa0f932f55baaf8faa4cb881}{setDistance}}(int8\_t distance);}
+\DoxyCodeLine{33         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_a9c9e956143267be94990f820ee1a0e9d}{setPressure}}(uint8\_t pressure);}
+\DoxyCodeLine{34         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_a2b9b716edfc8045bbbfd557cdacd5095}{setEnabled}}(uint8\_t \mbox{\hyperlink{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}{enabled}});}
+\DoxyCodeLine{35         \textcolor{keywordtype}{void} \mbox{\hyperlink{classsendCommands_ace1f7fadf3d68bed765520f1ec4fd9b8}{setSamplingPeriod}}(uint16\_t sample\_period);}
+\DoxyCodeLine{36         uint16\_t \mbox{\hyperlink{classsendCommands_a770902356a98db030aa0597b6a64ef0f}{getVelocity}}();}
+\DoxyCodeLine{37         int16\_t \mbox{\hyperlink{classsendCommands_ad825bff90599e48dbb5dc3eff303e857}{getDistance}}();}
+\DoxyCodeLine{38         uint16\_t \mbox{\hyperlink{classsendCommands_abb6710c23257a507cbdac83d0e0b764a}{getPressure}}();}
+\DoxyCodeLine{39         uint8\_t \mbox{\hyperlink{classsendCommands_a9fc4a8ae22f416f56abe9c2a1d8c7601}{getEnabled}}();}
+\DoxyCodeLine{40         uint16\_t \mbox{\hyperlink{classsendCommands_aa9ebb2624c146866401555c3bb0f790c}{getSamplingPeriod}}();}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SENDCOMMANDS\_H}}
+
+\end{DoxyCode}

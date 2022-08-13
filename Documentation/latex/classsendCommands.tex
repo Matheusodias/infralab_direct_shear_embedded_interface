@@ -1,0 +1,209 @@
+\hypertarget{classsendCommands}{}\doxysection{send\+Commands Class Reference}
+\label{classsendCommands}\index{sendCommands@{sendCommands}}
+
+
+{\ttfamily \#include $<$sendcommands.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsendCommands_a806dbb004882e40770188242f790f8b7}{send\+Commands}} ()
+\item 
+\mbox{\hyperlink{classsendCommands_a2e5473f4146cc0362cded4ebda1f0bc4}{$\sim$send\+Commands}} ()
+\item 
+void \mbox{\hyperlink{classsendCommands_ac2379ecb47a657af12162a8ffa9f682b}{set\+Command}} (uint8\+\_\+t command)
+\item 
+int16\+\_\+t \mbox{\hyperlink{classsendCommands_a03950b488e1f0bd4f0c4802be7d2bc88}{send\+Message}} ()
+\item 
+void \mbox{\hyperlink{classsendCommands_a9092ca9f0a8255f701f1282dbb468044}{set\+Velocity}} (uint8\+\_\+t velocity)
+\item 
+void \mbox{\hyperlink{classsendCommands_a729c6b51aa0f932f55baaf8faa4cb881}{set\+Distance}} (int8\+\_\+t distance)
+\item 
+void \mbox{\hyperlink{classsendCommands_a9c9e956143267be94990f820ee1a0e9d}{set\+Pressure}} (uint8\+\_\+t pressure)
+\item 
+void \mbox{\hyperlink{classsendCommands_af06616beae87f9753c760ad49df47bc0}{set\+Enabled}} (uint8\+\_\+t \mbox{\hyperlink{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}{enabled}})
+\item 
+void \mbox{\hyperlink{classsendCommands_a45633fd67a198bd09dc681f59282f3d3}{set\+Sampling\+Period}} (uint16\+\_\+t sample\+\_\+period)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classsendCommands_a770902356a98db030aa0597b6a64ef0f}{get\+Velocity}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{classsendCommands_ad825bff90599e48dbb5dc3eff303e857}{get\+Distance}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classsendCommands_abb6710c23257a507cbdac83d0e0b764a}{get\+Pressure}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classsendCommands_a9fc4a8ae22f416f56abe9c2a1d8c7601}{get\+Enabled}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classsendCommands_aa9ebb2624c146866401555c3bb0f790c}{get\+Sampling\+Period}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classsendCommands_aa96989af7e8d997fd780067af998ab12}{error\+Occurred}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classsendCommands_a2b9b716edfc8045bbbfd557cdacd5095}{set\+Enabled}} (bool \mbox{\hyperlink{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}{enabled}})
+\item 
+void \mbox{\hyperlink{classsendCommands_ace1f7fadf3d68bed765520f1ec4fd9b8}{set\+Sampling\+Period}} (int16\+\_\+t \mbox{\hyperlink{classsendCommands_a69baca17b4bd0fb25cd386cb088f5d8f}{sampling\+\_\+period}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classsendCommands_ac7c70a84924211dd4f425b53891de7b6}{socket\+\_\+id}}
+\item 
+char \mbox{\hyperlink{classsendCommands_a62bf5fe9e92e48845d91f58b5ea7065d}{socket\+\_\+name}} \mbox{[}100\mbox{]}
+\item 
+\mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}} \mbox{\hyperlink{classsendCommands_abd07bf3370a7dcda9a481665f08a89bc}{interface\+\_\+message}}
+\item 
+bool \mbox{\hyperlink{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}{enabled}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{classsendCommands_a69baca17b4bd0fb25cd386cb088f5d8f}{sampling\+\_\+period}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsendCommands_a806dbb004882e40770188242f790f8b7}\label{classsendCommands_a806dbb004882e40770188242f790f8b7}} 
+\index{sendCommands@{sendCommands}!sendCommands@{sendCommands}}
+\index{sendCommands@{sendCommands}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{sendCommands()}{sendCommands()}}
+{\footnotesize\ttfamily send\+Commands\+::send\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a2e5473f4146cc0362cded4ebda1f0bc4}\label{classsendCommands_a2e5473f4146cc0362cded4ebda1f0bc4}} 
+\index{sendCommands@{sendCommands}!````~sendCommands@{$\sim$sendCommands}}
+\index{````~sendCommands@{$\sim$sendCommands}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{$\sim$sendCommands()}{~sendCommands()}}
+{\footnotesize\ttfamily send\+Commands\+::$\sim$send\+Commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsendCommands_ad825bff90599e48dbb5dc3eff303e857}\label{classsendCommands_ad825bff90599e48dbb5dc3eff303e857}} 
+\index{sendCommands@{sendCommands}!getDistance@{getDistance}}
+\index{getDistance@{getDistance}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{getDistance()}{getDistance()}}
+{\footnotesize\ttfamily int16\+\_\+t send\+Commands\+::get\+Distance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a9fc4a8ae22f416f56abe9c2a1d8c7601}\label{classsendCommands_a9fc4a8ae22f416f56abe9c2a1d8c7601}} 
+\index{sendCommands@{sendCommands}!getEnabled@{getEnabled}}
+\index{getEnabled@{getEnabled}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{getEnabled()}{getEnabled()}}
+{\footnotesize\ttfamily uint8\+\_\+t send\+Commands\+::get\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_abb6710c23257a507cbdac83d0e0b764a}\label{classsendCommands_abb6710c23257a507cbdac83d0e0b764a}} 
+\index{sendCommands@{sendCommands}!getPressure@{getPressure}}
+\index{getPressure@{getPressure}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{getPressure()}{getPressure()}}
+{\footnotesize\ttfamily uint16\+\_\+t send\+Commands\+::get\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_aa9ebb2624c146866401555c3bb0f790c}\label{classsendCommands_aa9ebb2624c146866401555c3bb0f790c}} 
+\index{sendCommands@{sendCommands}!getSamplingPeriod@{getSamplingPeriod}}
+\index{getSamplingPeriod@{getSamplingPeriod}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{getSamplingPeriod()}{getSamplingPeriod()}}
+{\footnotesize\ttfamily uint16\+\_\+t send\+Commands\+::get\+Sampling\+Period (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a770902356a98db030aa0597b6a64ef0f}\label{classsendCommands_a770902356a98db030aa0597b6a64ef0f}} 
+\index{sendCommands@{sendCommands}!getVelocity@{getVelocity}}
+\index{getVelocity@{getVelocity}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{getVelocity()}{getVelocity()}}
+{\footnotesize\ttfamily uint16\+\_\+t send\+Commands\+::get\+Velocity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a03950b488e1f0bd4f0c4802be7d2bc88}\label{classsendCommands_a03950b488e1f0bd4f0c4802be7d2bc88}} 
+\index{sendCommands@{sendCommands}!sendMessage@{sendMessage}}
+\index{sendMessage@{sendMessage}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{sendMessage()}{sendMessage()}}
+{\footnotesize\ttfamily int16\+\_\+t send\+Commands\+::send\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_ac2379ecb47a657af12162a8ffa9f682b}\label{classsendCommands_ac2379ecb47a657af12162a8ffa9f682b}} 
+\index{sendCommands@{sendCommands}!setCommand@{setCommand}}
+\index{setCommand@{setCommand}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setCommand()}{setCommand()}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a729c6b51aa0f932f55baaf8faa4cb881}\label{classsendCommands_a729c6b51aa0f932f55baaf8faa4cb881}} 
+\index{sendCommands@{sendCommands}!setDistance@{setDistance}}
+\index{setDistance@{setDistance}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setDistance()}{setDistance()}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Distance (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{distance }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a2b9b716edfc8045bbbfd557cdacd5095}\label{classsendCommands_a2b9b716edfc8045bbbfd557cdacd5095}} 
+\index{sendCommands@{sendCommands}!setEnabled@{setEnabled}}
+\index{setEnabled@{setEnabled}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setEnabled()}{setEnabled()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Enabled (\begin{DoxyParamCaption}\item[{bool}]{enabled }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsendCommands_af06616beae87f9753c760ad49df47bc0}\label{classsendCommands_af06616beae87f9753c760ad49df47bc0}} 
+\index{sendCommands@{sendCommands}!setEnabled@{setEnabled}}
+\index{setEnabled@{setEnabled}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setEnabled()}{setEnabled()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Enabled (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{enabled }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a9c9e956143267be94990f820ee1a0e9d}\label{classsendCommands_a9c9e956143267be94990f820ee1a0e9d}} 
+\index{sendCommands@{sendCommands}!setPressure@{setPressure}}
+\index{setPressure@{setPressure}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setPressure()}{setPressure()}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Pressure (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pressure }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_ace1f7fadf3d68bed765520f1ec4fd9b8}\label{classsendCommands_ace1f7fadf3d68bed765520f1ec4fd9b8}} 
+\index{sendCommands@{sendCommands}!setSamplingPeriod@{setSamplingPeriod}}
+\index{setSamplingPeriod@{setSamplingPeriod}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setSamplingPeriod()}{setSamplingPeriod()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Sampling\+Period (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{sampling\+\_\+period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsendCommands_a45633fd67a198bd09dc681f59282f3d3}\label{classsendCommands_a45633fd67a198bd09dc681f59282f3d3}} 
+\index{sendCommands@{sendCommands}!setSamplingPeriod@{setSamplingPeriod}}
+\index{setSamplingPeriod@{setSamplingPeriod}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setSamplingPeriod()}{setSamplingPeriod()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Sampling\+Period (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{sample\+\_\+period }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsendCommands_a9092ca9f0a8255f701f1282dbb468044}\label{classsendCommands_a9092ca9f0a8255f701f1282dbb468044}} 
+\index{sendCommands@{sendCommands}!setVelocity@{setVelocity}}
+\index{setVelocity@{setVelocity}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{setVelocity()}{setVelocity()}}
+{\footnotesize\ttfamily void send\+Commands\+::set\+Velocity (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{velocity }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}\label{classsendCommands_a64f868b5a5bc35bc0e5612d43c09a55e}} 
+\index{sendCommands@{sendCommands}!enabled@{enabled}}
+\index{enabled@{enabled}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{enabled}{enabled}}
+{\footnotesize\ttfamily bool send\+Commands\+::enabled\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsendCommands_aa96989af7e8d997fd780067af998ab12}\label{classsendCommands_aa96989af7e8d997fd780067af998ab12}} 
+\index{sendCommands@{sendCommands}!errorOccurred@{errorOccurred}}
+\index{errorOccurred@{errorOccurred}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{errorOccurred}{errorOccurred}}
+{\footnotesize\ttfamily uint8\+\_\+t send\+Commands\+::error\+Occurred}
+
+\mbox{\Hypertarget{classsendCommands_abd07bf3370a7dcda9a481665f08a89bc}\label{classsendCommands_abd07bf3370a7dcda9a481665f08a89bc}} 
+\index{sendCommands@{sendCommands}!interface\_message@{interface\_message}}
+\index{interface\_message@{interface\_message}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{interface\_message}{interface\_message}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}} send\+Commands\+::interface\+\_\+message\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsendCommands_a69baca17b4bd0fb25cd386cb088f5d8f}\label{classsendCommands_a69baca17b4bd0fb25cd386cb088f5d8f}} 
+\index{sendCommands@{sendCommands}!sampling\_period@{sampling\_period}}
+\index{sampling\_period@{sampling\_period}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{sampling\_period}{sampling\_period}}
+{\footnotesize\ttfamily int16\+\_\+t send\+Commands\+::sampling\+\_\+period\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsendCommands_ac7c70a84924211dd4f425b53891de7b6}\label{classsendCommands_ac7c70a84924211dd4f425b53891de7b6}} 
+\index{sendCommands@{sendCommands}!socket\_id@{socket\_id}}
+\index{socket\_id@{socket\_id}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{socket\_id}{socket\_id}}
+{\footnotesize\ttfamily int send\+Commands\+::socket\+\_\+id\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classsendCommands_a62bf5fe9e92e48845d91f58b5ea7065d}\label{classsendCommands_a62bf5fe9e92e48845d91f58b5ea7065d}} 
+\index{sendCommands@{sendCommands}!socket\_name@{socket\_name}}
+\index{socket\_name@{socket\_name}!sendCommands@{sendCommands}}
+\doxysubsubsection{\texorpdfstring{socket\_name}{socket\_name}}
+{\footnotesize\ttfamily char send\+Commands\+::socket\+\_\+name\mbox{[}100\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/ivan/\+Documentos/2022/\+Codigo\+\_\+\+TCC2/\+Code/\+Interface/inc/\mbox{\hyperlink{sendcommands_8h}{sendcommands.\+h}}\item 
+/home/ivan/\+Documentos/2022/\+Codigo\+\_\+\+TCC2/\+Code/\+Interface/src/\mbox{\hyperlink{sendcommands_8cpp}{sendcommands.\+cpp}}\end{DoxyCompactItemize}

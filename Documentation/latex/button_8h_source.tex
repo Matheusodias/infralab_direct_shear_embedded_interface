@@ -1,0 +1,46 @@
+\hypertarget{button_8h_source}{}\doxysection{button.\+h}
+\label{button_8h_source}\index{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/inc/button.h@{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/inc/button.h}}
+\mbox{\hyperlink{button_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef BUTTON\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define BUTTON\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QPushButton>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QHBoxLayout>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define button\_lightBackgroundColor 0 }}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define button\_darkBackgroundColor 1 }}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#define historyButton\_LightIcon 0 }}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define historyButton\_DarkIcon 1 }}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define experimentButton\_LightIcon 2 }}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define experimentButton\_DarkIcon 3 }}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define configurationButton\_LightIcon 4 }}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define configurationButton\_DarkIcon 5 }}
+\DoxyCodeLine{25 \textcolor{keyword}{class }\mbox{\hyperlink{classButton}{Button}}}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{28     \mbox{\hyperlink{classButton_a3b36df1ae23c58aedb9e15a713159459}{Button}}();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} \mbox{\hyperlink{classButton_aa71e1c984eb386b626dacb871b01ca20}{setButtonShadow}}(QPushButton * button);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} \mbox{\hyperlink{classButton_a16add8ac092fb8a8cfcd2feeb0426d1b}{setButtonStyleSheet}}(QPushButton * button,uint8\_t style, uint8\_t icon);}
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} \mbox{\hyperlink{classButton_a12a62dff7b0df23050825543b1c9428b}{initialConfiguration\_OutsideExperimentHeaderButtons}}(QHBoxLayout * layout);}
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{classButton_a27dee259c3ec6dcbb9dac8bba0d7e229}{changeButtonStyle}}(QPushButton *button, uint8\_t icon);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{keyword}{private}:}
+\DoxyCodeLine{37     QPushButton * \mbox{\hyperlink{classButton_aea2369704f177d0ad59ef2993bf2d752}{clickedButton}}; }
+\DoxyCodeLine{38     uint8\_t \mbox{\hyperlink{classButton_a8c77561e8e8464fef2f7dfdf94cd6c28}{clickedButtonIcon}}; }
+\DoxyCodeLine{40     QString \mbox{\hyperlink{classButton_a0e9083327d6bbe3bb24e62346eec622e}{button\_LightStyleSheet}}; }
+\DoxyCodeLine{41     QString \mbox{\hyperlink{classButton_a5bd4a50a0c7b9714c144ce1fe38d6395}{button\_DarkStyleSheet}}; }
+\DoxyCodeLine{42     QString \mbox{\hyperlink{classButton_ada39b06dc20e8276f721611849442a37}{button\_styleSheets}}[2]; }
+\DoxyCodeLine{43     QString \mbox{\hyperlink{classButton_a1b7e5542cfc12dcc03a74db1edc8fe0a}{button\_Images}}[6]; }
+\DoxyCodeLine{44     QIcon \mbox{\hyperlink{classButton_a07bc7b44d841ee4eca97179e03297876}{button\_Icons}}[6]; }
+\DoxyCodeLine{46 signals:}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BUTTON\_H}}
+
+\end{DoxyCode}

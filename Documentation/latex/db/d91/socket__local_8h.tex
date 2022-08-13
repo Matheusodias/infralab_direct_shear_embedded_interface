@@ -1,0 +1,77 @@
+\hypertarget{socket__local_8h}{}\doxysection{/home/ivan/\+Documentos/2022/\+Codigo\+\_\+\+TCC2/\+Code/\+Interface/\+Code/inc/socket\+\_\+local.h File Reference}
+\label{socket__local_8h}\index{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/Code/inc/socket\_local.h@{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/Code/inc/socket\_local.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$QMeta\+Type$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}}
+\item 
+union \mbox{\hyperlink{unionmachine__to__interface__message}{machine\+\_\+to\+\_\+interface\+\_\+message}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{socket__local_8h_a9bfb8490a4d3e99e58c48e3b054713d0}{interface\+\_\+payload\+\_\+size}}~3 $\ast$ sizeof(uint16\+\_\+t)
+\item 
+\#define \mbox{\hyperlink{socket__local_8h_a7452c7ed3bb4e65969039d74e12e123e}{machine\+\_\+payload\+\_\+size}}~8 $\ast$ sizeof(uint32\+\_\+t)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef union \mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}} \mbox{\hyperlink{socket__local_8h_adff1f49739b6717d3c8ce2f24f00fb6e}{interface\+\_\+to\+\_\+machine\+\_\+message}}
+\item 
+typedef union \mbox{\hyperlink{unionmachine__to__interface__message}{machine\+\_\+to\+\_\+interface\+\_\+message}} \mbox{\hyperlink{socket__local_8h_a2c5816cefe4c555bd439528763d17540}{machine\+\_\+to\+\_\+interface\+\_\+message}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{socket__local_8h_a8650a9680b3b219da18d0549a1521725}{Q\+\_\+\+DECLARE\+\_\+\+METATYPE}} (\mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}})
+\item 
+\mbox{\hyperlink{socket__local_8h_a4e958058a64e4596997dd28c8e625dc1}{Q\+\_\+\+DECLARE\+\_\+\+METATYPE}} (\mbox{\hyperlink{unionmachine__to__interface__message}{machine\+\_\+to\+\_\+interface\+\_\+message}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{socket__local_8h_a9bfb8490a4d3e99e58c48e3b054713d0}\label{socket__local_8h_a9bfb8490a4d3e99e58c48e3b054713d0}} 
+\index{socket\_local.h@{socket\_local.h}!interface\_payload\_size@{interface\_payload\_size}}
+\index{interface\_payload\_size@{interface\_payload\_size}!socket\_local.h@{socket\_local.h}}
+\doxysubsubsection{\texorpdfstring{interface\_payload\_size}{interface\_payload\_size}}
+{\footnotesize\ttfamily \#define interface\+\_\+payload\+\_\+size~3 $\ast$ sizeof(uint16\+\_\+t)}
+
+\mbox{\Hypertarget{socket__local_8h_a7452c7ed3bb4e65969039d74e12e123e}\label{socket__local_8h_a7452c7ed3bb4e65969039d74e12e123e}} 
+\index{socket\_local.h@{socket\_local.h}!machine\_payload\_size@{machine\_payload\_size}}
+\index{machine\_payload\_size@{machine\_payload\_size}!socket\_local.h@{socket\_local.h}}
+\doxysubsubsection{\texorpdfstring{machine\_payload\_size}{machine\_payload\_size}}
+{\footnotesize\ttfamily \#define machine\+\_\+payload\+\_\+size~8 $\ast$ sizeof(uint32\+\_\+t)}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{socket__local_8h_adff1f49739b6717d3c8ce2f24f00fb6e}\label{socket__local_8h_adff1f49739b6717d3c8ce2f24f00fb6e}} 
+\index{socket\_local.h@{socket\_local.h}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!socket\_local.h@{socket\_local.h}}
+\doxysubsubsection{\texorpdfstring{interface\_to\_machine\_message}{interface\_to\_machine\_message}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}} \mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}}}
+
+\mbox{\Hypertarget{socket__local_8h_a2c5816cefe4c555bd439528763d17540}\label{socket__local_8h_a2c5816cefe4c555bd439528763d17540}} 
+\index{socket\_local.h@{socket\_local.h}!machine\_to\_interface\_message@{machine\_to\_interface\_message}}
+\index{machine\_to\_interface\_message@{machine\_to\_interface\_message}!socket\_local.h@{socket\_local.h}}
+\doxysubsubsection{\texorpdfstring{machine\_to\_interface\_message}{machine\_to\_interface\_message}}
+{\footnotesize\ttfamily typedef union \mbox{\hyperlink{unionmachine__to__interface__message}{machine\+\_\+to\+\_\+interface\+\_\+message}} \mbox{\hyperlink{unionmachine__to__interface__message}{machine\+\_\+to\+\_\+interface\+\_\+message}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{socket__local_8h_a8650a9680b3b219da18d0549a1521725}\label{socket__local_8h_a8650a9680b3b219da18d0549a1521725}} 
+\index{socket\_local.h@{socket\_local.h}!Q\_DECLARE\_METATYPE@{Q\_DECLARE\_METATYPE}}
+\index{Q\_DECLARE\_METATYPE@{Q\_DECLARE\_METATYPE}!socket\_local.h@{socket\_local.h}}
+\doxysubsubsection{\texorpdfstring{Q\_DECLARE\_METATYPE()}{Q\_DECLARE\_METATYPE()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Q\+\_\+\+DECLARE\+\_\+\+METATYPE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unioninterface__to__machine__message}{interface\+\_\+to\+\_\+machine\+\_\+message}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{socket__local_8h_a4e958058a64e4596997dd28c8e625dc1}\label{socket__local_8h_a4e958058a64e4596997dd28c8e625dc1}} 
+\index{socket\_local.h@{socket\_local.h}!Q\_DECLARE\_METATYPE@{Q\_DECLARE\_METATYPE}}
+\index{Q\_DECLARE\_METATYPE@{Q\_DECLARE\_METATYPE}!socket\_local.h@{socket\_local.h}}
+\doxysubsubsection{\texorpdfstring{Q\_DECLARE\_METATYPE()}{Q\_DECLARE\_METATYPE()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Q\+\_\+\+DECLARE\+\_\+\+METATYPE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unionmachine__to__interface__message}{machine\+\_\+to\+\_\+interface\+\_\+message}}}]{ }\end{DoxyParamCaption})}
+

@@ -1,0 +1,206 @@
+\hypertarget{classSocketTests}{}\doxysection{Socket\+Tests Class Reference}
+\label{classSocketTests}\index{SocketTests@{SocketTests}}
+
+
+Classe de testes para o socket.  
+
+
+Inheritance diagram for Socket\+Tests\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classSocketTests}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSocketTests_aa630bce8a280910056a3feef8b0e79c2}{Socket\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Contrutor da classe de testes do socket. Pode ser utilizado para instanciar classes, diferentes da atual, ou para configurações iniciais. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSocketTests_a77b45076490584330ccc585d8e031b4a}{$\sim$\+Socket\+Tests}} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe de testes do socket. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSocketTests_a1d96df93350f7c459cc67b2cfb98f427}{init\+Test\+Case}} ()
+\begin{DoxyCompactList}\small\item\em Primeiro teste. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSocketTests_a6a429dee84199227860054386a76041e}{cleanup\+Test\+Case}} ()
+\begin{DoxyCompactList}\small\item\em Último teste. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSocketTests_ae950b24500faf2b6150e6275136d35cd}{test\+\_\+receive\+Data\+From\+Machine}} ()
+\begin{DoxyCompactList}\small\item\em Teste que verifica se a interface está recebendo corretamente os dados da máquina. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSocketTests_a6fa5dc76962ef72f6704556c433f8fa8}{test\+\_\+receive\+Data\+From\+Machine\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Função que possui os dados necessários para realizar o teste test\+\_\+receive\+Data\+From\+Machine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSocketTests_ac4d0b8551eddcd0aff7cdef75344bad3}{test\+\_\+receive\+Data\+From\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Teste que verifica se a interface está recebendo corretamente os dados da máquina. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSocketTests_a044d7b8ae7b3852d6673a0725f73cbce}{test\+\_\+receive\+Data\+From\+Interface\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Função que possui os dados necessários para realizar o teste test\+\_\+receive\+Data\+From\+Interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classSocketTests_a62c3e73e2c8f854ab2e263f875a627e3}{compare\+Struct\+Int\+Elements}} (int result, int expected)
+\begin{DoxyCompactList}\small\item\em Compara a variável result com a expected. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classSocketTests_aa55d4c208dd05b9d807899729493f123}{compare\+Struct\+Float\+Elements}} (float result, float expected)
+\begin{DoxyCompactList}\small\item\em Compara a variável result com a expected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classThreadController}{Thread\+Controller}} $\ast$ \mbox{\hyperlink{classSocketTests_affd7bb18fb5de7893054bd8eee2d3bfa}{receive\+Data\+From\+Machine}}
+\begin{DoxyCompactList}\small\item\em A classe \mbox{\hyperlink{classThreadController}{Thread\+Controller}} cria o socket servidor que irá aguardar a conexão do cliente da Máquina. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classmachineServer}{machine\+Server}} $\ast$ \mbox{\hyperlink{classSocketTests_a9e8b7e1028a4770f90d63d7a7b22f31c}{receive\+Data\+From\+Interface}}
+\begin{DoxyCompactList}\small\item\em A classe \mbox{\hyperlink{classmachineServer}{machine\+Server}} criar o socket servidor que irá aguardar a conexão do cliente da Interface. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe de testes para o socket. 
+
+Esta classe testa se o envio e recebimento das mensagens através do socket local funciona. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSocketTests_aa630bce8a280910056a3feef8b0e79c2}\label{classSocketTests_aa630bce8a280910056a3feef8b0e79c2}} 
+\index{SocketTests@{SocketTests}!SocketTests@{SocketTests}}
+\index{SocketTests@{SocketTests}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{SocketTests()}{SocketTests()}}
+{\footnotesize\ttfamily Socket\+Tests\+::\+Socket\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Contrutor da classe de testes do socket. Pode ser utilizado para instanciar classes, diferentes da atual, ou para configurações iniciais. 
+
+\mbox{\Hypertarget{classSocketTests_a77b45076490584330ccc585d8e031b4a}\label{classSocketTests_a77b45076490584330ccc585d8e031b4a}} 
+\index{SocketTests@{SocketTests}!````~SocketTests@{$\sim$SocketTests}}
+\index{````~SocketTests@{$\sim$SocketTests}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{$\sim$SocketTests()}{~SocketTests()}}
+{\footnotesize\ttfamily Socket\+Tests\+::$\sim$\+Socket\+Tests (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destrutor da classe de testes do socket. 
+
+No destrutor é eliminada a instância receive\+Data\+From\+Machine da \mbox{\hyperlink{classThreadController}{Thread\+Controller}}. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSocketTests_a6a429dee84199227860054386a76041e}\label{classSocketTests_a6a429dee84199227860054386a76041e}} 
+\index{SocketTests@{SocketTests}!cleanupTestCase@{cleanupTestCase}}
+\index{cleanupTestCase@{cleanupTestCase}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{cleanupTestCase}{cleanupTestCase}}
+{\footnotesize\ttfamily void Socket\+Tests\+::cleanup\+Test\+Case (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Último teste. 
+
+Teste que roda ao final de todos os outros testes. Pode ser utilizado para alguma configuração final dos dados. Como liberação de memória ou algum outro pós-\/processamento. \mbox{\Hypertarget{classSocketTests_aa55d4c208dd05b9d807899729493f123}\label{classSocketTests_aa55d4c208dd05b9d807899729493f123}} 
+\index{SocketTests@{SocketTests}!compareStructFloatElements@{compareStructFloatElements}}
+\index{compareStructFloatElements@{compareStructFloatElements}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{compareStructFloatElements()}{compareStructFloatElements()}}
+{\footnotesize\ttfamily void Socket\+Tests\+::compare\+Struct\+Float\+Elements (\begin{DoxyParamCaption}\item[{float}]{result,  }\item[{float}]{expected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compara a variável result com a expected. 
+
+Esta função realiza uma comparação entre os 2 parâmetros do tipo float e apresenta um log caso haja diferenças. Ela foi criada para permitir diversas comparações em apenas 1 teste.
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Resultado do envio de dados através do socket. \\
+\hline
+{\em expected} & Valor experado que chegue através do socket. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSocketTests_a62c3e73e2c8f854ab2e263f875a627e3}\label{classSocketTests_a62c3e73e2c8f854ab2e263f875a627e3}} 
+\index{SocketTests@{SocketTests}!compareStructIntElements@{compareStructIntElements}}
+\index{compareStructIntElements@{compareStructIntElements}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{compareStructIntElements()}{compareStructIntElements()}}
+{\footnotesize\ttfamily void Socket\+Tests\+::compare\+Struct\+Int\+Elements (\begin{DoxyParamCaption}\item[{int}]{result,  }\item[{int}]{expected }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Compara a variável result com a expected. 
+
+Esta função realiza uma comparação entre os 2 parâmetros do tipo int e apresenta um log caso haja diferenças. Ela foi criada para permitir diversas comparações em apenas 1 teste.
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & Resultado do envio de dados através do socket. \\
+\hline
+{\em expected} & Valor experado que chegue através do socket. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSocketTests_a1d96df93350f7c459cc67b2cfb98f427}\label{classSocketTests_a1d96df93350f7c459cc67b2cfb98f427}} 
+\index{SocketTests@{SocketTests}!initTestCase@{initTestCase}}
+\index{initTestCase@{initTestCase}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{initTestCase}{initTestCase}}
+{\footnotesize\ttfamily void Socket\+Tests\+::init\+Test\+Case (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Primeiro teste. 
+
+Teste que roda antes de todos os outros testes. Pode ser utilizado para alguma configuração inicial. \mbox{\Hypertarget{classSocketTests_ac4d0b8551eddcd0aff7cdef75344bad3}\label{classSocketTests_ac4d0b8551eddcd0aff7cdef75344bad3}} 
+\index{SocketTests@{SocketTests}!test\_receiveDataFromInterface@{test\_receiveDataFromInterface}}
+\index{test\_receiveDataFromInterface@{test\_receiveDataFromInterface}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{test\_receiveDataFromInterface}{test\_receiveDataFromInterface}}
+{\footnotesize\ttfamily void Socket\+Tests\+::test\+\_\+receive\+Data\+From\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Teste que verifica se a interface está recebendo corretamente os dados da máquina. 
+
+Este teste é uma simulação, não é utilizada a máquina real para este teste. \mbox{\Hypertarget{classSocketTests_a044d7b8ae7b3852d6673a0725f73cbce}\label{classSocketTests_a044d7b8ae7b3852d6673a0725f73cbce}} 
+\index{SocketTests@{SocketTests}!test\_receiveDataFromInterface\_data@{test\_receiveDataFromInterface\_data}}
+\index{test\_receiveDataFromInterface\_data@{test\_receiveDataFromInterface\_data}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{test\_receiveDataFromInterface\_data}{test\_receiveDataFromInterface\_data}}
+{\footnotesize\ttfamily void Socket\+Tests\+::test\+\_\+receive\+Data\+From\+Interface\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Função que possui os dados necessários para realizar o teste test\+\_\+receive\+Data\+From\+Interface. 
+
+Funções que terminam com \+\_\+data nos testes, tem a função de fornecerem os dados para o teste ser executado. Exemplo\+: test\+\_\+receive\+Data\+From\+Interface e test\+\_\+receive\+Data\+From\+Interface\+\_\+data. \mbox{\Hypertarget{classSocketTests_ae950b24500faf2b6150e6275136d35cd}\label{classSocketTests_ae950b24500faf2b6150e6275136d35cd}} 
+\index{SocketTests@{SocketTests}!test\_receiveDataFromMachine@{test\_receiveDataFromMachine}}
+\index{test\_receiveDataFromMachine@{test\_receiveDataFromMachine}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{test\_receiveDataFromMachine}{test\_receiveDataFromMachine}}
+{\footnotesize\ttfamily void Socket\+Tests\+::test\+\_\+receive\+Data\+From\+Machine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Teste que verifica se a interface está recebendo corretamente os dados da máquina. 
+
+Este teste é uma simulação, não é utilizada a máquina real para este teste. \mbox{\Hypertarget{classSocketTests_a6fa5dc76962ef72f6704556c433f8fa8}\label{classSocketTests_a6fa5dc76962ef72f6704556c433f8fa8}} 
+\index{SocketTests@{SocketTests}!test\_receiveDataFromMachine\_data@{test\_receiveDataFromMachine\_data}}
+\index{test\_receiveDataFromMachine\_data@{test\_receiveDataFromMachine\_data}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{test\_receiveDataFromMachine\_data}{test\_receiveDataFromMachine\_data}}
+{\footnotesize\ttfamily void Socket\+Tests\+::test\+\_\+receive\+Data\+From\+Machine\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Função que possui os dados necessários para realizar o teste test\+\_\+receive\+Data\+From\+Machine. 
+
+Funções que terminam com \+\_\+data nos testes, tem a função de fornecerem os dados para o teste ser executado. Exemplo\+: test\+\_\+receive\+Data\+From\+Machine e test\+\_\+receive\+Data\+From\+Machine\+\_\+data. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSocketTests_a9e8b7e1028a4770f90d63d7a7b22f31c}\label{classSocketTests_a9e8b7e1028a4770f90d63d7a7b22f31c}} 
+\index{SocketTests@{SocketTests}!receiveDataFromInterface@{receiveDataFromInterface}}
+\index{receiveDataFromInterface@{receiveDataFromInterface}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{receiveDataFromInterface}{receiveDataFromInterface}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classmachineServer}{machine\+Server}}$\ast$ Socket\+Tests\+::receive\+Data\+From\+Interface\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A classe \mbox{\hyperlink{classmachineServer}{machine\+Server}} criar o socket servidor que irá aguardar a conexão do cliente da Interface. 
+
+Instância um objeto da classe machine server. Este objeto inicia uma thread, garantindo que o servidor da Máquina e o cliente da Interface rodem em paralelo. \mbox{\Hypertarget{classSocketTests_affd7bb18fb5de7893054bd8eee2d3bfa}\label{classSocketTests_affd7bb18fb5de7893054bd8eee2d3bfa}} 
+\index{SocketTests@{SocketTests}!receiveDataFromMachine@{receiveDataFromMachine}}
+\index{receiveDataFromMachine@{receiveDataFromMachine}!SocketTests@{SocketTests}}
+\doxysubsubsection{\texorpdfstring{receiveDataFromMachine}{receiveDataFromMachine}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classThreadController}{Thread\+Controller}}$\ast$ Socket\+Tests\+::receive\+Data\+From\+Machine\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A classe \mbox{\hyperlink{classThreadController}{Thread\+Controller}} cria o socket servidor que irá aguardar a conexão do cliente da Máquina. 
+
+Instância um objeto da classe \mbox{\hyperlink{classThreadController}{Thread\+Controller}}, responsável por criar um objeto da classe \mbox{\hyperlink{classreceiveData}{receive\+Data}} (Thread). Fazendo com que a interface e o serviço dos sockets rodem em paralelo. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/ivan/\+Documentos/2022/\+Codigo\+\_\+\+TCC2/\+Code/\+Interface\+Tests/src/\mbox{\hyperlink{tst__sockettests_8cpp}{tst\+\_\+sockettests.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,98 @@
+\hypertarget{unioninterface__to__machine__message}{}\doxysection{interface\+\_\+to\+\_\+machine\+\_\+message Union Reference}
+\label{unioninterface__to__machine__message}\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+
+
+Essa union tem como objetivo facilitar o envio de mensagens da interface para a máquina.  
+
+
+
+
+{\ttfamily \#include $<$socket\+\_\+local.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \mbox{\hyperlink{unioninterface__to__machine__message_a3efa1d418d98e495dfa0806be4573d33}{payload}} \mbox{[}\mbox{\hyperlink{socket__local_8h_a9bfb8490a4d3e99e58c48e3b054713d0}{interface\+\_\+payload\+\_\+size}}\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>uint8\_t \mbox{\hyperlink{unioninterface__to__machine__message_ab44e2c73d551a739b06c3319270d8658}{command}}\\
+\>\>{\em Identificação do comando a ser enviado. }\\
+\>union \{\\
+\>\>uint16\_t \mbox{\hyperlink{unioninterface__to__machine__message_a249023d12a32fc1a4de60aea40387752}{pressure}}\\
+\>\>struct \{\\
+\>\>\>int16\_t \mbox{\hyperlink{unioninterface__to__machine__message_a87e9a09c7811274ab3189d0f0f02eab8}{distance}}\\
+\>\>\>uint16\_t \mbox{\hyperlink{unioninterface__to__machine__message_a37a530f35f606eac94186878ca537e54}{velocity}}\\
+\>\>\} \\
+\>\>struct \{\\
+\>\>\>uint8\_t \mbox{\hyperlink{unioninterface__to__machine__message_abcf4afe935e2debfbea2445315aa8d7f}{enabled}}\\
+\>\>\>uint16\_t \mbox{\hyperlink{unioninterface__to__machine__message_aab192588dfef07ce659aa12b718421c2}{sample\_period}}\\
+\>\>\} \\
+\>\} \\
+\}; \\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Essa union tem como objetivo facilitar o envio de mensagens da interface para a máquina. 
+
+Utilizando a union, a transformação dos dados para string (unsigned char \mbox{[}\mbox{]} neste caso) é facilitada, pois os dados ocupam a mesma região de memória que a string. Assim para enviar os dados pelo socket basta enviar a variável payload. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{unioninterface__to__machine__message_a93c81fa00a2e42df7eb4f362ef0d5ed1}\label{unioninterface__to__machine__message_a93c81fa00a2e42df7eb4f362ef0d5ed1}} 
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct  \{ ... \}  interface\+\_\+to\+\_\+machine\+\_\+message\+::@1}
+
+\mbox{\Hypertarget{unioninterface__to__machine__message_ab44e2c73d551a739b06c3319270d8658}\label{unioninterface__to__machine__message_ab44e2c73d551a739b06c3319270d8658}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!command@{command}}
+\index{command@{command}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{command}{command}}
+{\footnotesize\ttfamily uint8\+\_\+t interface\+\_\+to\+\_\+machine\+\_\+message\+::command}
+
+
+
+Identificação do comando a ser enviado. 
+
+0 para pressão, 1 para distância e velocidade e 2 para o período de amostragem e permitir o recebimento de dados. \mbox{\Hypertarget{unioninterface__to__machine__message_a87e9a09c7811274ab3189d0f0f02eab8}\label{unioninterface__to__machine__message_a87e9a09c7811274ab3189d0f0f02eab8}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!distance@{distance}}
+\index{distance@{distance}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{distance}{distance}}
+{\footnotesize\ttfamily int16\+\_\+t interface\+\_\+to\+\_\+machine\+\_\+message\+::distance}
+
+Distância que a máquina percorrerá na fase de cisalhamento. \mbox{\Hypertarget{unioninterface__to__machine__message_abcf4afe935e2debfbea2445315aa8d7f}\label{unioninterface__to__machine__message_abcf4afe935e2debfbea2445315aa8d7f}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!enabled@{enabled}}
+\index{enabled@{enabled}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{enabled}{enabled}}
+{\footnotesize\ttfamily uint8\+\_\+t interface\+\_\+to\+\_\+machine\+\_\+message\+::enabled}
+
+Indica que a interface já pode receber os dados da máquina. \mbox{\Hypertarget{unioninterface__to__machine__message_a3efa1d418d98e495dfa0806be4573d33}\label{unioninterface__to__machine__message_a3efa1d418d98e495dfa0806be4573d33}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!payload@{payload}}
+\index{payload@{payload}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{payload}{payload}}
+{\footnotesize\ttfamily unsigned char interface\+\_\+to\+\_\+machine\+\_\+message\+::payload\mbox{[}\mbox{\hyperlink{socket__local_8h_a9bfb8490a4d3e99e58c48e3b054713d0}{interface\+\_\+payload\+\_\+size}}\mbox{]}}
+
+String com os dados a serem enviados. \mbox{\Hypertarget{unioninterface__to__machine__message_a249023d12a32fc1a4de60aea40387752}\label{unioninterface__to__machine__message_a249023d12a32fc1a4de60aea40387752}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!pressure@{pressure}}
+\index{pressure@{pressure}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{pressure}{pressure}}
+{\footnotesize\ttfamily uint16\+\_\+t interface\+\_\+to\+\_\+machine\+\_\+message\+::pressure}
+
+Pressão da máquina desejada pelo usuário \mbox{\Hypertarget{unioninterface__to__machine__message_aab192588dfef07ce659aa12b718421c2}\label{unioninterface__to__machine__message_aab192588dfef07ce659aa12b718421c2}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!sample\_period@{sample\_period}}
+\index{sample\_period@{sample\_period}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{sample\_period}{sample\_period}}
+{\footnotesize\ttfamily uint16\+\_\+t interface\+\_\+to\+\_\+machine\+\_\+message\+::sample\+\_\+period}
+
+Período de amostragem do recebimento dos dados vindos da máquina. \mbox{\Hypertarget{unioninterface__to__machine__message_a37a530f35f606eac94186878ca537e54}\label{unioninterface__to__machine__message_a37a530f35f606eac94186878ca537e54}} 
+\index{interface\_to\_machine\_message@{interface\_to\_machine\_message}!velocity@{velocity}}
+\index{velocity@{velocity}!interface\_to\_machine\_message@{interface\_to\_machine\_message}}
+\doxysubsubsection{\texorpdfstring{velocity}{velocity}}
+{\footnotesize\ttfamily uint16\+\_\+t interface\+\_\+to\+\_\+machine\+\_\+message\+::velocity}
+
+Velocidade que a máquina terá na fase de cisalhamento. 
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/ivan/\+Documentos/2022/\+Codigo\+\_\+\+TCC2/\+Code/\+Interface/inc/\mbox{\hyperlink{socket__local_8h}{socket\+\_\+local.\+h}}\end{DoxyCompactItemize}

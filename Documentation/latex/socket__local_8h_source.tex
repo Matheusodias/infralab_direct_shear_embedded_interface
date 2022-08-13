@@ -1,0 +1,52 @@
+\hypertarget{socket__local_8h_source}{}\doxysection{socket\+\_\+local.\+h}
+\label{socket__local_8h_source}\index{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/inc/socket\_local.h@{/home/ivan/Documentos/2022/Codigo\_TCC2/Code/Interface/inc/socket\_local.h}}
+\mbox{\hyperlink{socket__local_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SOCKET\_LOCAL\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SOCKET\_LOCAL\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QMetaType>}}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#define interface\_payload\_size 3 * sizeof(uint16\_t) }}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define machine\_payload\_size 8 * sizeof(uint32\_t) }}
+\DoxyCodeLine{18 \textcolor{keyword}{typedef} \textcolor{keyword}{union }\mbox{\hyperlink{unioninterface__to__machine__message}{interface\_to\_machine\_message}}\{}
+\DoxyCodeLine{19     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \mbox{\hyperlink{unioninterface__to__machine__message_a3efa1d418d98e495dfa0806be4573d33}{payload}}[\mbox{\hyperlink{socket__local_8h_a9bfb8490a4d3e99e58c48e3b054713d0}{interface\_payload\_size}}]; }
+\DoxyCodeLine{20     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{27         uint8\_t \mbox{\hyperlink{unioninterface__to__machine__message_ab44e2c73d551a739b06c3319270d8658}{command}}; }
+\DoxyCodeLine{28         \textcolor{keyword}{union }\{}
+\DoxyCodeLine{29             uint16\_t \mbox{\hyperlink{unioninterface__to__machine__message_a249023d12a32fc1a4de60aea40387752}{pressure}}; }
+\DoxyCodeLine{30             \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{31                 int16\_t \mbox{\hyperlink{unioninterface__to__machine__message_a87e9a09c7811274ab3189d0f0f02eab8}{distance}}; }
+\DoxyCodeLine{32                 uint16\_t \mbox{\hyperlink{unioninterface__to__machine__message_a37a530f35f606eac94186878ca537e54}{velocity}};}
+\DoxyCodeLine{33             \};}
+\DoxyCodeLine{34             \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{35                 uint8\_t \mbox{\hyperlink{unioninterface__to__machine__message_abcf4afe935e2debfbea2445315aa8d7f}{enabled}}; }
+\DoxyCodeLine{36                 uint16\_t \mbox{\hyperlink{unioninterface__to__machine__message_aab192588dfef07ce659aa12b718421c2}{sample\_period}};  }
+\DoxyCodeLine{37             \};}
+\DoxyCodeLine{38         \};}
+\DoxyCodeLine{39     \};}
+\DoxyCodeLine{40 \} \mbox{\hyperlink{socket__local_8h_adff1f49739b6717d3c8ce2f24f00fb6e}{interface\_to\_machine\_message}}; }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{49 \textcolor{keyword}{typedef} \textcolor{keyword}{union  }\mbox{\hyperlink{unionmachine__to__interface__message}{machine\_to\_interface\_message}}\{}
+\DoxyCodeLine{50     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char} \mbox{\hyperlink{unionmachine__to__interface__message_ac9d0ac956afa8073fe86a6850877a590}{payload}}[\mbox{\hyperlink{socket__local_8h_a7452c7ed3bb4e65969039d74e12e123e}{machine\_payload\_size}}]; }
+\DoxyCodeLine{51     \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{52         uint32\_t \mbox{\hyperlink{unionmachine__to__interface__message_a4aca16ccc0cf0699e13358e69821e674}{sample\_number}}[2]; \textcolor{comment}{/* Número da amostra, [0] para as amostras de adensamento e [1] para as de cisalhamento.*/}}
+\DoxyCodeLine{53         uint32\_t \mbox{\hyperlink{unionmachine__to__interface__message_a101647bb17ef023151ec6878e2770138}{date\_time}}[2];}
+\DoxyCodeLine{54         \textcolor{keywordtype}{float} \mbox{\hyperlink{unionmachine__to__interface__message_a75218c365245199ba952722226d5d00e}{displacement}}[2];}
+\DoxyCodeLine{55         \textcolor{keywordtype}{float} \mbox{\hyperlink{unionmachine__to__interface__message_a4848e3a5f5fdc3006c0af9e603f03415}{load}}[2];}
+\DoxyCodeLine{56     \};}
+\DoxyCodeLine{57 \} \mbox{\hyperlink{socket__local_8h_a2c5816cefe4c555bd439528763d17540}{machine\_to\_interface\_message}};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \mbox{\hyperlink{socket__local_8h_a8650a9680b3b219da18d0549a1521725}{Q\_DECLARE\_METATYPE}}(\mbox{\hyperlink{unioninterface__to__machine__message}{interface\_to\_machine\_message}});}
+\DoxyCodeLine{60 \mbox{\hyperlink{socket__local_8h_a8650a9680b3b219da18d0549a1521725}{Q\_DECLARE\_METATYPE}}(\mbox{\hyperlink{unionmachine__to__interface__message}{machine\_to\_interface\_message}});}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SOCKET\_LOCAL\_H}}
+
+\end{DoxyCode}
