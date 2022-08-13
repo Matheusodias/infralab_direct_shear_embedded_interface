@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['machine_5fto_5finterface_5fmessage_0',['machine_to_interface_message',['../unionmachine__to__interface__message.html',1,'']]],
-  ['mainwindow_1',['MainWindow',['../classMainWindow.html',1,'']]]
+  ['interface_5fto_5fmachine_5fmessage_0',['interface_to_machine_message',['../unioninterface__to__machine__message.html',1,'']]]
 ];

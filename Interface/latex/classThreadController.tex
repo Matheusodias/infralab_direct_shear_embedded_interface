@@ -1,5 +1,9 @@
 \hypertarget{classThreadController}{}\doxysection{Thread\+Controller Class Reference}
 \label{classThreadController}\index{ThreadController@{ThreadController}}
+
+
+{\ttfamily \#include $<$threadcontroller.\+h$>$}
+
 Inheritance diagram for Thread\+Controller\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,24 +13,67 @@ Inheritance diagram for Thread\+Controller\+:\begin{figure}[H]
 \doxysubsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classThreadController_ae345581b5f7adbe43fbf73eed6606481}\label{classThreadController_ae345581b5f7adbe43fbf73eed6606481}} 
-void {\bfseries receive\+Thread\+Finished\+Slot} ()
+void \mbox{\hyperlink{classThreadController_ae345581b5f7adbe43fbf73eed6606481}{receive\+Thread\+Finished\+Slot}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classThreadController_a4aa69193036b64e067758f815a41fcd9}\label{classThreadController_a4aa69193036b64e067758f815a41fcd9}} 
-{\bfseries Thread\+Controller} (QObject $\ast$parent=nullptr)
+\mbox{\hyperlink{classThreadController_a4aa69193036b64e067758f815a41fcd9}{Thread\+Controller}} (QObject $\ast$parent=nullptr)
+\item 
+\mbox{\hyperlink{classThreadController_aef060baf2f5683ca55a0d25c4c49532c}{$\sim$\+Thread\+Controller}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classThreadController_aecd82669ff98aaa6ab3d78121bfbbb05}\label{classThreadController_aecd82669ff98aaa6ab3d78121bfbbb05}} 
-\mbox{\hyperlink{classreceiveData}{receive\+Data}} $\ast$ {\bfseries receive\+Data\+Thread}
+\mbox{\hyperlink{classreceiveData}{receive\+Data}} $\ast$ \mbox{\hyperlink{classThreadController_aecd82669ff98aaa6ab3d78121bfbbb05}{receive\+Data\+Thread}}
 \end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classThreadController_a55eeb6942dbb60c43c1aaf2f76b93df0}{is\+Thread\+Destroyed}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classThreadController_a4aa69193036b64e067758f815a41fcd9}\label{classThreadController_a4aa69193036b64e067758f815a41fcd9}} 
+\index{ThreadController@{ThreadController}!ThreadController@{ThreadController}}
+\index{ThreadController@{ThreadController}!ThreadController@{ThreadController}}
+\doxysubsubsection{\texorpdfstring{ThreadController()}{ThreadController()}}
+{\footnotesize\ttfamily Thread\+Controller\+::\+Thread\+Controller (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classThreadController_aef060baf2f5683ca55a0d25c4c49532c}\label{classThreadController_aef060baf2f5683ca55a0d25c4c49532c}} 
+\index{ThreadController@{ThreadController}!````~ThreadController@{$\sim$ThreadController}}
+\index{````~ThreadController@{$\sim$ThreadController}!ThreadController@{ThreadController}}
+\doxysubsubsection{\texorpdfstring{$\sim$ThreadController()}{~ThreadController()}}
+{\footnotesize\ttfamily Thread\+Controller\+::$\sim$\+Thread\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classThreadController_ae345581b5f7adbe43fbf73eed6606481}\label{classThreadController_ae345581b5f7adbe43fbf73eed6606481}} 
+\index{ThreadController@{ThreadController}!receiveThreadFinishedSlot@{receiveThreadFinishedSlot}}
+\index{receiveThreadFinishedSlot@{receiveThreadFinishedSlot}!ThreadController@{ThreadController}}
+\doxysubsubsection{\texorpdfstring{receiveThreadFinishedSlot}{receiveThreadFinishedSlot}}
+{\footnotesize\ttfamily void Thread\+Controller\+::receive\+Thread\+Finished\+Slot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classThreadController_a55eeb6942dbb60c43c1aaf2f76b93df0}\label{classThreadController_a55eeb6942dbb60c43c1aaf2f76b93df0}} 
+\index{ThreadController@{ThreadController}!isThreadDestroyed@{isThreadDestroyed}}
+\index{isThreadDestroyed@{isThreadDestroyed}!ThreadController@{ThreadController}}
+\doxysubsubsection{\texorpdfstring{isThreadDestroyed}{isThreadDestroyed}}
+{\footnotesize\ttfamily bool Thread\+Controller\+::is\+Thread\+Destroyed\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classThreadController_aecd82669ff98aaa6ab3d78121bfbbb05}\label{classThreadController_aecd82669ff98aaa6ab3d78121bfbbb05}} 
+\index{ThreadController@{ThreadController}!receiveDataThread@{receiveDataThread}}
+\index{receiveDataThread@{receiveDataThread}!ThreadController@{ThreadController}}
+\doxysubsubsection{\texorpdfstring{receiveDataThread}{receiveDataThread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classreceiveData}{receive\+Data}}$\ast$ Thread\+Controller\+::receive\+Data\+Thread}
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-threadcontroller.\+h\item 
-threadcontroller.\+cpp\end{DoxyCompactItemize}
+\mbox{\hyperlink{threadcontroller_8h}{threadcontroller.\+h}}\item 
+\mbox{\hyperlink{threadcontroller_8cpp}{threadcontroller.\+cpp}}\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sendcommands_0',['sendCommands',['../classsendCommands.html',1,'']]]
+  ['receivedata_0',['receiveData',['../classreceiveData.html',1,'']]]
 ];
