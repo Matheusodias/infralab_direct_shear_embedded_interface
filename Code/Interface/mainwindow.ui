@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>870</width>
-    <height>498</height>
+    <width>881</width>
+    <height>468</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -32,6 +32,21 @@ background-color:white;
     <string notr="true"/>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QStackedWidget" name="mainStack">
       <property name="styleSheet">
@@ -54,6 +69,9 @@ color:#10576D;
         <string notr="true"/>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="outside_experiment_header_layout" stretch="1,1,2,1">
           <property name="spacing">
@@ -66,7 +84,7 @@ color:#10576D;
            <number>10</number>
           </property>
           <property name="bottomMargin">
-           <number>10</number>
+           <number>5</number>
           </property>
           <item>
            <widget class="QPushButton" name="historyButton">
@@ -79,20 +97,20 @@ color:#10576D;
             <property name="minimumSize">
              <size>
               <width>110</width>
-              <height>80</height>
+              <height>60</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>300</width>
-              <height>100</height>
+              <height>80</height>
              </size>
             </property>
             <property name="accessibleName">
              <string>histórico</string>
             </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">qproperty-iconSize: 80px;</string>
             </property>
             <property name="text">
              <string/>
@@ -103,8 +121,8 @@ color:#10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>300</width>
-              <height>300</height>
+              <width>80</width>
+              <height>80</height>
              </size>
             </property>
             <property name="checkable">
@@ -123,13 +141,13 @@ color:#10576D;
             <property name="minimumSize">
              <size>
               <width>110</width>
-              <height>80</height>
+              <height>60</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>300</width>
-              <height>100</height>
+              <height>80</height>
              </size>
             </property>
             <property name="accessibleName">
@@ -147,8 +165,8 @@ color:#10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>300</width>
-              <height>300</height>
+              <width>80</width>
+              <height>80</height>
              </size>
             </property>
             <property name="checkable">
@@ -180,13 +198,13 @@ color:#10576D;
             <property name="minimumSize">
              <size>
               <width>110</width>
-              <height>80</height>
+              <height>60</height>
              </size>
             </property>
             <property name="maximumSize">
              <size>
               <width>300</width>
-              <height>100</height>
+              <height>80</height>
              </size>
             </property>
             <property name="accessibleName">
@@ -202,8 +220,8 @@ color:#10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>300</width>
-              <height>300</height>
+              <width>100</width>
+              <height>100</height>
              </size>
             </property>
             <property name="checkable">
@@ -292,72 +310,336 @@ color: #10576D;
           </widget>
           <widget class="QWidget" name="experiment_page">
            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="topMargin">
+             <number>5</number>
+            </property>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_5">
+             <layout class="QHBoxLayout" name="phases_layout">
+              <property name="leftMargin">
+               <number>5</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>5</number>
+              </property>
+              <property name="bottomMargin">
+               <number>5</number>
+              </property>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="phase1_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>35</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
                 <property name="text">
                  <string>Etapa 1</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_3">
+               <widget class="QPushButton" name="phase2_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>35</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>Etapa 2</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_5">
+               <widget class="QPushButton" name="phase3_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>35</height>
+                 </size>
+                </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string>Etapa 3</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_4">
+               <widget class="QPushButton" name="calculations_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>35</height>
+                 </size>
+                </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string>Cálculos</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_2">
+               <widget class="QPushButton" name="position_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>70</width>
+                  <height>35</height>
+                 </size>
+                </property>
                 <property name="text">
-                 <string>PushButton</string>
+                 <string>Posição</string>
                 </property>
                </widget>
               </item>
              </layout>
             </item>
             <item>
-             <widget class="QStackedWidget" name="etapas_stack">
+             <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>1</number>
+               <number>0</number>
               </property>
-              <widget class="QWidget" name="page_3"/>
-              <widget class="QWidget" name="page_4">
-               <widget class="QLabel" name="label_3">
-                <property name="geometry">
-                 <rect>
-                  <x>50</x>
-                  <y>60</y>
-                  <width>591</width>
-                  <height>141</height>
-                 </rect>
+              <widget class="QWidget" name="phase1_page">
+               <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,12,2,1">
+                <property name="bottomMargin">
+                 <number>9</number>
                 </property>
-                <property name="font">
-                 <font>
-                  <pointsize>26</pointsize>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>Página etapas em construção.</string>
-                </property>
-               </widget>
+                <item>
+                 <spacer name="verticalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QGridLayout" name="phase1_gridLayout">
+                  <property name="leftMargin">
+                   <number>30</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>30</number>
+                  </property>
+                  <property name="horizontalSpacing">
+                   <number>80</number>
+                  </property>
+                  <property name="verticalSpacing">
+                   <number>40</number>
+                  </property>
+                  <item row="1" column="1">
+                   <widget class="QLineEdit" name="lineEdit_4">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="0">
+                   <widget class="QLineEdit" name="lineEdit">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="1">
+                   <widget class="QLineEdit" name="lineEdit_6">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLineEdit" name="lineEdit_2">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="2" column="0">
+                   <widget class="QLineEdit" name="lineEdit_5">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLineEdit" name="lineEdit_3">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>100</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>500</width>
+                      <height>40</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout" stretch="11,0,2">
+                  <item>
+                   <spacer name="horizontalSpacer_2">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="continuePhase1_button">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Continuar</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="images/resources.qrc">
+                      <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_3">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
+              <widget class="QWidget" name="phase2_page"/>
+              <widget class="QWidget" name="phase3_page"/>
+              <widget class="QWidget" name="calculations_page"/>
+              <widget class="QWidget" name="position_page"/>
              </widget>
             </item>
            </layout>

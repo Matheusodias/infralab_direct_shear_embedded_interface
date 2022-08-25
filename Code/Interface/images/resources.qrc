@@ -6,5 +6,6 @@
         <file>lightExperiment.png</file>
         <file>darkConfiguration.png</file>
         <file>lightConfiguration.png</file>
+        <file>Arrow.png</file>
     </qresource>
 </RCC>

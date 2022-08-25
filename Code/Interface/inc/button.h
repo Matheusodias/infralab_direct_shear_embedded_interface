@@ -6,15 +6,19 @@
 #include <QHBoxLayout>
 
 
-#define button_lightBackgroundColor 0 /*!< Número identificador do estilo do botão com cores claras. */
-#define button_darkBackgroundColor 1 /*!< Número identificador do estilo do botão com cores escuras. */
-#define historyButton_LightIcon 0 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background claro.*/
-#define historyButton_DarkIcon 1 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background escuro.*/
-#define experimentButton_LightIcon 2 /*!< Número identificador do ícone do botão experimento para ser utilizado com o background claro.*/
-#define experimentButton_DarkIcon 3 /*!< Número identificador do ícone do botão experimento para ser utilizado com o background escuro.*/
-#define configurationButton_LightIcon 4 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background claro.*/
-#define configurationButton_DarkIcon 5 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background escuro.*/
-
+#define headerButton_lightBackgroundColor 0 /*!< Número identificador do estilo do botão header com cores claras. */
+#define headerButton_darkBackgroundColor 1 /*!< Número identificador do estilo do botão header com cores escuras. */
+#define phasesButton_lightBackgroundColor 2 /*!< Número identificador do estilo do botão etapas com cores claras. */
+#define phasesButton_darkBackgroundColor 3 /*!< Número identificador do estilo do botão etapas com cores escuras. */
+#define continueButton_BackgroundColor 4 /*!< Número identificador do estilo do botão de continuar nas etapas. */
+#define historyButton_lightIcon 0 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background claro.*/
+#define historyButton_darkIcon 1 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background escuro.*/
+#define experimentButton_lightIcon 2 /*!< Número identificador do ícone do botão experimento para ser utilizado com o background claro.*/
+#define experimentButton_darkIcon 3 /*!< Número identificador do ícone do botão experimento para ser utilizado com o background escuro.*/
+#define configurationButton_lightIcon 4 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background claro.*/
+#define configurationButton_darkIcon 5 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background escuro.*/
+#define continueButton_Icon 6  /*!< Número identificador do ícone do botão continuar*/
+#define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
 
 
 /**
@@ -26,22 +30,27 @@ class Button
 {
 public:
     Button();
-    void setButtonShadow(QPushButton * button);
-    void setButtonStyleSheet(QPushButton * button,uint8_t style, uint8_t icon);
-    void initialConfiguration_OutsideExperimentHeaderButtons(QHBoxLayout * layout);
-    void changeButtonStyle(QPushButton *button, uint8_t icon);
+    void setButtonShadow(void * button, uint8_t type_of_button);
+    void setButton_style_icon(void *button, uint8_t style, uint8_t icon,uint8_t type_of_button);
+    void initialButtonStyling(QHBoxLayout * boxlayout, uint8_t style_option);
+    void changeButton_style(QPushButton *current_button, uint8_t icon, uint8_t style);
 
 
 
 private:
-    QPushButton * clickedButton; /*!< Botão do cabeçalho, fora do experimento, que foi clicado. */
-    uint8_t clickedButtonIcon; /*!< Ícone do botão clickedButton. */
+    QPushButton * clickedButton[2]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
+    uint8_t clickedButtonIcon[2]; /*!< Ícone do botão do cabeçalho ou/e das etapas que foi clicado. */
 
-    QString button_LightStyleSheet; /*!< Estilo do botão com cores claras. */
-    QString button_DarkStyleSheet; /*!< Estilo do botão com cores escuras. */
-    QString button_styleSheets[2]; /*!< Array com os estilos claro e escudo.*/
-    QString button_Images[6]; /*!< Array com as imagens dos botões. */
-    QIcon button_Icons[6]; /*!< Array com os ícones dos botões. */
+
+
+    QString button_styleSheets[5]; /*!< Array com os estilos claro e escudo.*/
+    QString button_images[7]; /*!< Array com as imagens dos botões. */
+    QIcon button_icons[7]; /*!< Array com os ícones dos botões. */
+
+
+    void styleSheetConfiguration();
+    void imageConfiguration();
+    void iconsConfiguration();
 
 signals:
 
