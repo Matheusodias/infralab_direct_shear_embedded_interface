@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QToolButton>
+#include <QStackedWidget>
 #include "button.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,16 +29,6 @@ private slots:
 
     void on_configurationButton_clicked();
 
-    void on_phase1_button_clicked();
-
-    void on_phase2_button_clicked();
-
-    void on_phase3_button_clicked();
-
-    void on_calculations_button_clicked();
-
-    void on_position_button_clicked();
-
     void nextPhase();
 
     void changePhase();
@@ -45,7 +37,14 @@ private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
     Button *setupButtons; /*!< Instância da classe Button para a estilização dos botões.*/
 
-    void changePhasePage(uint8_t phase, QPushButton * button);
+    void InitialConfiguration_OutsideExperimentHeaderButtons();
+    void InitialConfiguration_PhasesButtons();
+
+    void connectButtonsToSlots(void * list, const char *signal, const char *slot, uint8_t isLayout, uint8_t isToolButton);
+
+    void connectButtonsToSlots_Layout(QHBoxLayout * list, const char *signal, const char *slot, uint8_t isToolButton);
+
+    void connectButtonsToSlots_Widget(QObject * list, const char *signal, const char *slot, uint8_t isToolButton);
 
 
 };

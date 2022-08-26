@@ -107,12 +107,12 @@ void Button::setButtonShadow(void * button, uint8_t type_of_button)
     QGraphicsDropShadowEffect* effect = new QGraphicsDropShadowEffect();
     effect->setBlurRadius(5); //Adjust accordingly
     effect->setOffset(5,5); //Adjust accordingly
-    if(type_of_button==0){
-         QPushButton * push_button = (QPushButton *)button;
-         push_button->setGraphicsEffect(effect);
-    } else if(type_of_button==1){
-        QToolButton * tool_button = (QToolButton *)button;
-        tool_button->setGraphicsEffect(effect);
+    if(type_of_button == push_button){
+         QPushButton * pushButton = (QPushButton *)button;
+         pushButton->setGraphicsEffect(effect);
+    } else if(type_of_button == tool_button){
+        QToolButton * toolButton = (QToolButton *)button;
+        toolButton->setGraphicsEffect(effect);
     }
 
 
@@ -129,14 +129,14 @@ void Button::setButtonShadow(void * button, uint8_t type_of_button)
 void Button::setButton_style_icon(void *button, uint8_t style, uint8_t icon, uint8_t type_of_button)
 {
 
-    if(type_of_button==0){
-         QPushButton * push_button = (QPushButton *)button;
-         push_button->setIcon(button_icons[icon]);
-         push_button->setStyleSheet(this->button_styleSheets[style]);
-    } else if(type_of_button==1){
-        QToolButton * tool_button = (QToolButton *)button;
-        tool_button->setIcon(button_icons[icon]);
-        tool_button->setStyleSheet(this->button_styleSheets[style]);
+    if(type_of_button == push_button){
+         QPushButton * pushButton = (QPushButton *)button;
+         pushButton->setIcon(button_icons[icon]);
+         pushButton->setStyleSheet(this->button_styleSheets[style]);
+    } else if(type_of_button == tool_button){
+        QToolButton * toolButton = (QToolButton *)button;
+        toolButton->setIcon(button_icons[icon]);
+        toolButton->setStyleSheet(this->button_styleSheets[style]);
     }
 
 
@@ -210,44 +210,5 @@ void Button::changeButton_style(QPushButton *current_button, uint8_t icon, uint8
 
 
 
-/*
- *
- * #historyButton{
-    background-color:white;
-    border-bottom:5px solid rgb(227, 227, 227);
-    border-right:5px solid rgb(227, 227, 227);
-    border-top:5px solid rgb(227, 227, 227);
-    border-left:5px solid rgb(227, 227, 227);
-    border-radius:40px;
-}
-
-#historyButton:pressed {
-    background-color:rgb(229, 229, 229);
-    border-bottom:5px solid rgb(227, 227, 227);
-    border-right:5px solid rgb(227, 227, 227);
-    border-top:1px solid rgb(227, 227, 227);
-    border-left:1px solid rgb(227, 227, 227);
-    border-radius:40px;
-}
-
-#experimentButton{
-    background-color:white;
-    border-bottom:5px solid rgb(227, 227, 227);
-    border-right:5px solid rgb(227, 227, 227);
-    border-top:5px solid rgb(227, 227, 227);
-    border-left:5px solid rgb(227, 227, 227);
-    border-radius:40px;
-}
-
-#experimentButton:pressed {
-    background-color:rgb(229, 229, 229);
-    border-bottom:5px solid rgb(227, 227, 227);
-    border-right:5px solid rgb(227, 227, 227);
-    border-top:1px solid rgb(227, 227, 227);
-    border-left:1px solid rgb(227, 227, 227);
-    border-radius:40px;
-}
-
-*/
 
 

@@ -19,15 +19,18 @@
 #define configurationButton_darkIcon 5 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background escuro.*/
 #define continueButton_Icon 6  /*!< Número identificador do ícone do botão continuar*/
 #define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
-
+#define push_button 0
+#define tool_button 1
+#define is_layout 1
 
 /**
  * @brief Classe dos botões.
  * 
  * Esta classe é responsável por cuidar do comportamento e estilização dos botões.
  */
-class Button
+class Button: public QObject
 {
+    Q_OBJECT
 public:
     Button();
     void setButtonShadow(void * button, uint8_t type_of_button);

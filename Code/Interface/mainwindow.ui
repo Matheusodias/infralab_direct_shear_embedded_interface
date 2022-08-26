@@ -400,7 +400,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>0</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="phase1_page">
                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,12,2,1">
@@ -636,9 +636,99 @@ color: #10576D;
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="phase2_page"/>
-              <widget class="QWidget" name="phase3_page"/>
-              <widget class="QWidget" name="calculations_page"/>
+              <widget class="QWidget" name="phase2_page">
+               <widget class="QToolButton" name="continuePhase2_button">
+                <property name="geometry">
+                 <rect>
+                  <x>360</x>
+                  <y>210</y>
+                  <width>116</width>
+                  <height>37</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Continuar</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="images/resources.qrc">
+                  <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="phase3_page">
+               <widget class="QToolButton" name="continuePhase3_button">
+                <property name="geometry">
+                 <rect>
+                  <x>320</x>
+                  <y>190</y>
+                  <width>116</width>
+                  <height>37</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Continuar</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="images/resources.qrc">
+                  <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </widget>
+              <widget class="QWidget" name="calculations_page">
+               <widget class="QToolButton" name="continueCalculations_button">
+                <property name="geometry">
+                 <rect>
+                  <x>490</x>
+                  <y>210</y>
+                  <width>116</width>
+                  <height>37</height>
+                 </rect>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string>Continuar</string>
+                </property>
+                <property name="icon">
+                 <iconset resource="images/resources.qrc">
+                  <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>30</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="toolButtonStyle">
+                 <enum>Qt::ToolButtonTextBesideIcon</enum>
+                </property>
+               </widget>
+              </widget>
               <widget class="QWidget" name="position_page"/>
              </widget>
             </item>
