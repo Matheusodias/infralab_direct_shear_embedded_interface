@@ -33,6 +33,8 @@ private slots:
 
     void changePhase();
 
+    void changeOutsideExperimentPage();
+
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
     Button *setupButtons; /*!< Instância da classe Button para a estilização dos botões.*/

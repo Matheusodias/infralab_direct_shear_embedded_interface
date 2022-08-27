@@ -37,7 +37,7 @@ public:
     void setButton_style_icon(void *button, uint8_t style, uint8_t icon,uint8_t type_of_button);
     void initialButtonStyling(QHBoxLayout * boxlayout, uint8_t style_option);
     void changeButton_style(QPushButton *current_button, uint8_t icon, uint8_t style);
-
+    void initialButtonStyling2(QHBoxLayout * boxlayout, uint8_t style_option);
 
 
 private:
@@ -46,9 +46,9 @@ private:
 
 
 
-    QString button_styleSheets[5]; /*!< Array com os estilos claro e escudo.*/
-    QString button_images[7]; /*!< Array com as imagens dos botões. */
-    QIcon button_icons[7]; /*!< Array com os ícones dos botões. */
+    QString button_styleSheets[10]; /*!< Array com os estilos claro e escudo.*/
+    QString button_images[10]; /*!< Array com as imagens dos botões. */
+    QIcon button_icons[10]; /*!< Array com os ícones dos botões. */
 
 
     void styleSheetConfiguration();

@@ -34,6 +34,8 @@ void Button::styleSheetConfiguration()
     QString phasesButton_lightStyleSheet; /*!< Estilo do botão das etapas com cores escuras. */
     QString phasesButton_darkStyleSheet; /*!< Estilo do botão das etapas com cores escuras. */
     QString continueButton_StyleSheet; /*!< Estilo do botão de continuar da criação do experimento */
+    QString headerButton_lightStyleSheet2;
+    QString headerButton_darkStyleSheet2;
 
     //qproperty-iconSize: 24px;
     // Add stylesheet
@@ -66,11 +68,27 @@ void Button::styleSheetConfiguration()
 
 
 
+    headerButton_lightStyleSheet2 = "QToolButton{ background-color:white; border-bottom:5px solid rgb(227, 227, 227);"
+                                          "border-right:5px solid rgb(227, 227, 227); border-top:1px solid rgb(227, 227, 227);"
+                                          "border-left:1px solid rgb(227, 227, 227); border-radius:25px;}"
+                                          "QToolButton:pressed {background-color:rgb(229, 229, 229);}";
+
+    headerButton_darkStyleSheet2 = "QToolButton{ background-color:#0D495C; border-bottom:5px solid rgb(39, 64, 71);"
+                                         "border-right:5px solid rgb(39, 64, 71); border-top:1px solid rgb(39, 64, 71);"
+                                         "border-left:1px solid rgb(39, 64, 71); border-radius:25px;}"
+                                         "QToolButton:pressed {background-color:#072a36;}";
+
+
+
+
     this->button_styleSheets[headerButton_lightBackgroundColor] = headerButton_lightStyleSheet;
     this->button_styleSheets[headerButton_darkBackgroundColor]  = headerButton_darkStyleSheet;
     this->button_styleSheets[phasesButton_lightBackgroundColor] = phasesButton_lightStyleSheet;
     this->button_styleSheets[phasesButton_darkBackgroundColor]  = phasesButton_darkStyleSheet;
     this->button_styleSheets[continueButton_BackgroundColor] = continueButton_StyleSheet;
+    this->button_styleSheets[5] = headerButton_lightStyleSheet2;
+    this->button_styleSheets[6]  = headerButton_darkStyleSheet2;
+
 }
 
 void Button::imageConfiguration()
@@ -82,6 +100,7 @@ void Button::imageConfiguration()
     this->button_images[configurationButton_lightIcon] = ":lightConfiguration.png";
     this->button_images[configurationButton_darkIcon] = ":darkConfiguration.png";
     this->button_images[continueButton_Icon] = ":Arrow.png";
+    this->button_images[7] = ":light_history.png";
 }
 
 void Button::iconsConfiguration()
@@ -93,6 +112,7 @@ void Button::iconsConfiguration()
     this->button_icons[configurationButton_lightIcon].addPixmap(QPixmap(this->button_images[configurationButton_lightIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[configurationButton_darkIcon].addPixmap(QPixmap(this->button_images[configurationButton_darkIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[continueButton_Icon].addPixmap(QPixmap(this->button_images[continueButton_Icon]),QIcon::Normal,QIcon::On);
+    this->button_icons[7].addPixmap(QPixmap(this->button_images[7]),QIcon::Normal,QIcon::On);
 
 }
 
@@ -205,6 +225,25 @@ void Button::changeButton_style(QPushButton *current_button, uint8_t icon, uint8
     } else {
         this->setButton_style_icon(current_button, ++style, ++icon,0);
     }
+    return;
+}
+
+void Button::initialButtonStyling2(QHBoxLayout *boxlayout, uint8_t style_option)
+{
+    QLayout *layout = boxlayout->layout();
+    if (layout) {
+        for (int i = 0; i < layout->count(); ++i){
+            QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+            if(button){
+                this->setButtonShadow((void *)button,0);
+                button->setStyleSheet(this->button_styleSheets[style_option]);
+                button->setMaximumSize(QSize(300, 80));
+                button->setMinimumSize(QSize(110, 70));
+                button->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+            }
+       }
+    }
+
     return;
 }
 

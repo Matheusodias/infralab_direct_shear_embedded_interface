@@ -73,7 +73,7 @@ color:#10576D;
          <number>0</number>
         </property>
         <item>
-         <layout class="QHBoxLayout" name="outside_experiment_header_layout" stretch="1,1,2,1">
+         <layout class="QHBoxLayout" name="outside_experiment_header_layout" stretch="1,1,1,1,2,1,1">
           <property name="spacing">
            <number>20</number>
           </property>
@@ -127,6 +127,79 @@ color:#10576D;
             </property>
             <property name="checkable">
              <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Histórico</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images/resources.qrc">
+              <normaloff>:/light_history.png</normaloff>:/light_history.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>80</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Experimento</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images/resources.qrc">
+              <normaloff>:/light_experiment.png</normaloff>:/light_experiment.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>70</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
             </property>
            </widget>
           </item>
@@ -186,6 +259,38 @@ color:#10576D;
              </size>
             </property>
            </spacer>
+          </item>
+          <item>
+           <widget class="QToolButton" name="toolButton_2">
+            <property name="minimumSize">
+             <size>
+              <width>110</width>
+              <height>70</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>300</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Configurações</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images/resources.qrc">
+              <normaloff>:/light_configuration.png</normaloff>:/light_configuration.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>80</width>
+              <height>60</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextUnderIcon</enum>
+            </property>
+           </widget>
           </item>
           <item>
            <widget class="QPushButton" name="configurationButton">
@@ -264,7 +369,7 @@ color: #10576D;
         <item>
          <widget class="QStackedWidget" name="outside_experiment_stack">
           <property name="currentIndex">
-           <number>2</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="history_page">
            <widget class="QLabel" name="label">
@@ -400,7 +505,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>4</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="phase1_page">
                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,12,2,1">

@@ -37,11 +37,13 @@ void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
 {
     // Insert buttons styles on header outside experiment
     this->setupButtons->initialButtonStyling(ui->outside_experiment_header_layout, headerButton_lightBackgroundColor);
+    this->setupButtons->initialButtonStyling2(ui->outside_experiment_header_layout, 5);
     // Mark experiment button as first page
     this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon,headerButton_lightBackgroundColor);
     ui->outside_experiment_stack->setCurrentIndex(2);
-
-    //connectButtonsToSlots(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()), is_layout , push_button);
+    qDebug() << "Antes";
+    connectButtonsToSlots_Layout(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()), tool_button);
+    qDebug() << "Depois";
 }
 
 void MainWindow::InitialConfiguration_PhasesButtons()
@@ -162,5 +164,20 @@ void MainWindow::changePhase()
     }
     ui->phases_stack->setCurrentIndex(next_page);
     this->setupButtons->changeButton_style(buttonSender,no_icon,phasesButton_lightBackgroundColor);
+}
+
+void MainWindow::changeOutsideExperimentPage()
+{
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
+    int next_page = 0;
+    QString object_name = buttonSender->objectName();
+    QString buttons_name[] = {"toolButton","toolButton_2","toolButton_3"};/*{"historyButton","configurationButton","experimentButton"};*/
+    for(int i=0;i<3;i++){
+        if(object_name == buttons_name[i]){
+            next_page = i;
+        }
+    }
+     ui->outside_experiment_stack->setCurrentIndex(next_page);
+    //this->setupButtons->changeButton_style(buttonSender,no_icon,phasesButton_lightBackgroundColor);
 }
 
