@@ -23,11 +23,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_historyButton_clicked();
-
-    void on_experimentButton_clicked();
-
-    void on_configurationButton_clicked();
 
     void nextPhase();
 
@@ -42,11 +37,9 @@ private:
     void InitialConfiguration_OutsideExperimentHeaderButtons();
     void InitialConfiguration_PhasesButtons();
 
-    void connectButtonsToSlots(void * list, const char *signal, const char *slot, uint8_t isLayout, uint8_t isToolButton);
+    void connectButtonsToSlots_Layout(QHBoxLayout * list, const char *signal, const char *slot);
 
-    void connectButtonsToSlots_Layout(QHBoxLayout * list, const char *signal, const char *slot, uint8_t isToolButton);
-
-    void connectButtonsToSlots_Widget(QObject * list, const char *signal, const char *slot, uint8_t isToolButton);
+    void connectButtonsToSlots_Widget(QObject * list, const char *signal, const char *slot);
 
 
 };

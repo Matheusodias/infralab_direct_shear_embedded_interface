@@ -36,106 +36,50 @@ MainWindow::~MainWindow()
 void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
 {
     // Insert buttons styles on header outside experiment
-    this->setupButtons->initialButtonStyling(ui->outside_experiment_header_layout, headerButton_lightBackgroundColor);
-    this->setupButtons->initialButtonStyling2(ui->outside_experiment_header_layout, 5);
+    this->setupButtons->initialButtonStyling(ui->outside_experiment_header_layout, headerButton_lightBackgroundColor, outsideExperiment_buttonSize);
     // Mark experiment button as first page
     this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon,headerButton_lightBackgroundColor);
     ui->outside_experiment_stack->setCurrentIndex(2);
-    qDebug() << "Antes";
-    connectButtonsToSlots_Layout(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()), tool_button);
-    qDebug() << "Depois";
+    connectButtonsToSlots_Layout(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()));
 }
 
 void MainWindow::InitialConfiguration_PhasesButtons()
 {
     // Insert style of phases buttons
-    this->setupButtons->initialButtonStyling(ui->phases_layout, phasesButton_lightBackgroundColor);
+    this->setupButtons->initialButtonStyling(ui->phases_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
     this->setupButtons->changeButton_style(ui->phase1_button,no_icon,phasesButton_lightBackgroundColor);
     ui->phases_stack->setCurrentIndex(0);
 
-    connectButtonsToSlots_Layout(ui->phases_layout, SIGNAL(clicked()), SLOT(changePhase()), push_button);
+    connectButtonsToSlots_Layout(ui->phases_layout, SIGNAL(clicked()), SLOT(changePhase()));
 
 
 
-    this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon, 1);
-    this->setupButtons->setButtonShadow((void *)ui->continuePhase1_button,1);
-    connectButtonsToSlots_Widget(ui->phases_stack, SIGNAL(clicked()),SLOT(nextPhase()),tool_button);
+    this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
+    this->setupButtons->setButtonShadow(ui->continuePhase1_button);
+    connectButtonsToSlots_Widget(ui->phases_stack, SIGNAL(clicked()),SLOT(nextPhase()));
 
 }
 
-
-/**
- * @brief Função ativada ao clicar no botão do histórico.
- * 
- * Altera a página atual e a estilização do botão selecionado.
- */
-void MainWindow::on_historyButton_clicked()
-{
-    ui->outside_experiment_stack->setCurrentIndex(0);
-
-    this->setupButtons->changeButton_style(ui->historyButton,historyButton_lightIcon, headerButton_lightBackgroundColor);
-}
-
-/**
- * @brief Função ativada ao clicar no botão do experimento.
- * 
- * Altera a página atual e a estilização do botão selecionado.
- */
-void MainWindow::on_experimentButton_clicked()
-{
-    ui->outside_experiment_stack->setCurrentIndex(2);
-    this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon, headerButton_lightBackgroundColor);
-}
-
-/**
- * @brief Função ativada ao clicar no botão das configurações.
- * 
- * Altera a página atual e a estilização do botão selecionado.
- */
-void MainWindow::on_configurationButton_clicked()
-{
-    ui->outside_experiment_stack->setCurrentIndex(1);
-    this->setupButtons->changeButton_style(ui->configurationButton,configurationButton_lightIcon, headerButton_lightBackgroundColor);
-}
-
-void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char *signal, const char *slot, uint8_t isToolButton)
+void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char *signal, const char *slot)
 {
     QLayout *layout = boxlayout->layout();
     if (layout) {
         for (int i = 0; i < layout->count(); ++i){
-            if(isToolButton){
-               QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
-               if(button){
-                    connect(button, signal,this,slot);
-               }
-
-            } else {
-                QPushButton * button = qobject_cast<QPushButton*>(layout->itemAt(i)->widget());
-                if(button){
-                     connect(button, signal,this,slot);
-                }
-            }
+           QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+           if(button){
+                connect(button, signal,this,slot);
+           }
        }
     }
 }
 
-void MainWindow::connectButtonsToSlots_Widget(QObject *selectedWidget, const char *signal, const char *slot, uint8_t isToolButton)
+void MainWindow::connectButtonsToSlots_Widget(QObject *selectedWidget, const char *signal, const char *slot)
 {
-   if(isToolButton){
-       QList<QToolButton*> selectedButtons =
-                   selectedWidget->findChildren<QToolButton*>();
-       for(QList<QToolButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
-           connect(*buttons, signal,this,slot);
-       }
-   } else{
-       QList<QPushButton*> selectedButtons =
-                   selectedWidget->findChildren<QPushButton*>();
-       for(QList<QPushButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
-           connect(*buttons, signal,this,slot);
-       }
+   QList<QToolButton*> selectedButtons = selectedWidget->findChildren<QToolButton*>();
+   for(QList<QToolButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
+       connect(*buttons, signal,this,slot);
    }
    return;
-
 }
 
 void MainWindow::nextPhase()
@@ -143,14 +87,14 @@ void MainWindow::nextPhase()
     int current_page = ui->phases_stack->currentIndex();
     int next_page = current_page + 1;
 
-    QPushButton * button = qobject_cast<QPushButton*>(ui->phases_layout->itemAt(next_page)->widget());
+    QToolButton * button = qobject_cast<QToolButton*>(ui->phases_layout->itemAt(next_page)->widget());
     ui->phases_stack->setCurrentIndex(next_page);
     this->setupButtons->changeButton_style(button,no_icon,phasesButton_lightBackgroundColor);
 }
 
 void MainWindow::changePhase()
 {
-    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender()); // retrieve the button you have clicked
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
     int next_page = 0;
     QString object_name = buttonSender->objectName();
     if( object_name == "phase2_button"){
@@ -170,14 +114,29 @@ void MainWindow::changeOutsideExperimentPage()
 {
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
     int next_page = 0;
+    uint8_t icon = 0;
     QString object_name = buttonSender->objectName();
-    QString buttons_name[] = {"toolButton","toolButton_2","toolButton_3"};/*{"historyButton","configurationButton","experimentButton"};*/
+    QString buttons_name[] = {"historyButton","configurationButton","experimentButton"};
     for(int i=0;i<3;i++){
         if(object_name == buttons_name[i]){
             next_page = i;
+            switch (i) {
+                case 0:
+                    icon = historyButton_lightIcon;
+                    break;
+                case 1:
+                    icon = configurationButton_lightIcon;
+                    break;
+                case 2:
+                    icon = experimentButton_lightIcon;
+                    break;
+                default:
+                    break;
+            }
         }
     }
-     ui->outside_experiment_stack->setCurrentIndex(next_page);
-    //this->setupButtons->changeButton_style(buttonSender,no_icon,phasesButton_lightBackgroundColor);
+    uint8_t style = headerButton_lightBackgroundColor;
+    this->setupButtons->changeButton_style(buttonSender, icon, style);
+    ui->outside_experiment_stack->setCurrentIndex(next_page);
 }
 

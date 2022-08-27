@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QToolButton>
 
 
 #define headerButton_lightBackgroundColor 0 /*!< Número identificador do estilo do botão header com cores claras. */
@@ -19,9 +20,8 @@
 #define configurationButton_darkIcon 5 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background escuro.*/
 #define continueButton_Icon 6  /*!< Número identificador do ícone do botão continuar*/
 #define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
-#define push_button 0
-#define tool_button 1
-#define is_layout 1
+#define outsideExperiment_buttonSize 0
+#define phases_buttonSize 1
 
 /**
  * @brief Classe dos botões.
@@ -33,27 +33,30 @@ class Button: public QObject
     Q_OBJECT
 public:
     Button();
-    void setButtonShadow(void * button, uint8_t type_of_button);
-    void setButton_style_icon(void *button, uint8_t style, uint8_t icon,uint8_t type_of_button);
-    void initialButtonStyling(QHBoxLayout * boxlayout, uint8_t style_option);
-    void changeButton_style(QPushButton *current_button, uint8_t icon, uint8_t style);
-    void initialButtonStyling2(QHBoxLayout * boxlayout, uint8_t style_option);
+    void setButtonShadow(QToolButton * button);
+    void setButton_style_icon(QToolButton * button, uint8_t style, uint8_t icon);
+    void initialButtonStyling(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size);
+    void changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style);
+
 
 
 private:
-    QPushButton * clickedButton[2]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
+    QToolButton * clickedButton[2]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
     uint8_t clickedButtonIcon[2]; /*!< Ícone do botão do cabeçalho ou/e das etapas que foi clicado. */
-
-
 
     QString button_styleSheets[10]; /*!< Array com os estilos claro e escudo.*/
     QString button_images[10]; /*!< Array com as imagens dos botões. */
     QIcon button_icons[10]; /*!< Array com os ícones dos botões. */
 
 
+    QSize buttonMaximumSize[10];
+    QSize buttonMinimumSize[10];
+
+
     void styleSheetConfiguration();
     void imageConfiguration();
     void iconsConfiguration();
+    void buttonSizeConfiguration();
 
 signals:
 

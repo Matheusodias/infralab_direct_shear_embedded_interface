@@ -7,9 +7,11 @@
         <file>darkConfiguration.png</file>
         <file>lightConfiguration.png</file>
         <file>Arrow.png</file>
-        <file>dark_history.png</file>
         <file>light_history.png</file>
         <file>light_configuration.png</file>
         <file>light_experiment.png</file>
+        <file>dark_configuration.png</file>
+        <file>dark_experiment.png</file>
+        <file>dark_history.png</file>
     </qresource>
 </RCC>
