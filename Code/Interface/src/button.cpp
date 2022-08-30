@@ -145,7 +145,7 @@ void Button::setButton_style_icon(QToolButton * button, uint8_t style, uint8_t i
  * 
  * @param boxlayout Layout do cabeçalho das páginas fora do experimento.
  */
-void Button::initialButtonStyling(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size)
+void Button::initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size)
 {
     QLayout *layout = boxlayout->layout();
     if (layout) {
@@ -203,6 +203,20 @@ void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8
     } else {
         this->setButton_style_icon(current_button, ++style, ++icon);
     }
+    return;
+}
+
+void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_option, uint8_t size)
+{
+    QList<QToolButton*> selectedButtons = selectedWidget->findChildren<QToolButton*>();
+    for(QList<QToolButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
+        this->setButtonShadow((*buttons));
+        (*buttons)->setStyleSheet(this->button_styleSheets[style_option]);
+        (*buttons)->setMaximumSize(this->buttonMaximumSize[size]);
+        (*buttons)->setMinimumSize(this->buttonMinimumSize[size]);
+        (*buttons)->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+    }
+
     return;
 }
 

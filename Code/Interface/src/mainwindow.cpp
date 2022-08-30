@@ -36,7 +36,7 @@ MainWindow::~MainWindow()
 void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
 {
     // Insert buttons styles on header outside experiment
-    this->setupButtons->initialButtonStyling(ui->outside_experiment_header_layout, headerButton_lightBackgroundColor, outsideExperiment_buttonSize);
+    this->setupButtons->initialButtonStyling_Layout(ui->outside_experiment_header_layout, headerButton_lightBackgroundColor, outsideExperiment_buttonSize);
     // Mark experiment button as first page
     this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon,headerButton_lightBackgroundColor);
     ui->outside_experiment_stack->setCurrentIndex(2);
@@ -46,16 +46,15 @@ void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
 void MainWindow::InitialConfiguration_PhasesButtons()
 {
     // Insert style of phases buttons
-    this->setupButtons->initialButtonStyling(ui->phases_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
+    this->setupButtons->initialButtonStyling_Layout(ui->phases_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
     this->setupButtons->changeButton_style(ui->phase1_button,no_icon,phasesButton_lightBackgroundColor);
     ui->phases_stack->setCurrentIndex(0);
-
     connectButtonsToSlots_Layout(ui->phases_layout, SIGNAL(clicked()), SLOT(changePhase()));
 
+    this->setupButtons->initialButtonStyling_Widget(ui->phases_stack, continueButton_BackgroundColor, phases_buttonSize);
 
-
-    this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
-    this->setupButtons->setButtonShadow(ui->continuePhase1_button);
+    //this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
+    //this->setupButtons->setButtonShadow(ui->continuePhase1_button);
     connectButtonsToSlots_Widget(ui->phases_stack, SIGNAL(clicked()),SLOT(nextPhase()));
 
 }
@@ -82,6 +81,20 @@ void MainWindow::connectButtonsToSlots_Widget(QObject *selectedWidget, const cha
    return;
 }
 
+void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[5], uint8_t array_size, QStackedWidget * page_stack, uint8_t icon[], uint8_t style)
+{
+    QString object_name = buttonSender->objectName();
+    int next_page = 0;
+    for(int i=0;i<array_size;i++){
+        if(object_name == buttons_name[i]){
+            next_page = i;
+        }
+    }
+    uint8_t choosen_icon = icon?icon[next_page]:no_icon;
+    page_stack->setCurrentIndex(next_page);
+    this->setupButtons->changeButton_style(buttonSender, choosen_icon, style);
+}
+
 void MainWindow::nextPhase()
 {
     int current_page = ui->phases_stack->currentIndex();
@@ -95,48 +108,18 @@ void MainWindow::nextPhase()
 void MainWindow::changePhase()
 {
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
-    int next_page = 0;
-    QString object_name = buttonSender->objectName();
-    if( object_name == "phase2_button"){
-        next_page = 1;
-    } else if(object_name == "phase3_button"){
-        next_page = 2;
-    } else if(object_name == "calculations_button"){
-        next_page = 3;
-    } else if(object_name == "position_button"){
-        next_page = 4;
-    }
-    ui->phases_stack->setCurrentIndex(next_page);
-    this->setupButtons->changeButton_style(buttonSender,no_icon,phasesButton_lightBackgroundColor);
+    QString buttons_name[5] = {"phase1_button","phase2_button","phase3_button","calculations_button","position_button"};
+    uint8_t array_size = sizeof(buttons_name)/sizeof(buttons_name[0]);
+    changePage(buttonSender, buttons_name, array_size, ui->phases_stack, NULL, phasesButton_lightBackgroundColor);
 }
 
 void MainWindow::changeOutsideExperimentPage()
 {
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
-    int next_page = 0;
-    uint8_t icon = 0;
-    QString object_name = buttonSender->objectName();
     QString buttons_name[] = {"historyButton","configurationButton","experimentButton"};
-    for(int i=0;i<3;i++){
-        if(object_name == buttons_name[i]){
-            next_page = i;
-            switch (i) {
-                case 0:
-                    icon = historyButton_lightIcon;
-                    break;
-                case 1:
-                    icon = configurationButton_lightIcon;
-                    break;
-                case 2:
-                    icon = experimentButton_lightIcon;
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
-    uint8_t style = headerButton_lightBackgroundColor;
-    this->setupButtons->changeButton_style(buttonSender, icon, style);
-    ui->outside_experiment_stack->setCurrentIndex(next_page);
+    uint8_t icon[3] = {historyButton_lightIcon,configurationButton_lightIcon,experimentButton_lightIcon};
+    uint8_t array_size = sizeof(buttons_name)/sizeof(buttons_name[0]);
+    changePage(buttonSender, buttons_name, array_size, ui->outside_experiment_stack, icon,headerButton_lightBackgroundColor);
 }
+
 

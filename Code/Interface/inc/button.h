@@ -35,8 +35,9 @@ public:
     Button();
     void setButtonShadow(QToolButton * button);
     void setButton_style_icon(QToolButton * button, uint8_t style, uint8_t icon);
-    void initialButtonStyling(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size);
+    void initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size);
     void changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style);
+    void initialButtonStyling_Widget(QObject * selectedWidget, uint8_t style_option, uint8_t size);
 
 
 

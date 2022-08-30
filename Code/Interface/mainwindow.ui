@@ -113,7 +113,7 @@ color:#10576D;
              <string>Histórico</string>
             </property>
             <property name="icon">
-             <iconset resource="images/resources.qrc">
+             <iconset>
               <normaloff>:/light_history.png</normaloff>:/light_history.png</iconset>
             </property>
             <property name="iconSize">
@@ -145,7 +145,7 @@ color:#10576D;
              <string>Experimento</string>
             </property>
             <property name="icon">
-             <iconset resource="images/resources.qrc">
+             <iconset>
               <normaloff>:/light_experiment.png</normaloff>:/light_experiment.png</iconset>
             </property>
             <property name="iconSize">
@@ -190,7 +190,7 @@ color:#10576D;
              <string>Configurações</string>
             </property>
             <property name="icon">
-             <iconset resource="images/resources.qrc">
+             <iconset>
               <normaloff>:/light_configuration.png</normaloff>:/light_configuration.png</iconset>
             </property>
             <property name="iconSize">
@@ -402,7 +402,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>3</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="phase1_page">
                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,12,2,1">
@@ -607,7 +607,7 @@ color: #10576D;
                      <string>Continuar</string>
                     </property>
                     <property name="icon">
-                     <iconset resource="images/resources.qrc">
+                     <iconset>
                       <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                     </property>
                     <property name="iconSize">
@@ -655,7 +655,7 @@ color: #10576D;
                  <string>Continuar</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="images/resources.qrc">
+                 <iconset>
                   <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -686,7 +686,7 @@ color: #10576D;
                  <string>Continuar</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="images/resources.qrc">
+                 <iconset>
                   <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -717,7 +717,7 @@ color: #10576D;
                  <string>Continuar</string>
                 </property>
                 <property name="icon">
-                 <iconset resource="images/resources.qrc">
+                 <iconset>
                   <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -746,8 +746,6 @@ color: #10576D;
    </layout>
   </widget>
  </widget>
- <resources>
-  <include location="images/resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
