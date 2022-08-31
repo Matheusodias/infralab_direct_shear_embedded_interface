@@ -49,7 +49,7 @@ typedef union interface_to_machine_message{
 typedef union  machine_to_interface_message{
     unsigned char payload[machine_payload_size]; /*!< String com os dados a serem enviados.*/
     struct {
-        uint32_t sample_number[2]; /* Número da amostra, [0] para as amostras de adensamento e [1] para as de cisalhamento.*/
+        uint32_t sample_number; /* Número da amostra, [0] para as amostras de adensamento e [1] para as de cisalhamento.*/
         uint32_t date_time[2];/*!< Dia, hora, minuto e segundo que o essa union foi enviada para a interface.*/
         float displacement[2];/*!< Valor do deslocamento, [0] para os deslocamentos verticais de adensamento e [1] para os horizontais de cisalhamento.*/
         float load[2];/*!< Valor da carga, [0] para as cargas verticais de adensamento e [1] para as horizontais de cisalhamento.*/
@@ -58,6 +58,14 @@ typedef union  machine_to_interface_message{
 
 Q_DECLARE_METATYPE(interface_to_machine_message);
 Q_DECLARE_METATYPE(machine_to_interface_message);
+
+
+
+// mandar só um numero de amostra e quando iniciar a fase de cisalhamento, subtrair o número de
+// amostra atual pelo último numero de 
+// amostra antes de iniciar o cisalhamento. Exemplo: 802 - 800 = numero de amostra 2 para cisalhamento
+// número 802 para adensamento.
+
 
 
 

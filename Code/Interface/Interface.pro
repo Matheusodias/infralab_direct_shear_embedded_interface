@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    field.cpp \
     src/button.cpp \
     src/main.cpp \
     src/mainwindow.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
     src/threadcontroller.cpp
 
 HEADERS += \
+    field.h \
     inc/button.h \
     inc/mainwindow.h \
     inc/receivedata.h \
@@ -35,5 +37,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     images/resources.qrc
 
-DISTFILES += \
-    images/light_history.png
+DISTFILES +=

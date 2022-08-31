@@ -101,11 +101,16 @@ void Button::iconsConfiguration()
 
 void Button::buttonSizeConfiguration()
 {
-    this->buttonMaximumSize[0] = QSize(300, 80);
-    this->buttonMinimumSize[0] = QSize(110, 70);
+    this->buttonMaximumSize[outsideExperiment_buttonSize] = QSize(300, 80);
+    this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(110, 70);
 
-    this->buttonMaximumSize[1] = QSize(16777215, 16777215);
-    this->buttonMinimumSize[1] = QSize(70, 35);
+    this->buttonMaximumSize[phases_buttonSize] = QSize(16777215, 16777215);
+    this->buttonMinimumSize[phases_buttonSize] = QSize(70, 35);
+
+
+    this->buttonMaximumSize[phases_continueButtonSize] = QSize(200, 100);
+    this->buttonMinimumSize[phases_continueButtonSize] = QSize(100, 30);
+
 
 }
 
@@ -214,7 +219,7 @@ void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_
         (*buttons)->setStyleSheet(this->button_styleSheets[style_option]);
         (*buttons)->setMaximumSize(this->buttonMaximumSize[size]);
         (*buttons)->setMinimumSize(this->buttonMinimumSize[size]);
-        (*buttons)->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        (*buttons)->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     }
 
     return;

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Aug 13 15:18:54 2022
+# Make data base, printed on Tue Aug 30 11:56:38 2022
 
 # Variables
 
@@ -49,7 +49,7 @@ PWD = /home/ivan/Documentos/2022/Codigo_TCC2
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-OLDPWD = /home/ivan/Documentos/2022/Codigo_TCC2/Interface
+OLDPWD = /home/ivan/Documentos/2022/Codigo_TCC2/Code
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -57,7 +57,7 @@ OLDPWD = /home/ivan/Documentos/2022/Codigo_TCC2/Interface
 # environment
 NVM_INC = /home/ivan/.nvm/versions/node/v16.15.1/include/node
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ivan/.config/Code/CachedData/da76f93349a72022ca4670c1b84860304616aaa2
+VSCODE_CODE_CACHE_PATH = /home/ivan/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
 # environment
 LANG = C
 # environment
@@ -67,7 +67,7 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.223
+GNOME_TERMINAL_SERVICE = :1.105
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +99,13 @@ MAKEFILE_LIST := Makefile
 # makefile (from 'Makefile', line 1)
 path = ../../../../Qt/5.15.2/gcc_64
 # environment
-VSCODE_PID = 35367
+VSCODE_PID = 11538
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3481,unix/ivan-550XDA:/tmp/.ICE-unix/3481
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3387,unix/ivan-550XDA:/tmp/.ICE-unix/3387
 # automatic
 *F = $(notdir $*)
 # environment
@@ -115,7 +115,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"89ebf7d0bb12d1282a52b02d65044dbc.pt-br","_translationsConfigFile":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br/tcf.json","_cacheRoot":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br","_resolvedLanguagePackCoreLocation":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br/da76f93349a72022ca4670c1b84860304616aaa2","_corruptedFile":"/home/ivan/.config/Code/clp/89ebf7d0bb12d1282a52b02d65044dbc.pt-br/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"8e7a008e83c664b9876a8f72ff0490ae.pt-br","_translationsConfigFile":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/tcf.json","_cacheRoot":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br","_resolvedLanguagePackCoreLocation":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/corrupted.info","_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -129,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a23c5f08_0593_4480_85cc_3aed9b5936fd
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/0abee594_aab0_48cc_a522_65930f802a4a
 # environment
 MAKELEVEL := 0
 # default
@@ -171,7 +171,7 @@ LOGNAME = ivan
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 3755
+SYSTEMD_EXEC_PID = 3724
 # environment
 DISPLAY = :0
 # environment
@@ -207,7 +207,7 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-168462f3-1.70.0-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-168462f3-1.70.2-main.sock
 # environment
 TERM = xterm-256color
 # environment
@@ -297,9 +297,9 @@ all:
 	/home/ivan/Qt/5.15.2/gcc_64/bin/moc -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG --include /home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug/moc_predefs.h -I/home/ivan/Qt/5.15.2/gcc_64/mkspecs/linux-g++ -I/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests -I/home/ivan/Qt/5.15.2/gcc_64/include -I/home/ivan/Qt/5.15.2/gcc_64/include/QtGui -I/home/ivan/Qt/5.15.2/gcc_64/include/QtTest -I/home/ivan/Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Codigo_TCC2/InterfaceTests/tst_sockettests.cpp -o tst_sockettests.moc
 	/home/ivan/Qt/5.15.2/gcc_64/bin/moc -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG --include /home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug/moc_predefs.h -I/home/ivan/Qt/5.15.2/gcc_64/mkspecs/linux-g++ -I/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests -I/home/ivan/Qt/5.15.2/gcc_64/include -I/home/ivan/Qt/5.15.2/gcc_64/include/QtGui -I/home/ivan/Qt/5.15.2/gcc_64/include/QtTest -I/home/ivan/Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Codigo_TCC2/Interface/threadcontroller.h -o moc_threadcontroller.cpp
 	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o moc_threadcontroller.o moc_threadcontroller.cpp
+ 
 	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o tst_sockettests.o ../Codigo_TCC2/InterfaceTests/tst_sockettests.cpp
 	g++ -Wl,-rpath,/home/ivan/Qt/5.15.2/gcc_64/lib -o InterfaceTests tst_sockettests.o receivedata.o threadcontroller.o machineclient.o moc_threadcontroller.o   /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Gui.so /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Test.so /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Core.so -lGL -lpthread
- 
 
 # Not a target:
 .SUFFIXES:
@@ -315,12 +315,12 @@ all:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 117 B / avg = 9 B
-# current buf: size = 8162 B / used = 117 B / count = 13 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 13 / storage = 111 B / avg = 8 B
+# current buf: size = 8162 B / used = 111 B / count = 13 / avg = 8 B
 
 # strcache performance: lookups = 20 / hit rate = 35%
 # hash-table stats:
 # Load=13/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Sat Aug 13 15:18:54 2022
+# Finished Make data base on Tue Aug 30 11:56:38 2022
 
  

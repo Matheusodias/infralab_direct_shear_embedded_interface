@@ -51,7 +51,7 @@ void MainWindow::InitialConfiguration_PhasesButtons()
     ui->phases_stack->setCurrentIndex(0);
     connectButtonsToSlots_Layout(ui->phases_layout, SIGNAL(clicked()), SLOT(changePhase()));
 
-    this->setupButtons->initialButtonStyling_Widget(ui->phases_stack, continueButton_BackgroundColor, phases_buttonSize);
+    this->setupButtons->initialButtonStyling_Widget(ui->phases_stack, continueButton_BackgroundColor, phases_continueButtonSize);
 
     //this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
     //this->setupButtons->setButtonShadow(ui->continuePhase1_button);

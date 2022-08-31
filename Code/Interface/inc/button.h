@@ -22,6 +22,7 @@
 #define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
 #define outsideExperiment_buttonSize 0
 #define phases_buttonSize 1
+#define phases_continueButtonSize 2
 
 /**
  * @brief Classe dos botões.

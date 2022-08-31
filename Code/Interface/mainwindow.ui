@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>881</width>
-    <height>468</height>
+    <width>1012</width>
+    <height>635</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -113,7 +113,7 @@ color:#10576D;
              <string>Histórico</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="images/resources.qrc">
               <normaloff>:/light_history.png</normaloff>:/light_history.png</iconset>
             </property>
             <property name="iconSize">
@@ -145,7 +145,7 @@ color:#10576D;
              <string>Experimento</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="images/resources.qrc">
               <normaloff>:/light_experiment.png</normaloff>:/light_experiment.png</iconset>
             </property>
             <property name="iconSize">
@@ -190,7 +190,7 @@ color:#10576D;
              <string>Configurações</string>
             </property>
             <property name="icon">
-             <iconset>
+             <iconset resource="images/resources.qrc">
               <normaloff>:/light_configuration.png</normaloff>:/light_configuration.png</iconset>
             </property>
             <property name="iconSize">
@@ -402,7 +402,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="phase1_page">
                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,12,2,1">
@@ -607,7 +607,7 @@ color: #10576D;
                      <string>Continuar</string>
                     </property>
                     <property name="icon">
-                     <iconset>
+                     <iconset resource="images/resources.qrc">
                       <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                     </property>
                     <property name="iconSize">
@@ -639,35 +639,260 @@ color: #10576D;
                </layout>
               </widget>
               <widget class="QWidget" name="phase2_page">
-               <widget class="QToolButton" name="continuePhase2_button">
-                <property name="geometry">
-                 <rect>
-                  <x>360</x>
-                  <y>210</y>
-                  <width>116</width>
-                  <height>37</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Continuar</string>
-                </property>
-                <property name="icon">
-                 <iconset>
-                  <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_6" stretch="3,9,2">
+                <item>
+                 <widget class="QScrollArea" name="scrollAreaPhase2">
+                  <property name="minimumSize">
+                   <size>
+                    <width>200</width>
+                    <height>85</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color:white;
+</string>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Raised</enum>
+                  </property>
+                  <property name="lineWidth">
+                   <number>1</number>
+                  </property>
+                  <property name="widgetResizable">
+                   <bool>true</bool>
+                  </property>
+                  <widget class="QWidget" name="scrollAreaWidgetContentsPhase2">
+                   <property name="geometry">
+                    <rect>
+                     <x>0</x>
+                     <y>0</y>
+                     <width>942</width>
+                     <height>518</height>
+                    </rect>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <item>
+                     <widget class="QFrame" name="frame_Phase2">
+                      <property name="minimumSize">
+                       <size>
+                        <width>500</width>
+                        <height>500</height>
+                       </size>
+                      </property>
+                      <property name="frameShape">
+                       <enum>QFrame::NoFrame</enum>
+                      </property>
+                      <property name="frameShadow">
+                       <enum>QFrame::Plain</enum>
+                      </property>
+                      <property name="lineWidth">
+                       <number>0</number>
+                      </property>
+                      <layout class="QVBoxLayout" name="verticalLayout_13" stretch="2,5">
+                       <item>
+                        <layout class="QGridLayout" name="gridLayout_Phase2">
+                         <item row="0" column="0">
+                          <layout class="QVBoxLayout" name="verticalLayout_SamplePreparation">
+                           <item>
+                            <widget class="QLabel" name="label_SamplePreparation">
+                             <property name="text">
+                              <string>Preparações da amostra</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_SamplePreparation">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="minimumSize">
+                              <size>
+                               <width>100</width>
+                               <height>15</height>
+                              </size>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item row="0" column="1">
+                          <layout class="QVBoxLayout" name="verticalLayout_SampleId">
+                           <item>
+                            <widget class="QLabel" name="label_SampleId">
+                             <property name="text">
+                              <string>Id da amostra</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_SampleId">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item row="1" column="0">
+                          <layout class="QVBoxLayout" name="verticalLayout_BoringNumber">
+                           <item>
+                            <widget class="QLabel" name="label_BoringNumber">
+                             <property name="text">
+                              <string>Número do furo</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_BoringNumber">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                         <item row="1" column="1">
+                          <layout class="QVBoxLayout" name="verticalLayout_SampleLocalization">
+                           <item>
+                            <widget class="QLabel" name="label_SampleLocalization">
+                             <property name="text">
+                              <string>Localização da amostra</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLineEdit" name="lineEdit_SampleLocalization">
+                             <property name="sizePolicy">
+                              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                               <horstretch>0</horstretch>
+                               <verstretch>0</verstretch>
+                              </sizepolicy>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </item>
+                       <item>
+                        <layout class="QVBoxLayout" name="verticalLayout_SampleDescription">
+                         <item>
+                          <widget class="QLabel" name="label_SampleDescription">
+                           <property name="text">
+                            <string>Descrição da amostra</string>
+                           </property>
+                          </widget>
+                         </item>
+                         <item>
+                          <widget class="QLineEdit" name="lineEdit_SampleDescription">
+                           <property name="sizePolicy">
+                            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                             <horstretch>0</horstretch>
+                             <verstretch>0</verstretch>
+                            </sizepolicy>
+                           </property>
+                           <property name="alignment">
+                            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </item>
+                      </layout>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="11,0,2">
+                  <item>
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="continuePhase1_button_2">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Continuar</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="images/resources.qrc">
+                      <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="phase3_page">
                <widget class="QToolButton" name="continuePhase3_button">
@@ -686,7 +911,7 @@ color: #10576D;
                  <string>Continuar</string>
                 </property>
                 <property name="icon">
-                 <iconset>
+                 <iconset resource="images/resources.qrc">
                   <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -717,7 +942,7 @@ color: #10576D;
                  <string>Continuar</string>
                 </property>
                 <property name="icon">
-                 <iconset>
+                 <iconset resource="images/resources.qrc">
                   <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
                 </property>
                 <property name="iconSize">
@@ -746,6 +971,8 @@ color: #10576D;
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="images/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>
