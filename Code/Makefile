@@ -1,7 +1,7 @@
 src_dir := src
 obj_dir := obj
 build_dir := ../../build
-file := ../Interface/Interface.pro
+file := ../../Interface/Interface.pro
 executable:= ./Interface
 
   # new variable
