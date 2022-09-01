@@ -128,10 +128,10 @@ void SocketTests::test_receiveDataFromMachine()
     //Tempo mínimo de intervalo entre um envio e outro
     QThread::msleep(500);
 
-    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number[0],message.sample_number[0]);
-    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number[1],message.sample_number[1]);
-    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time[0],message.date_time[0]);
-    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time[1],message.date_time[1]);
+    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number,message.sample_number);
+    //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number[1],message.sample_number[1]);
+    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time,message.date_time);
+    //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time[1],message.date_time[1]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.displacement[0],message.displacement[0]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.displacement[1],message.displacement[1]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.load[0],message.load[0]);
@@ -150,11 +150,11 @@ void SocketTests::test_receiveDataFromMachine_data()
     QTest::addColumn<machine_to_interface_message>("message");
     
     machine_to_interface_message test_message[10000];
-    for(int i=0,j=0;i<2000;i+=4,j++){
-        test_message[j].sample_number[0] = 10 + i;
-        test_message[j].sample_number[1] = 20 + i;
-        test_message[j].date_time[0] = 30 + i;
-        test_message[j].date_time[1] = 40 + i;
+    for(int i=0,j=0;i<100;i+=4,j++){
+        test_message[j].sample_number = 10 + i;
+        //test_message[j].sample_number[1] = 20 + i;
+        test_message[j].date_time = 30 + i;
+        //test_message[j].date_time[1] = 40 + i;
         test_message[j].displacement[0] = 50.2 + i;
         test_message[j].displacement[1] = 60.2 + i;;
         test_message[j].load[0] = 70.2 + i;

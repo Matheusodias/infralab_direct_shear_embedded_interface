@@ -1,4 +1,4 @@
-#include "inc/receivedata.h"
+#include "../../Interface/inc/receivedata.h"
 #include<QDebug>
 #include <string.h>
 #include <unistd.h>
@@ -80,6 +80,14 @@ void receiveData::readClientMessage()
 {
     while(1){
         int value = read(this->client_socket_id,&this->machine_message.payload,machine_payload_size);
+        qDebug() << "SampleNumber" << this->machine_message.sample_number;
+        qDebug() << "DateTime" << this->machine_message.date_time;
+        qDebug() << "Displacement[0]" << this->machine_message.displacement[0];
+        qDebug() << "Displacement[1]" << this->machine_message.displacement[1];
+        qDebug() << "Load[0]" << this->machine_message.load[0];
+        qDebug() << "Load[1]" << this->machine_message.load[1];
+
+
         if(value<=0){
             break;
         };

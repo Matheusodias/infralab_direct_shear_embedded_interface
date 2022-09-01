@@ -1,8 +1,8 @@
 #include <QDebug>
 #include <stdint.h>
 
-#include "inc/threadcontroller.h"
-#include "inc/receivedata.h"
+#include "../../Interface/inc/threadcontroller.h"
+#include "../../Interface/inc/receivedata.h"
 
 /**
  * @brief Construtor da classe Thread Controller.

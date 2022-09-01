@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 30 11:56:38 2022
+# Make data base, printed on Thu Sep  1 15:25:19 2022
 
 # Variables
 
@@ -67,7 +67,7 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.105
+GNOME_TERMINAL_SERVICE = :1.150
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -92,20 +92,18 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu-xorg:/etc/xdg
 +D = $(patsubst %/,%,$(dir $+))
 # environment
 XDG_SESSION_DESKTOP = ubuntu-xorg
-# makefile (from 'Makefile', line 1)
-MAKEFILE_LIST := Makefile
+# makefile
+MAKEFILE_LIST := 
 # automatic
 @F = $(notdir $@)
-# makefile (from 'Makefile', line 1)
-path = ../../../../Qt/5.15.2/gcc_64
 # environment
-VSCODE_PID = 11538
+VSCODE_PID = 15716
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3387,unix/ivan-550XDA:/tmp/.ICE-unix/3387
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3324,unix/ivan-550XDA:/tmp/.ICE-unix/3324
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +127,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/0abee594_aab0_48cc_a522_65930f802a4a
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/3bc4d0f1_ea33_4a66_a82b_7acd871bc157
 # environment
 MAKELEVEL := 0
 # default
@@ -169,9 +167,9 @@ GNUMAKEFLAGS :=
 # environment
 LOGNAME = ivan
 # makefile
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 3724
+SYSTEMD_EXEC_PID = 3536
 # environment
 DISPLAY = :0
 # environment
@@ -233,7 +231,7 @@ GDMSESSION = ubuntu-xorg
 # environment
 LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=111/1024=11%, Rehash=0, Collisions=11/144=8%
+# Load=110/1024=11%, Rehash=0, Collisions=11/137=8%
 
 # Pattern-specific Variable Values
 
@@ -241,9 +239,9 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 
 # Directories
 
-# . (device 66306, inode 3562735): 8 files, no impossibilities.
+# . (device 66306, inode 3562735): 7 files, no impossibilities.
 
-# 8 files, no impossibilities in 1 directories.
+# 7 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -254,9 +252,9 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-01 18:36:21.841100168
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
+#  Failed to be updated.
 
 # Not a target:
 .DEFAULT:
@@ -264,63 +262,44 @@ Makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
 all:
 #  Command line target.
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
+#  Implicit rule search has been done.
 #  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := all
-# automatic
-# * := 
-# automatic
-# < := 
-# automatic
-# + := 
-# automatic
-# % := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
-#  recipe to execute (from 'Makefile', line 4):
-	g++ -pipe -g -Wall -Wextra -dM -E -o moc_predefs.h ../../../Qt/5.15.2/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o receivedata.o ../Codigo_TCC2/Interface/receivedata.cpp
-	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o threadcontroller.o ../Codigo_TCC2/Interface/threadcontroller.cpp
-	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o machineclient.o ../Codigo_TCC2/InterfaceTests/machineclient.cpp
-	/home/ivan/Qt/5.15.2/gcc_64/bin/moc -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG --include /home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug/moc_predefs.h -I/home/ivan/Qt/5.15.2/gcc_64/mkspecs/linux-g++ -I/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests -I/home/ivan/Qt/5.15.2/gcc_64/include -I/home/ivan/Qt/5.15.2/gcc_64/include/QtGui -I/home/ivan/Qt/5.15.2/gcc_64/include/QtTest -I/home/ivan/Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Codigo_TCC2/InterfaceTests/tst_sockettests.cpp -o tst_sockettests.moc
-	/home/ivan/Qt/5.15.2/gcc_64/bin/moc -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG --include /home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug/moc_predefs.h -I/home/ivan/Qt/5.15.2/gcc_64/mkspecs/linux-g++ -I/home/ivan/Documentos/2022/Codigo_TCC2/InterfaceTests -I/home/ivan/Qt/5.15.2/gcc_64/include -I/home/ivan/Qt/5.15.2/gcc_64/include/QtGui -I/home/ivan/Qt/5.15.2/gcc_64/include/QtTest -I/home/ivan/Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Codigo_TCC2/Interface/threadcontroller.h -o moc_threadcontroller.cpp
-	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o moc_threadcontroller.o moc_threadcontroller.cpp
- 
-	g++ -c -pipe -g -Wall -Wextra -D_REENTRANT -fPIC -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/ivan/Documentos/2022/build-InterfaceTests-Desktop_Qt_5_15_2_GCC_64bit-Debug"' -DQT_QML_DEBUG -I../Codigo_TCC2/InterfaceTests -I. -I../../../Qt/5.15.2/gcc_64/include -I../../../Qt/5.15.2/gcc_64/include/QtGui -I../../../Qt/5.15.2/gcc_64/include/QtTest -I../../../Qt/5.15.2/gcc_64/include/QtCore -I. -I/usr/include/libdrm -I../../../Qt/5.15.2/gcc_64/mkspecs/linux-g++ -o tst_sockettests.o ../Codigo_TCC2/InterfaceTests/tst_sockettests.cpp
-	g++ -Wl,-rpath,/home/ivan/Qt/5.15.2/gcc_64/lib -o InterfaceTests tst_sockettests.o receivedata.o threadcontroller.o machineclient.o moc_threadcontroller.o   /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Gui.so /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Test.so /home/ivan/Qt/5.15.2/gcc_64/lib/libQt5Core.so -lGL -lpthread
-
-# Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+makefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
+ 
+make: *** No rule to make target 'all'.  Stop.
+
+# Not a target:
+GNUmakefile:
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Failed to be updated.
+
 # files hash-table stats:
-# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
+# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 111 B / avg = 8 B
-# current buf: size = 8162 B / used = 111 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 15 / storage = 132 B / avg = 8 B
+# current buf: size = 8162 B / used = 132 B / count = 15 / avg = 8 B
 
-# strcache performance: lookups = 20 / hit rate = 35%
+# strcache performance: lookups = 18 / hit rate = 16%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=0/20=0%
-# Finished Make data base on Tue Aug 30 11:56:38 2022
+# Load=15/8192=0%, Rehash=0, Collisions=0/18=0%
+# Finished Make data base on Thu Sep  1 15:25:19 2022
 
  
