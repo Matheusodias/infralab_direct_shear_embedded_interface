@@ -1,6 +1,8 @@
 src_dir := src
 obj_dir := obj
-build_dir := build
+build_dir := ../../build
+file := ../Interface/Interface.pro
+executable:= ./Interface
 
   # new variable
 
@@ -11,6 +13,6 @@ $(build_dir):                                     # rule which makes missing dir
 	mkdir $@
 
 compile:
-	cd $(build_dir);qmake ../Interface/Interface.pro;./Interface;
+	cd $(build_dir);qmake $(file); $(executable);
 
 
