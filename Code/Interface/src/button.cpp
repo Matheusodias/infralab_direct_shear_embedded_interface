@@ -105,7 +105,7 @@ void Button::buttonSizeConfiguration()
     this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(110, 70);
 
     this->buttonMaximumSize[phases_buttonSize] = QSize(16777215, 16777215);
-    this->buttonMinimumSize[phases_buttonSize] = QSize(70, 35);
+    this->buttonMinimumSize[phases_buttonSize] = QSize(70, 50);
 
 
     this->buttonMaximumSize[phases_continueButtonSize] = QSize(200, 100);

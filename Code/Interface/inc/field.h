@@ -8,7 +8,7 @@ class Field : public QObject
     Q_OBJECT
 public:
     explicit Field(QObject *parent = nullptr);
-    void customizeField(QGridLayout * gridLayout);
+    void customizeField(QLayout * gridLayout);
 
 private:
     QSize FieldMaximumSize[10];

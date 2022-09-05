@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Sep  1 15:25:19 2022
+# Make data base, printed on Mon Sep  5 20:24:17 2022
 
 # Variables
 
@@ -67,7 +69,7 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.150
+GNOME_TERMINAL_SERVICE = :1.141
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -97,13 +99,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 15716
+VSCODE_PID = 36182
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3324,unix/ivan-550XDA:/tmp/.ICE-unix/3324
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3433,unix/ivan-550XDA:/tmp/.ICE-unix/3433
 # automatic
 *F = $(notdir $*)
 # environment
@@ -127,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/3bc4d0f1_ea33_4a66_a82b_7acd871bc157
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a055e2eb_2387_484d_81b0_0c6158384424
 # environment
 MAKELEVEL := 0
 # default
@@ -169,7 +171,7 @@ LOGNAME = ivan
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 3536
+SYSTEMD_EXEC_PID = 3715
 # environment
 DISPLAY = :0
 # environment
@@ -239,9 +241,9 @@ LC_IDENTIFICATION = pt_BR.UTF-8
 
 # Directories
 
-# . (device 66306, inode 3562735): 7 files, no impossibilities.
+# . (device 66306, inode 3562735): 8 files, no impossibilities.
 
-# 7 files, no impossibilities in 1 directories.
+# 8 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -276,9 +278,6 @@ makefile:
 #  File has been updated.
 #  Failed to be updated.
 
- 
-make: *** No rule to make target 'all'.  Stop.
-
 # Not a target:
 GNUmakefile:
 #  Implicit rule search has been done.
@@ -294,12 +293,13 @@ GNUmakefile:
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 15 / storage = 132 B / avg = 8 B
-# current buf: size = 8162 B / used = 132 B / count = 15 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 16 / storage = 140 B / avg = 8 B
+# current buf: size = 8162 B / used = 140 B / count = 16 / avg = 8 B
 
-# strcache performance: lookups = 18 / hit rate = 16%
+# strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
-# Load=15/8192=0%, Rehash=0, Collisions=0/18=0%
-# Finished Make data base on Thu Sep  1 15:25:19 2022
+ 
+# Load=16/8192=0%, Rehash=0, Collisions=0/19=0%
+# Finished Make data base on Mon Sep  5 20:24:17 2022
 
  

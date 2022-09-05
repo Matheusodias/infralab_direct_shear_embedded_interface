@@ -1,5 +1,6 @@
 #include "inc/mainwindow.h"
 #include "ui_mainwindow.h"
+#include "inc/field.h"
 #include<QDebug>
 
 /**
@@ -14,11 +15,14 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->lineEdit->setInputMethodHints(inputMethodHints() | Qt::InputMethodHint::ImhDigitsOnly);
+    //ui->lineEdit->setInputMethodHints(inputMethodHints() | Qt::InputMethodHint::ImhDigitsOnly);
     this->setupButtons = new Button();
+    this->setupFields = new Field();
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
     InitialConfiguration_PhasesButtons();
+    InitialConfiguration_PhasesFields();
+
 }
 
 
@@ -57,6 +61,13 @@ void MainWindow::InitialConfiguration_PhasesButtons()
     //this->setupButtons->setButtonShadow(ui->continuePhase1_button);
     connectButtonsToSlots_Widget(ui->phases_stack, SIGNAL(clicked()),SLOT(nextPhase()));
 
+}
+
+void MainWindow::InitialConfiguration_PhasesFields()
+{
+    this->setupFields->customizeField(ui->phase1_gridLayout);
+    this->setupFields->customizeField(ui->phase2_gridLayout);
+    this->setupFields->customizeField(ui->phase3_gridLayout);
 }
 
 void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char *signal, const char *slot)

@@ -5,6 +5,7 @@
 #include <QToolButton>
 #include <QStackedWidget>
 #include "button.h"
+#include "field.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -33,9 +34,11 @@ private slots:
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
     Button *setupButtons; /*!< Instância da classe Button para a estilização dos botões.*/
+    Field *setupFields;
 
     void InitialConfiguration_OutsideExperimentHeaderButtons();
     void InitialConfiguration_PhasesButtons();
+    void InitialConfiguration_PhasesFields();
 
     void connectButtonsToSlots_Layout(QHBoxLayout * list, const char *signal, const char *slot);
 
