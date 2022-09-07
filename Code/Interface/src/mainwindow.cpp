@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "inc/field.h"
 #include<QDebug>
+#include <QLineEdit>
+#include "inc/experiment.h"
 
 /**
  * @brief Constrói uma nova janela principal.
@@ -17,11 +19,27 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //ui->lineEdit->setInputMethodHints(inputMethodHints() | Qt::InputMethodHint::ImhDigitsOnly);
     this->setupButtons = new Button();
-    this->setupFields = new Field();
+
+    this->info_variables = new Experiment();
+    this->setupFields = new Field(this->info_variables);
+    this->phasesTable = new Table(this->info_variables);
+
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
     InitialConfiguration_PhasesButtons();
     InitialConfiguration_PhasesFields();
+    InitialConfiguration_Tables();
+
+
+    connect(ui->sampleDescription_lineEdit, SIGNAL(editingFinished()),this->setupFields, SLOT(setVariables()));
+
+    this->timer = new QTimer(this);
+
+    connect(timer, SIGNAL(timeout()), this, SLOT( changeInitialPositionValue()) );
+
+
+
+
 
 }
 
@@ -59,7 +77,14 @@ void MainWindow::InitialConfiguration_PhasesButtons()
 
     //this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
     //this->setupButtons->setButtonShadow(ui->continuePhase1_button);
-    connectButtonsToSlots_Widget(ui->phases_stack, SIGNAL(clicked()),SLOT(nextPhase()));
+    connectButtonsToSlots_Widget(ui->phase1_page, SIGNAL(clicked()),SLOT(nextPhase()));
+    connectButtonsToSlots_Widget(ui->phase2_page, SIGNAL(clicked()),SLOT(nextPhase()));
+    connectButtonsToSlots_Widget(ui->phase3_page, SIGNAL(clicked()),SLOT(nextPhase()));
+    connectButtonsToSlots_Widget(ui->calculations_page, SIGNAL(clicked()),SLOT(nextPhase()));
+
+    connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(clicked()), SLOT(changeInitialPositionValue()));
+    connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(pressed()), SLOT(onPositionButton_pressed()));
+    connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(released()), SLOT(onPositionButton_released()));
 
 }
 
@@ -68,14 +93,26 @@ void MainWindow::InitialConfiguration_PhasesFields()
     this->setupFields->customizeField(ui->phase1_gridLayout);
     this->setupFields->customizeField(ui->phase2_gridLayout);
     this->setupFields->customizeField(ui->phase3_gridLayout);
+
+    this->setupFields->customizeOneField(ui->initialPosition_label, ui->initialPosition_lineEdit);
+    ui->initialPosition_lineEdit->setAlignment(Qt::AlignCenter);
+    ui->initialPosition_lineEdit->setFont(QFont ( "Ubuntu", 30, QFont::Normal));
+}
+
+void MainWindow::InitialConfiguration_Tables()
+{
+    this->phasesTable->customizeTable(ui->phases_tableWidget);
+    this->phasesTable->initialConfig_TablePhases(ui->phases_tableWidget);
 }
 
 void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char *signal, const char *slot)
 {
+
     QLayout *layout = boxlayout->layout();
     if (layout) {
         for (int i = 0; i < layout->count(); ++i){
            QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+
            if(button){
                 connect(button, signal,this,slot);
            }
@@ -85,6 +122,7 @@ void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char
 
 void MainWindow::connectButtonsToSlots_Widget(QObject *selectedWidget, const char *signal, const char *slot)
 {
+
    QList<QToolButton*> selectedButtons = selectedWidget->findChildren<QToolButton*>();
    for(QList<QToolButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
        connect(*buttons, signal,this,slot);
@@ -104,6 +142,10 @@ void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[5], 
     uint8_t choosen_icon = icon?icon[next_page]:no_icon;
     page_stack->setCurrentIndex(next_page);
     this->setupButtons->changeButton_style(buttonSender, choosen_icon, style);
+
+    if(next_page == 3){
+        this->phasesTable->updateData_TablePhases(ui->phases_tableWidget);
+    }
 }
 
 void MainWindow::nextPhase()
@@ -114,6 +156,10 @@ void MainWindow::nextPhase()
     QToolButton * button = qobject_cast<QToolButton*>(ui->phases_layout->itemAt(next_page)->widget());
     ui->phases_stack->setCurrentIndex(next_page);
     this->setupButtons->changeButton_style(button,no_icon,phasesButton_lightBackgroundColor);
+
+    if(next_page == 3){
+        this->phasesTable->updateData_TablePhases(ui->phases_tableWidget);
+    }
 }
 
 void MainWindow::changePhase()
@@ -131,6 +177,49 @@ void MainWindow::changeOutsideExperimentPage()
     uint8_t icon[3] = {historyButton_lightIcon,configurationButton_lightIcon,experimentButton_lightIcon};
     uint8_t array_size = sizeof(buttons_name)/sizeof(buttons_name[0]);
     changePage(buttonSender, buttons_name, array_size, ui->outside_experiment_stack, icon,headerButton_lightBackgroundColor);
+}
+
+void MainWindow::changeInitialPositionValue()
+{
+
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
+    if(!buttonSender){
+        buttonSender = currentPressedButton;
+    }
+    QString button_names[] = {
+         "minus100_toolButton",
+         "minus10_toolButton",
+         "minus1_toolButton",
+         "plus1_toolButton",
+         "plus10_toolButton",
+         "plus100_toolButton"
+    };
+    float move[] = {-0.1,-0.01,-0.001, 0.001, 0.01, 0.1};
+    float add = 0.0;
+    for(int i = 0;i < sizeof(button_names)/sizeof(QString);i++)
+    {
+        if(button_names[i]== buttonSender->objectName()){
+            add = move[i];
+        }
+    }
+
+    QString current_text = ui->initialPosition_lineEdit->text();
+    float new_position = current_text.toFloat() + add;
+    ui->initialPosition_lineEdit->setText(QString::number(new_position));
+
+}
+
+void MainWindow::onPositionButton_pressed()
+{
+    timer->start(100);
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
+    currentPressedButton = buttonSender;
+}
+
+void MainWindow::onPositionButton_released()
+{
+    timer->stop();
+    currentPressedButton = nullptr;
 }
 
 

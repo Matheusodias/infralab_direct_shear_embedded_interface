@@ -114,6 +114,8 @@ void Button::buttonSizeConfiguration()
 
 }
 
+
+
 /**
  * @brief Estiliza um QPushButton ou QToolButton para ter sombra.
  * 

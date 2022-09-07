@@ -2,12 +2,20 @@
 #include <QLineEdit>
 #include <QLabel>
 #include <QDebug>
-Field::Field(QObject *parent)
-    : QObject{parent}
+
+
+
+Field::Field(Experiment *parent)
 {
 
+    info_variables = parent;
     this->FieldMinimumSize[0] = QSize(100, 15);
     this->FieldMaximumSize[0] = QSize(1000, 100);
+
+
+
+
+
 
 
 }
@@ -24,22 +32,113 @@ void Field::customizeField(QLayout *gridLayout)
 
             if(lineEdit && label){
                 //qDebug() << lineEdit->objectName();
-
-                //lineEdit->setMaximumSize(this->lineEditMaximumSize[size]);
-                lineEdit->setAlignment(Qt::AlignTop);
-                lineEdit->setMinimumSize(this->FieldMinimumSize[0]);
-                lineEdit->setMaximumSize(this->FieldMaximumSize[0]);
-                lineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-                lineEdit->setFont(QFont ( "Ubuntu", 13, QFont::Normal));
-
-                QFont font( "Ubuntu", 15, QFont::Bold);
-                label->setFont(font);
-                label->setStyleSheet("color: #10576D;");
-                label->setAlignment(Qt::AlignBottom);
+                customizeOneField(label, lineEdit);
             }
 
 
        }
     }
+
+}
+
+
+void Field::customizeOneField(QLabel *label, QLineEdit *lineEdit){
+    //lineEdit->setMaximumSize(this->lineEditMaximumSize[size]);
+    lineEdit->setAlignment(Qt::AlignTop);
+    lineEdit->setMinimumSize(this->FieldMinimumSize[0]);
+    lineEdit->setMaximumSize(this->FieldMaximumSize[0]);
+    lineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    lineEdit->setFont(QFont ( "Ubuntu", 13, QFont::Normal));
+
+    QFont font( "Ubuntu", 15, QFont::Bold);
+    label->setFont(font);
+    label->setStyleSheet("color: #10576D;");
+    label->setAlignment(Qt::AlignBottom);
+
+
+    connect(lineEdit, SIGNAL(editingFinished()),this, SLOT(setVariables()));
+}
+
+void Field::setVariables()
+{
+    QLineEdit* field = qobject_cast<QLineEdit*>(sender());
+    QString fieldNames[] = {
+        "experimentName_lineEdit", "operator_lineEdit", "testType_lineEdit",
+        "specimenType_lineEdit", "uscs_lineEdit", "ashto_lineEdit",
+        "samplePreparation_lineEdit", "sampleId_lineEdit", "boringNumber_lineEdit",
+        "sampleLocation_lineEdit", "sampleDescription_lineEdit", "height_lineEdit",
+        "wetWeight_lineEdit", "humidity_lineEdit", "spgr_lineEdit",
+        "plastic_lineEdit", "liquid_lineEdit", "diameter_lineEdit",
+    };
+
+
+    //p->(32);
+//    typedef void (Experiment:*functionType)(void);
+//    functionType func[3] = {&Experiment::setName};
+
+    for( int i=0;i<sizeof(fieldNames)/sizeof(QString);i++){
+        if(field->objectName() == fieldNames[i]){
+            switch(i){
+                case 0:
+                    info_variables->setName(field->text());
+                break;
+                case 1:
+                    info_variables->setOperator_name(field->text());
+                break;
+                case 2:
+                    info_variables->setTest_type(field->text());
+                break;
+                case 3:
+                    info_variables->setSpecimen_type(field->text());
+                break;
+                case 4:
+                    info_variables->setUscs_class(field->text());
+                break;
+                case 5:
+                    info_variables->setAshto_class(field->text());
+                break;
+                case 6:
+                    info_variables->setSample_preparations(field->text());
+                break;
+                case 7:
+                    info_variables->setSample_id(field->text().toInt());
+                break;
+                case 8:
+                    info_variables->setBoring_number(field->text().toInt());
+                break;
+                case 9:
+                    info_variables->setSample_location(field->text());
+                break;
+                case 10:
+                    info_variables->setSample_description(field->text());
+                break;
+                case 11:
+                    info_variables->setInitial_height(field->text().toFloat());
+                break;
+                case 12:
+                    info_variables->setInitial_wet_weight(field->text().toFloat());
+                break;
+                case 13:
+                    info_variables->setInitial_moisture(field->text().toFloat());
+                break;
+                case 14:
+                    info_variables->setSpgr_solids(field->text().toFloat());
+                break;
+                case 15:
+                    info_variables->setPlastic_limit(field->text().toFloat());
+                break;
+                case 16:
+                    info_variables->setLiquid_limit(field->text().toFloat());
+                break;
+                case 17:
+                    info_variables->setDiameter(field->text().toFloat());
+                break;
+                default:
+                break;
+
+            }
+        }
+    }
+
 
 }

@@ -4,8 +4,10 @@
 #include <QMainWindow>
 #include <QToolButton>
 #include <QStackedWidget>
+#include <QTimer>
 #include "button.h"
 #include "field.h"
+#include "table.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,6 +24,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    Experiment * info_variables;
 
 private slots:
 
@@ -31,14 +34,28 @@ private slots:
 
     void changeOutsideExperimentPage();
 
+    void changeInitialPositionValue();
+
+    void onPositionButton_pressed();
+
+    void onPositionButton_released();
+
+
+
+
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
     Button *setupButtons; /*!< Instância da classe Button para a estilização dos botões.*/
     Field *setupFields;
+    Table *phasesTable;
+    QTimer *timer;
+    QToolButton * currentPressedButton;
+
 
     void InitialConfiguration_OutsideExperimentHeaderButtons();
     void InitialConfiguration_PhasesButtons();
     void InitialConfiguration_PhasesFields();
+    void InitialConfiguration_Tables();
 
     void connectButtonsToSlots_Layout(QHBoxLayout * list, const char *signal, const char *slot);
 

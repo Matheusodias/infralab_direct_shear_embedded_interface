@@ -62,6 +62,9 @@ private:
 
 signals:
 
+public slots:
+
+
 };
 
 #endif // BUTTON_H

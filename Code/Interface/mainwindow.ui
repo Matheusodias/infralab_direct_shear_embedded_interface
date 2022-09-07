@@ -402,7 +402,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>2</number>
+               <number>4</number>
               </property>
               <widget class="QWidget" name="phase1_page">
                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="10,2,2">
@@ -627,28 +627,28 @@ color: #10576D;
                   <item row="1" column="0">
                    <layout class="QVBoxLayout" name="boringNumber_layout">
                     <item>
-                     <widget class="QLabel" name="label_20">
+                     <widget class="QLabel" name="boringNumber_label">
                       <property name="text">
                        <string>Número do furo</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_18"/>
+                     <widget class="QLineEdit" name="boringNumber_lineEdit"/>
                     </item>
                    </layout>
                   </item>
                   <item row="1" column="1">
                    <layout class="QVBoxLayout" name="sampleLocation_layout">
                     <item>
-                     <widget class="QLabel" name="label_18">
+                     <widget class="QLabel" name="sampleLocation_label">
                       <property name="text">
                        <string>Localização da amostra</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_16"/>
+                     <widget class="QLineEdit" name="sampleLocation_lineEdit"/>
                     </item>
                    </layout>
                   </item>
@@ -658,7 +658,7 @@ color: #10576D;
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="label_17">
+                     <widget class="QLabel" name="samplePreparation_label">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -677,7 +677,7 @@ color: #10576D;
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_15">
+                     <widget class="QLineEdit" name="samplePreparation_lineEdit">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -694,14 +694,14 @@ color: #10576D;
                   <item row="0" column="1">
                    <layout class="QVBoxLayout" name="sampleIdLayout">
                     <item>
-                     <widget class="QLabel" name="label_15">
+                     <widget class="QLabel" name="sampleId_label">
                       <property name="text">
                        <string>Id da amostra</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_13"/>
+                     <widget class="QLineEdit" name="sampleId_lineEdit"/>
                     </item>
                    </layout>
                   </item>
@@ -731,7 +731,7 @@ color: #10576D;
                      <number>30</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="label_21">
+                     <widget class="QLabel" name="sampleDescription_label">
                       <property name="font">
                        <font>
                         <pointsize>15</pointsize>
@@ -750,18 +750,15 @@ color: #10576D;
                      </widget>
                     </item>
                     <item>
-                     <widget class="QTextEdit" name="textEdit">
-                      <property name="minimumSize">
-                       <size>
-                        <width>100</width>
-                        <height>15</height>
-                       </size>
+                     <widget class="QLineEdit" name="sampleDescription_lineEdit">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
                       </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>1000</width>
-                        <height>16777215</height>
-                       </size>
+                      <property name="alignment">
+                       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
                       </property>
                      </widget>
                     </item>
@@ -866,41 +863,13 @@ color: #10576D;
                   <property name="verticalSpacing">
                    <number>20</number>
                   </property>
-                  <item row="0" column="1">
-                   <layout class="QVBoxLayout" name="wetWeigth_layout">
-                    <item>
-                     <widget class="QLabel" name="label_16">
-                      <property name="text">
-                       <string>Peso úmido (g)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="lineEdit_14"/>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="0">
-                   <layout class="QVBoxLayout" name="plastic_layout">
-                    <item>
-                     <widget class="QLabel" name="label_19">
-                      <property name="text">
-                       <string>Limite de plasticidade (%)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="lineEdit_17"/>
-                    </item>
-                   </layout>
-                  </item>
                   <item row="0" column="0">
                    <layout class="QVBoxLayout" name="height_layout" stretch="0,0">
                     <property name="spacing">
                      <number>0</number>
                     </property>
                     <item>
-                     <widget class="QLabel" name="label_22">
+                     <widget class="QLabel" name="height_label">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                         <horstretch>0</horstretch>
@@ -919,7 +888,7 @@ color: #10576D;
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_19">
+                     <widget class="QLineEdit" name="height_lineEdit">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                         <horstretch>0</horstretch>
@@ -933,45 +902,87 @@ color: #10576D;
                     </item>
                    </layout>
                   </item>
+                  <item row="0" column="1">
+                   <layout class="QVBoxLayout" name="wetWeigth_layout">
+                    <item>
+                     <widget class="QLabel" name="wetWeight_label">
+                      <property name="text">
+                       <string>Peso úmido (g)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="wetWeight_lineEdit"/>
+                    </item>
+                   </layout>
+                  </item>
                   <item row="1" column="1">
                    <layout class="QVBoxLayout" name="spgr_layout">
                     <item>
-                     <widget class="QLabel" name="label_23">
+                     <widget class="QLabel" name="spgr_label">
                       <property name="text">
                        <string>Peso específico dos sólidos (g/cm³)</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_20"/>
-                    </item>
-                   </layout>
-                  </item>
-                  <item row="2" column="1">
-                   <layout class="QVBoxLayout" name="liquid_layout">
-                    <item>
-                     <widget class="QLabel" name="label_24">
-                      <property name="text">
-                       <string>Limite de liquidez (%)</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QLineEdit" name="lineEdit_21"/>
+                     <widget class="QLineEdit" name="spgr_lineEdit"/>
                     </item>
                    </layout>
                   </item>
                   <item row="1" column="0">
                    <layout class="QVBoxLayout" name="humidity_layout">
                     <item>
-                     <widget class="QLabel" name="label_25">
+                     <widget class="QLabel" name="humidity_label">
                       <property name="text">
                        <string>Umidade (%)</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEdit_22"/>
+                     <widget class="QLineEdit" name="humidity_lineEdit"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="0">
+                   <layout class="QVBoxLayout" name="plastic_layout">
+                    <item>
+                     <widget class="QLabel" name="plastic_label">
+                      <property name="text">
+                       <string>Limite de plasticidade (%)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="plastic_lineEdit"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="2" column="1">
+                   <layout class="QVBoxLayout" name="liquid_layout">
+                    <item>
+                     <widget class="QLabel" name="liquid_label">
+                      <property name="text">
+                       <string>Limite de liquidez (%)</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="liquid_lineEdit"/>
+                    </item>
+                   </layout>
+                  </item>
+                  <item row="3" column="0">
+                   <layout class="QVBoxLayout" name="diameter_layout">
+                    <item>
+                     <widget class="QLabel" name="diameter_label">
+                      <property name="text">
+                       <string>Diâmetro</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="diameter_lineEdit"/>
                     </item>
                    </layout>
                   </item>
@@ -1046,37 +1057,312 @@ color: #10576D;
                </layout>
               </widget>
               <widget class="QWidget" name="calculations_page">
-               <widget class="QToolButton" name="continueCalculations_button">
-                <property name="geometry">
-                 <rect>
-                  <x>490</x>
-                  <y>210</y>
-                  <width>116</width>
-                  <height>37</height>
-                 </rect>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Continuar</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="images/resources.qrc">
-                  <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="toolButtonStyle">
-                 <enum>Qt::ToolButtonTextBesideIcon</enum>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_5" stretch="2,10,2,2">
+                <item>
+                 <spacer name="verticalSpacer_5">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,5,1">
+                  <item>
+                   <spacer name="horizontalSpacer_4">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QTableWidget" name="phases_tableWidget"/>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_5">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer_4">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="11,0,2">
+                  <item>
+                   <spacer name="horizontalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="continueCalculations_button">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Continuar</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="images/resources.qrc">
+                      <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_13">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </widget>
-              <widget class="QWidget" name="position_page"/>
+              <widget class="QWidget" name="position_page">
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <layout class="QHBoxLayout" name="positionLayout" stretch="2,0,2,1,3,1,2,2,2">
+                  <property name="spacing">
+                   <number>30</number>
+                  </property>
+                  <item>
+                   <widget class="QToolButton" name="minus100_toolButton">
+                    <property name="text">
+                     <string>- 0.100</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="minus10_toolButton">
+                    <property name="text">
+                     <string>- 0.010</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="minus1_toolButton">
+                    <property name="text">
+                     <string>- 0.001</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_14">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_6" stretch="2,2,2,4">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="sizeConstraint">
+                     <enum>QLayout::SetDefaultConstraint</enum>
+                    </property>
+                    <item>
+                     <spacer name="verticalSpacer_7">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="initialPosition_label">
+                      <property name="text">
+                       <string>Posição Inicial(mm)</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="initialPosition_lineEdit">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>0.001</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <spacer name="verticalSpacer_6">
+                      <property name="orientation">
+                       <enum>Qt::Vertical</enum>
+                      </property>
+                      <property name="sizeHint" stdset="0">
+                       <size>
+                        <width>20</width>
+                        <height>40</height>
+                       </size>
+                      </property>
+                     </spacer>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_15">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="plus1_toolButton">
+                    <property name="text">
+                     <string>+ 0.001</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="plus10_toolButton">
+                    <property name="text">
+                     <string>+ 0.010</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="plus100_toolButton">
+                    <property name="text">
+                     <string>+ 0.100</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7" stretch="11,0,2">
+                  <item>
+                   <spacer name="horizontalSpacer_16">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item>
+                   <widget class="QToolButton" name="continuePhase1_button_2">
+                    <property name="styleSheet">
+                     <string notr="true"/>
+                    </property>
+                    <property name="text">
+                     <string>Continuar</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="images/resources.qrc">
+                      <normaloff>:/Arrow.png</normaloff>:/Arrow.png</iconset>
+                    </property>
+                    <property name="iconSize">
+                     <size>
+                      <width>30</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="toolButtonStyle">
+                     <enum>Qt::ToolButtonTextBesideIcon</enum>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="horizontalSpacer_17">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
+              </widget>
              </widget>
             </item>
            </layout>
