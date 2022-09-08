@@ -78,6 +78,9 @@ public:
     float getinitial_saturation();
 
 
+    float getPressure() const;
+    void setPressure(float newPressure);
+
 private:
     QString	name;
     QString	operator_name;
@@ -98,8 +101,10 @@ private:
     float liquid_limit;
     float initial_position;
     float diameter;
+    float pressure;
     int initial_time;
     int present_time;
+
 
 
 };

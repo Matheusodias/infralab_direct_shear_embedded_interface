@@ -8,6 +8,8 @@
 #include "button.h"
 #include "field.h"
 #include "table.h"
+#include "threadcontroller.h"
+#include "sendcommands.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -43,6 +45,8 @@ private slots:
 
 
 
+    void on_initExperiment_toolButton_clicked();
+
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
     Button *setupButtons; /*!< Instância da classe Button para a estilização dos botões.*/
@@ -50,9 +54,12 @@ private:
     Table *phasesTable;
     QTimer *timer;
     QToolButton * currentPressedButton;
+    ThreadController *receive_data;
+    sendCommands *send_data;
 
 
     void InitialConfiguration_OutsideExperimentHeaderButtons();
+    void InitialConfiguration_InsideExperimentHeaderButtons();
     void InitialConfiguration_PhasesButtons();
     void InitialConfiguration_PhasesFields();
     void InitialConfiguration_Tables();

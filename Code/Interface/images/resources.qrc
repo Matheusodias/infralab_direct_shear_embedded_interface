@@ -13,5 +13,13 @@
         <file>dark_configuration.png</file>
         <file>dark_experiment.png</file>
         <file>dark_history.png</file>
+        <file>init.png</file>
+        <file>dark_info.png</file>
+        <file>light_info.png</file>
+        <file>dark_densification.png</file>
+        <file>dark_shear.png</file>
+        <file>light_densification.png</file>
+        <file>light_shear.png</file>
+        <file>cancel.png</file>
     </qresource>
 </RCC>

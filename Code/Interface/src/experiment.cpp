@@ -1,5 +1,6 @@
 #include "inc/experiment.h"
 
+#include <cmath>
 #include <QDebug>
 Experiment::Experiment()
 {
@@ -231,28 +232,33 @@ void Experiment::setDiameter(float newDiameter)
 
 float Experiment::getArea()
 {
-    return (pi_value*(diameter*diameter))/4.0;
+    float value = (pi_value*(diameter*diameter))/4.0;
+    return value;
 }
 
 float Experiment::getinitial_volume()
 {
-    return getArea() * initial_height;
+    float value =  getArea() * initial_height;
+
+    return (std::isfinite(value))? value : 0;
 }
 
 float Experiment::getinitial_wet_density()
 {
-    return initial_wet_weight * getinitial_volume();
+    float value =  initial_wet_weight * getinitial_volume();
+    return (std::isfinite(value))? value : 0;
 }
 
 float Experiment::getinitial_dry_density()
 {
-    return ((getinitial_wet_density() * 100) / (100 + initial_moisture));
+    float value =  ((getinitial_wet_density() * 100) / (100 + initial_moisture));
+    return (std::isfinite(value))? value : 0;
 }
 
 float Experiment::getinitial_void_ratio()
 {
-    qDebug() << spgr_solids/getinitial_dry_density() - 1;
-    return ((spgr_solids/getinitial_dry_density()) - 1);
+    float value =  ((spgr_solids/getinitial_dry_density()) - 1);
+    return (std::isfinite(value))? value : 0;
 }
 
 float Experiment::getwater_specific_weight()
@@ -262,6 +268,19 @@ float Experiment::getwater_specific_weight()
 
 float Experiment::getinitial_saturation()
 {
-    return (spgr_solids *  initial_moisture) / (getinitial_void_ratio() * getwater_specific_weight());
+    float value =  (spgr_solids *  initial_moisture) / (getinitial_void_ratio() * getwater_specific_weight());
+    return (std::isfinite(value))? value : 0;
 }
+
+float Experiment::getPressure() const
+{
+    return pressure;
+}
+
+void Experiment::setPressure(float newPressure)
+{
+    qDebug() << "passei no pressure" << newPressure;
+    pressure = newPressure;
+}
+
 

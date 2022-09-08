@@ -3,6 +3,7 @@
 #include "inc/field.h"
 #include<QDebug>
 #include <QLineEdit>
+#include <QSignalMapper>
 #include "inc/experiment.h"
 
 /**
@@ -17,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->mainStack->setCurrentIndex(1);
     //ui->lineEdit->setInputMethodHints(inputMethodHints() | Qt::InputMethodHint::ImhDigitsOnly);
     this->setupButtons = new Button();
 
@@ -26,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
+    InitialConfiguration_InsideExperimentHeaderButtons();
     InitialConfiguration_PhasesButtons();
     InitialConfiguration_PhasesFields();
     InitialConfiguration_Tables();
@@ -65,6 +68,36 @@ void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
     connectButtonsToSlots_Layout(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()));
 }
 
+void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
+{
+    this->setupButtons->initialButtonStyling_Layout(ui->inside_experiment_header_layout, headerButton_lightBackgroundColor, outsideExperiment_buttonSize);
+    this->setupButtons->initialButtonStyling_Layout(ui->densificationHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
+    this->setupButtons->initialButtonStyling_Layout(ui->shearHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
+
+    connect(ui->densification_button, &QToolButton::clicked,  this->setupButtons, [this]{
+        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
+    connect(ui->shear_button, &QToolButton::clicked,  this->setupButtons, [this]{
+        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
+    connect(ui->info_button, &QToolButton::clicked,  this->setupButtons, [this]{
+        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
+
+
+
+    connect(ui->densificationGraphs_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
+        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
+
+    connect(ui->densificationTable_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
+        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
+
+    connect(ui->densificationResult_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
+        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
+
+
+
+
+
+}
+
 void MainWindow::InitialConfiguration_PhasesButtons()
 {
     // Insert style of phases buttons
@@ -74,6 +107,9 @@ void MainWindow::InitialConfiguration_PhasesButtons()
     connectButtonsToSlots_Layout(ui->phases_layout, SIGNAL(clicked()), SLOT(changePhase()));
 
     this->setupButtons->initialButtonStyling_Widget(ui->phases_stack, continueButton_BackgroundColor, phases_continueButtonSize);
+
+    this->setupButtons->initExperiment_ButtonStyle(ui->initExperiment_toolButton);
+
 
     //this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
     //this->setupButtons->setButtonShadow(ui->continuePhase1_button);
@@ -222,4 +258,23 @@ void MainWindow::onPositionButton_released()
     currentPressedButton = nullptr;
 }
 
+
+
+void MainWindow::on_initExperiment_toolButton_clicked()
+{
+    this->info_variables->setPressure(ui->initialPosition_lineEdit->text().toFloat());
+    receive_data = new ThreadController();
+
+    for(int i=0;i<3;i++){
+        send_data = new sendCommands();
+        if(send_data->errorOccurred){
+            delete send_data;
+            QThread::msleep(200);
+        } else{
+            break;
+        }
+    }
+    ui->mainStack->setCurrentIndex(0);
+
+}
 

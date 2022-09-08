@@ -1,4 +1,4 @@
-#include "../../Interface/inc/sendcommands.h"
+#include "inc/sendcommands.h"
 
 #include <errno.h>
 #include <sys/socket.h>
@@ -9,6 +9,7 @@
 
 sendCommands::sendCommands()
 {
+    this->errorOccurred=0;
     char temp_socket_name[] = "./machine";
     strncpy(this->socket_name,temp_socket_name,strlen(temp_socket_name)+1);
     //qDebug() << "Nome do socket = " << this->socket_name << strlen(this->socket_name);
@@ -25,7 +26,7 @@ sendCommands::sendCommands()
         this->errorOccurred=1;
         qDebug () << "Error connecting client: " << strerror(errno);
     }
-    this->errorOccurred=0;
+
 }
 
 sendCommands::~sendCommands()

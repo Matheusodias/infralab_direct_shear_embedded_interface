@@ -86,6 +86,13 @@ void Button::imageConfiguration()
     this->button_images[configurationButton_lightIcon] = ":light_configuration.png";
     this->button_images[configurationButton_darkIcon] = ":dark_configuration.png";
     this->button_images[continueButton_Icon] = ":Arrow.png";
+    this->button_images[densificationButton_lightIcon] = ":light_densification.png";
+    this->button_images[densificationButton_darkIcon] = ":dark_densification.png";
+    this->button_images[shearButton_lightIcon] =  ":light_shear.png";
+    this->button_images[shearButton_darkIcon] = ":dark_shear.png";
+    this->button_images[infoButton_lightIcon] = ":light_info.png";
+    this->button_images[infoButton_darkIcon] = ":dark_info.png";
+
 }
 
 void Button::iconsConfiguration()
@@ -97,6 +104,13 @@ void Button::iconsConfiguration()
     this->button_icons[configurationButton_lightIcon].addPixmap(QPixmap(this->button_images[configurationButton_lightIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[configurationButton_darkIcon].addPixmap(QPixmap(this->button_images[configurationButton_darkIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[continueButton_Icon].addPixmap(QPixmap(this->button_images[continueButton_Icon]),QIcon::Normal,QIcon::On);
+
+    this->button_icons[densificationButton_lightIcon].addPixmap(QPixmap(this->button_images[densificationButton_lightIcon]),QIcon::Normal,QIcon::On);
+    this->button_icons[densificationButton_darkIcon].addPixmap(QPixmap(this->button_images[densificationButton_darkIcon]),QIcon::Normal,QIcon::On);
+    this->button_icons[shearButton_lightIcon].addPixmap(QPixmap(this->button_images[shearButton_lightIcon]),QIcon::Normal,QIcon::On);
+    this->button_icons[shearButton_darkIcon].addPixmap(QPixmap(this->button_images[shearButton_darkIcon]),QIcon::Normal,QIcon::On);
+    this->button_icons[infoButton_lightIcon].addPixmap(QPixmap(this->button_images[infoButton_lightIcon]),QIcon::Normal,QIcon::On);
+    this->button_icons[infoButton_darkIcon].addPixmap(QPixmap(this->button_images[infoButton_darkIcon]),QIcon::Normal,QIcon::On);
 }
 
 void Button::buttonSizeConfiguration()
@@ -111,6 +125,57 @@ void Button::buttonSizeConfiguration()
     this->buttonMaximumSize[phases_continueButtonSize] = QSize(200, 100);
     this->buttonMinimumSize[phases_continueButtonSize] = QSize(100, 30);
 
+
+}
+
+void Button::changeHeaderPage_InsideExperiment(QStackedWidget *insideExperiment)
+{
+
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
+    QString object_name = buttonSender->objectName();
+    int next_page = 0;
+
+    QString buttons_name[] = {"densification_button","shear_button","info_button"};
+    uint8_t array_size = sizeof(buttons_name)/sizeof(QString);
+
+
+    for(int i=0;i<array_size;i++){
+        if(object_name == buttons_name[i]){
+            next_page = i;
+        }
+    }
+
+    uint8_t icon[3] = {densificationButton_lightIcon,shearButton_lightIcon,infoButton_lightIcon};
+    uint8_t choosen_icon = icon[next_page];
+    insideExperiment->setCurrentIndex(next_page);
+    this->changeButton_style(buttonSender, choosen_icon, headerButton_lightBackgroundColor);
+
+}
+
+void Button::changePage_InsideExperiment(QStackedWidget *insideExperiment, bool isDensificationPage)
+{
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
+    QString object_name = buttonSender->objectName();
+    int next_page = 0;
+
+    QString * buttons_name;
+    QString densification_buttons[] = {"densificationGraphs_toolButton", "densificationTable_toolButton", "densificationResult_toolButton"};
+    QString shear_buttons[] = {"shearGraphs_toolButton", "shearTable_toolButton", "shearResult_toolButton"};
+    buttons_name = isDensificationPage?densification_buttons:shear_buttons;
+
+
+
+    uint8_t array_size = 3;
+
+
+    for(int i=0;i<array_size;i++){
+        if(object_name == buttons_name[i]){
+            next_page = i;
+        }
+    }
+
+    insideExperiment->setCurrentIndex(next_page);
+    this->changeButton_style(buttonSender, no_icon, headerButton_lightBackgroundColor);
 
 }
 
@@ -226,6 +291,19 @@ void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_
 
     return;
 }
+
+void Button::initExperiment_ButtonStyle(QToolButton *play_button)
+{
+    play_button->setStyleSheet(
+                "QToolButton{ background-color:#1E7C16; border-bottom:2px solid rgb(21, 82, 16);"
+                "border-right:1px solid rgb(21, 82, 16);border-top:1px solid rgb(21, 82, 16);"
+                "border-left:1px solid rgb(21, 82, 16);border-radius:10px;font: 700 20pt 'Ubuntu';"
+                "color: white; padding:3;}"
+                "QToolButton:pressed {background-color:rgb(21, 82, 16);}"
+                );
+}
+
+
 
 
 

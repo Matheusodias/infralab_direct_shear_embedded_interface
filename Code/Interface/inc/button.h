@@ -5,7 +5,7 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QToolButton>
-
+#include <QStackedWidget>
 
 #define headerButton_lightBackgroundColor 0 /*!< Número identificador do estilo do botão header com cores claras. */
 #define headerButton_darkBackgroundColor 1 /*!< Número identificador do estilo do botão header com cores escuras. */
@@ -19,6 +19,14 @@
 #define configurationButton_lightIcon 4 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background claro.*/
 #define configurationButton_darkIcon 5 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background escuro.*/
 #define continueButton_Icon 6  /*!< Número identificador do ícone do botão continuar*/
+
+#define densificationButton_lightIcon 7
+#define densificationButton_darkIcon 8
+#define shearButton_lightIcon 9
+#define shearButton_darkIcon 10
+#define infoButton_lightIcon 11
+#define infoButton_darkIcon 12
+
 #define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
 #define outsideExperiment_buttonSize 0
 #define phases_buttonSize 1
@@ -39,7 +47,7 @@ public:
     void initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size);
     void changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style);
     void initialButtonStyling_Widget(QObject * selectedWidget, uint8_t style_option, uint8_t size);
-
+    void initExperiment_ButtonStyle(QToolButton *play_button);
 
 
 private:
@@ -47,8 +55,8 @@ private:
     uint8_t clickedButtonIcon[2]; /*!< Ícone do botão do cabeçalho ou/e das etapas que foi clicado. */
 
     QString button_styleSheets[10]; /*!< Array com os estilos claro e escudo.*/
-    QString button_images[10]; /*!< Array com as imagens dos botões. */
-    QIcon button_icons[10]; /*!< Array com os ícones dos botões. */
+    QString button_images[15]; /*!< Array com as imagens dos botões. */
+    QIcon button_icons[15]; /*!< Array com os ícones dos botões. */
 
 
     QSize buttonMaximumSize[10];
@@ -63,6 +71,8 @@ private:
 signals:
 
 public slots:
+    void changeHeaderPage_InsideExperiment(QStackedWidget *insideExperiment);
+    void changePage_InsideExperiment(QStackedWidget *insideExperiment,bool isDensificationPage);
 
 
 };

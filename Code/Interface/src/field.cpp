@@ -68,7 +68,7 @@ void Field::setVariables()
         "samplePreparation_lineEdit", "sampleId_lineEdit", "boringNumber_lineEdit",
         "sampleLocation_lineEdit", "sampleDescription_lineEdit", "height_lineEdit",
         "wetWeight_lineEdit", "humidity_lineEdit", "spgr_lineEdit",
-        "plastic_lineEdit", "liquid_lineEdit", "diameter_lineEdit",
+        "plastic_lineEdit", "liquid_lineEdit", "diameter_lineEdit", "pressure_lineEdit",
     };
 
 
@@ -133,6 +133,8 @@ void Field::setVariables()
                 case 17:
                     info_variables->setDiameter(field->text().toFloat());
                 break;
+                case 18:
+                    info_variables->setPressure(field->text().toFloat());
                 default:
                 break;
 

@@ -1,5 +1,4 @@
 #include "inc/mainwindow.h"
-#include "inc/threadcontroller.h"
 #include <QApplication>
 #include <QThread>
 int main(int argc, char *argv[])
@@ -10,7 +9,7 @@ int main(int argc, char *argv[])
     //w.setWindowFlags(Qt::FramelessWindowHint);
     w.show();
     //w.showMaximized();
-    ThreadController b;
+
 
     return a.exec();
 }

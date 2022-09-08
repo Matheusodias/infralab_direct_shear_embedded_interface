@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.2, 2022-09-06T20:04:20. -->
+<!-- Written by QtCreator 7.0.2, 2022-09-08T20:18:47. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -72,7 +72,7 @@
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey"/>
    <value type="bool" key="ClangCodeModel.UseGlobalConfig">false</value>
-   <value type="QString" key="ClangCodeModel.WarningConfigId">{ba9a26a5-586f-4cad-a68d-ee2ba1b4ffcb}</value>
+   <value type="QString" key="ClangCodeModel.WarningConfigId">Builtin.BuildSystem</value>
    <valuemap type="QVariantMap" key="ClangTools">
     <value type="bool" key="ClangTools.AnalyzeOpenFiles">true</value>
     <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
