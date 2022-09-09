@@ -63,7 +63,7 @@ void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
     // Insert buttons styles on header outside experiment
     this->setupButtons->initialButtonStyling_Layout(ui->outside_experiment_header_layout, headerButton_lightBackgroundColor, outsideExperiment_buttonSize);
     // Mark experiment button as first page
-    this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon,headerButton_lightBackgroundColor);
+    this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon,headerButton_lightBackgroundColor,0);
     ui->outside_experiment_stack->setCurrentIndex(2);
     connectButtonsToSlots_Layout(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()));
 }
@@ -74,12 +74,21 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
     this->setupButtons->initialButtonStyling_Layout(ui->densificationHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
     this->setupButtons->initialButtonStyling_Layout(ui->shearHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
 
-    connect(ui->densification_button, &QToolButton::clicked,  this->setupButtons, [this]{
-        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
-    connect(ui->shear_button, &QToolButton::clicked,  this->setupButtons, [this]{
-        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
-    connect(ui->info_button, &QToolButton::clicked,  this->setupButtons, [this]{
-        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
+
+
+    connectButtonToSlots_WithArguments(ui->densification_button,ui->insideExperiment_stack);
+    connectButtonToSlots_WithArguments(ui->shear_button,ui->insideExperiment_stack);
+    connectButtonToSlots_WithArguments(ui->info_button,ui->insideExperiment_stack);
+
+
+
+
+//    connect(ui->densification_button, &QToolButton::clicked,  this->setupButtons, [this]{
+//        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
+//    connect(ui->shear_button, &QToolButton::clicked,  this->setupButtons, [this]{
+//        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
+//    connect(ui->info_button, &QToolButton::clicked,  this->setupButtons, [this]{
+//        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
 
 
 
@@ -102,7 +111,7 @@ void MainWindow::InitialConfiguration_PhasesButtons()
 {
     // Insert style of phases buttons
     this->setupButtons->initialButtonStyling_Layout(ui->phases_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
-    this->setupButtons->changeButton_style(ui->phase1_button,no_icon,phasesButton_lightBackgroundColor);
+    this->setupButtons->changeButton_style(ui->phase1_button,no_icon,phasesButton_lightBackgroundColor,1);
     ui->phases_stack->setCurrentIndex(0);
     connectButtonsToSlots_Layout(ui->phases_layout, SIGNAL(clicked()), SLOT(changePhase()));
 
@@ -141,6 +150,26 @@ void MainWindow::InitialConfiguration_Tables()
     this->phasesTable->initialConfig_TablePhases(ui->phases_tableWidget);
 }
 
+void MainWindow::connectButtonToSlots_WithArguments(QToolButton *senderButton, QStackedWidget * stack_widget)
+{
+
+//    QLayout *layout = boxlayout->layout();
+//    if (layout) {
+//        for (int i = 0; i < layout->count(); ++i){
+//           QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+
+//           if(button){
+//                connect(button, signal,this,slot);
+//           }
+//       }
+//    }
+
+
+
+    connect(senderButton, &QToolButton::clicked,  this->setupButtons, [this, stack_widget]{
+        this->setupButtons->changeHeaderPage_InsideExperiment(stack_widget); });
+}
+
 void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char *signal, const char *slot)
 {
 
@@ -176,8 +205,9 @@ void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[5], 
         }
     }
     uint8_t choosen_icon = icon?icon[next_page]:no_icon;
+    uint8_t pos = icon? 0:1;
     page_stack->setCurrentIndex(next_page);
-    this->setupButtons->changeButton_style(buttonSender, choosen_icon, style);
+    this->setupButtons->changeButton_style(buttonSender, choosen_icon, style, pos);
 
     if(next_page == 3){
         this->phasesTable->updateData_TablePhases(ui->phases_tableWidget);
@@ -191,7 +221,7 @@ void MainWindow::nextPhase()
 
     QToolButton * button = qobject_cast<QToolButton*>(ui->phases_layout->itemAt(next_page)->widget());
     ui->phases_stack->setCurrentIndex(next_page);
-    this->setupButtons->changeButton_style(button,no_icon,phasesButton_lightBackgroundColor);
+    this->setupButtons->changeButton_style(button,no_icon,phasesButton_lightBackgroundColor, 1);
 
     if(next_page == 3){
         this->phasesTable->updateData_TablePhases(ui->phases_tableWidget);

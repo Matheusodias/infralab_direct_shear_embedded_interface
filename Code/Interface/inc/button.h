@@ -45,14 +45,14 @@ public:
     void setButtonShadow(QToolButton * button);
     void setButton_style_icon(QToolButton * button, uint8_t style, uint8_t icon);
     void initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size);
-    void changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style);
+    void changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style, uint8_t pos);
     void initialButtonStyling_Widget(QObject * selectedWidget, uint8_t style_option, uint8_t size);
     void initExperiment_ButtonStyle(QToolButton *play_button);
 
 
 private:
     QToolButton * clickedButton[2]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
-    uint8_t clickedButtonIcon[2]; /*!< Ícone do botão do cabeçalho ou/e das etapas que foi clicado. */
+    uint8_t clickedButtonIcon[3]; /*!< Ícone do botão do cabeçalho ou/e de alguma subpágina que foi clicado. */
 
     QString button_styleSheets[10]; /*!< Array com os estilos claro e escudo.*/
     QString button_images[15]; /*!< Array com as imagens dos botões. */

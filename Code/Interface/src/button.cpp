@@ -148,7 +148,7 @@ void Button::changeHeaderPage_InsideExperiment(QStackedWidget *insideExperiment)
     uint8_t icon[3] = {densificationButton_lightIcon,shearButton_lightIcon,infoButton_lightIcon};
     uint8_t choosen_icon = icon[next_page];
     insideExperiment->setCurrentIndex(next_page);
-    this->changeButton_style(buttonSender, choosen_icon, headerButton_lightBackgroundColor);
+    this->changeButton_style(buttonSender, choosen_icon, headerButton_lightBackgroundColor,0);
 
 }
 
@@ -175,7 +175,7 @@ void Button::changePage_InsideExperiment(QStackedWidget *insideExperiment, bool 
     }
 
     insideExperiment->setCurrentIndex(next_page);
-    this->changeButton_style(buttonSender, no_icon, headerButton_lightBackgroundColor);
+    this->changeButton_style(buttonSender, no_icon, phasesButton_lightBackgroundColor,1);
 
 }
 
@@ -246,12 +246,12 @@ void Button::initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_
  * @param current_button Botão que foi clicado
  * @param icon Ícone do botão clicado
  */
-void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style)
+void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style, uint8_t pos)
 {
     // Always sending the lightBackgroundColor of a button
     // It will always be a multiple of 2 or 0, so to differentiate multiple buttons we get the position as follows:
     // pos = 0/2 = 0, pos = 2/2=1, pos = 4/2 = 2.
-    uint8_t pos = style/2;
+//    uint8_t pos = style/2;
     if(this->clickedButton[pos]==current_button){
         return;
     }
