@@ -9,24 +9,6 @@
 
 sendCommands::sendCommands()
 {
-    this->errorOccurred=0;
-    char temp_socket_name[] = "./machine";
-    strncpy(this->socket_name,temp_socket_name,strlen(temp_socket_name)+1);
-    //qDebug() << "Nome do socket = " << this->socket_name << strlen(this->socket_name);
-    this->socket_id = socket(PF_LOCAL, SOCK_STREAM,0);
-
-    struct sockaddr send_command;
-    strncpy(send_command.sa_data,this->socket_name,strlen(this->socket_name)+1);
-    send_command.sa_family = AF_LOCAL;
-
-    //qDebug() << "Nome do socket = " << send_command.sa_data << strlen(send_command.sa_data);
-    int socket_size = strlen(send_command.sa_data) + sizeof(send_command.sa_family);
-    if(connect(this->socket_id, &send_command, socket_size)!=0){
-        close(this->socket_id);
-        this->errorOccurred=1;
-        qDebug () << "Error connecting client: " << strerror(errno);
-    }
-
 }
 
 sendCommands::~sendCommands()
@@ -49,26 +31,32 @@ int16_t sendCommands::sendMessage()
 
 void sendCommands::setCommand(uint8_t command)
 {
-
     this->interface_message.command = command;
+}
 
-    // switch (command)
-    // {
-    //     case 1:
-    //         setPressure(150);
-    //     break;
-    //     case 2:
-    //         setVelocity(50);
-    //         setDistance(20);
-    //     break;    
-    //     case 3:
-    //         setEnabled(1);
-    //         setSamplingPeriod(10);
-    //     default:
-    //         qDebug() << "Invalid Command";
-    //     break;
-    // }
+uint8_t sendCommands::connectToMachine()
+{
 
+    this->errorOccurred=0;
+    char temp_socket_name[] = "../machine";
+    strncpy(this->socket_name,temp_socket_name,strlen(temp_socket_name)+1);
+    //qDebug() << "Nome do socket = " << this->socket_name << strlen(this->socket_name);
+    this->socket_id = socket(PF_LOCAL, SOCK_STREAM,0);
+
+    struct sockaddr send_command;
+    strncpy(send_command.sa_data,this->socket_name,strlen(this->socket_name)+1);
+    send_command.sa_family = AF_LOCAL;
+
+    //qDebug() << "Nome do socket = " << send_command.sa_data << strlen(send_command.sa_data);
+    int socket_size = strlen(send_command.sa_data) + sizeof(send_command.sa_family);
+    if(connect(this->socket_id, &send_command, socket_size)!=0){
+        this->errorOccurred = 1;
+        close(this->socket_id);
+        qDebug () << "Error connecting client: " << strerror(errno);
+        return 0;
+
+    }
+    return 1;
 }
 
 void sendCommands::setPressure(uint8_t pressure)
@@ -77,13 +65,13 @@ void sendCommands::setPressure(uint8_t pressure)
     //qDebug() << "Pressure = " << this->interface_message.pressure;
 }
 
-void sendCommands::setVelocity(uint8_t velocity)
+void sendCommands::setVelocity(int16_t velocity)
 {
     this->interface_message.velocity = velocity;
     //qDebug() << "Velocity = " << this->interface_message.velocity;
 }
 
-void sendCommands::setDistance(int8_t distance)
+void sendCommands::setDistance(int16_t distance)
 {
     this->interface_message.distance = distance;
     //qDebug() << "Distance = " << this->interface_message.distance;
@@ -107,7 +95,7 @@ uint16_t sendCommands::getPressure()
     return this->interface_message.pressure;
 }
 
-uint16_t sendCommands::getVelocity()
+int16_t sendCommands::getVelocity()
 {
     return this->interface_message.velocity;
 }

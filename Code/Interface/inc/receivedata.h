@@ -11,6 +11,7 @@ class receiveData : public QThread
     private:
         void readClientMessage();
         void run() override;
+        uint32_t previous_sample_number;
 
     public:
         char server_socket_name[100];
@@ -19,6 +20,7 @@ class receiveData : public QThread
         uint8_t errorOccurred;;
         receiveData(QObject * parent = nullptr);
         ~receiveData();
+        uint8_t initSocketServer();
         void init();
         machine_to_interface_message machine_message;
 

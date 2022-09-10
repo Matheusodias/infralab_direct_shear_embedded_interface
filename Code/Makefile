@@ -7,7 +7,11 @@ executable:= ./Interface
   # new variable
 
 
-all: $(build_dir)  compile_run            # added dependency (*before* any others)
+all: remove_previous_socket $(build_dir)  compile_run            # added dependency (*before* any others)
+
+
+remove_previous_socket:
+	rm ./interface ./machine
 
 $(build_dir):                                     # rule which makes missing directories
 	mkdir $@

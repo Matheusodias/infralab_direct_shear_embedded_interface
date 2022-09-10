@@ -21,5 +21,7 @@
         <file>light_densification.png</file>
         <file>light_shear.png</file>
         <file>cancel.png</file>
+        <file>moveLeft.png</file>
+        <file>moveRight.png</file>
     </qresource>
 </RCC>

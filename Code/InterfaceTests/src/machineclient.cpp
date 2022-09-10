@@ -71,7 +71,7 @@ void machineClient::sendMessages(int32_t i)
     machine_to_interface_message dados;
     dados.sample_number = 10 + i;
     //dados.sample_number[1] = 20 + i;
-    dados.date_time = 30 + i;
+    //dados.date_time = 30 + i;
     //dados.date_time[1] = 40 + i;
     dados.displacement[0] = 50.20 + i;
     dados.displacement[1] = 60.2 + i;

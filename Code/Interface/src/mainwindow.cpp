@@ -35,10 +35,27 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     connect(ui->sampleDescription_lineEdit, SIGNAL(editingFinished()),this->setupFields, SLOT(setVariables()));
+    send_data = new sendCommands();
+    receive_data = new ThreadController();
+
+    for(int i=0;i<20;i++){
+        if(!send_data->connectToMachine()){
+            QThread::msleep(500);
+        } else{
+          break;
+        }
+    }
+
+    if(send_data->errorOccurred){
+        qDebug() << "Não foi possível se conectar à máquina.";
+        exit(-1);
+    }
+
+
+
 
     this->timer = new QTimer(this);
-
-    connect(timer, SIGNAL(timeout()), this, SLOT( changeInitialPositionValue()) );
+    connect(timer, SIGNAL(timeout()), this, SLOT(changeInitialPositionValue()));
 
 
 
@@ -55,6 +72,8 @@ MainWindow::MainWindow(QWidget *parent)
  */
 MainWindow::~MainWindow()
 {
+    delete send_data;
+    delete receive_data;
     delete ui;
 }
 
@@ -126,8 +145,10 @@ void MainWindow::InitialConfiguration_PhasesButtons()
     connectButtonsToSlots_Widget(ui->phase2_page, SIGNAL(clicked()),SLOT(nextPhase()));
     connectButtonsToSlots_Widget(ui->phase3_page, SIGNAL(clicked()),SLOT(nextPhase()));
     connectButtonsToSlots_Widget(ui->calculations_page, SIGNAL(clicked()),SLOT(nextPhase()));
+    connect(ui->continuePosition_Button, SIGNAL(clicked()),this, SLOT(nextPhase()));
 
-    connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(clicked()), SLOT(changeInitialPositionValue()));
+
+    //connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(clicked()), SLOT(changeInitialPositionValue()));
     connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(pressed()), SLOT(onPositionButton_pressed()));
     connectButtonsToSlots_Layout(ui->positionLayout, SIGNAL(released()), SLOT(onPositionButton_released()));
 
@@ -139,9 +160,9 @@ void MainWindow::InitialConfiguration_PhasesFields()
     this->setupFields->customizeField(ui->phase2_gridLayout);
     this->setupFields->customizeField(ui->phase3_gridLayout);
 
-    this->setupFields->customizeOneField(ui->initialPosition_label, ui->initialPosition_lineEdit);
-    ui->initialPosition_lineEdit->setAlignment(Qt::AlignCenter);
-    ui->initialPosition_lineEdit->setFont(QFont ( "Ubuntu", 30, QFont::Normal));
+    //this->setupFields->customizeOneField(ui->initialPosition_label, ui->initialPosition_lineEdit);
+    //ui->initialPosition_lineEdit->setAlignment(Qt::AlignCenter);
+    //ui->initialPosition_lineEdit->setFont(QFont ( "Ubuntu", 30, QFont::Normal));
 }
 
 void MainWindow::InitialConfiguration_Tables()
@@ -195,7 +216,7 @@ void MainWindow::connectButtonsToSlots_Widget(QObject *selectedWidget, const cha
    return;
 }
 
-void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[5], uint8_t array_size, QStackedWidget * page_stack, uint8_t icon[], uint8_t style)
+void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[6], uint8_t array_size, QStackedWidget * page_stack, uint8_t icon[], uint8_t style)
 {
     QString object_name = buttonSender->objectName();
     int next_page = 0;
@@ -231,7 +252,7 @@ void MainWindow::nextPhase()
 void MainWindow::changePhase()
 {
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
-    QString buttons_name[5] = {"phase1_button","phase2_button","phase3_button","calculations_button","position_button"};
+    QString buttons_name[6] = {"phase1_button","phase2_button","phase3_button","calculations_button","position_button","pressure_button"};
     uint8_t array_size = sizeof(buttons_name)/sizeof(buttons_name[0]);
     changePage(buttonSender, buttons_name, array_size, ui->phases_stack, NULL, phasesButton_lightBackgroundColor);
 }
@@ -247,64 +268,77 @@ void MainWindow::changeOutsideExperimentPage()
 
 void MainWindow::changeInitialPositionValue()
 {
-
-    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
-    if(!buttonSender){
-        buttonSender = currentPressedButton;
-    }
-    QString button_names[] = {
-         "minus100_toolButton",
-         "minus10_toolButton",
-         "minus1_toolButton",
-         "plus1_toolButton",
-         "plus10_toolButton",
-         "plus100_toolButton"
-    };
-    float move[] = {-0.1,-0.01,-0.001, 0.001, 0.01, 0.1};
-    float add = 0.0;
-    for(int i = 0;i < sizeof(button_names)/sizeof(QString);i++)
-    {
-        if(button_names[i]== buttonSender->objectName()){
-            add = move[i];
-        }
-    }
-
-    QString current_text = ui->initialPosition_lineEdit->text();
-    float new_position = current_text.toFloat() + add;
-    ui->initialPosition_lineEdit->setText(QString::number(new_position));
-
+    ui->initialPositionValue_label->setText(QString::number(receive_data->receiveDataThread->machine_message.displacement[0]));
 }
 
 void MainWindow::onPositionButton_pressed()
 {
-    timer->start(100);
+    int sampling_period = 100;
+    timer->start(sampling_period);
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
-    currentPressedButton = buttonSender;
+
+
+    float velocity = 10.0;
+    if(buttonSender->objectName() == "moveLeft_toolButton"){
+        velocity *= -1;
+    }
+
+
+
+        send_data->setCommand(0);
+        send_data->setEnabled(1);
+        send_data->setSamplingPeriod(sampling_period);
+        send_data->sendMessage();
+
+
+
+    send_data->setCommand(1);
+    send_data->setVelocity(velocity);
+    send_data->sendMessage();
+
+
 }
 
 void MainWindow::onPositionButton_released()
 {
+
+    send_data->setCommand(1);
+    send_data->setVelocity(0);
+    send_data->sendMessage();
+
+    send_data->setCommand(0);
+    send_data->setEnabled(0);
+    send_data->setSamplingPeriod(0);
+    send_data->sendMessage();
+
+
     timer->stop();
-    currentPressedButton = nullptr;
 }
 
 
 
 void MainWindow::on_initExperiment_toolButton_clicked()
 {
-    this->info_variables->setPressure(ui->initialPosition_lineEdit->text().toFloat());
-    receive_data = new ThreadController();
-
-    for(int i=0;i<3;i++){
-        send_data = new sendCommands();
-        if(send_data->errorOccurred){
-            delete send_data;
-            QThread::msleep(200);
-        } else{
-            break;
-        }
-    }
+    this->info_variables->setPressure(ui->initialPositionValue_label->text().toFloat());
     ui->mainStack->setCurrentIndex(0);
+
+}
+
+
+void MainWindow::on_releasePressure_toolButton_clicked()
+{
+        QToolButton * sender_button = qobject_cast<QToolButton *>(sender());
+        bool isPositionButtonsEnable = !(sender_button->isChecked());
+        QLayout *layout = ui->positionLayout->layout();
+        if (layout) {
+            for (int i = 0; i < layout->count(); ++i){
+               QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+
+               if(button){
+                    button->setEnabled(isPositionButtonsEnable);
+               }
+           }
+        }
 
 }
 

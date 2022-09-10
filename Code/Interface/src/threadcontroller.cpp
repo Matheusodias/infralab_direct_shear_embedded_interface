@@ -15,7 +15,23 @@ ThreadController::ThreadController(QObject *parent)
     : QObject{parent}
 {
 
-    this->receiveDataThread = new receiveData;
+    this->receiveDataThread = new receiveData();
+
+    for(int i=0;i<20;i++){
+         if(!this->receiveDataThread->initSocketServer()){
+             QThread::msleep(500);
+         } else {
+             break;
+         }
+    }
+    if(this->receiveDataThread->errorOccurred){
+        qDebug() << "Não foi possível ligar o servidor socket da interface.";
+        exit(-1);
+    }
+
+
+
+
     this->isThreadDestroyed = false;
     
     connect(this->receiveDataThread, &receiveData::finished,this, &ThreadController::receiveThreadFinishedSlot);
