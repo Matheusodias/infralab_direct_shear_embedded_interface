@@ -38,7 +38,7 @@ uint8_t sendCommands::connectToMachine()
 {
 
     this->errorOccurred=0;
-    char temp_socket_name[] = "../machine";
+    char temp_socket_name[] = "./machine";
     strncpy(this->socket_name,temp_socket_name,strlen(temp_socket_name)+1);
     //qDebug() << "Nome do socket = " << this->socket_name << strlen(this->socket_name);
     this->socket_id = socket(PF_LOCAL, SOCK_STREAM,0);

@@ -26,7 +26,7 @@ ThreadController::ThreadController(QObject *parent)
     }
     if(this->receiveDataThread->errorOccurred){
         qDebug() << "Não foi possível ligar o servidor socket da interface.";
-        exit(-1);
+        return;
     }
 
 

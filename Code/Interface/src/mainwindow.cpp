@@ -46,8 +46,11 @@ MainWindow::MainWindow(QWidget *parent)
         }
     }
 
-    if(send_data->errorOccurred){
+    if(send_data->errorOccurred || this->receive_data->receiveDataThread->errorOccurred){
         qDebug() << "Não foi possível se conectar à máquina.";
+        delete send_data;
+        delete receive_data;
+        delete ui;
         exit(-1);
     }
 

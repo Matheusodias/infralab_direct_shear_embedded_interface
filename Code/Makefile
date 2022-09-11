@@ -2,22 +2,39 @@ src_dir := src
 obj_dir := obj
 build_dir := ./build
 file := ../Interface/Interface.pro
-executable:= ./Interface
+executable := $(build_dir)/Interface
+isRaspberrypi := 0
+CC := gcc
+flags := -W -Wshadow -Wall -pedantic
+Compile := $(CC) $(flags)
 
-  # new variable
+ifeq ($(isRaspberrypi),1)
+	qmake_command = qmake $(file)
+	make_flag = -j4
+else 
+	qmake_command = /home/ivan/Qt/5.15.2/gcc_64/bin/qmake $(file)
+	make_flag = -j8
+endif
 
 
-all: remove_previous_socket $(build_dir)  compile_run            # added dependency (*before* any others)
+all:  compile_machine compile_interface           # added dependency (*before* any others)
 
-
-remove_previous_socket:
-	rm ./interface ./machine
+run: run_machine run_interface
 
 $(build_dir):                                     # rule which makes missing directories
 	mkdir $@
 
-compile_run:
-	cd $(build_dir);qmake $(file); make -j4; $(executable);
+run_machine:
+	./execute_machine 
+
+run_interface:
+	$(executable)
+
+compile_machine: ./machine.c
+	$(Compile) $< -o ./execute_machine;
+
+compile_interface : $(build_dir)
+	cd $(build_dir);$(qmake_command); make $(make_flag); 
 
 clean: 
-	rm -rf $(build_dir)
+	rm -rf $(build_dir) ./interface ./machine ./execute_machine

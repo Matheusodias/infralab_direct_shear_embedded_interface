@@ -24,7 +24,7 @@ uint8_t receiveData::initSocketServer()
     this->errorOccurred=0;
     struct sockaddr receive_data;
     this->server_socket_id = socket(PF_LOCAL, SOCK_STREAM, 0);
-    char path[] = "../interface";
+    char path[] = "./interface";
     strncpy(this->server_socket_name,path,strlen(path)+1);
 
     receive_data.sa_family = AF_LOCAL;
