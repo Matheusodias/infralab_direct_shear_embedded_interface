@@ -32,13 +32,16 @@ Para rodar este código na raspberry pi 4 siga as etapas a seguir.
 Para rodar o código, é possível utilizar 2 opções:
 1. Através do Makefile
     1. Acesse a pasta Code dentro deste projeto.
-    2. Execute o comando ``make`` no terminal.
-    3. O programa deve iniciar corretamente, em caso de erro execute ``make clean``.
-2. Utilizando o QtCreator
-    1. Escolha o arquivo /Code/Interface.pro.
-    2. Clique para buildar e depois executar o programa.
+    2. Altere a variável ```isRaspberrypi``` para 0 se estiver em um computador normal e 1 para RaspberryPi.
+    3. Execute o comando ``make`` no terminal para compilar os programas.
+    4. Execute o comando `` make run -j 2 `` para rodar os 2 programas (da interface e da máquina) em paralelo.
+    5. O programa deve iniciar corretamente, em caso de erro execute ``make clean``.
 
-
+2. 
+    1. Compile e execute a interface com o QtCreator
+        1. Escolha o arquivo /Code/Interface.pro.
+        2. Clique para buildar e depois executar o programa.
+    2. Compile e execute o código da máquina
 ## Automatizaçãoes
 Para facilitar a execução desse programa na Raspberry Pi, foram feitas
 2 automatizações.
