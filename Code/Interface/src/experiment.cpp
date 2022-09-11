@@ -7,6 +7,46 @@ Experiment::Experiment()
 
 }
 
+QStringList Experiment::getAllData()
+{
+    QStringList temporary_list;
+    temporary_list.push_back(this->getName());
+    temporary_list.push_back(this->getOperator_name());
+    temporary_list.push_back("vazio");
+    temporary_list.push_back("vazio2");
+    temporary_list.push_back(this->getTest_type());
+    temporary_list.push_back(this->getSpecimen_type());
+    temporary_list.push_back(this->getUscs_class());
+    temporary_list.push_back(this->getAshto_class());
+    temporary_list.push_back(this->getSample_preparations());
+    temporary_list.push_back(QString::number(getSample_id()));
+    temporary_list.push_back(QString::number(getBoring_number()));
+    temporary_list.push_back(this->getSample_location());
+    temporary_list.push_back(this->getSample_description());
+    temporary_list.push_back(QString::number(getInitial_height()));;
+    temporary_list.push_back(QString::number(getInitial_wet_weight()));
+    temporary_list.push_back(QString::number(getInitial_moisture()));
+    temporary_list.push_back(QString::number(getSpgr_solids()));
+    temporary_list.push_back(QString::number(getPlastic_limit()));
+    temporary_list.push_back(QString::number(getLiquid_limit()));
+    temporary_list.push_back(QString::number(getInitial_position()));
+    temporary_list.push_back(QString::number(getDiameter()));
+
+
+    temporary_list.push_back(QString::number(getArea()));
+    temporary_list.push_back(QString::number(getinitial_volume()));
+    temporary_list.push_back(QString::number(getinitial_wet_density()));
+    temporary_list.push_back(QString::number(getinitial_dry_density()));
+    temporary_list.push_back(QString::number(getinitial_void_ratio()));
+    temporary_list.push_back(QString::number(getwater_specific_weight()));
+    temporary_list.push_back(QString::number(getinitial_saturation()));
+    temporary_list.push_back(QString::number(getPressure()));
+
+
+    return temporary_list;
+
+}
+
 
 
 void Experiment::setAllVariables_onExperimetCreation()

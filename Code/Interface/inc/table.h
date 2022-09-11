@@ -17,6 +17,8 @@ public:
     void updateData_TablePhases(QTableWidget * table_widget);
 
     void initialConfig_TableInfo(QTableWidget * table_widget);
+    void updateData_TableInfo(QTableWidget * table_widget);
+
 
 private:
     Experiment * table_variables;

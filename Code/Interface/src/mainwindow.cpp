@@ -328,6 +328,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     ui->insideExperiment_stack->setCurrentIndex(0);
     this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
+    this->phasesTable->updateData_TableInfo(ui->info_tableWidget);
 
 }
 

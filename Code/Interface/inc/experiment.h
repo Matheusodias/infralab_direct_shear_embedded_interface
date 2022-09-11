@@ -2,7 +2,7 @@
 #define EXPERIMENT_H
 
 #include <QString>
-
+#include <QStringList>
 #define pi_value 3.1415f
 
 class Experiment
@@ -11,6 +11,10 @@ public:
 
 
     Experiment();
+
+    QStringList getAllData();
+
+
     void setAllVariables_onExperimetCreation();
     const QString &getName() const;
     void setName(const QString &newName);

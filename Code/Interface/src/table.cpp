@@ -66,19 +66,21 @@ void Table::updateData_TablePhases(QTableWidget *table_widget)
 void Table::initialConfig_TableInfo(QTableWidget *table_widget)
 {
     QString lineNames []= {
-        "Nome do experimento", "Nome do operador", "Tipo de teste", "Tipo de espécime",
+        "Nome do experimento", "Nome do operador", "Tempo de início do experimento (s)",  "Tempo atual (s)",
+        "Tipo de teste", "Tipo de espécime",
         "Classe USCS", "Classe ASHTO", "Preparações da amostra", "Id da amostra",
         "Número do furo", "Localização da amostra", "Descrição da amostra",
         "Altura inicial (cm)", "Peso úmido inicial (g)", "Umidade inicial (%)",
         "Peso específico dos sólidos (g/cm³)", "Limite de plasticidade (%)",
         "Limite de liquidez (%)", "Posição inicial (cm)", "Diamêtro (cm)",
-        "Tempo de início do experimento (s)",  "Tempo atual (s)",
         "Pressão", "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
         "Massa específica seca inicial da amostra de solo (g/cm³)","Índice de vazios","Peso Específico da água",
         "Saturação inicial da amostra de solo (%)"
     };
 
     int row_count = sizeof(lineNames)/sizeof(QString);
+
+
 
     table_widget->setRowCount(row_count);
     table_widget->setColumnCount(2);
@@ -94,6 +96,18 @@ void Table::initialConfig_TableInfo(QTableWidget *table_widget)
         item->setTextAlignment(Qt::AlignCenter);
         table_widget->setItem(i,0,item);
 
+    }
+}
+
+void Table::updateData_TableInfo(QTableWidget *table_widget)
+{
+       QStringList data = table_variables->getAllData();
+
+    for(int i=0;i<data.length();i++){
+        QTableWidgetItem *item = new QTableWidgetItem;
+        item->setText(data[i]);
+        item->setTextAlignment(Qt::AlignCenter);
+        table_widget->setItem(i,1,item);
     }
 }
 
