@@ -65,7 +65,7 @@ private:
     void InitialConfiguration_PhasesFields();
     void InitialConfiguration_Tables();
 
-    void connectButtonToSlots_WithArguments(QToolButton * senderButton, QStackedWidget * stack);
+    void connectButtonToSlots_WithArguments(QHBoxLayout * boxlayout, QStackedWidget * stack_widget, int option);
     void connectButtonsToSlots_Layout(QHBoxLayout * list, const char *signal, const char *slot);
     void connectButtonsToSlots_Widget(QObject * list, const char *signal, const char *slot);
     void changePage(QToolButton* buttonSender,QString buttons_name[6], uint8_t array_size, QStackedWidget * page_stack,uint8_t icon[3],uint8_t style);

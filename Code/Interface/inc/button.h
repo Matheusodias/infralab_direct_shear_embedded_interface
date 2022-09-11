@@ -12,6 +12,10 @@
 #define phasesButton_lightBackgroundColor 2 /*!< Número identificador do estilo do botão etapas com cores claras. */
 #define phasesButton_darkBackgroundColor 3 /*!< Número identificador do estilo do botão etapas com cores escuras. */
 #define continueButton_BackgroundColor 4 /*!< Número identificador do estilo do botão de continuar nas etapas. */
+#define pressureButton_GreenBackgroundColor 5 /*!< Número identificador do estilo do botão de pressão ligado. */
+#define pressureButton_RedBackgroundColor 6 /*!< Número identificador do estilo do botão de pressão desligado. */
+#define moveButton_DisabledBackgroundColor 7 /*!< Número identificador do estilo do botão de mover desativado. */
+
 #define historyButton_lightIcon 0 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background claro.*/
 #define historyButton_darkIcon 1 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background escuro.*/
 #define experimentButton_lightIcon 2 /*!< Número identificador do ícone do botão experimento para ser utilizado com o background claro.*/
@@ -47,16 +51,17 @@ public:
     void initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size);
     void changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style, uint8_t pos);
     void initialButtonStyling_Widget(QObject * selectedWidget, uint8_t style_option, uint8_t size);
-    void initExperiment_ButtonStyle(QToolButton *play_button);
+    void initExperiment_ButtonStyle(QToolButton *play_button, bool enabled);
+    void pressureButton_style(QToolButton * pressure);
 
 
 private:
     QToolButton * clickedButton[2]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
     uint8_t clickedButtonIcon[3]; /*!< Ícone do botão do cabeçalho ou/e de alguma subpágina que foi clicado. */
 
-    QString button_styleSheets[10]; /*!< Array com os estilos claro e escudo.*/
-    QString button_images[15]; /*!< Array com as imagens dos botões. */
-    QIcon button_icons[15]; /*!< Array com os ícones dos botões. */
+    QString button_styleSheets[15]; /*!< Array com os estilos claro e escudo.*/
+    QString button_images[20]; /*!< Array com as imagens dos botões. */
+    QIcon button_icons[20]; /*!< Array com os ícones dos botões. */
 
 
     QSize buttonMaximumSize[10];

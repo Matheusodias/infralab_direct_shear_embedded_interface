@@ -35,6 +35,9 @@ void Button::styleSheetConfiguration()
     QString phasesButton_lightStyleSheet; /*!< Estilo do botão das etapas com cores escuras. */
     QString phasesButton_darkStyleSheet; /*!< Estilo do botão das etapas com cores escuras. */
     QString continueButton_StyleSheet; /*!< Estilo do botão de continuar da criação do experimento */
+    QString green_pressureButton_StyleSheet;
+    QString red_pressureButton_StyleSheet;
+    QString disabled_positionButton_StyleSheet;
 
     phasesButton_lightStyleSheet = "QToolButton{ background-color:white; border-bottom:3px solid #0D495C;"
                                          "border-right:3px solid #0D495C;border-top:2px solid #0D495C;"
@@ -68,13 +71,39 @@ void Button::styleSheetConfiguration()
                                          "QToolButton:pressed {background-color:#072a36;}";
 
 
+    red_pressureButton_StyleSheet = "QToolButton{ background-color: #FF0000; border-bottom:2px solid #A00000;"
+                                     "border-right:1px solid #A00000;border-top:1px solid #A00000;"
+                                     "border-left:1px solid #A00000;border-radius:100px;font: 700 20pt 'Ubuntu';"
+                                       "color: white; padding:3;}"
+                                      "QToolButton:pressed {background-color:#A00000;}";
 
+    green_pressureButton_StyleSheet = "QToolButton{ background-color:#3F953F; border-bottom:2px solid #295D29;"
+                                     "border-right:1px solid #295D29;border-top:1px solid #295D29;"
+                                     "border-left:1px solid #295D29;border-radius:100px;font: 700 20pt 'Ubuntu';"
+                                       "color: white; padding:3;}"
+                                      "QToolButton:pressed {background-color:#295D29;}";
+
+    disabled_positionButton_StyleSheet = "QToolButton{ background-color:#989898; border-bottom:2px solid #989898;"
+                                         "border-right:1px solid #989898;border-top:1px solid #989898;"
+                                         "border-left:1px solid #989898;border-radius:10px;font: 700 13pt 'Ubuntu';"
+                                           "color: white; padding:3;}"
+                                          "QToolButton:pressed {background-color:#989898;}";
+
+
+//#3F953F
+//#295D29
+//#FF0000
+//#A00000
 
     this->button_styleSheets[headerButton_lightBackgroundColor] = headerButton_lightStyleSheet;
     this->button_styleSheets[headerButton_darkBackgroundColor]  = headerButton_darkStyleSheet;
     this->button_styleSheets[phasesButton_lightBackgroundColor] = phasesButton_lightStyleSheet;
     this->button_styleSheets[phasesButton_darkBackgroundColor]  = phasesButton_darkStyleSheet;
     this->button_styleSheets[continueButton_BackgroundColor] = continueButton_StyleSheet;
+    this->button_styleSheets[pressureButton_GreenBackgroundColor] = green_pressureButton_StyleSheet;
+    this->button_styleSheets[pressureButton_RedBackgroundColor] = red_pressureButton_StyleSheet;
+    this->button_styleSheets[moveButton_DisabledBackgroundColor] = disabled_positionButton_StyleSheet;
+
 }
 
 void Button::imageConfiguration()
@@ -205,7 +234,9 @@ void Button::setButtonShadow(QToolButton * button)
  */
 void Button::setButton_style_icon(QToolButton * button, uint8_t style, uint8_t icon)
 {
-    button->setIcon(button_icons[icon]);
+    if(icon != no_icon){
+        button->setIcon(button_icons[icon]);
+    }
     button->setStyleSheet(this->button_styleSheets[style]);
     return;
 }
@@ -292,15 +323,32 @@ void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_
     return;
 }
 
-void Button::initExperiment_ButtonStyle(QToolButton *play_button)
+void Button::initExperiment_ButtonStyle(QToolButton *play_button, bool enabled)
 {
-    play_button->setStyleSheet(
-                "QToolButton{ background-color:#1E7C16; border-bottom:2px solid rgb(21, 82, 16);"
+    QString style;
+    if(enabled){
+        style =     "QToolButton{ background-color:#1E7C16; border-bottom:2px solid rgb(21, 82, 16);"
+                    "border-right:1px solid rgb(21, 82, 16);border-top:1px solid rgb(21, 82, 16);"
+                    "border-left:1px solid rgb(21, 82, 16);border-radius:10px;font: 700 20pt 'Ubuntu';"
+                    "color: white; padding:3;}"
+                    "QToolButton:pressed {background-color:rgb(21, 82, 16);}" ;
+    } else{
+        style = "QToolButton{ background-color:#989898; border-bottom:2px solid rgb(21, 82, 16);"
                 "border-right:1px solid rgb(21, 82, 16);border-top:1px solid rgb(21, 82, 16);"
                 "border-left:1px solid rgb(21, 82, 16);border-radius:10px;font: 700 20pt 'Ubuntu';"
                 "color: white; padding:3;}"
-                "QToolButton:pressed {background-color:rgb(21, 82, 16);}"
-                );
+                "QToolButton:pressed {background-color:#989898;}";
+    }
+
+    play_button->setStyleSheet(style);
+}
+
+void Button::pressureButton_style(QToolButton *pressure)
+{
+    this->setButton_style_icon(pressure, pressureButton_GreenBackgroundColor, no_icon);
+    pressure->setMaximumSize( QSize(500, 200));
+
+
 }
 
 

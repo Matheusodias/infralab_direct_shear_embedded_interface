@@ -156,7 +156,8 @@ void print_client_message(int client_socket)
         
     }
     fprintf(stderr,"Erro no read\n");
-
+    
+    end_server(2);
 	return;
 }
 
@@ -219,10 +220,10 @@ void end_server(int signum)
 	fprintf(stderr,"Fechando máquina %d\n", signum);
     keepThreading=0;
     keepWriting=0;
-    pthread_mutex_unlock(&lock);
-    pthread_mutex_destroy(&lock);
-    pthread_cancel(thread_le_comandos);
-    fprintf(stderr,"Depois de fechar a thread %d\n", signum);
+    // pthread_mutex_unlock(&lock);
+    // pthread_mutex_destroy(&lock);
+    // pthread_cancel(thread_le_comandos);
+    // fprintf(stderr,"Depois de fechar a thread %d\n", signum);
     pthread_join(thread_le_comandos,NULL);
     fprintf(stderr,"Depois de fechar a thread %d\n", signum);
 

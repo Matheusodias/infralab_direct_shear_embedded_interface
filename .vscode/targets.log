@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Sep  5 20:24:17 2022
+# Make data base, printed on Sun Sep 11 15:11:28 2022
 
 # Variables
 
@@ -16,6 +16,8 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
+# environment
+NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -59,7 +61,7 @@ OLDPWD = /home/ivan/Documentos/2022/Codigo_TCC2/Code
 # environment
 NVM_INC = /home/ivan/.nvm/versions/node/v16.15.1/include/node
 # environment
-VSCODE_CODE_CACHE_PATH = /home/ivan/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
+VSCODE_CODE_CACHE_PATH = /home/ivan/.config/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
 # environment
 LANG = C
 # environment
@@ -69,7 +71,7 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.141
+GNOME_TERMINAL_SERVICE = :1.115
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +101,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 36182
+VSCODE_PID = 7657
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3433,unix/ivan-550XDA:/tmp/.ICE-unix/3433
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3519,unix/ivan-550XDA:/tmp/.ICE-unix/3519
 # automatic
 *F = $(notdir $*)
 # environment
@@ -115,7 +117,7 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"8e7a008e83c664b9876a8f72ff0490ae.pt-br","_translationsConfigFile":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/tcf.json","_cacheRoot":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br","_resolvedLanguagePackCoreLocation":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/e4503b30fc78200f846c62cf8091b76ff5547662","_corruptedFile":"/home/ivan/.config/Code/clp/8e7a008e83c664b9876a8f72ff0490ae.pt-br/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pt-br","availableLanguages":{"*":"pt-br"},"_languagePackId":"28c256efdcf473b7c8b2ffa6ce425608.pt-br","_translationsConfigFile":"/home/ivan/.config/Code/clp/28c256efdcf473b7c8b2ffa6ce425608.pt-br/tcf.json","_cacheRoot":"/home/ivan/.config/Code/clp/28c256efdcf473b7c8b2ffa6ce425608.pt-br","_resolvedLanguagePackCoreLocation":"/home/ivan/.config/Code/clp/28c256efdcf473b7c8b2ffa6ce425608.pt-br/784b0177c56c607789f9638da7b6bf3230d47a8c","_corruptedFile":"/home/ivan/.config/Code/clp/28c256efdcf473b7c8b2ffa6ce425608.pt-br/corrupted.info","_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -129,7 +131,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/a055e2eb_2387_484d_81b0_0c6158384424
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/f01d579d_5090_4e80_b0a3_cbb5e103055d
 # environment
 MAKELEVEL := 0
 # default
@@ -171,7 +173,7 @@ LOGNAME = ivan
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 3715
+SYSTEMD_EXEC_PID = 3803
 # environment
 DISPLAY = :0
 # environment
@@ -207,7 +209,7 @@ QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-168462f3-1.70.2-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-168462f3-1.71.0-main.sock
 # environment
 TERM = xterm-256color
 # environment
@@ -233,7 +235,7 @@ GDMSESSION = ubuntu-xorg
 # environment
 LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=110/1024=11%, Rehash=0, Collisions=11/137=8%
+# Load=111/1024=11%, Rehash=0, Collisions=11/138=8%
 
 # Pattern-specific Variable Values
 
@@ -300,6 +302,6 @@ GNUmakefile:
 # hash-table stats:
  
 # Load=16/8192=0%, Rehash=0, Collisions=0/19=0%
-# Finished Make data base on Mon Sep  5 20:24:17 2022
+# Finished Make data base on Sun Sep 11 15:11:28 2022
 
  

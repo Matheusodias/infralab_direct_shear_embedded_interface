@@ -98,34 +98,26 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
 
 
 
-    connectButtonToSlots_WithArguments(ui->densification_button,ui->insideExperiment_stack);
-    connectButtonToSlots_WithArguments(ui->shear_button,ui->insideExperiment_stack);
-    connectButtonToSlots_WithArguments(ui->info_button,ui->insideExperiment_stack);
+
+    connectButtonToSlots_WithArguments(ui->inside_experiment_header_layout,ui->insideExperiment_stack,0);
+
+    connectButtonToSlots_WithArguments(ui->densificationHeader_layout,ui->densification_stack,1);
+
+    connectButtonToSlots_WithArguments(ui->shearHeader_layout,ui->shear_stack,2);
 
 
 
 
-//    connect(ui->densification_button, &QToolButton::clicked,  this->setupButtons, [this]{
-//        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
-//    connect(ui->shear_button, &QToolButton::clicked,  this->setupButtons, [this]{
-//        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
-//    connect(ui->info_button, &QToolButton::clicked,  this->setupButtons, [this]{
-//        this->setupButtons->changeHeaderPage_InsideExperiment(ui->insideExperiment_stack); });
 
 
+//    connect(ui->densificationGraphs_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
+//        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
 
-    connect(ui->densificationGraphs_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
-        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
+//    connect(ui->densificationTable_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
+//        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
 
-    connect(ui->densificationTable_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
-        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
-
-    connect(ui->densificationResult_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
-        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
-
-
-
-
+//    connect(ui->densificationResult_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
+//        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
 
 }
 
@@ -139,8 +131,9 @@ void MainWindow::InitialConfiguration_PhasesButtons()
 
     this->setupButtons->initialButtonStyling_Widget(ui->phases_stack, continueButton_BackgroundColor, phases_continueButtonSize);
 
-    this->setupButtons->initExperiment_ButtonStyle(ui->initExperiment_toolButton);
-
+    this->setupButtons->initExperiment_ButtonStyle(ui->initExperiment_toolButton,false);
+    ui->initExperiment_toolButton->setDisabled(true);
+    this->setupButtons->pressureButton_style(ui->releasePressure_toolButton);
 
     //this->setupButtons->setButton_style_icon(ui->continuePhase1_button, continueButton_BackgroundColor, continueButton_Icon);
     //this->setupButtons->setButtonShadow(ui->continuePhase1_button);
@@ -172,26 +165,34 @@ void MainWindow::InitialConfiguration_Tables()
 {
     this->phasesTable->customizeTable(ui->phases_tableWidget);
     this->phasesTable->initialConfig_TablePhases(ui->phases_tableWidget);
+    this->phasesTable->customizeTable(ui->info_tableWidget);
+    this->phasesTable->initialConfig_TableInfo(ui->info_tableWidget);
+
 }
 
-void MainWindow::connectButtonToSlots_WithArguments(QToolButton *senderButton, QStackedWidget * stack_widget)
+void MainWindow::connectButtonToSlots_WithArguments(QHBoxLayout * boxlayout, QStackedWidget * stack_widget, int option)
 {
 
-//    QLayout *layout = boxlayout->layout();
-//    if (layout) {
-//        for (int i = 0; i < layout->count(); ++i){
-//           QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+    QLayout *layout = boxlayout->layout();
+    if (layout) {
+        for (int i = 0; i < layout->count(); ++i){
+           QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
+           if(button){
+               connect(button, &QToolButton::clicked,  this->setupButtons, [this, stack_widget, option]{
+                   if(option==0){
+                       this->setupButtons->changeHeaderPage_InsideExperiment(stack_widget);
+                   } else{
+                       this->setupButtons->changePage_InsideExperiment(stack_widget, option==1);
+                   }
+                   });
+           }
+       }
+    }
 
-//           if(button){
-//                connect(button, signal,this,slot);
-//           }
-//       }
-//    }
 
 
 
-    connect(senderButton, &QToolButton::clicked,  this->setupButtons, [this, stack_widget]{
-        this->setupButtons->changeHeaderPage_InsideExperiment(stack_widget); });
+
 }
 
 void MainWindow::connectButtonsToSlots_Layout(QHBoxLayout *boxlayout, const char *signal, const char *slot)
@@ -324,14 +325,39 @@ void MainWindow::on_initExperiment_toolButton_clicked()
 {
     this->info_variables->setPressure(ui->initialPositionValue_label->text().toFloat());
     ui->mainStack->setCurrentIndex(0);
+    ui->insideExperiment_stack->setCurrentIndex(0);
+    this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
+    this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
 
 }
 
 
 void MainWindow::on_releasePressure_toolButton_clicked()
 {
+
+
         QToolButton * sender_button = qobject_cast<QToolButton *>(sender());
+
         bool isPositionButtonsEnable = !(sender_button->isChecked());
+        int style = 0;
+        if(isPositionButtonsEnable){
+            style = pressureButton_GreenBackgroundColor;
+            sender_button->setText("Liberar a baixa pressão");
+        } else {
+            style = pressureButton_RedBackgroundColor;
+            sender_button->setText("Parar a baixa pressão");
+        }
+
+        this->send_data->setCommand(2);
+        this->send_data->sendMessage();
+
+
+        this->setupButtons->initExperiment_ButtonStyle(ui->initExperiment_toolButton,!isPositionButtonsEnable);
+        ui->initExperiment_toolButton->setDisabled(isPositionButtonsEnable);
+
+        this->setupButtons->setButton_style_icon(sender_button, style , no_icon );
+
+
         QLayout *layout = ui->positionLayout->layout();
         if (layout) {
             for (int i = 0; i < layout->count(); ++i){
@@ -339,6 +365,8 @@ void MainWindow::on_releasePressure_toolButton_clicked()
 
                if(button){
                     button->setEnabled(isPositionButtonsEnable);
+                    int move_button_style =  isPositionButtonsEnable? continueButton_BackgroundColor:moveButton_DisabledBackgroundColor;
+                    this->setupButtons->setButton_style_icon(button, move_button_style, no_icon);
                }
            }
         }
