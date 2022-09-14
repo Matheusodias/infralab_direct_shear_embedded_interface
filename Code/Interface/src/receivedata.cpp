@@ -4,10 +4,10 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-receiveData::receiveData(QObject * parent): QThread(parent)
+receiveData::receiveData(QObject * parent,Table *interface_tables): QThread(parent)
 {
 
-
+    this->interface_tables = interface_tables;
 
 }
 
@@ -69,14 +69,14 @@ void receiveData::run()
         }
         struct sockaddr clienteAddr;
         socklen_t clienteLength = sizeof(( struct sockaddr *) & clienteAddr);
-        qDebug() << "Antes do accept";
+        qDebug() << "Antes do accept interface";
         this->client_socket_id = accept(this->server_socket_id, &clienteAddr, &clienteLength);
         if(this->client_socket_id<0)
         {
             qDebug () << "Error no accept do servidor: " << strerror(errno);
             break;
         }
-        qDebug() << "Depois do accept";
+        qDebug() << "Depois do accept interface";
         readClientMessage();
     }
     qDebug() << "Terminou a run";
@@ -88,7 +88,8 @@ void receiveData::readClientMessage()
 {
     while(1){
         int value = read(this->client_socket_id,&this->machine_message.payload,machine_payload_size);
-        if(value<=0 ){//|| this->machine_message.sample_number == this->previous_sample_number){
+        if(value<=0){
+            //qDebug() << this->machine_message.sample_number == this->previous_sample_number;
             break;
         };
         qDebug() << "SampleNumber" << this->machine_message.sample_number;
@@ -96,9 +97,13 @@ void receiveData::readClientMessage()
         qDebug() << "Displacement[0]" << this->machine_message.displacement[0];
         qDebug() << "Displacement[1]" << this->machine_message.displacement[1];
         qDebug() << "Load[0]" << this->machine_message.load[0];
-        qDebug() << "Load[1]" << this->machine_message.load[1] << Qt::endl;
+        qDebug() << "Load[1]" << this->machine_message.load[1];
+        qDebug() << "State" << this->machine_message.state << Qt::endl;
 
-        this->previous_sample_number = this->machine_message.sample_number;
+        
+
+        // update densification table
+        // update shear table
 
     }
 }

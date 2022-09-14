@@ -3,7 +3,10 @@
 
 #include <QString>
 #include <QStringList>
+
 #define pi_value 3.1415f
+#define densification_phase 0
+#define shear_phase 1
 
 class Experiment
 {
@@ -12,7 +15,8 @@ public:
 
     Experiment();
 
-    QStringList getAllData();
+    QStringList getAllData_forInfoTable();
+    QStringList getAllData_forPhasesTable();
 
 
     void setAllVariables_onExperimetCreation();
@@ -84,6 +88,8 @@ public:
 
     float getPressure() const;
     void setPressure(float newPressure);
+    int getPhase() const;
+    void changePhase();
 
 private:
     QString	name;
@@ -108,6 +114,9 @@ private:
     float pressure;
     int initial_time;
     int present_time;
+    int sample_number_diff;
+
+    int phase = densification_phase;
 
 
 

@@ -179,6 +179,7 @@ void * enviaDados(){
         return 0;
     }
     int i=0,plus=1;
+    int sample_number=0;
     int direcao = 1;
     while(keepWriting){
         pthread_mutex_lock(&lock);
@@ -186,13 +187,14 @@ void * enviaDados(){
         int option = 0;
         //scanf("%d",&option);
         machine_to_interface_message dados;
-        dados.sample_number = i;
+        dados.sample_number = sample_number++;
         dados.displacement[0] = 14.20 + i%1000;
         dados.displacement[1] = 28.2 + i%1000;
         dados.load[0] = 100.2 + i%1000;        
-        dados.load[1] = 200.2 + i%1000;   
+        dados.load[1] = 200.2 + i%1000;
+        dados.state = (1 << (i%8));   
 
-        printf("displacement = %lf\n",dados.displacement[0]);
+        //printf("displacement = %lf\n",dados.displacement[0]);
         
         if(write(client_socket_id, dados.payload, sizeof(machine_to_interface_message))<=0){
             break;

@@ -5,6 +5,8 @@
 #include <QLineEdit>
 #include <QSignalMapper>
 #include "inc/experiment.h"
+#include <QSqlTableModel>
+#include <QTextEdit>
 
 /**
  * @brief Constrói uma nova janela principal.
@@ -24,7 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->info_variables = new Experiment();
     this->setupFields = new Field(this->info_variables);
-    this->phasesTable = new Table(this->info_variables);
+    this->tables = new Table(this->info_variables,ui->densification_tableWidget, ui->shear_tableWidget);
 
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
@@ -54,7 +56,7 @@ MainWindow::MainWindow(QWidget *parent)
         exit(-1);
     }
 
-
+    this->CreateDataseTables();
 
 
     this->timer = new QTimer(this);
@@ -62,7 +64,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
 
-
+    fillTextEditForTests();
 
 }
 
@@ -78,6 +80,24 @@ MainWindow::~MainWindow()
     delete send_data;
     delete receive_data;
     delete ui;
+}
+
+void MainWindow::CreateDataseTables(){
+    const QString path ="./database.db";
+    qDebug() << "Antes de criar a tabela";
+    my_db = new DBManager (path, this->info_variables);
+    if(my_db->isOpen())
+    {
+        if(!my_db->tableExists(experiment_table)){my_db->createTable(experiment_table);}
+        
+        if(!my_db->tableExists(densification_table)){my_db->createTable(densification_table);}
+        if(!my_db->tableExists(shear_table)){my_db->createTable(shear_table);}
+        //if(!my_db.tableExists(shear_table)){my_db.createTable(shear_table);}
+
+         // insere dados do experimento no banco de dados
+        // faz um select com os dados para verificar se estão corretos
+
+    }
 }
 
 void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
@@ -104,12 +124,6 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
     connectButtonToSlots_WithArguments(ui->densificationHeader_layout,ui->densification_stack,1);
 
     connectButtonToSlots_WithArguments(ui->shearHeader_layout,ui->shear_stack,2);
-
-
-
-
-
-
 //    connect(ui->densificationGraphs_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
 //        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
 
@@ -163,10 +177,22 @@ void MainWindow::InitialConfiguration_PhasesFields()
 
 void MainWindow::InitialConfiguration_Tables()
 {
-    this->phasesTable->customizeTable(ui->phases_tableWidget);
-    this->phasesTable->initialConfig_TablePhases(ui->phases_tableWidget);
-    this->phasesTable->customizeTable(ui->info_tableWidget);
-    this->phasesTable->initialConfig_TableInfo(ui->info_tableWidget);
+    this->tables->customizeTable(ui->phases_tableWidget);
+    //this->tables->initialConfig_TablePhases(ui->phases_tableWidget);
+    this->tables->initialConfig_StaticTable(ui->phases_tableWidget,phases_table);
+    this->tables->customizeTable(ui->info_tableWidget);
+    this->tables->initialConfig_StaticTable(ui->phases_tableWidget,info_table);
+
+    this->tables->customizeTable(ui->shear_tableWidget);
+    this->tables->customizeTable(ui->densification_tableWidget);
+    this->tables->initialConfig_DynamicTable(ui->densification_tableWidget,design_densification_table);
+    this->tables->initialConfig_DynamicTable(ui->shear_tableWidget,design_shear_table);
+
+    // this->tables->initialConfig_ShearTable(ui->shear_tableWidget);
+    this->tables->updateData_ShearTable(ui->shear_tableWidget);
+    this->tables->updateData_ShearTable(ui->shear_tableWidget);
+    this->tables->exportCSV();
+
 
 }
 
@@ -235,7 +261,8 @@ void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[6], 
     this->setupButtons->changeButton_style(buttonSender, choosen_icon, style, pos);
 
     if(next_page == 3){
-        this->phasesTable->updateData_TablePhases(ui->phases_tableWidget);
+        //this->tables->updateData_TablePhases(ui->phases_tableWidget);
+        this->tables->updateData_StaticTable(ui->phases_tableWidget,phases_table);
     }
 }
 
@@ -249,7 +276,8 @@ void MainWindow::nextPhase()
     this->setupButtons->changeButton_style(button,no_icon,phasesButton_lightBackgroundColor, 1);
 
     if(next_page == 3){
-        this->phasesTable->updateData_TablePhases(ui->phases_tableWidget);
+        //this->tables->updateData_TablePhases(ui->phases_tableWidget);
+        this->tables->updateData_StaticTable(ui->phases_tableWidget,phases_table);
     }
 }
 
@@ -272,7 +300,9 @@ void MainWindow::changeOutsideExperimentPage()
 
 void MainWindow::changeInitialPositionValue()
 {
-    ui->initialPositionValue_label->setText(QString::number(receive_data->receiveDataThread->machine_message.displacement[0]));
+    qDebug() << "Estou no displacement";
+    ui->initialPositionValue_label->setText(QString::number(receive_data->receiveDataThread->machine_message.displacement[1]));
+    qDebug() << receive_data->receiveDataThread->machine_message.displacement[1];
 }
 
 void MainWindow::onPositionButton_pressed()
@@ -323,12 +353,20 @@ void MainWindow::onPositionButton_released()
 
 void MainWindow::on_initExperiment_toolButton_clicked()
 {
-    this->info_variables->setPressure(ui->initialPositionValue_label->text().toFloat());
+    this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
+    
     ui->mainStack->setCurrentIndex(0);
     ui->insideExperiment_stack->setCurrentIndex(0);
     this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
-    this->phasesTable->updateData_TableInfo(ui->info_tableWidget);
+    //this->tables->updateData_TableInfo(ui->info_tableWidget);
+    this->tables->updateData_StaticTable(ui->info_tableWidget,info_table);
+    if(my_db->isOpen()){
+        my_db->insertIntoTable(experiment_table);
+    }
+
+
+  
 
 }
 
@@ -372,5 +410,74 @@ void MainWindow::on_releasePressure_toolButton_clicked()
            }
         }
 
+}
+
+void MainWindow::fillTextEditForTests()
+{
+    QString array_data[30] = {
+        "Experimento 2",
+        "Ivan D",
+        "Teste do tipo 2",
+        "Espécime do tipo 2",
+        "Classe uscs 35",
+        "Classe ashto 3",
+        "Nenhuma preparação",
+        "1234", "12",
+        "Localização da amostra",
+        "Descrição da amostra",
+        "1","2","3","4","5",
+        "6", "7", "8",
+    };
+
+    int i=0;
+    ui->experimentName_lineEdit->setText(array_data[i++]);
+    ui->operator_lineEdit->setText(array_data[i++]);
+    ui->testType_lineEdit->setText(array_data[i++]);
+    ui->specimenType_lineEdit->setText(array_data[i++]);
+    ui->uscs_lineEdit->setText(array_data[i++]);
+    ui->ashto_lineEdit->setText(array_data[i++]);
+    ui->samplePreparation_lineEdit->setText(array_data[i++]);
+    ui->sampleId_lineEdit->setText(array_data[i++]);
+    ui->boringNumber_lineEdit->setText(array_data[i++]);
+    ui->sampleLocation_lineEdit->setText(array_data[i++]);
+    ui->sampleDescription_lineEdit->setText(array_data[i++]);
+    ui->height_lineEdit->setText(array_data[i++]);
+    ui->wetWeight_lineEdit->setText(array_data[i++]);
+    ui->humidity_lineEdit->setText(array_data[i++]);
+    ui->spgr_lineEdit->setText(array_data[i++]);
+    ui->plastic_lineEdit->setText(array_data[i++]);
+    ui->liquid_lineEdit->setText(array_data[i++]);
+    ui->diameter_lineEdit->setText(array_data[i++]);
+    qDebug() << "Valor da pressure" << array_data[i];
+    ui->pressure_lineEdit->setText(array_data[i++]);
+    i=0;
+
+    info_variables->setName(array_data[i++]);
+    info_variables->setOperator_name(array_data[i++]);
+    info_variables->setTest_type(array_data[i++]);
+    info_variables->setSpecimen_type(array_data[i++]);
+    info_variables->setUscs_class(array_data[i++]);
+    info_variables->setAshto_class(array_data[i++]);
+    info_variables->setSample_preparations(array_data[i++]);
+    info_variables->setSample_id(array_data[i++].toInt());
+    info_variables->setBoring_number(array_data[i++].toInt());
+    info_variables->setSample_location(array_data[i++]);
+    info_variables->setSample_description(array_data[i++]);
+    info_variables->setInitial_height(array_data[i++].toFloat());
+    info_variables->setInitial_wet_weight(array_data[i++].toFloat());
+    info_variables->setInitial_moisture(array_data[i++].toFloat());
+    info_variables->setSpgr_solids(array_data[i++].toFloat());
+    info_variables->setPlastic_limit(array_data[i++].toFloat());
+    info_variables->setLiquid_limit(array_data[i++].toFloat());
+    info_variables->setDiameter(array_data[i++].toFloat());
+    info_variables->setPressure(array_data[i++].toFloat());
+
+
+
+    //phase1_gridLayout
+    // phase2_gridLayout
+    // layout_SampleDescription
+    // phase3_gridLayout
+    return;
 }
 

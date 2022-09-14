@@ -4,10 +4,10 @@
 #include <QDebug>
 Experiment::Experiment()
 {
-
+    
 }
 
-QStringList Experiment::getAllData()
+QStringList Experiment::getAllData_forInfoTable()
 {
     QStringList temporary_list;
     temporary_list.push_back(this->getName());
@@ -47,7 +47,22 @@ QStringList Experiment::getAllData()
 
 }
 
+QStringList Experiment::getAllData_forPhasesTable(){
+    float calculations[] = {
+        getArea(),getinitial_volume(),
+        getinitial_wet_density(),getinitial_dry_density(),
+        getinitial_void_ratio(),getwater_specific_weight(),
+        getinitial_saturation()
+    };
 
+    QStringList temporary_list;
+
+    for(int i=0;i<sizeof(calculations)/sizeof(float);i++){
+        temporary_list.push_back(QString::number(calculations[i]));    
+    }
+
+    return temporary_list;
+}
 
 void Experiment::setAllVariables_onExperimetCreation()
 {
@@ -322,5 +337,16 @@ void Experiment::setPressure(float newPressure)
     qDebug() << "passei no pressure" << newPressure;
     pressure = newPressure;
 }
+
+int Experiment::getPhase() const
+{
+    return this->phase;
+}
+
+void Experiment::changePhase()
+{
+    this->phase = shear_phase;
+}
+
 
 

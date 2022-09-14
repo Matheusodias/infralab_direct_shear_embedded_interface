@@ -1,7 +1,8 @@
-#include "dbmanager.h"
+#include "inc/dbmanager.h"
 
-DBManager::DBManager(const QString & path)
+DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
 {
+    this->experiment_data = temp_experiment_data;
 
     this->prova_conceito_database = QSqlDatabase::addDatabase("QSQLITE");
     this->prova_conceito_database.setDatabaseName(path);
@@ -12,6 +13,144 @@ DBManager::DBManager(const QString & path)
     } else{
         qDebug() << "Erro ao criar o banco. " << this->prova_conceito_database.lastError();
     }
+
+    
+    this->create_table[experiment_table] =  QString(
+    "CREATE TABLE %1 "
+    "(experiment_id INTEGER NOT NULL, "
+    "name TEXT NOT NULL,"
+    "operator_name TEXT	NOT NULL,"
+    "initial_time INTEGER NOT NULL, "
+    "test_type TEXT	NOT NULL,"
+    "specimen_type TEXT	NOT NULL,"
+    "uscs_class TEXT NOT NULL,"
+    "ashto_class TEXT NOT NULL,"
+    "sample_preparations TEXT NOT NULL,"
+    "sample_id INTEGER NOT NULL,"
+    "boring_number INTEGER NOT NULL,"
+    "sample_location TEXT NOT NULL,"
+    "sample_description TEXT NOT NULL,"
+    "initial_height REAL NOT NULL, "
+    "initial_wet_weight REAL NOT NULL,"
+    "initial_moisture REAL NOT NULL,"
+    "spgr_solids REAL NOT NULL,"
+    "plastic_limit REAL NOT NULL,"
+    "liquid_limit REAL NOT NULL,"
+    "initial_position REAL NOT NULL,"
+    "diameter REAL NOT NULL,"
+    "pressure REAL NOT NULL,"
+    "sample_number_diff INTEGER,"
+    "PRIMARY KEY(experiment_id));"
+
+    ).arg(this->table_name[experiment_table]);
+
+
+    this->insert_into_table[experiment_table] = 
+    QString(
+        "INSERT INTO %1 ("
+        "name, operator_name, initial_time, test_type,"
+        "specimen_type, uscs_class, ashto_class,"
+        "sample_preparations, sample_id, boring_number,"
+        "sample_location , sample_description, initial_height,"
+        "initial_wet_weight, initial_moisture, spgr_solids,"
+        "plastic_limit, liquid_limit, initial_position,"
+        "diameter, pressure)"
+        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    ).arg(this->table_name[experiment_table]);
+
+    this->create_table[densification_table] =  QString(
+    "CREATE TABLE %1 "
+    "(densification_id INTEGER NOT NULL,"
+    "experiment_id INTEGER NOT NULL,"
+    "sample_number INTEGER NOT NULL,"
+    "vertical_displacement REAL NOT NULL, "
+    "vertical_load REAL NOT NULL,"
+    "PRIMARY KEY(densification_id),"
+    "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
+    ).arg(this->table_name[densification_table]);
+
+
+    this->create_table[shear_table] =  QString(
+    "CREATE TABLE %1 "
+    "(shear_id  INTEGER NOT NULL,"
+    "experiment_id INTEGER  NOT NULL,"
+    "vertical_displacement REAL NOT NULL," 
+    "vertical_load REAL NOT NULL,"
+    "PRIMARY KEY(shear_id),"
+    "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
+    ).arg(this->table_name[shear_table]);
+
+    
+
+
+
+
+
+
+/*
+    1 cisalhamento e de adensamento
+    
+    experiment_id INTEGER PRIMARY KEY NOT NULL 4
+    sample_number INTEGER NOT NULL 4
+    horizontal_displacement REAL NOT NULL 8 
+    vertical_displacement REAL NOT NULL 8
+    horizontal_load REAL NOT NULL 8
+    vertical_load REAL NOT NULL 8
+    fase INTEGER NOT NULL 1(apenas uma flag)
+   
+
+    4+4+8+8+8+8+4 = 8+16+16+1 = 24+17 = 41B
+
+    41 * (12H = 12*60*60s = 43200s) = 1771200B
+    
+
+    1771200 - (1209600+  518400.0) = 43200B ou 42.1875MB a mais se utilizar 1 classe em vez de 2
+
+
+    Vanta
+
+
+*/
+
+/*
+*   densification_id  INTEGER PRIMARY KEY NOT NULL 4
+*   experiment_id INTEGER FOREIGN KEY NOT NULL 4
+*   sample_number INTEGER NOT NULL 4
+*   vertical_displacement REAL NOT NULL 8 
+*   vertical_load REAL NOT NULL 8
+*   28 TOTAL 
+
+
+    28 * (12H = 12*60*60s = 43200s) = 1209600B
+*/
+ 
+
+/* 
+*   shear_id INTEGER PRIMARY KEY NOT NULL 4
+*   experiment_id INTEGER FOREIGN KEY NOT NULL 4
+*   horizontal_displacement REAL NOT NULL 8
+*   horizontal_load REAL NOT NULL 8
+*   
+*   24 TOTAL
+
+24 * 43200/2 (supondo que o cisalhamento comece na metade do tempo) = 518400B;
+
+Para recuperar o sample number da SHEAR_TABLE.
+
+sample_number_shear atual = sample_number_densification - this->sample_number_diff
+Então para mostrar o número de amostra do cisalhamento,
+basta primeiro realizar o select na tabela de adensamento e realizar a conta acima
+
+Assim, não precisa salvar esse dado na tabela de cisalhamento
+
+
+
+
+
+*/
+
+
+
 
 }
 
@@ -28,125 +167,88 @@ bool DBManager::isOpen() const
     return this->prova_conceito_database.isOpen();
 }
 
-bool DBManager::createTable(const QString & table_name)
+bool DBManager::createTable(uint8_t option)
 {
     bool success = false;
     QSqlQuery query;
-    QString command = QString("CREATE TABLE %1 (id INTEGER PRIMARY KEY, beginDate TEXT, finishDate TEXT, author TEXT);").arg(table_name);
-    query.prepare(command);
-
+    query.prepare(this->create_table[option]);
+    //qDebug() << this->create_table[option];
     if(query.exec())
     {
-        qDebug() << "Tabela " << table_name << " criada.";
+        qDebug() << "Tabela "<< this->table_name[option] << "criada.";
         success = true;
     } else{
-        qDebug() << "Erro ao criar tabela: " << query.lastError();
+        qDebug() << "Erro ao criar a tabela: " << this->table_name[option] << "\n" << query.lastError();
     }
-    this->table_name = table_name;
     return success;
 }
 
-bool DBManager::tableExists()
+bool DBManager::tableExists(uint8_t option)
 {
     bool success = false;
     QSqlQuery query;
-    QString command = QString("SELECT EXISTS ( SELECT name FROM sqlite_schema WHERE type='table' AND name='%1')").arg(this->table_name);
+    QString command = QString("SELECT EXISTS ( SELECT name FROM sqlite_schema WHERE type='table' AND name='%1')").arg(this->table_name[option]);
     query.prepare(command);
 
     if(query.exec()){
         while(query.next()){
             if(query.value(0) == 1)
             {
-                qDebug() << "A tabela "<< this->table_name << " existe.";
+                qDebug() << "A tabela "<< this->table_name[option] << " existe.";
                 success = true;
             } else{
-                qDebug() << "A tabela "<< this->table_name << " não existe.";
+                qDebug() << "A tabela "<< this->table_name[option] << " não existe.";
                 success = false;
             }
 
         }
     } else{
-        qDebug() << "Erro na seleção da tabela " << this->table_name << ": " << query.lastError();
+        qDebug() << "Erro na seleção da tabela " << this->table_name[option] << ": " << query.lastError();
     }
     return success;
 }
 
-bool DBManager::dropTable()
+bool DBManager::insertIntoTable(uint8_t option)
 {
     bool success = false;
     QSqlQuery query;
-    QString command = QString("DROP TABLE %1;").arg(this->table_name);
-    query.prepare(command);
+   
+    query.prepare(this->insert_into_table[option]);
 
-    if(query.exec()){
-        qDebug() << "Tabela "<< this->table_name << "Deletada com sucesso.";
-        success = true;
-    } else{
-        qDebug() << "Erro na deleção da tabela " << this->table_name << ": " << query.lastError();
-    }
-    return success;
-
-}
-
-bool DBManager::insertIntoTable(const QString & begin_date, const QString & finish_date, const QString & author)
-{
-    bool success = false;
-    QSqlQuery query;
-    //INSERT INTO people (id, name) Values (:id,:name)
-    QString command = QString("INSERT INTO %1 (beginDate, finishDate, author) Values (:begin_date,:finish_date,:author)").arg(this->table_name);
-    query.prepare(command);
-    query.bindValue(":begin_date",begin_date);
-    query.bindValue(":finish_date",finish_date);
-    query.bindValue(":author",author);
+    this->insertValuesIntoBind(&query);
 
     if(query.exec()){
         qDebug() << "Inserção concluída com sucesso.";
         success = true;
     } else{
-        qDebug() << "Erro na inserção da tabela " << this->table_name << ": " << query.lastError();
+        qDebug() << "Erro na inserção da tabela " << this->table_name[0] << ": " << query.lastError();
     }
     return success;
 
 }
-bool DBManager::selectAllFromTable()
+void DBManager::insertValuesIntoBind(QSqlQuery *query)
 {
-    bool success = false;
-    QSqlQuery query;
-    QString command = QString("SELECT * FROM  %1;").arg(this->table_name);
-    query.prepare(command);
-
-    if(query.exec()){
-        int begin_date_index = query.record().indexOf("beginDate");
-        int finish_date_index = query.record().indexOf("finishDate");
-        int author_index = query.record().indexOf("author");
-
-        while(query.next()){
-               qDebug() << "Data de Inicio: " << query.value(begin_date_index).toString() << "| Data de Fim: "
-                << query.value(finish_date_index).toString() << "| Autor:" << query.value(author_index).toString();
-        }
-
-        success = true;
-    } else{
-        qDebug() << "Erro na seleção da tabela " << this->table_name << ": " << query.lastError();
-    }
-    return success;
-}
-bool DBManager::deleteAllFromTable()
-{
-
-    bool success = false;
-    QSqlQuery query;
-    QString command = QString("DELETE FROM %1;").arg(this->table_name);
-    query.prepare(command);
-
-    if(query.exec()){
-        qDebug() << "Dados da tabela " << this->table_name << " apagados.";
-
-        success = true;
-    } else{
-        qDebug() << "Erro na deleção de dados da tabela " << this->table_name << ": " << query.lastError();
-    }
-    return success;
-
+    
+    query->addBindValue(this->experiment_data->getName());
+    query->addBindValue(this->experiment_data->getOperator_name());
+    query->addBindValue(1234);
+    query->addBindValue(this->experiment_data->getTest_type());
+    query->addBindValue(this->experiment_data->getSpecimen_type());
+    query->addBindValue(this->experiment_data->getUscs_class());
+    query->addBindValue(this->experiment_data->getAshto_class());
+    query->addBindValue(this->experiment_data->getSample_preparations());
+    query->addBindValue(this->experiment_data->getSample_id());
+    query->addBindValue(this->experiment_data->getBoring_number());
+    query->addBindValue(this->experiment_data->getSample_location());
+    query->addBindValue(this->experiment_data->getSample_description());
+    query->addBindValue(this->experiment_data->getInitial_height());
+    query->addBindValue(this->experiment_data->getInitial_wet_weight());
+    query->addBindValue(this->experiment_data->getInitial_moisture());
+    query->addBindValue(this->experiment_data->getSpgr_solids());
+    query->addBindValue(this->experiment_data->getPlastic_limit());
+    query->addBindValue(this->experiment_data->getLiquid_limit());
+    query->addBindValue(this->experiment_data->getInitial_position());
+    query->addBindValue(this->experiment_data->getDiameter());
+    query->addBindValue(this->experiment_data->getPressure());
 }
 

@@ -57,6 +57,24 @@ typedef union  machine_to_interface_message{
     };
 } machine_to_interface_message;
 
+/*
+1 tabela de experimento
+
+n amostras
+
+1 cisalhamento e de adensamento
+id do experimento
+fase
+sample_number
+displacement[2]
+load[2]
+sample_number_diff
+
+*/
+
+
+
+
 //Q_DECLARE_METATYPE(interface_to_machine_message);
 //Q_DECLARE_METATYPE(machine_to_interface_message);
 

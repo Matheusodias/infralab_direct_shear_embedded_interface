@@ -251,7 +251,7 @@ color: #10576D;
         <item>
          <widget class="QStackedWidget" name="insideExperiment_stack">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="densification_page">
            <property name="styleSheet">
@@ -322,19 +322,11 @@ color: #10576D;
                </widget>
               </widget>
               <widget class="QWidget" name="densificationTable_page">
-               <widget class="QLabel" name="label_8">
-                <property name="geometry">
-                 <rect>
-                  <x>320</x>
-                  <y>130</y>
-                  <width>161</width>
-                  <height>17</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>tabelaAdensamento</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_14">
+                <item>
+                 <widget class="QTableWidget" name="densification_tableWidget"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="densificationResult_page">
                <widget class="QLabel" name="label_7">
@@ -409,7 +401,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="shear_stack">
               <property name="currentIndex">
-               <number>0</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="shearGraphs_page">
                <widget class="QLabel" name="label_9">
@@ -427,19 +419,11 @@ color: #10576D;
                </widget>
               </widget>
               <widget class="QWidget" name="shearTable_page">
-               <widget class="QLabel" name="label_10">
-                <property name="geometry">
-                 <rect>
-                  <x>320</x>
-                  <y>130</y>
-                  <width>161</width>
-                  <height>17</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>tabela cisalhamento</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_13">
+                <item>
+                 <widget class="QTableWidget" name="shear_tableWidget"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="shearResult_page">
                <widget class="QLabel" name="label_11">

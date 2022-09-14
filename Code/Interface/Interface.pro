@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -19,7 +19,8 @@ SOURCES +=  \
     src/receivedata.cpp \
     src/sendcommands.cpp \
     src/threadcontroller.cpp \
-    src/table.cpp
+    src/table.cpp \
+    src/dbmanager.cpp
 
 HEADERS += \
     inc/calculatedvariables.h \
@@ -31,7 +32,9 @@ HEADERS += \
     inc/socket_local.h \
     inc/threadcontroller.h \
     inc/experiment.h \
-    inc/table.h
+    inc/table.h \
+    inc/dbmanager.h
+
 
 FORMS += \
     mainwindow.ui

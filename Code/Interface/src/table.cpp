@@ -1,8 +1,70 @@
 #include "inc/table.h"
 #include <QHeaderView>
-Table::Table(Experiment *parent)
+#include <QDebug>
+Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shear)
 {
     table_variables = parent;
+
+    densificationTable = densification;
+    shearTable = shear; 
+
+    // updateData_StaticTable(QTableWidget *table_widget,option)
+    // initialConfig_StaticTable(QTableWidget *table_widget, uint8_t option)
+    // updateData_DinamycTable(QTableWidget *table_widget, uint8_ option)
+    // initialConfig_DinamicTable(QTableWidget *table_widget,uint8_ option)
+    
+    QString densificationHeaderNames[] = {
+       "Número da amostra","Dia", "H:min:seg:ms","Desl. ver. (mm)",
+        "Carga normal (KPa)",
+    };
+
+    QString shearHeaderNames []= {
+        "Número da amostra", "Dia", "H:min:seg:ms",
+        "Desl. ver. (mm)", "Desl. hori. (mm)",
+        "Carga cis. (KPa)", "Carga normal (KPa)", "Tensão normal",
+        "Tensão cisalhante"
+    };
+
+
+
+    QString phasesLinesNames []= {
+        "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
+        "Massa específica seca inicial da amostra de solo (g/cm³)","Índice de vazios","Peso Específico da água",
+        "Saturação inicial da amostra de solo (%)"
+    };
+
+    QString infoLinesNames []= {
+        "Nome do experimento", "Nome do operador", "Tempo de início do experimento (s)",  "Tempo atual (s)",
+        "Tipo de teste", "Tipo de espécime",
+        "Classe USCS", "Classe ASHTO", "Preparações da amostra", "Id da amostra",
+        "Número do furo", "Localização da amostra", "Descrição da amostra",
+        "Altura inicial (cm)", "Peso úmido inicial (g)", "Umidade inicial (%)",
+        "Peso específico dos sólidos (g/cm³)", "Limite de plasticidade (%)",
+        "Limite de liquidez (%)", "Posição inicial (cm)", "Diamêtro (cm)",
+        "Pressão", "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
+        "Massa específica seca inicial da amostra de solo (g/cm³)","Índice de vazios","Peso Específico da água",
+        "Saturação inicial da amostra de solo (%)"
+    };
+
+    
+    for(long unsigned int i=0;i<sizeof(phasesLinesNames)/sizeof(QString);i++){
+        this->lineNames[phases_table].push_back(phasesLinesNames[i]);
+    }
+
+    for(long unsigned int i=0;i<sizeof(infoLinesNames)/sizeof(QString);i++){
+        this->lineNames[info_table].push_back(infoLinesNames[i]);
+    }
+
+    for(long unsigned int i=0;i<sizeof(densificationHeaderNames)/sizeof(QString);i++){
+        this->headerNames[design_densification_table].push_back(densificationHeaderNames[i]);
+    }
+
+    for(long unsigned int i=0;i<sizeof(shearHeaderNames)/sizeof(QString);i++){
+        this->headerNames[design_shear_table].push_back(shearHeaderNames[i]);
+    }
+
+
+
 }
 
 void Table::customizeTable(QTableWidget *table_widget)
@@ -38,60 +100,21 @@ void Table::customizeTable(QTableWidget *table_widget)
     table_widget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch) ;
     table_widget->horizontalHeader()->setDefaultAlignment(Qt::AlignCenter);
 
-
-
-
-
-
 }
 
-void Table::updateData_TablePhases(QTableWidget *table_widget)
+void Table::initialConfig_StaticTable(QTableWidget *table_widget, uint8_t option)
 {
-
-    float calculations[] = {
-        table_variables->getArea(),table_variables->getinitial_volume(),
-        table_variables->getinitial_wet_density(),table_variables->getinitial_dry_density(),
-        table_variables->getinitial_void_ratio(),table_variables->getwater_specific_weight(),
-        table_variables->getinitial_saturation()};
-
-    for(int i=0;i<7;i++){
-        QTableWidgetItem *item = new QTableWidgetItem;
-        QString variable = QString::number(calculations[i]);
-        item->setText(variable);
-        item->setTextAlignment(Qt::AlignCenter);
-        table_widget->setItem(i,1,item);
-    }
-}
-
-void Table::initialConfig_TableInfo(QTableWidget *table_widget)
-{
-    QString lineNames []= {
-        "Nome do experimento", "Nome do operador", "Tempo de início do experimento (s)",  "Tempo atual (s)",
-        "Tipo de teste", "Tipo de espécime",
-        "Classe USCS", "Classe ASHTO", "Preparações da amostra", "Id da amostra",
-        "Número do furo", "Localização da amostra", "Descrição da amostra",
-        "Altura inicial (cm)", "Peso úmido inicial (g)", "Umidade inicial (%)",
-        "Peso específico dos sólidos (g/cm³)", "Limite de plasticidade (%)",
-        "Limite de liquidez (%)", "Posição inicial (cm)", "Diamêtro (cm)",
-        "Pressão", "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
-        "Massa específica seca inicial da amostra de solo (g/cm³)","Índice de vazios","Peso Específico da água",
-        "Saturação inicial da amostra de solo (%)"
-    };
-
-    int row_count = sizeof(lineNames)/sizeof(QString);
-
-
-
-    table_widget->setRowCount(row_count);
     table_widget->setColumnCount(2);
     QStringList headerLabels;
     headerLabels << "Variável" << "Valor";
     table_widget->setHorizontalHeaderLabels(headerLabels);
 
+    int row_count =  this->lineNames[option].size();
+    table_widget->setRowCount(row_count);
 
     for(int i=0;i<row_count;i++){
         QTableWidgetItem *item = new QTableWidgetItem;
-        item->setText(lineNames[i]);
+        item->setText(this->lineNames[option][i]);
         //item->setTextAlignment(Qt::AlignHCenter);
         item->setTextAlignment(Qt::AlignCenter);
         table_widget->setItem(i,0,item);
@@ -99,37 +122,125 @@ void Table::initialConfig_TableInfo(QTableWidget *table_widget)
     }
 }
 
-void Table::updateData_TableInfo(QTableWidget *table_widget)
+void Table::updateData_StaticTable(QTableWidget *table_widget,uint8_t option)
 {
-       QStringList data = table_variables->getAllData();
+    if(option == phases_table){
+        columnValues[option] = table_variables->getAllData_forPhasesTable();
+    } else {
+        columnValues[option] = table_variables->getAllData_forInfoTable();
+    }
 
-    for(int i=0;i<data.length();i++){
+    for(int i=0;i<columnValues[option].size();i++){
         QTableWidgetItem *item = new QTableWidgetItem;
-        item->setText(data[i]);
+        item->setText(columnValues[option][i]);
         item->setTextAlignment(Qt::AlignCenter);
         table_widget->setItem(i,1,item);
     }
 }
 
-void Table::initialConfig_TablePhases(QTableWidget *table_widget)
+void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option)
 {
-    table_widget->setRowCount(7);
-    table_widget->setColumnCount(2);
-    QStringList headerLabels;
-    headerLabels << "Variável" << "Valor";
-    table_widget->setHorizontalHeaderLabels(headerLabels);
-    QString lineNames []= {
-        "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
-        "Massa específica seca inicial da amostra de solo (g/cm³)","Índice de vazios","Peso Específico da água",
-        "Saturação inicial da amostra de solo (%)"
-    };
-
-    for(int i=0;i<7;i++){
-        QTableWidgetItem *item = new QTableWidgetItem;
-        item->setText(lineNames[i]);
-        //item->setTextAlignment(Qt::AlignHCenter);
-        item->setTextAlignment(Qt::AlignCenter);
-        table_widget->setItem(i,0,item);
-
+    if(option == design_shear_table){
+        table_widget->setStyleSheet(
+            "QTableWidget{"
+            "background-color: white;"
+            "alternate-background-color: #77A0AC;"
+            "selection-background-color: #0D495C;"
+            "font:  20pt 'Ubuntu'; border:0px; }"
+            "QHeaderView { font: bold 16pt 'Ubuntu'; }"
+        );
+    } else{
+        table_widget->setStyleSheet(
+            "QTableWidget{"
+            "background-color: white;"
+            "alternate-background-color: #77A0AC;"
+            "selection-background-color: #0D495C;"
+            "font:  20pt 'Ubuntu'; border:0px; }"
+            "QHeaderView { font: bold 25pt 'Ubuntu'; }"
+        );
     }
+    
+    table_widget->setColumnCount(this->headerNames[option].size());
+    table_widget->setHorizontalHeaderLabels(headerNames[option]);
+}
+
+void Table::updateData_DynamicTable()
+{ 
+ 
+    // QTableWidget *table_widget;
+    // if(table_variables->getPhase() == densification_phase){
+    //     machineTablevalues[option] = table_variables->getAllData_forPhasesTable();
+    //     table_widget = densificationTable;
+    // } else {
+    //     machineTablevalues[option] = table_variables->getAllData_forInfoTable();
+    //     table_widget = shearTable;
+    // }
+
+    // table_widget->insertRow( table_widget->rowCount());
+    // for(int j=0;j<machineTablevalues[option].size();j++){
+    //     QTableWidgetItem *item = new QTableWidgetItem;
+    //     item->setText(machineTablevalues[option][j]);
+    //     item->setTextAlignment(Qt::AlignCenter);
+    //     table_widget->setItem (table_widget->rowCount()-1,j,item);    
+    // }
+
+}
+
+
+void Table::initialConfig_ShearTable(QTableWidget * table_widget)
+{
+    //table_widget->setRowCount(1);
+    table_widget->setStyleSheet("QTableWidget{"
+                                "background-color: white;"
+                                "alternate-background-color: #77A0AC;"
+                                "selection-background-color: #0D495C;"
+                                "font:  20pt 'Ubuntu'; border:0px; }"
+                                "QHeaderView { font: bold 15pt 'Ubuntu'; }"
+                                );
+
+
+    QString lineNames []= {
+        "Número da amostra", "Dia", "H:min:seg:ms",
+        "Desl. ver. (mm)", "Desl. hori. (mm)",
+        "Carga cis. (KPa)", "Carga normal (KPa)", "Tensão normal",
+        "Tensão cisalhante"
+    };
+    int tamanho = sizeof(lineNames)/sizeof(QString);
+    table_widget->setColumnCount(tamanho);
+    QStringList headerLabels;
+    for(int i=0;i<tamanho;i++){
+        headerLabels.push_back(lineNames[i]);
+    }
+    table_widget->setHorizontalHeaderLabels(headerLabels);
+
+}
+
+void Table::updateData_ShearTable(QTableWidget *table_widget)
+{
+    //QStringList data = table_variables->getAllData();
+    
+   
+    table_widget->insertRow( table_widget->rowCount());
+    for(int j=0;j<9;j++){
+        QTableWidgetItem *item = new QTableWidgetItem;
+        item->setText(QString::number(j));
+        item->setTextAlignment(Qt::AlignCenter);
+        table_widget->setItem (table_widget->rowCount()-1,j,item);    
+    }
+    
+    
+    
+    
+}
+
+
+void Table::exportCSV()
+{
+    for(int i=0;i<shearTable->rowCount();i++){
+        for(int j=0;j<shearTable->columnCount();j++){
+            QTableWidgetItem * data = shearTable->item(i,j);
+            qDebug() <<"i = " <<i << " j = " << j << " " << data->text();
+        } 
+    }
+   
 }
