@@ -10,7 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES +=  \
-    densification.cpp \
+    src/densification.cpp \
     src/field.cpp \
     src/button.cpp \
     src/experiment.cpp \
@@ -23,7 +23,7 @@ SOURCES +=  \
     src/dbmanager.cpp
 
 HEADERS += \
-    densification.h \
+    inc/densification.h \
     inc/field.h \
     inc/button.h \
     inc/mainwindow.h \

@@ -67,6 +67,49 @@ QStringList Experiment::getAllData_forPhasesTable(){
     return temporary_list;
 }
 
+QStringList Experiment:: updateDensificationTable()
+{
+    QStringList temporary_list =  densification_variables.getDensificationVariables();
+   
+    temporary_list[1] = this->day_month_year();
+    temporary_list[2] =this->hour_min_sec();
+
+    
+
+   
+    
+
+    return temporary_list;
+}
+
+QString Experiment::hour_min_sec()
+{
+    time_t seconds = (time_t)(this->getInitial_time()/1000 + densification_variables.getSample_number());
+    struct tm * time_seconds = localtime(&seconds);
+    QString time_string = QString("%1:%2:%3").arg(time_seconds->tm_hour).arg(time_seconds->tm_min).arg(time_seconds->tm_sec);
+    return time_string;
+}
+
+QString Experiment::day_month_year()
+{
+    time_t seconds = (time_t)(this->getInitial_time()/1000 + densification_variables.getSample_number());
+    struct tm * time_seconds = localtime(&seconds);
+    QString time_string = QString("%1/%2/%3").arg(time_seconds->tm_mday).arg(time_seconds->tm_mon).
+    arg(time_seconds->tm_year + 1900);
+
+    return time_string;
+}
+
+bool Experiment::getExperimentStarted() const
+{
+    return experimentStarted;
+}
+
+void Experiment::setExperimentStarted(bool newExperimentStarted)
+{
+    experimentStarted = newExperimentStarted;
+}
+
 const QString &Experiment::getName() const
 {
     return name;

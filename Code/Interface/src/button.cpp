@@ -145,7 +145,7 @@ void Button::iconsConfiguration()
 void Button::buttonSizeConfiguration()
 {
     this->buttonMaximumSize[outsideExperiment_buttonSize] = QSize(300, 80);
-    this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(110, 70);
+    this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(130, 90);
 
     this->buttonMaximumSize[phases_buttonSize] = QSize(16777215, 16777215);
     this->buttonMinimumSize[phases_buttonSize] = QSize(70, 50);

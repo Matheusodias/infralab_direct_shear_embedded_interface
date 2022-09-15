@@ -5,6 +5,7 @@
 #include <QThread>
 
 #include "receivedata.h"
+#include "table.h"
 
 
 /**
@@ -20,7 +21,7 @@ class ThreadController : public QObject
         bool isThreadDestroyed; /*!< Informa se a thread foi destruída ou não.*/
     public:
         receiveData *receiveDataThread; /*!< Instância da classe receiveData(Thread).*/
-        ThreadController(QObject *parent = nullptr);
+        ThreadController(QObject *parent = nullptr,Table * shear_densification_variables = nullptr);
         ~ThreadController();
     public slots:
         void receiveThreadFinishedSlot();

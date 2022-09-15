@@ -3,6 +3,8 @@
 
 #include <QString>
 #include <QStringList>
+#include "densification.h"
+
 
 #define pi_value 3.1415f
 #define densification_phase 0
@@ -18,6 +20,7 @@ public:
     QStringList getAllData_forInfoTable();
     QStringList getAllData_forPhasesTable();
 
+    QStringList updateDensificationTable();
 
 
     const QString &getName() const;
@@ -96,7 +99,18 @@ public:
 
     QString getInitial_timeString();
 
+    QString hour_min_sec();
+    QString day_month_year();
+    
+
+    bool getExperimentStarted() const;
+    void setExperimentStarted(bool newExperimentStarted);
+
+    Densification densification_variables;
 private:
+   
+    bool experimentStarted = false;
+
     QString	name;
     QString	operator_name;
     QString	test_type;
@@ -122,6 +136,9 @@ private:
     int sample_number_diff;
 
     int phase = densification_phase;
+
+
+
 
 
 

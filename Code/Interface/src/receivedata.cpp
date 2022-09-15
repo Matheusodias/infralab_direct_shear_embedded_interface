@@ -4,9 +4,10 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-receiveData::receiveData(QObject * parent): QThread(parent)
+receiveData::receiveData(QObject * parent,Table * shear_densification_variables): QThread(parent)
 {
-
+    this->shear_densification_variables = shear_densification_variables;
+    
 
 }
 
@@ -99,7 +100,18 @@ void receiveData::readClientMessage()
         qDebug() << "Load[1]" << this->machine_message.load[1];
         qDebug() << "State" << this->machine_message.state << Qt::endl;
 
+        if(this->shear_densification_variables->table_variables->getExperimentStarted()==true){
+            this->shear_densification_variables->table_variables->densification_variables.setDensificationVariables
+            (this->machine_message.sample_number, this->machine_message.displacement[0], this->machine_message.load[0]);
+            QStringList data = this->shear_densification_variables->table_variables->updateDensificationTable();
+            this->shear_densification_variables->updateData_DynamicTable(data, densification_phase);
+            this->shear_densification_variables->updateData_DynamicTable(data, shear_phase);
+            
+        }
+
         
+        
+        // = updateDensificationTable();
 
         // update densification table
         // update shear table

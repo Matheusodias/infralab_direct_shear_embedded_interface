@@ -11,11 +11,11 @@
  * 
  * @param parent 
  */
-ThreadController::ThreadController(QObject *parent)
+ThreadController::ThreadController(QObject *parent,Table * shear_densification_variables)
     : QObject{parent}
 {
 
-    this->receiveDataThread = new receiveData();
+    this->receiveDataThread = new receiveData(NULL,shear_densification_variables);
 
     for(int i=0;i<20;i++){
          if(!this->receiveDataThread->initSocketServer()){

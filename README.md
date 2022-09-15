@@ -7,6 +7,8 @@ Para rodar este código na raspberry pi 4 siga as etapas a seguir.
 2. Siga as intruções e baixe o sistema operacional em um cartão sd, utilizando o programa  Raspberry Pi Imager.
 3. Instale o teclado virtual onboard
     1. sudo apt-get install onboard
+    2. Talvez seja necessário executar
+    ```sudo apt-get install at-spi2-core```
 4. Clique no ícone da Raspberry Pi -> Acessabilidade -> Onboard
 5. Configure o Onboard para ativar o teclado automaticamente ao clicar em um campo de texto.
     1. Clique nas 3 linhas no canto inferior direito
@@ -55,7 +57,7 @@ Para facilitar a execução desse programa na Raspberry Pi, foram feitas
     ```
     3. Salve e saia.
     4. Execute ``sudo chmod +x /usr/local/bin/keyboard.sh`` para permitir a execução do script.
-    5. Execute ``sudo nano /etc/xdg/lxsession/LXDE-pi/auto-start``
+    5. Execute ``sudo nano /etc/xdg/lxsession/LXDE-pi/autostart``
     6. Adicione ao final do arquivo: `` @/usr/local/bin/keyboard.sh ``
     7. Agora a Raspberry Pi irá iniciar o teclado toda vez que realizar o boot.
 2. Início automático do programa da máquina ao ligar a Raspberry Pi.

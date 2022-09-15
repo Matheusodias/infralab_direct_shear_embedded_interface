@@ -25,13 +25,15 @@ public:
     void initialConfig_StaticTable(QTableWidget *table_widget, uint8_t option);
     void updateData_StaticTable(QTableWidget *table_widget, uint8_t option);
 
-    void updateData_DynamicTable();
+    void updateData_DynamicTable(QStringList data, uint8_t option);
     void initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option);
 
     void exportCSV();
 
-private:
     Experiment * table_variables;
+
+private:
+    
     QStringList lineNames[2];
     QStringList columnValues[2];
 

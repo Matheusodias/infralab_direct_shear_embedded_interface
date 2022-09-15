@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->sampleDescription_lineEdit, SIGNAL(editingFinished()),this->setupFields, SLOT(setVariables()));
     send_data = new sendCommands();
-    receive_data = new ThreadController();
+    receive_data = new ThreadController(NULL,this->tables);
 
     for(int i=0;i<20;i++){
         if(!send_data->connectToMachine()){
@@ -349,7 +349,17 @@ void MainWindow::onPositionButton_released()
 void MainWindow::on_initExperiment_toolButton_clicked()
 {
     this->info_variables->setInitial_time();
+    this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
+    
+    send_data->setCommand(3);
+    send_data->setPressure(this->info_variables->getPressure());
+    send_data->sendMessage();
+
+    send_data->setCommand(0);
+    send_data->setEnabled(1);
+    send_data->setSamplingPeriod(1000);
+    send_data->sendMessage();
     
     ui->mainStack->setCurrentIndex(0);
     ui->insideExperiment_stack->setCurrentIndex(0);

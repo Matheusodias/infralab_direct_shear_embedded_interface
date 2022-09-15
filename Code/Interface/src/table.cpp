@@ -14,15 +14,15 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
     // initialConfig_DinamicTable(QTableWidget *table_widget,uint8_ option)
     
     QString densificationHeaderNames[] = {
-       "Número da amostra","Dia", "H:min:seg:ms","Desl. ver. (mm)",
-        "Carga normal (KPa)",
+       "N. amostra","Dia", "H:min:seg:ms","Desl.ver.(mm)",
+        "Carga nor.(KPa)",
     };
 
     QString shearHeaderNames []= {
-        "Número da amostra", "Dia", "H:min:seg:ms",
-        "Desl. ver. (mm)", "Desl. hori. (mm)",
-        "Carga cis. (KPa)", "Carga normal (KPa)", "Tensão normal",
-        "Tensão cisalhante"
+        "N. amostra", "Dia", "H:m:s",
+        "Des.v.(mm)", "Des.h.(mm)",
+        "Car.cis.(KPa)", "Car.nor.(KPa)", "Tensão nor.",
+        "Tensão cis."
     };
 
 
@@ -146,8 +146,8 @@ void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option
             "background-color: white;"
             "alternate-background-color: #77A0AC;"
             "selection-background-color: #0D495C;"
-            "font:  20pt 'Ubuntu'; border:0px; }"
-            "QHeaderView { font: bold 16pt 'Ubuntu'; }"
+            "font:  15pt 'Ubuntu'; border:0px; }"
+            "QHeaderView { font: bold 15pt 'Ubuntu'; }"
         );
     } else{
         table_widget->setStyleSheet(
@@ -156,7 +156,7 @@ void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option
             "alternate-background-color: #77A0AC;"
             "selection-background-color: #0D495C;"
             "font:  20pt 'Ubuntu'; border:0px; }"
-            "QHeaderView { font: bold 25pt 'Ubuntu'; }"
+            "QHeaderView { font: bold 15pt 'Ubuntu'; }"
         );
     }
     
@@ -164,25 +164,27 @@ void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option
     table_widget->setHorizontalHeaderLabels(headerNames[option]);
 }
 
-void Table::updateData_DynamicTable()
+void Table::updateData_DynamicTable(QStringList data, uint8_t option)
 { 
- 
-    // QTableWidget *table_widget;
-    // if(table_variables->getPhase() == densification_phase){
-    //     machineTablevalues[option] = table_variables->getAllData_forPhasesTable();
-    //     table_widget = densificationTable;
-    // } else {
-    //     machineTablevalues[option] = table_variables->getAllData_forInfoTable();
-    //     table_widget = shearTable;
-    // }
 
-    // table_widget->insertRow( table_widget->rowCount());
-    // for(int j=0;j<machineTablevalues[option].size();j++){
-    //     QTableWidgetItem *item = new QTableWidgetItem;
-    //     item->setText(machineTablevalues[option][j]);
-    //     item->setTextAlignment(Qt::AlignCenter);
-    //     table_widget->setItem (table_widget->rowCount()-1,j,item);    
-    // }
+
+     QTableWidget *table_widget;
+     machineTablevalues[option] = data;
+
+     if(option == densification_phase){
+         table_widget = densificationTable;
+     } else {
+         table_widget = shearTable;
+     }
+
+     table_widget->insertRow( table_widget->rowCount());
+     for(int j=0;j<machineTablevalues[option].size();j++){
+         QTableWidgetItem *item = new QTableWidgetItem;
+         item->setText(machineTablevalues[option][j]);
+         item->setTextAlignment(Qt::AlignCenter);
+         table_widget->setItem (table_widget->rowCount()-1,j,item);
+     }
+
 
 }
 

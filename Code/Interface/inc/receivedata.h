@@ -4,7 +4,7 @@
 #include <QThread>
 
 #include "socket_local.h"
-
+#include "table.h"
 
 class receiveData : public QThread
 {
@@ -12,7 +12,7 @@ class receiveData : public QThread
     private:
         void readClientMessage();
         void run() override;
-        uint32_t previous_sample_number;
+        Table * shear_densification_variables;
 
 
     public:
@@ -20,7 +20,7 @@ class receiveData : public QThread
         int  server_socket_id;
         int  client_socket_id;
         uint8_t errorOccurred;;
-        receiveData(QObject * parent = nullptr);
+        receiveData(QObject * parent = nullptr,Table * shear_densification_variables = nullptr);
         ~receiveData();
         uint8_t initSocketServer();
         void init();
