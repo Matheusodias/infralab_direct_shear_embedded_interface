@@ -19,7 +19,7 @@ public:
     QStringList getAllData_forPhasesTable();
 
 
-    void setAllVariables_onExperimetCreation();
+
     const QString &getName() const;
     void setName(const QString &newName);
 
@@ -91,6 +91,11 @@ public:
     int getPhase() const;
     void changePhase();
 
+    uint64_t getInitial_time() const;
+    void setInitial_time();
+
+    QString getInitial_timeString();
+
 private:
     QString	name;
     QString	operator_name;
@@ -112,8 +117,8 @@ private:
     float initial_position;
     float diameter;
     float pressure;
-    int initial_time;
-    int present_time;
+    uint64_t initial_time;
+    uint64_t present_time;
     int sample_number_diff;
 
     int phase = densification_phase;

@@ -5,7 +5,7 @@
 #include <QThread>
 
 #include "receivedata.h"
-#include "table.h"
+
 
 /**
  * @brief Classe que controla a thread criada por receiveData.
@@ -20,7 +20,7 @@ class ThreadController : public QObject
         bool isThreadDestroyed; /*!< Informa se a thread foi destruída ou não.*/
     public:
         receiveData *receiveDataThread; /*!< Instância da classe receiveData(Thread).*/
-        ThreadController(QObject *parent = nullptr,Table *table = nullptr);
+        ThreadController(QObject *parent = nullptr);
         ~ThreadController();
     public slots:
         void receiveThreadFinishedSlot();

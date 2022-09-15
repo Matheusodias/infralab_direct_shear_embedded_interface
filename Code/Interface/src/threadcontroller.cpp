@@ -11,11 +11,11 @@
  * 
  * @param parent 
  */
-ThreadController::ThreadController(QObject *parent,Table *table)
+ThreadController::ThreadController(QObject *parent)
     : QObject{parent}
 {
 
-    this->receiveDataThread = new receiveData(table);
+    this->receiveDataThread = new receiveData();
 
     for(int i=0;i<20;i++){
          if(!this->receiveDataThread->initSocketServer()){

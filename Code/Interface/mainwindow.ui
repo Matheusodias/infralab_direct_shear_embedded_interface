@@ -251,7 +251,7 @@ color: #10576D;
         <item>
          <widget class="QStackedWidget" name="insideExperiment_stack">
           <property name="currentIndex">
-           <number>0</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="densification_page">
            <property name="styleSheet">

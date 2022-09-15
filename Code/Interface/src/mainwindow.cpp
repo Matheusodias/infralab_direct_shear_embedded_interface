@@ -181,7 +181,7 @@ void MainWindow::InitialConfiguration_Tables()
     //this->tables->initialConfig_TablePhases(ui->phases_tableWidget);
     this->tables->initialConfig_StaticTable(ui->phases_tableWidget,phases_table);
     this->tables->customizeTable(ui->info_tableWidget);
-    this->tables->initialConfig_StaticTable(ui->phases_tableWidget,info_table);
+    this->tables->initialConfig_StaticTable(ui->info_tableWidget,info_table);
 
     this->tables->customizeTable(ui->shear_tableWidget);
     this->tables->customizeTable(ui->densification_tableWidget);
@@ -191,7 +191,7 @@ void MainWindow::InitialConfiguration_Tables()
     // this->tables->initialConfig_ShearTable(ui->shear_tableWidget);
     this->tables->updateData_ShearTable(ui->shear_tableWidget);
     this->tables->updateData_ShearTable(ui->shear_tableWidget);
-    this->tables->exportCSV();
+    //this->tables->exportCSV();
 
 
 }
@@ -316,15 +316,10 @@ void MainWindow::onPositionButton_pressed()
     if(buttonSender->objectName() == "moveLeft_toolButton"){
         velocity *= -1;
     }
-
-
-
-        send_data->setCommand(0);
-        send_data->setEnabled(1);
-        send_data->setSamplingPeriod(sampling_period);
-        send_data->sendMessage();
-
-
+    send_data->setCommand(0);
+    send_data->setEnabled(1);
+    send_data->setSamplingPeriod(sampling_period);
+    send_data->sendMessage();
 
     send_data->setCommand(1);
     send_data->setVelocity(velocity);
@@ -353,6 +348,7 @@ void MainWindow::onPositionButton_released()
 
 void MainWindow::on_initExperiment_toolButton_clicked()
 {
+    this->info_variables->setInitial_time();
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     
     ui->mainStack->setCurrentIndex(0);
@@ -365,7 +361,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
         my_db->insertIntoTable(experiment_table);
     }
 
-
+    
   
 
 }

@@ -4,10 +4,9 @@
 #include <unistd.h>
 #include <arpa/inet.h>
 
-receiveData::receiveData(QObject * parent,Table *interface_tables): QThread(parent)
+receiveData::receiveData(QObject * parent): QThread(parent)
 {
 
-    this->interface_tables = interface_tables;
 
 }
 

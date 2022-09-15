@@ -2,17 +2,20 @@
 
 #include <cmath>
 #include <QDebug>
+#include <time.h>
+#include <sys/time.h>
 Experiment::Experiment()
 {
-    
+
 }
 
 QStringList Experiment::getAllData_forInfoTable()
 {
+    
     QStringList temporary_list;
     temporary_list.push_back(this->getName());
     temporary_list.push_back(this->getOperator_name());
-    temporary_list.push_back("vazio");
+    temporary_list.push_back(this->getInitial_timeString());
     temporary_list.push_back("vazio2");
     temporary_list.push_back(this->getTest_type());
     temporary_list.push_back(this->getSpecimen_type());
@@ -57,42 +60,11 @@ QStringList Experiment::getAllData_forPhasesTable(){
 
     QStringList temporary_list;
 
-    for(int i=0;i<sizeof(calculations)/sizeof(float);i++){
+    for(unsigned long int i=0;i<sizeof(calculations)/sizeof(float);i++){
         temporary_list.push_back(QString::number(calculations[i]));    
     }
 
     return temporary_list;
-}
-
-void Experiment::setAllVariables_onExperimetCreation()
-{
-    // Iterar sobre as labels e setar as variaveis
-
-//    this->name = ;
-//    this->operator_name =;
-//    this->test_type =;
-//    this->specimen_type =;
-//    this->uscs_class =;
-//    this->ashto_class =;
-//    this->boring_number =;
-//    this->diameter =;
-//    this->spgr_solids =;
-//    this->plastic_limit =;
-//    this->liquid_limit =;
-
-//    experiment_sample->set_sample_preparations();
-//    experiment_sample->set_sample_id();
-//    experiment_sample->set_sample_location();
-//    experiment_sample->set_sample_description();
-
-
-//    this->mutable_variables->set_height();
-//    this->mutable_variables->set_weight();
-//    this->mutable_variables->set_moisture();
-//    this->mutable_variables->set_position();
-//    this->mutable_variables->set_time();
-
-    // save in database
 }
 
 const QString &Experiment::getName() const
@@ -334,7 +306,6 @@ float Experiment::getPressure() const
 
 void Experiment::setPressure(float newPressure)
 {
-    qDebug() << "passei no pressure" << newPressure;
     pressure = newPressure;
 }
 
@@ -347,6 +318,46 @@ void Experiment::changePhase()
 {
     this->phase = shear_phase;
 }
+
+uint64_t Experiment::getInitial_time() const
+{
+    return initial_time;
+}
+
+void Experiment::setInitial_time()
+{
+    struct timeval tv;
+
+    gettimeofday(&tv, NULL);
+
+    unsigned long long millisecondsSinceEpoch =
+    (unsigned long long)(tv.tv_sec) * 1000 +
+    (unsigned long long)(tv.tv_usec) / 1000;
+    this->initial_time = millisecondsSinceEpoch;
+}
+
+QString Experiment::getInitial_timeString()
+{
+    time_t seconds = (time_t)(this->getInitial_time()/1000);
+    struct tm * time_seconds = localtime(&seconds);
+    QString time_string = QString("%1/%2/%3 %4H:%5min:%6seg").arg(time_seconds->tm_mday).arg(time_seconds->tm_mon).
+    arg(time_seconds->tm_year + 1900).arg(time_seconds->tm_hour).arg(time_seconds->tm_min).arg(time_seconds->tm_sec);
+
+    return time_string;
+}
+
+/*
+ * tabela info precisa do time completo dia hora min seg ...
+ * tabela adensamento e cisalhamento precisa do dia/mes/ano e hora/min/seg separados
+ * o calculo do tempo é feito pegando o tempo inicial e somando o número de amostra
+ *
+ * *
+ *
+ * /
+ *
+ */
+
+
 
 
 

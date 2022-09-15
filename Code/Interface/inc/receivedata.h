@@ -4,7 +4,7 @@
 #include <QThread>
 
 #include "socket_local.h"
-#include "table.h"
+
 
 class receiveData : public QThread
 {
@@ -13,14 +13,14 @@ class receiveData : public QThread
         void readClientMessage();
         void run() override;
         uint32_t previous_sample_number;
-        Table *interface_tables;
+
 
     public:
         char server_socket_name[100];
         int  server_socket_id;
         int  client_socket_id;
         uint8_t errorOccurred;;
-        receiveData(QObject * parent = nullptr,Table *interface_tables = nullptr);
+        receiveData(QObject * parent = nullptr);
         ~receiveData();
         uint8_t initSocketServer();
         void init();
