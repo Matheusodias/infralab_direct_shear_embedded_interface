@@ -74,12 +74,37 @@ QStringList Experiment:: updateDensificationTable()
     temporary_list[1] = this->day_month_year();
     temporary_list[2] =this->hour_min_sec();
 
-    
+    return temporary_list;
+}
 
-   
-    
+QStringList Experiment::updateDensificationResultsTable()
+{
+    QStringList temporary_list = densification_variables.getDensificationResults();
+    temporary_list[0] = this->getDensificationDuration();
+    float final_height = this->initial_height - densification_variables.getVertical_displacement();
+    temporary_list[2] = QString::number(final_height);
+    float final_volume = final_height * this->getArea();
+    temporary_list[4] = QString::number(final_volume);
 
     return temporary_list;
+}
+
+QString Experiment::getDensificationDuration()
+{
+    uint64_t initial_time_miliseconds = (uint64_t)(this->getInitial_time());
+    this->setInitial_time(false);
+    uint64_t final_time_miliseconds = (uint64_t)(this->getPresent_time());
+    uint64_t duration = final_time_miliseconds - initial_time_miliseconds;
+    qDebug() << "Tempo em mili = " << duration;
+    uint64_t hours = (uint64_t)(duration/3600000);
+    uint64_t minutes_calculation = (duration%3600000);
+    uint64_t minutes = (uint64_t)(minutes_calculation/60000);
+    uint64_t seconds_calculation = (uint64_t)(minutes_calculation%60000);
+    uint64_t seconds = (uint64_t)((seconds_calculation/1000));
+    uint64_t miliseconds = (uint64_t)((seconds_calculation%1000));
+
+    QString time = QString("%1H:%2min:%3seg:%4ms").arg(hours).arg(minutes).arg(seconds).arg(miliseconds);
+    return time;
 }
 
 QString Experiment::hour_min_sec()
@@ -367,7 +392,12 @@ uint64_t Experiment::getInitial_time() const
     return initial_time;
 }
 
-void Experiment::setInitial_time()
+uint64_t Experiment::getPresent_time() const
+{
+    return present_time;
+}
+
+void Experiment::setInitial_time(bool isInitial)
 {
     struct timeval tv;
 
@@ -376,7 +406,12 @@ void Experiment::setInitial_time()
     unsigned long long millisecondsSinceEpoch =
     (unsigned long long)(tv.tv_sec) * 1000 +
     (unsigned long long)(tv.tv_usec) / 1000;
-    this->initial_time = millisecondsSinceEpoch;
+    if(isInitial){
+        this->initial_time = millisecondsSinceEpoch;
+    } else{
+        this->present_time = millisecondsSinceEpoch;
+    }
+
 }
 
 QString Experiment::getInitial_timeString()

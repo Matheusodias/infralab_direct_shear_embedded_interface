@@ -188,9 +188,11 @@ void MainWindow::InitialConfiguration_Tables()
     this->tables->initialConfig_DynamicTable(ui->densification_tableWidget,design_densification_table);
     this->tables->initialConfig_DynamicTable(ui->shear_tableWidget,design_shear_table);
 
+
+    this->tables->customizeTable(ui->densificationResult_tableWidget);
+    this->tables->initialConfig_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
     // this->tables->initialConfig_ShearTable(ui->shear_tableWidget);
-    this->tables->updateData_ShearTable(ui->shear_tableWidget);
-    this->tables->updateData_ShearTable(ui->shear_tableWidget);
+
     //this->tables->exportCSV();
 
 
@@ -348,7 +350,7 @@ void MainWindow::onPositionButton_released()
 
 void MainWindow::on_initExperiment_toolButton_clicked()
 {
-    this->info_variables->setInitial_time();
+    this->info_variables->setInitial_time(true);
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     
@@ -363,6 +365,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     
     ui->mainStack->setCurrentIndex(0);
     ui->insideExperiment_stack->setCurrentIndex(0);
+    ui->densification_stack->setCurrentIndex(0);
     this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
     //this->tables->updateData_TableInfo(ui->info_tableWidget);
@@ -431,7 +434,7 @@ void MainWindow::fillTextEditForTests()
         "1234", "12",
         "Localização da amostra",
         "Descrição da amostra",
-        "1","2","3","4","5",
+        "500","2","3","4","5",
         "6", "7", "8",
     };
 
@@ -485,5 +488,11 @@ void MainWindow::fillTextEditForTests()
     // layout_SampleDescription
     // phase3_gridLayout
     return;
+}
+
+
+void MainWindow::on_configurationButton_3_clicked()
+{
+    this->tables->updateData_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
 }
 

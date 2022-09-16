@@ -51,6 +51,8 @@ private slots:
 
     void on_releasePressure_toolButton_clicked();
 
+    void on_configurationButton_3_clicked();
+
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
     Button *setupButtons; /*!< Instância da classe Button para a estilização dos botões.*/

@@ -251,7 +251,7 @@ color: #10576D;
         <item>
          <widget class="QStackedWidget" name="insideExperiment_stack">
           <property name="currentIndex">
-           <number>2</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="densification_page">
            <property name="styleSheet">
@@ -306,6 +306,9 @@ color: #10576D;
             </item>
             <item>
              <widget class="QStackedWidget" name="densification_stack">
+              <property name="currentIndex">
+               <number>0</number>
+              </property>
               <widget class="QWidget" name="densificationGraphs_page">
                <widget class="QLabel" name="label_4">
                 <property name="geometry">
@@ -329,19 +332,11 @@ color: #10576D;
                </layout>
               </widget>
               <widget class="QWidget" name="densificationResult_page">
-               <widget class="QLabel" name="label_7">
-                <property name="geometry">
-                 <rect>
-                  <x>370</x>
-                  <y>130</y>
-                  <width>241</width>
-                  <height>20</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>resultados_adensamento</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <item>
+                 <widget class="QTableWidget" name="densificationResult_tableWidget"/>
+                </item>
+               </layout>
               </widget>
              </widget>
             </item>
@@ -938,7 +933,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="phases_stack">
               <property name="currentIndex">
-               <number>3</number>
+               <number>5</number>
               </property>
               <widget class="QWidget" name="phase1_page">
                <layout class="QVBoxLayout" name="verticalLayout_4" stretch="10,2,2">
@@ -2088,7 +2083,7 @@ color: #10576D;
                      <string notr="true"/>
                     </property>
                     <property name="text">
-                     <string>    Iniciar</string>
+                     <string>Iniciar</string>
                     </property>
                     <property name="icon">
                      <iconset resource="images/resources.qrc">

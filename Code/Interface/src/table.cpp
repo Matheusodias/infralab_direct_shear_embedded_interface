@@ -20,9 +20,8 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
 
     QString shearHeaderNames []= {
         "N. amostra", "Dia", "H:m:s",
-        "Des.v.(mm)", "Des.h.(mm)",
-        "Car.cis.(KPa)", "Car.nor.(KPa)", "Tensão nor.",
-        "Tensão cis."
+        "Des.h.(mm)","Car.cis.(KPa)",
+        "Tensão nor.","Tensão cis."
     };
 
 
@@ -46,6 +45,13 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
         "Saturação inicial da amostra de solo (%)"
     };
 
+    QString densificationResultLinesName[] = {
+        "Tempo Total Adensamento",
+        "Leitura da carga final (KPa)",
+        "Altura final (mm)",
+        "Mudança de altura (mm)",
+        "Volume Final adensamento (cm³)"
+    };
     
     for(long unsigned int i=0;i<sizeof(phasesLinesNames)/sizeof(QString);i++){
         this->lineNames[phases_table].push_back(phasesLinesNames[i]);
@@ -63,6 +69,9 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
         this->headerNames[design_shear_table].push_back(shearHeaderNames[i]);
     }
 
+    for(long unsigned int i=0;i<sizeof(densificationResultLinesName)/sizeof(QString);i++){
+        this->lineNames[densification_result_table].push_back(densificationResultLinesName[i]);
+    }
 
 
 }
@@ -125,14 +134,18 @@ void Table::initialConfig_StaticTable(QTableWidget *table_widget, uint8_t option
 void Table::updateData_StaticTable(QTableWidget *table_widget,uint8_t option)
 {
     if(option == phases_table){
-        columnValues[option] = table_variables->getAllData_forPhasesTable();
-    } else {
-        columnValues[option] = table_variables->getAllData_forInfoTable();
+        columnValues = table_variables->getAllData_forPhasesTable();
+    } else if(option == info_table) {
+        columnValues = table_variables->getAllData_forInfoTable();
+    } else if(option == densification_result_table) {
+        columnValues = table_variables->updateDensificationResultsTable();
+    } else if(option == shear_result_table) {
+        columnValues = table_variables->updateDensificationResultsTable();
     }
 
-    for(int i=0;i<columnValues[option].size();i++){
+    for(int i=0;i<columnValues.size();i++){
         QTableWidgetItem *item = new QTableWidgetItem;
-        item->setText(columnValues[option][i]);
+        item->setText(columnValues[i]);
         item->setTextAlignment(Qt::AlignCenter);
         table_widget->setItem(i,1,item);
     }
@@ -147,7 +160,7 @@ void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option
             "alternate-background-color: #77A0AC;"
             "selection-background-color: #0D495C;"
             "font:  15pt 'Ubuntu'; border:0px; }"
-            "QHeaderView { font: bold 15pt 'Ubuntu'; }"
+            "QHeaderView { font: bold 13pt 'Ubuntu'; }"
         );
     } else{
         table_widget->setStyleSheet(

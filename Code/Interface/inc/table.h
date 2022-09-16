@@ -8,6 +8,8 @@
 
 #define phases_table 0
 #define info_table 1
+#define densification_result_table 2
+#define shear_result_table 3
 #define design_densification_table 0
 #define design_shear_table 1
 
@@ -34,8 +36,8 @@ public:
 
 private:
     
-    QStringList lineNames[2];
-    QStringList columnValues[2];
+    QStringList lineNames[4];
+    QStringList columnValues;
 
     QStringList headerNames[2];
     QStringList machineTablevalues[2];

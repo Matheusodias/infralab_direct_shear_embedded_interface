@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Sep 15 14:54:44 2022
+# Make data base, printed on Fri Sep 16 14:30:29 2022
 
 # Variables
 
@@ -16,8 +16,6 @@ make: *** No rule to make target 'all'.  Stop.
 GDK_BACKEND = x11
 # environment
 LC_ALL = C
-# environment
-NO_AT_BRIDGE = 1
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -53,7 +51,7 @@ PWD = /home/ivan/Documentos/2022/Codigo_TCC2
 # environment
 XDG_DATA_DIRS = /usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
-OLDPWD = /home/ivan/Documentos/2022/Codigo_TCC2/Code
+OLDPWD = /home/ivan/Documentos/2022
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -71,7 +69,7 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.559
+GNOME_TERMINAL_SERVICE = :1.93
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -101,13 +99,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 54298
+VSCODE_PID = 5338
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3490,unix/ivan-550XDA:/tmp/.ICE-unix/3490
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3431,unix/ivan-550XDA:/tmp/.ICE-unix/3431
 # automatic
 *F = $(notdir $*)
 # environment
@@ -131,7 +129,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/999e4f29_aed0_4e84_9774_cde9a2cdf216
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/300b40ce_af4f_4986_a346_a69946db4cba
 # environment
 MAKELEVEL := 0
 # default
@@ -173,7 +171,7 @@ LOGNAME = ivan
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 3777
+SYSTEMD_EXEC_PID = 3724
 # environment
 DISPLAY = :0
 # environment
@@ -235,7 +233,7 @@ GDMSESSION = ubuntu-xorg
 # environment
 LC_IDENTIFICATION = pt_BR.UTF-8
 # variable set hash-table stats:
-# Load=111/1024=11%, Rehash=0, Collisions=11/138=8%
+# Load=110/1024=11%, Rehash=0, Collisions=11/137=8%
 
 # Pattern-specific Variable Values
 
@@ -280,6 +278,7 @@ makefile:
 #  File has been updated.
 #  Failed to be updated.
 
+ 
 # Not a target:
 GNUmakefile:
 #  Implicit rule search has been done.
@@ -300,8 +299,7 @@ GNUmakefile:
 
 # strcache performance: lookups = 19 / hit rate = 15%
 # hash-table stats:
- 
 # Load=16/8192=0%, Rehash=0, Collisions=0/19=0%
-# Finished Make data base on Thu Sep 15 14:54:44 2022
+# Finished Make data base on Fri Sep 16 14:30:29 2022
 
  

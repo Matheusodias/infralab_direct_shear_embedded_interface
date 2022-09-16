@@ -21,7 +21,7 @@ public:
     QStringList getAllData_forPhasesTable();
 
     QStringList updateDensificationTable();
-
+    QStringList updateDensificationResultsTable();
 
     const QString &getName() const;
     void setName(const QString &newName);
@@ -94,8 +94,9 @@ public:
     int getPhase() const;
     void changePhase();
 
+    uint64_t getPresent_time() const;
     uint64_t getInitial_time() const;
-    void setInitial_time();
+    void setInitial_time(bool isInitial);
 
     QString getInitial_timeString();
 
@@ -106,11 +107,13 @@ public:
     bool getExperimentStarted() const;
     void setExperimentStarted(bool newExperimentStarted);
 
+    QString getDensificationDuration();
+
     Densification densification_variables;
+
 private:
    
     bool experimentStarted = false;
-
     QString	name;
     QString	operator_name;
     QString	test_type;

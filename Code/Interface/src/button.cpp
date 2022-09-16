@@ -148,11 +148,11 @@ void Button::buttonSizeConfiguration()
     this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(130, 90);
 
     this->buttonMaximumSize[phases_buttonSize] = QSize(16777215, 16777215);
-    this->buttonMinimumSize[phases_buttonSize] = QSize(70, 50);
+    this->buttonMinimumSize[phases_buttonSize] = QSize(80, 60);
 
 
     this->buttonMaximumSize[phases_continueButtonSize] = QSize(200, 100);
-    this->buttonMinimumSize[phases_continueButtonSize] = QSize(100, 30);
+    this->buttonMinimumSize[phases_continueButtonSize] = QSize(140, 50);
 
 
 }
@@ -255,6 +255,7 @@ void Button::initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_
         for (int i = 0; i < layout->count(); ++i){
             QToolButton * button = qobject_cast<QToolButton*>(layout->itemAt(i)->widget());
             if(button){
+
                 this->setButtonShadow(button);
                 button->setStyleSheet(this->button_styleSheets[style_option]);
                 button->setMaximumSize(this->buttonMaximumSize[size]);
@@ -314,6 +315,7 @@ void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_
     QList<QToolButton*> selectedButtons = selectedWidget->findChildren<QToolButton*>();
     for(QList<QToolButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
         this->setButtonShadow((*buttons));
+        qDebug() << (*buttons)->objectName();
         (*buttons)->setStyleSheet(this->button_styleSheets[style_option]);
         (*buttons)->setMaximumSize(this->buttonMaximumSize[size]);
         (*buttons)->setMinimumSize(this->buttonMinimumSize[size]);
