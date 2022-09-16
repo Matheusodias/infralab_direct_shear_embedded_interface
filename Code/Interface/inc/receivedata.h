@@ -29,7 +29,7 @@ class receiveData : public QThread
     public slots:
 
     signals:
-        
+        void data_arrived();       
 
 };
 

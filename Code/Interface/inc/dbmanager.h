@@ -13,8 +13,9 @@
 #define densification_table 1
 #define shear_table 2
 
-class DBManager
+class DBManager : public QObject
 {
+    Q_OBJECT
 public:
     DBManager(const QString & path, Experiment * temp_experiment_data);
     ~DBManager();
@@ -27,14 +28,21 @@ public:
 
 
 private:
+    uint32_t experiment_id;
+
     QSqlDatabase prova_conceito_database;
     QString table_name[3] = {"EXPERIMENT_TABLE","DENSIFICATION_TABLE","SHEAR_TABLE"};
     Experiment * experiment_data;
-    void insertValuesIntoBind(QSqlQuery *query);
+    void insertValuesIntoBind_Experiment(QSqlQuery *query);
+    void insertValuesIntoBind_Densification(QSqlQuery *query);
     QString create_table[3];
     QString insert_into_table[3];
 
+    bool selectExperimentId();
 
+
+public slots:
+    void update_database_table();
 
 };
 #endif // DBMANAGER_H

@@ -23,6 +23,8 @@ public:
     QStringList updateDensificationTable();
     QStringList updateDensificationResultsTable();
 
+    void insertData_inDatabase();
+
     const QString &getName() const;
     void setName(const QString &newName);
 

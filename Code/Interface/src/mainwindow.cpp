@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     this->info_variables = new Experiment();
     this->setupFields = new Field(this->info_variables);
+    this->CreateDataseTables();
     this->tables = new Table(this->info_variables,ui->densification_tableWidget, ui->shear_tableWidget);
 
 
@@ -34,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     InitialConfiguration_PhasesButtons();
     InitialConfiguration_PhasesFields();
     InitialConfiguration_Tables();
-
 
     connect(ui->sampleDescription_lineEdit, SIGNAL(editingFinished()),this->setupFields, SLOT(setVariables()));
     send_data = new sendCommands();
@@ -56,7 +56,8 @@ MainWindow::MainWindow(QWidget *parent)
         exit(-1);
     }
 
-    this->CreateDataseTables();
+    connect(this->receive_data->receiveDataThread,SIGNAL(data_arrived()),this->my_db, SLOT(update_database_table()));
+    
 
 
     this->timer = new QTimer(this);
@@ -89,14 +90,8 @@ void MainWindow::CreateDataseTables(){
     if(my_db->isOpen())
     {
         if(!my_db->tableExists(experiment_table)){my_db->createTable(experiment_table);}
-        
         if(!my_db->tableExists(densification_table)){my_db->createTable(densification_table);}
         if(!my_db->tableExists(shear_table)){my_db->createTable(shear_table);}
-        //if(!my_db.tableExists(shear_table)){my_db.createTable(shear_table);}
-
-         // insere dados do experimento no banco de dados
-        // faz um select com os dados para verificar se estão corretos
-
     }
 }
 
@@ -353,15 +348,9 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     this->info_variables->setInitial_time(true);
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
+    uint32_t diff = this->info_variables->densification_variables.getSample_number();
+    this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff);
     
-    send_data->setCommand(3);
-    send_data->setPressure(this->info_variables->getPressure());
-    send_data->sendMessage();
-
-    send_data->setCommand(0);
-    send_data->setEnabled(1);
-    send_data->setSamplingPeriod(1000);
-    send_data->sendMessage();
     
     ui->mainStack->setCurrentIndex(0);
     ui->insideExperiment_stack->setCurrentIndex(0);
@@ -374,6 +363,17 @@ void MainWindow::on_initExperiment_toolButton_clicked()
         my_db->insertIntoTable(experiment_table);
     }
 
+
+   
+
+    send_data->setCommand(3);
+    send_data->setPressure(this->info_variables->getPressure());
+    send_data->sendMessage();
+
+    send_data->setCommand(0);
+    send_data->setEnabled(1);
+    send_data->setSamplingPeriod(1000);
+    send_data->sendMessage();
     
   
 

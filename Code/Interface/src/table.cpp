@@ -7,6 +7,7 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
 
     densificationTable = densification;
     shearTable = shear; 
+    
 
     // updateData_StaticTable(QTableWidget *table_widget,option)
     // initialConfig_StaticTable(QTableWidget *table_widget, uint8_t option)

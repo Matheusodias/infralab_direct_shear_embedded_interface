@@ -16,11 +16,15 @@ public:
     uint32_t getSample_number() const;
 
     float getVertical_displacement() const;
+    float getVertical_load() const;
+
+    void setDiff_sampleNumber_initExperiment(uint32_t diff);
 
 private:
     uint32_t sample_number;
     float vertical_displacement;
     float vertical_load;
+    uint32_t diff_sampleNumber_initExperiment;
 
 
 };

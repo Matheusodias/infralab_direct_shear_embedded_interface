@@ -6,7 +6,7 @@
 #include <sys/time.h>
 Experiment::Experiment()
 {
-
+    
 }
 
 QStringList Experiment::getAllData_forInfoTable()
@@ -123,6 +123,11 @@ QString Experiment::day_month_year()
     arg(time_seconds->tm_year + 1900);
 
     return time_string;
+}
+
+void Experiment::insertData_inDatabase()
+{
+
 }
 
 bool Experiment::getExperimentStarted() const

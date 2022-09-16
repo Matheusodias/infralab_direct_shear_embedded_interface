@@ -69,6 +69,17 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
     ).arg(this->table_name[densification_table]);
 
+    this->insert_into_table[densification_table] = 
+    QString(
+        "INSERT INTO %1 ("
+        "experiment_id ,"
+        "sample_number,"
+        "vertical_displacement,"
+        "vertical_load)"
+        "Values (?,?,?,?)"
+    ).arg(this->table_name[densification_table]);
+
+
 
     this->create_table[shear_table] =  QString(
     "CREATE TABLE %1 "
@@ -208,25 +219,67 @@ bool DBManager::tableExists(uint8_t option)
     return success;
 }
 
+bool DBManager::selectExperimentId()
+{
+    bool success = false;
+    QSqlQuery query;
+    QString command = QString("SELECT MAX(experiment_id) FROM  %1;").arg(this->table_name[experiment_table]);
+    query.prepare(command);
+
+    if(query.exec()){
+        while(query.next()){
+               qDebug() << "ExperimentId " << query.value(0).toString();
+               this->experiment_id = query.value(0).toInt();
+
+        }
+
+        success = true;
+    } else{
+        qDebug() << "Erro na seleção da tabela " << this->table_name << ": " << query.lastError();
+    }
+    return success;
+}
+
 bool DBManager::insertIntoTable(uint8_t option)
 {
     bool success = false;
     QSqlQuery query;
-   
     query.prepare(this->insert_into_table[option]);
 
-    this->insertValuesIntoBind(&query);
+    if(option == experiment_table){
+        this->insertValuesIntoBind_Experiment(&query);
+    } else if(option == densification_table) {
+        this->insertValuesIntoBind_Densification(&query);
+    }
+    
 
     if(query.exec()){
         qDebug() << "Inserção concluída com sucesso.";
         success = true;
+        if(option == experiment_table){
+            while(!this->selectExperimentId());
+        }
     } else{
-        qDebug() << "Erro na inserção da tabela " << this->table_name[0] << ": " << query.lastError();
+        qDebug() << "Erro na inserção da tabela " << this->table_name[option] << ": " << query.lastError();
     }
     return success;
 
 }
-void DBManager::insertValuesIntoBind(QSqlQuery *query)
+
+
+
+void DBManager::insertValuesIntoBind_Densification(QSqlQuery *query)
+{
+    query->addBindValue(this->experiment_id);
+    query->addBindValue(this->experiment_data->densification_variables.getSample_number());
+    query->addBindValue(this->experiment_data->densification_variables.getVertical_displacement());
+    query->addBindValue(this->experiment_data->densification_variables.getVertical_load());
+    
+   
+}
+
+
+void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
 {
     
     query->addBindValue(this->experiment_data->getName());
@@ -252,3 +305,12 @@ void DBManager::insertValuesIntoBind(QSqlQuery *query)
     query->addBindValue(this->experiment_data->getPressure());
 }
 
+void DBManager::update_database_table()
+{   
+    
+    this->insertIntoTable(densification_table);
+
+    if(this->experiment_data->getPhase()==shear_phase){
+        this->insertIntoTable(shear_table);
+    }
+}

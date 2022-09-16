@@ -315,7 +315,6 @@ void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_
     QList<QToolButton*> selectedButtons = selectedWidget->findChildren<QToolButton*>();
     for(QList<QToolButton *>::iterator buttons = selectedButtons.begin();buttons != selectedButtons.end(); buttons++){
         this->setButtonShadow((*buttons));
-        qDebug() << (*buttons)->objectName();
         (*buttons)->setStyleSheet(this->button_styleSheets[style_option]);
         (*buttons)->setMaximumSize(this->buttonMaximumSize[size]);
         (*buttons)->setMinimumSize(this->buttonMinimumSize[size]);

@@ -1,9 +1,10 @@
 #include "inc/densification.h"
 #include <QString>
+#include <QDebug>
 
 Densification::Densification()
 {
-
+    this->setDiff_sampleNumber_initExperiment(0);
 }
 
 void Densification::setDensificationVariables(uint32_t sample_number, float vertical_displacement, float vertical_load)
@@ -28,12 +29,20 @@ QStringList Densification::getDensificationVariables()
 
 uint32_t Densification::getSample_number() const
 {
-    return sample_number;
+    return sample_number - diff_sampleNumber_initExperiment;
 }
-
+void Densification::setDiff_sampleNumber_initExperiment(uint32_t diff)
+{
+    this->diff_sampleNumber_initExperiment = diff;
+}
 float Densification::getVertical_displacement() const
 {
     return vertical_displacement;
+}
+
+float Densification::getVertical_load() const
+{
+    return vertical_load;
 }
 
 QStringList Densification::getDensificationResults()

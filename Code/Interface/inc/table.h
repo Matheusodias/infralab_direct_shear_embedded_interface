@@ -5,7 +5,6 @@
 #include <QTableWidget>
 #include "experiment.h"
 
-
 #define phases_table 0
 #define info_table 1
 #define densification_result_table 2
