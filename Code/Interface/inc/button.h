@@ -15,6 +15,8 @@
 #define pressureButton_GreenBackgroundColor 5 /*!< Número identificador do estilo do botão de pressão ligado. */
 #define pressureButton_RedBackgroundColor 6 /*!< Número identificador do estilo do botão de pressão desligado. */
 #define moveButton_DisabledBackgroundColor 7 /*!< Número identificador do estilo do botão de mover desativado. */
+#define cancelButton_BackgroundColor 8 /*!< Número identificador do estilo do botão de cancelar o experimento.*/
+#define initShearButton_BackgroundColor 9 /*!< Número identificador do estilo do botão de iniciar o cisalhamento.*/
 
 #define historyButton_lightIcon 0 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background claro.*/
 #define historyButton_darkIcon 1 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background escuro.*/
@@ -35,6 +37,8 @@
 #define outsideExperiment_buttonSize 0
 #define phases_buttonSize 1
 #define phases_continueButtonSize 2
+#define cancelButton_size 3
+#define initShearButton_size 4
 
 /**
  * @brief Classe dos botões.
@@ -53,6 +57,7 @@ public:
     void initialButtonStyling_Widget(QObject * selectedWidget, uint8_t style_option, uint8_t size);
     void initExperiment_ButtonStyle(QToolButton *play_button, bool enabled);
     void pressureButton_style(QToolButton * pressure);
+    void initialButtonStyling(QToolButton * button, uint8_t style_option, uint8_t size);
 
 
 private:

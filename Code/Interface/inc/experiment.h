@@ -16,7 +16,6 @@ public:
 
 
     Experiment();
-
     QStringList getAllData_forInfoTable();
     QStringList getAllData_forPhasesTable();
 

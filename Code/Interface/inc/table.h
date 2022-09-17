@@ -29,7 +29,12 @@ public:
     void updateData_DynamicTable(QStringList data, uint8_t option);
     void initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option);
 
+    void clearDynamicTables(QTableWidget *table_widget);
+    void clearStaticTables(QTableWidget *table_widget);
+
     void exportCSV();
+
+    void test();
 
     Experiment * table_variables;
 

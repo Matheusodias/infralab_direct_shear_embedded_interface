@@ -86,8 +86,8 @@ void Table::customizeTable(QTableWidget *table_widget)
                                 "background-color: white;"
                                 "alternate-background-color: #77A0AC;"
                                 "selection-background-color: #0D495C;"
-                                "font:  20pt 'Ubuntu'; border:0px; }"
-                                "QHeaderView { font: bold 30pt 'Ubuntu'; }"
+                                "font:  15pt 'Ubuntu'; border:0px; }"
+                                "QHeaderView { font: bold 20pt 'Ubuntu'; }"
                                 );
 
     table_widget->setAlternatingRowColors(true);
@@ -185,7 +185,7 @@ void Table::updateData_DynamicTable(QStringList data, uint8_t option)
      QTableWidget *table_widget;
      machineTablevalues[option] = data;
 
-     if(option == densification_phase){
+     if(option == design_densification_table){
          table_widget = densificationTable;
      } else {
          table_widget = shearTable;
@@ -249,6 +249,22 @@ void Table::updateData_ShearTable(QTableWidget *table_widget)
     
 }
 
+void Table::clearDynamicTables(QTableWidget *table_widget)
+{
+    table_widget->setRowCount(0);
+}
+
+void Table::clearStaticTables(QTableWidget *table_widget)
+{
+    int size = table_widget->rowCount();
+    for(int i=0;i<size;i++){
+        QTableWidgetItem *item = new QTableWidgetItem;
+        item->setText("");
+        item->setTextAlignment(Qt::AlignCenter);
+        table_widget->setItem(i,1,item);
+    }
+}
+
 
 void Table::exportCSV()
 {
@@ -260,3 +276,16 @@ void Table::exportCSV()
     }
    
 }
+
+void Table::test()
+{
+
+    columnValues = table_variables->getAllData_forPhasesTable();
+
+
+    for(int i=0;i<columnValues.size();i++){
+        qDebug() << columnValues[i];
+    }
+}
+
+

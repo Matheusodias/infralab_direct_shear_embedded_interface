@@ -13,11 +13,13 @@ public:
     Field(Experiment *parent = nullptr);
     void customizeField(QLayout * gridLayout);
     void customizeOneField(QLabel *label, QLineEdit *lineEdit);
+    void clearFields(QLayout * gridLayout);
+    Experiment * info_variables;
 
 private:
     QSize FieldMaximumSize[10];
     QSize FieldMinimumSize[10];
-    Experiment * info_variables;
+
 signals:
 
 public slots:

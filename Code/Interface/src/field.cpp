@@ -9,7 +9,7 @@ Field::Field(Experiment *parent)
 {
 
     info_variables = parent;
-    this->FieldMinimumSize[0] = QSize(100, 15);
+    this->FieldMinimumSize[0] = QSize(100, 30);
     this->FieldMaximumSize[0] = QSize(1000, 100);
 
 
@@ -57,6 +57,21 @@ void Field::customizeOneField(QLabel *label, QLineEdit *lineEdit){
 
 
     connect(lineEdit, SIGNAL(editingFinished()),this, SLOT(setVariables()));
+}
+
+void Field::clearFields(QLayout *gridLayout)
+{
+    QLayout *layout = gridLayout->layout();
+    if (layout) {
+        for (int i = 0; i < layout->count(); ++i){
+            QLayout * fieldLayout = layout->itemAt(i)->layout();
+
+            QLineEdit * lineEdit = qobject_cast<QLineEdit*>(fieldLayout->itemAt(1)->widget());
+            lineEdit->setText("");
+
+
+       }
+    }
 }
 
 void Field::setVariables()

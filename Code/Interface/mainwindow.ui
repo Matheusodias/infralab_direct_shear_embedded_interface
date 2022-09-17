@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1012</width>
-    <height>635</height>
+    <width>689</width>
+    <height>492</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,7 +61,7 @@ color: #10576D;
        <number>0</number>
       </property>
       <widget class="QWidget" name="inside_experiment">
-       <layout class="QVBoxLayout" name="verticalLayout_8">
+       <layout class="QVBoxLayout" name="verticalLayout_8" stretch="1,1,15,1">
         <item>
          <layout class="QHBoxLayout" name="inside_experiment_header_layout" stretch="1,2,2,2,5">
           <property name="spacing">
@@ -121,8 +121,8 @@ color: #10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>40</width>
+              <height>40</height>
              </size>
             </property>
             <property name="toolButtonStyle">
@@ -162,8 +162,8 @@ color: #10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>120</width>
-              <height>120</height>
+              <width>50</width>
+              <height>50</height>
              </size>
             </property>
             <property name="toolButtonStyle">
@@ -194,8 +194,8 @@ color: #10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>60</width>
-              <height>50</height>
+              <width>20</width>
+              <height>20</height>
              </size>
             </property>
             <property name="toolButtonStyle">
@@ -258,6 +258,9 @@ color: #10576D;
             <string notr="true"/>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_9">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
             <item>
              <layout class="QHBoxLayout" name="densificationHeader_layout">
               <property name="spacing">
@@ -307,7 +310,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="densification_stack">
               <property name="currentIndex">
-               <number>0</number>
+               <number>1</number>
               </property>
               <widget class="QWidget" name="densificationGraphs_page">
                <widget class="QLabel" name="label_4">
@@ -479,7 +482,7 @@ color: #10576D;
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="outside_experiment_header_layout_3" stretch="1,0,1">
+         <layout class="QHBoxLayout" name="outside_experiment_bottom_layout" stretch="1,3,1">
           <property name="spacing">
            <number>20</number>
           </property>
@@ -493,7 +496,7 @@ color: #10576D;
            <number>5</number>
           </property>
           <item>
-           <widget class="QToolButton" name="historyButton_3">
+           <widget class="QToolButton" name="cancel_toolButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
               <horstretch>0</horstretch>
@@ -502,8 +505,8 @@ color: #10576D;
             </property>
             <property name="minimumSize">
              <size>
-              <width>110</width>
-              <height>60</height>
+              <width>130</width>
+              <height>30</height>
              </size>
             </property>
             <property name="maximumSize">
@@ -512,8 +515,15 @@ color: #10576D;
               <height>80</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <pointsize>13</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">color:white;
+background-color: rgb(171, 26, 36);</string>
             </property>
             <property name="text">
              <string>Cancelar</string>
@@ -547,11 +557,11 @@ color: #10576D;
            </spacer>
           </item>
           <item>
-           <widget class="QToolButton" name="configurationButton_3">
+           <widget class="QToolButton" name="initShear_FinishExperiment_toolButton">
             <property name="minimumSize">
              <size>
-              <width>110</width>
-              <height>70</height>
+              <width>220</width>
+              <height>30</height>
              </size>
             </property>
             <property name="maximumSize">
@@ -559,6 +569,16 @@ color: #10576D;
               <width>300</width>
               <height>80</height>
              </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>13</pointsize>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(38, 162, 105);
+color:white;</string>
             </property>
             <property name="text">
              <string>Iniciar cisalhamento</string>
@@ -586,7 +606,7 @@ color: #10576D;
        <property name="styleSheet">
         <string notr="true"/>
        </property>
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,7">
         <property name="bottomMargin">
          <number>0</number>
         </property>
@@ -636,8 +656,8 @@ color: #10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>80</width>
-              <height>80</height>
+              <width>40</width>
+              <height>40</height>
              </size>
             </property>
             <property name="toolButtonStyle">
@@ -668,8 +688,8 @@ color: #10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>70</width>
-              <height>60</height>
+              <width>32</width>
+              <height>32</height>
              </size>
             </property>
             <property name="toolButtonStyle">
@@ -713,8 +733,8 @@ color: #10576D;
             </property>
             <property name="iconSize">
              <size>
-              <width>80</width>
-              <height>60</height>
+              <width>40</width>
+              <height>40</height>
              </size>
             </property>
             <property name="toolButtonStyle">
@@ -804,7 +824,7 @@ color: #10576D;
           <widget class="QWidget" name="experiment_page">
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <property name="topMargin">
-             <number>5</number>
+             <number>0</number>
             </property>
             <item>
              <layout class="QHBoxLayout" name="phases_layout">
@@ -936,7 +956,7 @@ color: #10576D;
                <number>5</number>
               </property>
               <widget class="QWidget" name="phase1_page">
-               <layout class="QVBoxLayout" name="verticalLayout_4" stretch="10,2,2">
+               <layout class="QVBoxLayout" name="verticalLayout_4" stretch="12,2,1">
                 <property name="bottomMargin">
                  <number>9</number>
                 </property>
@@ -1134,7 +1154,7 @@ color: #10576D;
                </layout>
               </widget>
               <widget class="QWidget" name="phase2_page">
-               <layout class="QVBoxLayout" name="verticalLayout_23" stretch="6,3,1,2">
+               <layout class="QVBoxLayout" name="verticalLayout_23" stretch="8,4,1,1">
                 <item>
                  <layout class="QGridLayout" name="phase2_gridLayout">
                   <property name="leftMargin">
@@ -1602,22 +1622,9 @@ color: #10576D;
                </layout>
               </widget>
               <widget class="QWidget" name="calculations_page">
-               <layout class="QVBoxLayout" name="verticalLayout_5" stretch="2,10,2,2">
+               <layout class="QVBoxLayout" name="verticalLayout_5" stretch="12,1">
                 <item>
-                 <spacer name="verticalSpacer_5">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,5,1">
+                 <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,12,0">
                   <item>
                    <spacer name="horizontalSpacer_4">
                     <property name="orientation">
@@ -1648,19 +1655,6 @@ color: #10576D;
                    </spacer>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer_4">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>20</width>
-                    <height>40</height>
-                   </size>
-                  </property>
-                 </spacer>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="11,0,2">
@@ -1718,7 +1712,7 @@ color: #10576D;
                </layout>
               </widget>
               <widget class="QWidget" name="position_page">
-               <layout class="QVBoxLayout" name="verticalLayout_7" stretch="12,2,2">
+               <layout class="QVBoxLayout" name="verticalLayout_7" stretch="12,2,1">
                 <item>
                  <layout class="QHBoxLayout" name="positionLayout" stretch="2,2,1,3,1,2,2">
                   <property name="spacing">

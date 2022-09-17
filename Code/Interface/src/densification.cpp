@@ -5,6 +5,7 @@
 Densification::Densification()
 {
     this->setDiff_sampleNumber_initExperiment(0);
+    this->sample_number = 0;
 }
 
 void Densification::setDensificationVariables(uint32_t sample_number, float vertical_displacement, float vertical_load)
@@ -17,7 +18,7 @@ void Densification::setDensificationVariables(uint32_t sample_number, float vert
 QStringList Densification::getDensificationVariables()
 {
     QStringList temporary_list;
-    temporary_list.push_back(QString::number(this->sample_number));
+    temporary_list.push_back(QString::number(this->getSample_number()));
     temporary_list.push_back("dia");
     temporary_list.push_back("hora/min/seg");
     temporary_list.push_back(QString::number(this->vertical_displacement));
@@ -29,6 +30,8 @@ QStringList Densification::getDensificationVariables()
 
 uint32_t Densification::getSample_number() const
 {
+    qDebug() <<"Amostra = " <<  sample_number;
+    qDebug() << diff_sampleNumber_initExperiment;
     return sample_number - diff_sampleNumber_initExperiment;
 }
 void Densification::setDiff_sampleNumber_initExperiment(uint32_t diff)

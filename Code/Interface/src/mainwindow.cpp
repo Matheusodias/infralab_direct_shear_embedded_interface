@@ -63,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(changeInitialPositionValue()));
 
-
+    connect(ui->cancel_toolButton, SIGNAL(clicked()), this, SLOT(cancelExperiment()));
 
     fillTextEditForTests();
 
@@ -111,6 +111,8 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
     this->setupButtons->initialButtonStyling_Layout(ui->densificationHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
     this->setupButtons->initialButtonStyling_Layout(ui->shearHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
 
+    this->setupButtons->initialButtonStyling(ui->cancel_toolButton, cancelButton_BackgroundColor, cancelButton_size);
+    this->setupButtons->initialButtonStyling(ui->initShear_FinishExperiment_toolButton, initShearButton_BackgroundColor, initShearButton_size );
 
 
 
@@ -119,14 +121,6 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
     connectButtonToSlots_WithArguments(ui->densificationHeader_layout,ui->densification_stack,1);
 
     connectButtonToSlots_WithArguments(ui->shearHeader_layout,ui->shear_stack,2);
-//    connect(ui->densificationGraphs_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
-//        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
-
-//    connect(ui->densificationTable_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
-//        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
-
-//    connect(ui->densificationResult_toolButton, &QToolButton::clicked,  this->setupButtons, [this]{
-//        this->setupButtons->changePage_InsideExperiment(ui->densification_stack,true); });
 
 }
 
@@ -349,7 +343,8 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     uint32_t diff = this->info_variables->densification_variables.getSample_number();
-    this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff);
+    
+    this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff==0?diff:diff+1);
     
     
     ui->mainStack->setCurrentIndex(0);
@@ -357,14 +352,14 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     ui->densification_stack->setCurrentIndex(0);
     this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
-    //this->tables->updateData_TableInfo(ui->info_tableWidget);
+   
     this->tables->updateData_StaticTable(ui->info_tableWidget,info_table);
     if(my_db->isOpen()){
         my_db->insertIntoTable(experiment_table);
     }
 
 
-   
+    //QThread::sleep(5);
 
     send_data->setCommand(3);
     send_data->setPressure(this->info_variables->getPressure());
@@ -384,26 +379,29 @@ void MainWindow::on_releasePressure_toolButton_clicked()
 {
 
 
-        QToolButton * sender_button = qobject_cast<QToolButton *>(sender());
 
-        bool isPositionButtonsEnable = !(sender_button->isChecked());
+
+        bool isPositionButtonsEnable = !(ui->releasePressure_toolButton->isChecked());
         int style = 0;
         if(isPositionButtonsEnable){
             style = pressureButton_GreenBackgroundColor;
-            sender_button->setText("Liberar a baixa pressão");
+            ui->releasePressure_toolButton->setText("Liberar a baixa pressão");
         } else {
             style = pressureButton_RedBackgroundColor;
-            sender_button->setText("Parar a baixa pressão");
+            ui->releasePressure_toolButton->setText("Parar a baixa pressão");
         }
 
-        this->send_data->setCommand(2);
-        this->send_data->sendMessage();
+        if(!this->experiment_canceled){
+            this->send_data->setCommand(2);
+            this->send_data->sendMessage();
+        }
+        
 
 
         this->setupButtons->initExperiment_ButtonStyle(ui->initExperiment_toolButton,!isPositionButtonsEnable);
         ui->initExperiment_toolButton->setDisabled(isPositionButtonsEnable);
 
-        this->setupButtons->setButton_style_icon(sender_button, style , no_icon );
+        this->setupButtons->setButton_style_icon(ui->releasePressure_toolButton, style , no_icon );
 
 
         QLayout *layout = ui->positionLayout->layout();
@@ -423,20 +421,49 @@ void MainWindow::on_releasePressure_toolButton_clicked()
 
 void MainWindow::fillTextEditForTests()
 {
-    QString array_data[30] = {
-        "Experimento 2",
-        "Ivan D",
-        "Teste do tipo 2",
-        "Espécime do tipo 2",
-        "Classe uscs 35",
-        "Classe ashto 3",
-        "Nenhuma preparação",
-        "1234", "12",
-        "Localização da amostra",
-        "Descrição da amostra",
-        "500","2","3","4","5",
-        "6", "7", "8",
+
+    static int j=0;
+    QStringList data = {
+            "Experimento 3",
+            "Iva",
+            "Teso tipo 2",
+            "Espme do tipo 2",
+            "Cla uscs 35",
+            "Clae ashto 3",
+            "Nenma preparação",
+            "123", "12",
+            "Locação da amostra",
+            "Descrição da amostra",
+            "500","2","3","4","5",
+            "6", "7", "8",
     };
+
+    QStringList data2 = {
+            "Experimento 10",
+            "Luisa",
+            "Teste do tipo 0000",
+            "Espécime do tipo 0000",
+            "Cla uscs 0000",
+            "Clae ashto 0000",
+            "Nenma preparação",
+            "456", "21",
+            "Locação da amostra",
+            "Descrição da amostra",
+            "5","8","2","3","4",
+            "12", "13", "14",
+    };
+
+    QStringList array_data;
+    if(j&1)
+    {
+        array_data = data;
+    } else {
+        array_data = data2;
+    }
+ 
+
+
+    
 
     int i=0;
     ui->experimentName_lineEdit->setText(array_data[i++]);
@@ -487,12 +514,72 @@ void MainWindow::fillTextEditForTests()
     // phase2_gridLayout
     // layout_SampleDescription
     // phase3_gridLayout
+
+    j++;
+   
     return;
 }
 
-
-void MainWindow::on_configurationButton_3_clicked()
+void MainWindow:: cancelExperiment()
 {
-    this->tables->updateData_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
+    
+    this->experiment_canceled = true;
+    // sockets
+    send_data->setCommand(5);
+    send_data->sendMessage();
+
+    //qDebug() <<"Area = " <<  this->info_variables->getArea();
+    delete this->info_variables;
+    this->info_variables = new Experiment();
+    //qDebug() <<"Area = " <<   this->info_variables->getArea();
+    
+    // Densification temp;
+    // this->info_variables->densification_variables = temp;
+
+    this->info_variables->densification_variables.setDensificationVariables(0,0,0);
+
+    ui->releasePressure_toolButton->setChecked(false);
+    this->on_releasePressure_toolButton_clicked();
+    ui->sampleDescription_lineEdit->setText("");
+    ui->initialPositionValue_label->setText("0");
+    
+
+    ui->mainStack->setCurrentIndex(1);
+    ui->outside_experiment_stack->setCurrentIndex(2);
+    ui->phases_stack->setCurrentIndex(0);
+
+    this->setupButtons->changeButton_style(ui->experimentButton,experimentButton_lightIcon,headerButton_lightBackgroundColor,0);
+    this->setupButtons->changeButton_style(ui->phase1_button,no_icon,phasesButton_lightBackgroundColor,1);
+    //ui->lineEdit->setInputMethodHints(inputMethodHints() | Qt::InputMethodHint::ImhDigitsOnly);
+
+
+
+    this->setupFields->clearFields(ui->phase1_gridLayout);
+    this->setupFields->clearFields(ui->phase2_gridLayout);
+    this->setupFields->clearFields(ui->phase3_gridLayout);
+
+    this->tables->clearDynamicTables(ui->densification_tableWidget);
+    this->tables->clearDynamicTables(ui->shear_tableWidget);
+    this->tables->clearStaticTables(ui->densificationResult_tableWidget);
+
+    
+
+    //this->tables->clearStaticTables(ui->shearResult_tableWidget)
+
+
+
+
+
+    // QList<QTableWidget*> selectedTables = ui->mainStack->findChildren<QTableWidget*>();
+    // for(QList<QTableWidget *>::iterator table = selectedTables.begin();table != selectedTables.end(); table++){
+    //     qDebug() << "Tabela = " << (*table)->objectName();
+    // }
+
+    fillTextEditForTests();
+   
+    this->experiment_canceled = false;
+
+
+
 }
 

@@ -38,15 +38,17 @@ void Button::styleSheetConfiguration()
     QString green_pressureButton_StyleSheet;
     QString red_pressureButton_StyleSheet;
     QString disabled_positionButton_StyleSheet;
+    QString cancelButton_StyleSheet;
+    QString initShear_button_StyleSheet;
 
     phasesButton_lightStyleSheet = "QToolButton{ background-color:white; border-bottom:3px solid #0D495C;"
                                          "border-right:3px solid #0D495C;border-top:2px solid #0D495C;"
-                                         "border-left:2px solid #0D495C;border-radius:15px; color:#10576D;font: 700 13pt 'Ubuntu';}"
+                                         "border-left:2px solid #0D495C;border-radius:10px; color:#10576D;font: 700 12pt 'Ubuntu';}"
                                          "QToolButton:pressed {background-color:rgb(229, 229, 229);}";
 
     phasesButton_darkStyleSheet = "QToolButton{ background-color:#77A0AC; border-bottom:3px solid #0D495C;"
                                          "border-right:3px solid #0D495C;border-top:2px solid #0D495C;"
-                                         "border-left:2px solid #0D495C;border-radius:15px; color:white;font: 700 13pt 'Ubuntu';}"
+                                         "border-left:2px solid #0D495C;border-radius:10px; color:white;font: 700 12pt 'Ubuntu';}"
                                          "QToolButton:pressed {background-color:#0D495C;}";
 
 
@@ -61,25 +63,25 @@ void Button::styleSheetConfiguration()
     headerButton_lightStyleSheet = "QToolButton{ background-color:white; border-bottom:5px solid rgb(227, 227, 227);"
                                           "border-right:5px solid rgb(227, 227, 227); border-top:1px solid rgb(227, 227, 227);"
                                           "border-left:1px solid rgb(227, 227, 227); border-radius:25px;"
-                                          "font: 700 13pt 'Ubuntu'; color: #10576D;}"
+                                          "font: 700 10pt 'Ubuntu'; color: #10576D;}"
                                           "QToolButton:pressed {background-color:rgb(229, 229, 229);}";
 
     headerButton_darkStyleSheet = "QToolButton{ background-color:#0D495C; border-bottom:5px solid rgb(39, 64, 71);"
                                          "border-right:5px solid rgb(39, 64, 71); border-top:1px solid rgb(39, 64, 71);"
                                          "border-left:1px solid rgb(39, 64, 71); border-radius:25px;"
-                                         "font: 700 13pt 'Ubuntu'; color: white;}"
+                                         "font: 700 10pt 'Ubuntu'; color: white;}"
                                          "QToolButton:pressed {background-color:#072a36;}";
 
 
     red_pressureButton_StyleSheet = "QToolButton{ background-color: #FF0000; border-bottom:2px solid #A00000;"
                                      "border-right:1px solid #A00000;border-top:1px solid #A00000;"
-                                     "border-left:1px solid #A00000;border-radius:100px;font: 700 20pt 'Ubuntu';"
+                                     "border-left:1px solid #A00000;border-radius:60px;font: 700 20pt 'Ubuntu';"
                                        "color: white; padding:3;}"
                                       "QToolButton:pressed {background-color:#A00000;}";
 
     green_pressureButton_StyleSheet = "QToolButton{ background-color:#3F953F; border-bottom:2px solid #295D29;"
                                      "border-right:1px solid #295D29;border-top:1px solid #295D29;"
-                                     "border-left:1px solid #295D29;border-radius:100px;font: 700 20pt 'Ubuntu';"
+                                     "border-left:1px solid #295D29;border-radius:60px;font: 700 20pt 'Ubuntu';"
                                        "color: white; padding:3;}"
                                       "QToolButton:pressed {background-color:#295D29;}";
 
@@ -90,10 +92,25 @@ void Button::styleSheetConfiguration()
                                           "QToolButton:pressed {background-color:#989898;}";
 
 
+    cancelButton_StyleSheet = "QToolButton{ background-color:rgb(171, 26, 36); border-bottom:2px solid #87161D;"
+                                     "border-right:1px solid #87161D;border-top:1px solid #87161D;"
+                                     "border-left:1px solid #87161D;border-radius:10px;font: 700 13pt 'Ubuntu';"
+                                       "color: white; padding:3;}"
+                                      "QToolButton:pressed {background-color:#87161D;}";
+
+    initShear_button_StyleSheet = "QToolButton{ background-color:rgb(38, 162, 105); border-bottom:2px solid #1B7A4F;"
+                                  "border-right:1px solid #1B7A4F;border-top:1px solid #1B7A4F;"
+                                  "border-left:1px solid #1B7A4F;border-radius:10px;font: 700 13pt 'Ubuntu';"
+                                    "color: white; padding:3;}"
+                                   "QToolButton:pressed {background-color:#1B7A4F;}";
+
+
 //#3F953F
 //#295D29
 //#FF0000
 //#A00000
+
+
 
     this->button_styleSheets[headerButton_lightBackgroundColor] = headerButton_lightStyleSheet;
     this->button_styleSheets[headerButton_darkBackgroundColor]  = headerButton_darkStyleSheet;
@@ -103,6 +120,9 @@ void Button::styleSheetConfiguration()
     this->button_styleSheets[pressureButton_GreenBackgroundColor] = green_pressureButton_StyleSheet;
     this->button_styleSheets[pressureButton_RedBackgroundColor] = red_pressureButton_StyleSheet;
     this->button_styleSheets[moveButton_DisabledBackgroundColor] = disabled_positionButton_StyleSheet;
+
+    this->button_styleSheets[cancelButton_BackgroundColor] = cancelButton_StyleSheet;
+    this->button_styleSheets[initShearButton_BackgroundColor] = initShear_button_StyleSheet;
 
 }
 
@@ -126,6 +146,8 @@ void Button::imageConfiguration()
 
 void Button::iconsConfiguration()
 {
+
+
     this->button_icons[historyButton_lightIcon].addPixmap(QPixmap(this->button_images[historyButton_lightIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[historyButton_darkIcon].addPixmap(QPixmap(this->button_images[historyButton_darkIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[experimentButton_lightIcon].addPixmap(QPixmap(this->button_images[experimentButton_lightIcon]),QIcon::Normal,QIcon::On);
@@ -145,15 +167,21 @@ void Button::iconsConfiguration()
 void Button::buttonSizeConfiguration()
 {
     this->buttonMaximumSize[outsideExperiment_buttonSize] = QSize(300, 80);
-    this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(130, 90);
+    this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(130, 50);
 
     this->buttonMaximumSize[phases_buttonSize] = QSize(16777215, 16777215);
-    this->buttonMinimumSize[phases_buttonSize] = QSize(80, 60);
+    this->buttonMinimumSize[phases_buttonSize] = QSize(80, 25);
 
 
     this->buttonMaximumSize[phases_continueButtonSize] = QSize(200, 100);
-    this->buttonMinimumSize[phases_continueButtonSize] = QSize(140, 50);
+    this->buttonMinimumSize[phases_continueButtonSize] = QSize(140, 30);
 
+
+    this->buttonMaximumSize[cancelButton_size] = QSize(300, 80);
+    this->buttonMinimumSize[cancelButton_size] = QSize(130, 30);
+
+    this->buttonMaximumSize[initShearButton_size] = QSize(300, 80);
+    this->buttonMinimumSize[initShearButton_size] = QSize(220, 30);
 
 }
 
@@ -241,6 +269,15 @@ void Button::setButton_style_icon(QToolButton * button, uint8_t style, uint8_t i
     return;
 }
 
+
+void Button::initialButtonStyling(QToolButton * button, uint8_t style_option, uint8_t size)
+{
+    this->setButtonShadow(button);
+    button->setStyleSheet(this->button_styleSheets[style_option]);
+    button->setMaximumSize(this->buttonMaximumSize[size]);
+    button->setMinimumSize(this->buttonMinimumSize[size]);
+}
+
 /**
  * @brief Realiza a estilização dos botões encontrados no cabeçalho das páginas fora do experimento.
  * 
@@ -302,8 +339,9 @@ void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8
     // you just need to add 1.
     // Same principle for background color, add 1 to button_lightBackgroundColor
     // to turn it dark.
+
     if(icon==no_icon){
-        current_button->setStyleSheet(this->button_styleSheets[++style]);
+        this->setButton_style_icon(current_button, ++style, icon);
     } else {
         this->setButton_style_icon(current_button, ++style, ++icon);
     }

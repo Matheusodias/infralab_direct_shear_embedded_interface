@@ -45,13 +45,14 @@ private slots:
     void onPositionButton_released();
 
 
+    void cancelExperiment();
 
 
     void on_initExperiment_toolButton_clicked();
 
     void on_releasePressure_toolButton_clicked();
 
-    void on_configurationButton_3_clicked();
+
 
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
@@ -61,6 +62,8 @@ private:
     ThreadController *receive_data;
     sendCommands *send_data;
     QTimer * timer;
+
+    bool experiment_canceled = false;
 
     void fillTextEditForTests();
     void InitialConfiguration_OutsideExperimentHeaderButtons();

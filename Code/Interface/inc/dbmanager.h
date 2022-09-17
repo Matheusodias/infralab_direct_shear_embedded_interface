@@ -24,7 +24,7 @@ public:
     bool tableExists(uint8_t option);
     bool insertIntoTable(uint8_t option);
    
-   
+    Experiment * experiment_data;
 
 
 private:
@@ -32,7 +32,7 @@ private:
 
     QSqlDatabase prova_conceito_database;
     QString table_name[3] = {"EXPERIMENT_TABLE","DENSIFICATION_TABLE","SHEAR_TABLE"};
-    Experiment * experiment_data;
+    
     void insertValuesIntoBind_Experiment(QSqlQuery *query);
     void insertValuesIntoBind_Densification(QSqlQuery *query);
     QString create_table[3];

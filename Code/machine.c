@@ -22,7 +22,7 @@ int  server_socket_id, id_socket_cliente;
 int client_socket_id;
 int keepThreading = 1;
 int keepWriting = 1;
-
+int sample_number=0;
 int first_time=1;
 pthread_t thread_le_comandos;
 pthread_mutex_t lock;
@@ -147,8 +147,13 @@ void print_client_message(int client_socket)
 
             case 5: // comando 5 0(disabled, 0), 2(desligado) 4(distance=0,velocity=0);interromper/finalizar experimento desliga pressão
                 printf("End machine\n");
+
+                printf("tentando pegar o lock3\n");
+                    sample_number=0;
+                    pthread_mutex_lock(&lock);  
+                printf("tentando pegar o lock4\n");
                 
-                end_server(SIGINT);
+                // end_server(SIGINT);
             break;
             default:
                 break;
@@ -179,7 +184,7 @@ void * enviaDados(){
         return 0;
     }
     int i=0,plus=1;
-    int sample_number=0;
+    
     int direcao = 1;
     while(keepWriting){
         pthread_mutex_lock(&lock);
