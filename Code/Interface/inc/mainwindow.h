@@ -53,6 +53,7 @@ private slots:
     void on_releasePressure_toolButton_clicked();
 
 
+    void initShearPhase();
 
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/

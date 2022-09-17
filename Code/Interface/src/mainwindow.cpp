@@ -122,6 +122,7 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
 
     connectButtonToSlots_WithArguments(ui->shearHeader_layout,ui->shear_stack,2);
 
+    connect(ui->initShear_FinishExperiment_toolButton, SIGNAL(clicked()), this, SLOT(initShearPhase()));
 }
 
 void MainWindow::InitialConfiguration_PhasesButtons()
@@ -343,7 +344,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     uint32_t diff = this->info_variables->densification_variables.getSample_number();
-    
+    this->info_variables->setSample_period(200);
     this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff==0?diff:diff+1);
     
     
@@ -367,11 +368,8 @@ void MainWindow::on_initExperiment_toolButton_clicked()
 
     send_data->setCommand(0);
     send_data->setEnabled(1);
-    send_data->setSamplingPeriod(1000);
+    send_data->setSamplingPeriod(this->info_variables->getSample_period());
     send_data->sendMessage();
-    
-  
-
 }
 
 
@@ -419,6 +417,10 @@ void MainWindow::on_releasePressure_toolButton_clicked()
 
 }
 
+void MainWindow::initShearPhase()
+{
+    this->tables->updateData_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
+}
 void MainWindow::fillTextEditForTests()
 {
 
@@ -529,8 +531,11 @@ void MainWindow:: cancelExperiment()
     send_data->sendMessage();
 
     //qDebug() <<"Area = " <<  this->info_variables->getArea();
-    delete this->info_variables;
+    //delete this->info_variables;
     this->info_variables = new Experiment();
+    this->setupFields->info_variables = this->info_variables;
+    this->tables->table_variables = this->info_variables;
+    this->my_db->experiment_data = this->info_variables;
     //qDebug() <<"Area = " <<   this->info_variables->getArea();
     
     // Densification temp;

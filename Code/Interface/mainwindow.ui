@@ -310,7 +310,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="densification_stack">
               <property name="currentIndex">
-               <number>1</number>
+               <number>2</number>
               </property>
               <widget class="QWidget" name="densificationGraphs_page">
                <widget class="QLabel" name="label_4">

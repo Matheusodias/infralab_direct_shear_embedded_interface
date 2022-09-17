@@ -30,8 +30,8 @@ QStringList Densification::getDensificationVariables()
 
 uint32_t Densification::getSample_number() const
 {
-    qDebug() <<"Amostra = " <<  sample_number;
-    qDebug() << diff_sampleNumber_initExperiment;
+    // qDebug() <<"Amostra = " <<  sample_number;
+    // qDebug() << diff_sampleNumber_initExperiment;
     return sample_number - diff_sampleNumber_initExperiment;
 }
 void Densification::setDiff_sampleNumber_initExperiment(uint32_t diff)

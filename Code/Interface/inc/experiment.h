@@ -95,13 +95,19 @@ public:
     int getPhase() const;
     void changePhase();
 
-    uint64_t getPresent_time() const;
-    uint64_t getInitial_time() const;
+    uint64_t getDuration();
+
+    uint64_t getPresent_time_seconds() const;
+    uint64_t getInitial_time_seconds() const;
+
+    uint64_t getPresent_time_miliseconds() const;
+    uint64_t getInitial_time_miliseconds() const;
+    
     void setInitial_time(bool isInitial);
 
     QString getInitial_timeString();
 
-    QString hour_min_sec();
+    QString hour_min_sec_ms();
     QString day_month_year();
     
 
@@ -111,6 +117,9 @@ public:
     QString getDensificationDuration();
 
     Densification densification_variables;
+
+    int getSample_period() const;
+    void setSample_period(int newSample_period);
 
 private:
    
@@ -135,12 +144,14 @@ private:
     float initial_position;
     float diameter;
     float pressure;
-    uint64_t initial_time;
-    uint64_t present_time;
+    uint64_t initial_time_seconds;
+    uint64_t present_time_seconds;
+    uint64_t initial_time_miliseconds;
+    uint64_t present_time_miliseconds;
     int sample_number_diff;
 
     int phase = densification_phase;
-
+    int sample_period;
 
 
 

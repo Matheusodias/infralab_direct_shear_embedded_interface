@@ -39,6 +39,7 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     "initial_position REAL NOT NULL,"
     "diameter REAL NOT NULL,"
     "pressure REAL NOT NULL,"
+    "sample_period INTEGER NOT NULL,"
     "sample_number_diff INTEGER,"
     "PRIMARY KEY(experiment_id));"
 
@@ -54,8 +55,8 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
         "sample_location , sample_description, initial_height,"
         "initial_wet_weight, initial_moisture, spgr_solids,"
         "plastic_limit, liquid_limit, initial_position,"
-        "diameter, pressure)"
-        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        "diameter, pressure, sample_period)"
+        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
     ).arg(this->table_name[experiment_table]);
 
     this->create_table[densification_table] =  QString(
@@ -284,7 +285,8 @@ void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
     
     query->addBindValue(this->experiment_data->getName());
     query->addBindValue(this->experiment_data->getOperator_name());
-    query->addBindValue(1234);
+    uint64_t miliseconds = this->experiment_data->getInitial_time_seconds()*1000 + this->experiment_data->getInitial_time_miliseconds();
+    query->addBindValue(QVariant::fromValue(miliseconds));
     query->addBindValue(this->experiment_data->getTest_type());
     query->addBindValue(this->experiment_data->getSpecimen_type());
     query->addBindValue(this->experiment_data->getUscs_class());
@@ -303,6 +305,7 @@ void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
     query->addBindValue(this->experiment_data->getInitial_position());
     query->addBindValue(this->experiment_data->getDiameter());
     query->addBindValue(this->experiment_data->getPressure());
+    query->addBindValue(this->experiment_data->getSample_period());
 }
 
 void DBManager::update_database_table()

@@ -72,7 +72,7 @@ QStringList Experiment:: updateDensificationTable()
     QStringList temporary_list =  densification_variables.getDensificationVariables();
    
     temporary_list[1] = this->day_month_year();
-    temporary_list[2] =this->hour_min_sec();
+    temporary_list[2] =this->hour_min_sec_ms();
 
     return temporary_list;
 }
@@ -89,12 +89,26 @@ QStringList Experiment::updateDensificationResultsTable()
     return temporary_list;
 }
 
+
+
+uint64_t Experiment::getDuration()
+{
+    uint64_t initial_time_seconds = (uint64_t)(this->getInitial_time_seconds());
+    uint64_t initial_time_miliseconds = (uint64_t)(this->getInitial_time_miliseconds());
+    this->setInitial_time(false);   
+    uint64_t final_time_seconds = (uint64_t)(this->getPresent_time_seconds());
+    uint64_t final_time_miliseconds = (uint64_t)(this->getPresent_time_miliseconds());
+
+    uint64_t duration = (final_time_seconds - initial_time_seconds)*1000 + (final_time_miliseconds - initial_time_miliseconds);
+    
+    return duration;
+}
+
+
 QString Experiment::getDensificationDuration()
 {
-    uint64_t initial_time_miliseconds = (uint64_t)(this->getInitial_time());
-    this->setInitial_time(false);
-    uint64_t final_time_miliseconds = (uint64_t)(this->getPresent_time());
-    uint64_t duration = final_time_miliseconds - initial_time_miliseconds;
+   
+    uint64_t duration = this->getDuration();
     qDebug() << "Tempo em mili = " << duration;
     uint64_t hours = (uint64_t)(duration/3600000);
     uint64_t minutes_calculation = (duration%3600000);
@@ -107,28 +121,37 @@ QString Experiment::getDensificationDuration()
     return time;
 }
 
-QString Experiment::hour_min_sec()
+int Experiment::getSample_period() const
 {
-    time_t seconds = (time_t)(this->getInitial_time()/1000 + densification_variables.getSample_number());
+    return sample_period;
+}
+
+void Experiment::setSample_period(int newSample_period)
+{
+    sample_period = newSample_period;
+}
+
+QString Experiment::hour_min_sec_ms()
+{
+    this->setInitial_time(false);
+    time_t seconds = (time_t)(this->getPresent_time_seconds());
     struct tm * time_seconds = localtime(&seconds);
-    QString time_string = QString("%1:%2:%3").arg(time_seconds->tm_hour).arg(time_seconds->tm_min).arg(time_seconds->tm_sec);
+    QString time_string = QString("%1:%2:%3:%4").arg(time_seconds->tm_hour).arg(time_seconds->tm_min)
+    .arg(time_seconds->tm_sec).arg(this->getPresent_time_miliseconds());
     return time_string;
 }
 
 QString Experiment::day_month_year()
 {
-    time_t seconds = (time_t)(this->getInitial_time()/1000 + densification_variables.getSample_number());
+    this->setInitial_time(false);
+    time_t seconds = (time_t)(this->getPresent_time_seconds());
     struct tm * time_seconds = localtime(&seconds);
     QString time_string = QString("%1/%2/%3").arg(time_seconds->tm_mday).arg(time_seconds->tm_mon).
-    arg(time_seconds->tm_year + 1900);
+    arg(time_seconds->tm_year - 100);
 
     return time_string;
 }
 
-void Experiment::insertData_inDatabase()
-{
-
-}
 
 bool Experiment::getExperimentStarted() const
 {
@@ -392,14 +415,24 @@ void Experiment::changePhase()
     this->phase = shear_phase;
 }
 
-uint64_t Experiment::getInitial_time() const
+uint64_t Experiment::getInitial_time_seconds() const
 {
-    return initial_time;
+    return initial_time_seconds;
 }
 
-uint64_t Experiment::getPresent_time() const
+uint64_t Experiment::getPresent_time_seconds() const
 {
-    return present_time;
+    return present_time_seconds;
+}
+
+uint64_t Experiment::getInitial_time_miliseconds() const
+{
+    return initial_time_miliseconds;
+}
+
+uint64_t Experiment::getPresent_time_miliseconds() const
+{
+    return present_time_miliseconds;
 }
 
 void Experiment::setInitial_time(bool isInitial)
@@ -408,23 +441,29 @@ void Experiment::setInitial_time(bool isInitial)
 
     gettimeofday(&tv, NULL);
 
-    unsigned long long millisecondsSinceEpoch =
-    (unsigned long long)(tv.tv_sec) * 1000 +
-    (unsigned long long)(tv.tv_usec) / 1000;
+    unsigned long long secondsSinceEpoch = (unsigned long long)(tv.tv_sec) ;
+    unsigned long long milisecondsSinceEpoch = (unsigned long long)(tv.tv_usec)/1000 ;
+
+
+    //+
+    //(unsigned long long)(tv.tv_usec) / 1000;
     if(isInitial){
-        this->initial_time = millisecondsSinceEpoch;
+        this->initial_time_seconds = secondsSinceEpoch;
+        this->initial_time_miliseconds = milisecondsSinceEpoch;
     } else{
-        this->present_time = millisecondsSinceEpoch;
+        this->present_time_seconds = secondsSinceEpoch;
+        this->present_time_miliseconds = milisecondsSinceEpoch;
     }
 
 }
 
 QString Experiment::getInitial_timeString()
 {
-    time_t seconds = (time_t)(this->getInitial_time()/1000);
+    time_t seconds = (time_t)(this->getInitial_time_seconds());
     struct tm * time_seconds = localtime(&seconds);
-    QString time_string = QString("%1/%2/%3 %4H:%5min:%6seg").arg(time_seconds->tm_mday).arg(time_seconds->tm_mon).
-    arg(time_seconds->tm_year + 1900).arg(time_seconds->tm_hour).arg(time_seconds->tm_min).arg(time_seconds->tm_sec);
+    QString time_string = QString("%1/%2/%3 %4H:%5min:%6seg:%7ms").arg(time_seconds->tm_mday).arg(time_seconds->tm_mon).
+    arg(time_seconds->tm_year + 1900).arg(time_seconds->tm_hour).arg(time_seconds->tm_min).arg(time_seconds->tm_sec)
+    .arg(this->getInitial_time_miliseconds());
 
     return time_string;
 }
