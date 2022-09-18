@@ -251,7 +251,7 @@ color: #10576D;
         <item>
          <widget class="QStackedWidget" name="insideExperiment_stack">
           <property name="currentIndex">
-           <number>0</number>
+           <number>1</number>
           </property>
           <widget class="QWidget" name="densification_page">
            <property name="styleSheet">
@@ -350,6 +350,9 @@ color: #10576D;
             <string notr="true"/>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_10">
+            <property name="topMargin">
+             <number>0</number>
+            </property>
             <item>
              <layout class="QHBoxLayout" name="shearHeader_layout">
               <property name="spacing">
@@ -399,7 +402,7 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="shear_stack">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="shearGraphs_page">
                <widget class="QLabel" name="label_9">

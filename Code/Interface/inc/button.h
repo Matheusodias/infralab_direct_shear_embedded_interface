@@ -61,7 +61,7 @@ public:
 
 
 private:
-    QToolButton * clickedButton[2]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
+    QToolButton * clickedButton[3]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */
     uint8_t clickedButtonIcon[3]; /*!< Ícone do botão do cabeçalho ou/e de alguma subpágina que foi clicado. */
 
     QString button_styleSheets[15]; /*!< Array com os estilos claro e escudo.*/

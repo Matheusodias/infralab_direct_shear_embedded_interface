@@ -353,7 +353,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     ui->densification_stack->setCurrentIndex(0);
     this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
-   
+    this->setupButtons->changeButton_style(ui->shearGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,2);
     this->tables->updateData_StaticTable(ui->info_tableWidget,info_table);
     if(my_db->isOpen()){
         my_db->insertIntoTable(experiment_table);

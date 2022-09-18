@@ -26,6 +26,7 @@ Button::Button()
 
     this->clickedButton[0] = nullptr;
     this->clickedButton[1] = nullptr;
+    this->clickedButton[2] = nullptr;
 }
 
 void Button::styleSheetConfiguration()
@@ -219,7 +220,7 @@ void Button::changePage_InsideExperiment(QStackedWidget *insideExperiment, bool 
     QString densification_buttons[] = {"densificationGraphs_toolButton", "densificationTable_toolButton", "densificationResult_toolButton"};
     QString shear_buttons[] = {"shearGraphs_toolButton", "shearTable_toolButton", "shearResult_toolButton"};
     buttons_name = isDensificationPage?densification_buttons:shear_buttons;
-
+    int pos = isDensificationPage? 1 : 2;
 
 
     uint8_t array_size = 3;
@@ -232,7 +233,7 @@ void Button::changePage_InsideExperiment(QStackedWidget *insideExperiment, bool 
     }
 
     insideExperiment->setCurrentIndex(next_page);
-    this->changeButton_style(buttonSender, no_icon, phasesButton_lightBackgroundColor,1);
+    this->changeButton_style(buttonSender, no_icon, phasesButton_lightBackgroundColor,pos);
 
 }
 
@@ -317,10 +318,7 @@ void Button::initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_
  */
 void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style, uint8_t pos)
 {
-    // Always sending the lightBackgroundColor of a button
-    // It will always be a multiple of 2 or 0, so to differentiate multiple buttons we get the position as follows:
-    // pos = 0/2 = 0, pos = 2/2=1, pos = 4/2 = 2.
-//    uint8_t pos = style/2;
+
     if(this->clickedButton[pos]==current_button){
         return;
     }
