@@ -16,7 +16,10 @@ QStringList Experiment::getAllData_forInfoTable()
     temporary_list.push_back(this->getName());
     temporary_list.push_back(this->getOperator_name());
     temporary_list.push_back(this->getInitial_timeString());
-    temporary_list.push_back("vazio2");
+
+    QString present_time=this->day_month_year() + " " + this->hour_min_sec_ms();
+
+    temporary_list.push_back(present_time);
     temporary_list.push_back(this->getTest_type());
     temporary_list.push_back(this->getSpecimen_type());
     temporary_list.push_back(this->getUscs_class());
@@ -74,13 +77,16 @@ QStringList Experiment:: updateDensificationTable()
     temporary_list[1] = this->day_month_year();
     temporary_list[2] =this->hour_min_sec_ms();
 
+    this->shear_variables.setDate(temporary_list[1]);
+    this->shear_variables.setHour_min_sec_ms(temporary_list[2]);
+
     return temporary_list;
 }
 
 QStringList Experiment::updateDensificationResultsTable()
 {
     QStringList temporary_list = densification_variables.getDensificationResults();
-    temporary_list[0] = this->getDensificationDuration();
+    temporary_list[0] = this->getDuration_string(true);
     float final_height = this->initial_height - densification_variables.getVertical_displacement();
     temporary_list[2] = QString::number(final_height);
     float final_volume = final_height * this->getArea();
@@ -89,12 +95,49 @@ QStringList Experiment::updateDensificationResultsTable()
     return temporary_list;
 }
 
-
-
-uint64_t Experiment::getDuration()
+QStringList Experiment:: updateShearTable()
 {
-    uint64_t initial_time_seconds = (uint64_t)(this->getInitial_time_seconds());
-    uint64_t initial_time_miliseconds = (uint64_t)(this->getInitial_time_miliseconds());
+    QStringList temporary_list =  shear_variables.getShearVariables();
+   
+    temporary_list[0] = QString::number(this->getShearSample_number());
+    temporary_list[5] = QString::number(this->getNormalTension());
+    temporary_list[6] = QString::number(this->getShearTension());
+
+    return temporary_list;
+}
+
+QStringList Experiment::updateShearResultsTable()
+{
+    QStringList temporary_list = shear_variables.getShearResults();
+    temporary_list[0] = this->getDuration_string(false);
+    temporary_list[2] = QString::number(this->densification_variables.getVertical_load());
+    temporary_list[3] = QString::number(this->getNormalTension());
+    temporary_list[4] = QString::number(this->getShearTension());
+    temporary_list[5] = QString::number(this->densification_variables.getVertical_displacement());
+    temporary_list[7] = QString::number(this->getAverageSpeed());
+    float final_height = this->initial_height - densification_variables.getVertical_displacement();
+    temporary_list[8] = QString::number(final_height);
+    float final_volume = final_height * this->getArea();
+    temporary_list[9] = QString::number(final_volume);
+
+    return temporary_list;
+}
+
+
+uint64_t Experiment::getDuration(bool isDensification)
+{
+    uint64_t initial_time_seconds;
+    uint64_t initial_time_miliseconds;
+    if(isDensification)
+    {
+        initial_time_seconds = (uint64_t)(this->getInitial_time_seconds());
+        initial_time_miliseconds = (uint64_t)(this->getInitial_time_miliseconds());
+    } else {
+        initial_time_seconds = (uint64_t)(this->shear_variables.getInitial_time_seconds());
+        initial_time_miliseconds = (uint64_t)(this->shear_variables.getInitial_time_miliseconds());
+    }
+
+
     this->setInitial_time(false);   
     uint64_t final_time_seconds = (uint64_t)(this->getPresent_time_seconds());
     uint64_t final_time_miliseconds = (uint64_t)(this->getPresent_time_miliseconds());
@@ -105,11 +148,10 @@ uint64_t Experiment::getDuration()
 }
 
 
-QString Experiment::getDensificationDuration()
+QString Experiment::getDuration_string(bool isDensification)
 {
    
-    uint64_t duration = this->getDuration();
-    qDebug() << "Tempo em mili = " << duration;
+    uint64_t duration = this->getDuration(isDensification);
     uint64_t hours = (uint64_t)(duration/3600000);
     uint64_t minutes_calculation = (duration%3600000);
     uint64_t minutes = (uint64_t)(minutes_calculation/60000);
@@ -129,6 +171,34 @@ int Experiment::getSample_period() const
 void Experiment::setSample_period(int newSample_period)
 {
     sample_period = newSample_period;
+}
+
+uint32_t Experiment::getShearSample_number() const
+{
+    return this->densification_variables.getSample_number() - this->shear_variables.getSample_number_diff();
+}
+
+float Experiment::getNormalTension()
+{
+    float normal_load = this->densification_variables.getVertical_load();
+    float area = this->getArea();
+    return   normal_load/area;
+}
+
+float Experiment::getShearTension()
+{
+    float shear_load = this->shear_variables.getHorizontal_load();
+    float area = this->getArea();
+    return shear_load/area;
+}
+
+float Experiment::getAverageSpeed()
+{
+    float displacement = this->shear_variables.getHorizontal_displacement();
+
+    uint64_t time = getDuration(false);
+    float minutes = time/60000.0;
+    return displacement/minutes;
 }
 
 QString Experiment::hour_min_sec_ms()

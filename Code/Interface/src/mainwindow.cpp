@@ -92,6 +92,7 @@ void MainWindow::CreateDataseTables(){
         if(!my_db->tableExists(experiment_table)){my_db->createTable(experiment_table);}
         if(!my_db->tableExists(densification_table)){my_db->createTable(densification_table);}
         if(!my_db->tableExists(shear_table)){my_db->createTable(shear_table);}
+        if(!my_db->tableExists(extra_variables_table)){my_db->createTable(extra_variables_table);}
     }
 }
 
@@ -364,7 +365,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     uint32_t diff = this->info_variables->densification_variables.getSample_number();
-    this->info_variables->setSample_period(5000);
+    this->info_variables->setSample_period(1000);
     this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff==0?diff:diff+1);
     
     
@@ -445,7 +446,7 @@ void MainWindow::updateResultsTables()
        this->tables->updateData_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
     } else if (this->info_variables->getPhase() == shear_phase)
     {
-       this->tables->updateData_StaticTable(ui->shearResult_tableWidget,densification_result_table);
+       this->tables->updateData_StaticTable(ui->shearResult_tableWidget,shear_result_table);
     }
 
 }
@@ -460,6 +461,7 @@ void MainWindow::adjustVelocity_Distance()
         //ui->initShear_FinishExperiment_toolButton->setVisible(false);
     } else if (this->info_variables->getPhase() == shear_phase)
     {
+        my_db->insertIntoTable(extra_variables_table);
         qDebug() << "Experimento Finalizado";
         this->cancelExperiment();
     }
@@ -486,14 +488,18 @@ void MainWindow::initShearPhase()
     this->setupButtons->changeInitShear_toFinishButton(ui->initShear_FinishExperiment_toolButton);
     //this->ui->initShear_FinishExperiment_toolButton->setIcon(button_icons[icon]);
 
+    uint32_t sample_number = this->info_variables->densification_variables.getSample_number();
+    this->info_variables->shear_variables.setSample_number_diff(sample_number+1);
+
+
     this->info_variables->changePhase();
     this->ui->phase_label->setText("Fase: Cisalhamento");
     ui->insideExperiment_stack->setCurrentIndex(1);
     this->setupButtons->changeButton_style(ui->shear_button, shearButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->shearTable_toolButton, no_icon , phasesButton_lightBackgroundColor,2);
-    ui->shear_stack->setCurrentIndex(2);
+    ui->shear_stack->setCurrentIndex(1);
 
-    
+    this->info_variables->shear_variables.setInitial_time();
     
 }
 void MainWindow::fillTextEditForTests()

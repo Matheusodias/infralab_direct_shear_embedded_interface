@@ -92,21 +92,25 @@ void receiveData::readClientMessage()
             //qDebug() << this->machine_message.sample_number == this->previous_sample_number;
             break;
         };
-        qDebug() << "SampleNumber" << this->machine_message.sample_number;
-        //qDebug() << "DateTime" << this->machine_message.date_time;
-        qDebug() << "Displacement[0]" << this->machine_message.displacement[0];
-        qDebug() << "Displacement[1]" << this->machine_message.displacement[1];
-        qDebug() << "Load[0]" << this->machine_message.load[0];
-        qDebug() << "Load[1]" << this->machine_message.load[1];
-        qDebug() << "State" << this->machine_message.state << Qt::endl;
+        // qDebug() << "SampleNumber" << this->machine_message.sample_number;
+        // //qDebug() << "DateTime" << this->machine_message.date_time;
+        // qDebug() << "Displacement[0]" << this->machine_message.displacement[0];
+        // qDebug() << "Displacement[1]" << this->machine_message.displacement[1];
+        // qDebug() << "Load[0]" << this->machine_message.load[0];
+        // qDebug() << "Load[1]" << this->machine_message.load[1];
+        // qDebug() << "State" << this->machine_message.state << Qt::endl;
 
         this->shear_densification_variables->table_variables->densification_variables.setDensificationVariables
             (this->machine_message.sample_number, this->machine_message.displacement[0], this->machine_message.load[0]);
-        
+
         if(this->shear_densification_variables->table_variables->getExperimentStarted()==true){
             QStringList data = this->shear_densification_variables->table_variables->updateDensificationTable();
             this->shear_densification_variables->updateData_DynamicTable(data, densification_phase);
-            this->shear_densification_variables->updateData_DynamicTable(data, shear_phase);
+            if(this->shear_densification_variables->table_variables->getPhase() == shear_phase){
+                this->shear_densification_variables->table_variables->shear_variables.setShearVariables(this->machine_message.displacement[1], this->machine_message.load[1]);
+                data =  this->shear_densification_variables->table_variables->updateShearTable();
+                this->shear_densification_variables->updateData_DynamicTable(data, shear_phase);
+            }
             emit this->data_arrived();
         }
 

@@ -39,8 +39,7 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     "initial_position REAL NOT NULL,"
     "diameter REAL NOT NULL,"
     "pressure REAL NOT NULL,"
-    "sample_period INTEGER NOT NULL,"
-    "sample_number_diff INTEGER,"
+
     "PRIMARY KEY(experiment_id));"
 
     ).arg(this->table_name[experiment_table]);
@@ -55,8 +54,8 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
         "sample_location , sample_description, initial_height,"
         "initial_wet_weight, initial_moisture, spgr_solids,"
         "plastic_limit, liquid_limit, initial_position,"
-        "diameter, pressure, sample_period)"
-        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        "diameter, pressure)"
+        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
     ).arg(this->table_name[experiment_table]);
 
     this->create_table[densification_table] =  QString(
@@ -92,12 +91,40 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
     ).arg(this->table_name[shear_table]);
 
-    
+    this->insert_into_table[shear_table] =
+    QString(
+        "INSERT INTO %1 ("
+        "experiment_id,"
+        "vertical_displacement,"
+        "vertical_load)"
+        "Values (?,?,?)"
+    ).arg(this->table_name[shear_table]);
 
+    this->create_table[extra_variables_table] =
+    QString(
+        "CREATE TABLE %1 ("
+        "extra_variables_id INTEGER NOT NULL,"
+        "experiment_id INTEGER  NOT NULL,"
+        "sample_period INTEGER NOT NULL,"
+        "sample_number_diff INTEGER NOT NULL,"
+        "distance REAL NOT NULL,"
+        "velocity REAL NOT NULL,"
+        "duration INTEGER NOT NULL,"
+        "PRIMARY KEY(extra_variables_id),"
+        "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
+    ).arg(this->table_name[extra_variables_table]);
 
-
-
-
+    this->insert_into_table[extra_variables_table] =
+    QString(
+        "INSERT INTO %1 ("
+        "experiment_id,"
+        "sample_period,"
+        "sample_number_diff,"
+        "distance,"
+        "velocity,"
+        "duration)"
+        "Values (?,?,?,?,?,?)"
+    ).arg(this->table_name[extra_variables_table]);
 
 /*
     1 cisalhamento e de adensamento
@@ -247,10 +274,15 @@ bool DBManager::insertIntoTable(uint8_t option)
     QSqlQuery query;
     query.prepare(this->insert_into_table[option]);
 
+
     if(option == experiment_table){
         this->insertValuesIntoBind_Experiment(&query);
     } else if(option == densification_table) {
         this->insertValuesIntoBind_Densification(&query);
+    } else if(option == shear_table) {
+        this->insertValuesIntoBind_Shear(&query);
+    } else if(option == extra_variables_table){
+        this->insertValuesIntoBind_ExtraVariables(&query);
     }
     
 
@@ -276,7 +308,25 @@ void DBManager::insertValuesIntoBind_Densification(QSqlQuery *query)
     query->addBindValue(this->experiment_data->densification_variables.getVertical_displacement());
     query->addBindValue(this->experiment_data->densification_variables.getVertical_load());
     
-   
+
+}
+
+void DBManager::insertValuesIntoBind_Shear(QSqlQuery *query)
+{
+    query->addBindValue(this->experiment_id);
+    query->addBindValue(this->experiment_data->shear_variables.getHorizontal_displacement());
+    query->addBindValue(this->experiment_data->shear_variables.getHorizontal_load());
+}
+
+void DBManager::insertValuesIntoBind_ExtraVariables(QSqlQuery *query)
+{
+    query->addBindValue(this->experiment_id);
+    query->addBindValue(this->experiment_data->getSample_period());
+    query->addBindValue(this->experiment_data->shear_variables.getSample_number_diff());
+    query->addBindValue(this->experiment_data->shear_variables.getDistance());
+    query->addBindValue(this->experiment_data->shear_variables.getVelocity());
+    uint64_t duration = this->experiment_data->getDuration(true);
+    query->addBindValue(QVariant::fromValue(duration));
 }
 
 
@@ -305,7 +355,6 @@ void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
     query->addBindValue(this->experiment_data->getInitial_position());
     query->addBindValue(this->experiment_data->getDiameter());
     query->addBindValue(this->experiment_data->getPressure());
-    query->addBindValue(this->experiment_data->getSample_period());
 }
 
 void DBManager::update_database_table()

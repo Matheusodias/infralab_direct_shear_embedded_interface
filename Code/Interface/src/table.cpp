@@ -62,7 +62,7 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
         "Tensão normal máxima (KPa)",
         "Deslocamento vertical total (cm)",
         "Deslocamento horizontal total (cm)",
-        "Velocidade média(cm/min)",
+        "Velocidade média(mm/min)",
         "Mudança de altura(mm)",
         "Volume final (cm³)"
     };
@@ -162,7 +162,7 @@ void Table::updateData_StaticTable(QTableWidget *table_widget,uint8_t option)
     } else if(option == densification_result_table) {
         columnValues = table_variables->updateDensificationResultsTable();
     } else if(option == shear_result_table) {
-        columnValues = table_variables->updateDensificationResultsTable();
+        columnValues = table_variables->updateShearResultsTable();
     }
 
     for(int i=0;i<columnValues.size();i++){
@@ -207,9 +207,9 @@ void Table::updateData_DynamicTable(QStringList data, uint8_t option)
      machineTablevalues[option] = data;
 
      if(option == design_densification_table){
-         table_widget = densificationTable;
+        table_widget = densificationTable;
      } else {
-         table_widget = shearTable;
+        table_widget = shearTable;
      }
 
      table_widget->insertRow( table_widget->rowCount());

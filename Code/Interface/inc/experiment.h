@@ -22,6 +22,9 @@ public:
     QStringList updateDensificationTable();
     QStringList updateDensificationResultsTable();
 
+    QStringList updateShearTable();
+    QStringList updateShearResultsTable();
+
     void insertData_inDatabase();
 
     const QString &getName() const;
@@ -95,7 +98,7 @@ public:
     int getPhase() const;
     void changePhase();
 
-    uint64_t getDuration();
+    uint64_t getDuration(bool isDensification);
 
     uint64_t getPresent_time_seconds() const;
     uint64_t getInitial_time_seconds() const;
@@ -114,13 +117,19 @@ public:
     bool getExperimentStarted() const;
     void setExperimentStarted(bool newExperimentStarted);
 
-    QString getDensificationDuration();
+    QString getDuration_string(bool isDensification);
 
     Densification densification_variables;
     Shear shear_variables;
 
     int getSample_period() const;
     void setSample_period(int newSample_period);
+
+    uint32_t getShearSample_number() const;
+    float getNormalTension();
+    float getShearTension();
+
+    float getAverageSpeed();
 
 private:
    
@@ -149,7 +158,6 @@ private:
     uint64_t present_time_seconds;
     uint64_t initial_time_miliseconds;
     uint64_t present_time_miliseconds;
-    int sample_number_diff;
 
     int phase = densification_phase;
     int sample_period;
