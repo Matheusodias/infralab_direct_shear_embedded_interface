@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
-    InitialConfiguration_InsideExperimentHeaderButtons();
+    InitialConfiguration_InsideExperimentButtons();
     InitialConfiguration_PhasesButtons();
     InitialConfiguration_PhasesFields();
     InitialConfiguration_Tables();
@@ -105,7 +105,7 @@ void MainWindow::InitialConfiguration_OutsideExperimentHeaderButtons()
     connectButtonsToSlots_Layout(ui->outside_experiment_header_layout, SIGNAL(clicked()), SLOT(changeOutsideExperimentPage()));
 }
 
-void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
+void MainWindow::InitialConfiguration_InsideExperimentButtons()
 {
     this->setupButtons->initialButtonStyling_Layout(ui->inside_experiment_header_layout, headerButton_lightBackgroundColor, outsideExperiment_buttonSize);
     this->setupButtons->initialButtonStyling_Layout(ui->densificationHeader_layout, phasesButton_lightBackgroundColor,phases_buttonSize);
@@ -114,7 +114,11 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
     this->setupButtons->initialButtonStyling(ui->cancel_toolButton, cancelButton_BackgroundColor, cancelButton_size);
     this->setupButtons->initialButtonStyling(ui->initShear_FinishExperiment_toolButton, initShearButton_BackgroundColor, initShearButton_size );
 
+    this->setupButtons->initialButtonStyling(ui->initShear_toolButton, initShearButton_BackgroundColor, phases_buttonSize );
+    this->setupButtons->initialButtonStyling(ui->goBack_toolButton, phasesButton_lightBackgroundColor, phases_buttonSize );
 
+    this->setupButtons->initialButtonStyling_Layout(ui->adjustVelocity_Layout, velocityPositionBackgroundColor, velocityPositionButton_size);
+    this->setupButtons->initialButtonStyling_Layout(ui->adjustDistance_Layout, velocityPositionBackgroundColor, velocityPositionButton_size);
 
     connectButtonToSlots_WithArguments(ui->inside_experiment_header_layout,ui->insideExperiment_stack,0);
 
@@ -122,7 +126,20 @@ void MainWindow::InitialConfiguration_InsideExperimentHeaderButtons()
 
     connectButtonToSlots_WithArguments(ui->shearHeader_layout,ui->shear_stack,2);
 
-    connect(ui->initShear_FinishExperiment_toolButton, SIGNAL(clicked()), this, SLOT(initShearPhase()));
+    connect(ui->initShear_FinishExperiment_toolButton, SIGNAL(clicked()), this, SLOT(adjustVelocity_Distance()));
+
+    connect(ui->densificationResult_toolButton, SIGNAL(clicked()), this, SLOT(updateResultsTables()));
+    connect(ui->shearResult_toolButton, SIGNAL(clicked()), this, SLOT(updateResultsTables()));
+
+    connect(ui->initShear_toolButton, SIGNAL(clicked()), this, SLOT(initShearPhase()));
+
+    connectButtonsToSlots_Layout(ui->adjustVelocity_Layout, SIGNAL(clicked()), SLOT(changeVelocity()));
+    connectButtonsToSlots_Layout(ui->adjustDistance_Layout, SIGNAL(clicked()), SLOT(changeDistance()));
+
+
+    connect(ui->insideExperiment_stack, SIGNAL(currentChanged(int)),this, SLOT(enableShearInitButton(int)));
+
+
 }
 
 void MainWindow::InitialConfiguration_PhasesButtons()
@@ -181,6 +198,9 @@ void MainWindow::InitialConfiguration_Tables()
 
     this->tables->customizeTable(ui->densificationResult_tableWidget);
     this->tables->initialConfig_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
+
+    this->tables->customizeTable(ui->shearResult_tableWidget);
+    this->tables->initialConfig_StaticTable(ui->shearResult_tableWidget,shear_result_table);
     // this->tables->initialConfig_ShearTable(ui->shear_tableWidget);
 
     //this->tables->exportCSV();
@@ -344,13 +364,14 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     uint32_t diff = this->info_variables->densification_variables.getSample_number();
-    this->info_variables->setSample_period(200);
+    this->info_variables->setSample_period(5000);
     this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff==0?diff:diff+1);
     
     
     ui->mainStack->setCurrentIndex(0);
     ui->insideExperiment_stack->setCurrentIndex(0);
     ui->densification_stack->setCurrentIndex(0);
+    ui->shear_stack->setCurrentIndex(0);
     this->setupButtons->changeButton_style(ui->densification_button, densificationButton_lightIcon, headerButton_lightBackgroundColor,0);
     this->setupButtons->changeButton_style(ui->densificationGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,1);
     this->setupButtons->changeButton_style(ui->shearGraphs_toolButton, no_icon, phasesButton_lightBackgroundColor,2);
@@ -417,9 +438,63 @@ void MainWindow::on_releasePressure_toolButton_clicked()
 
 }
 
+void MainWindow::updateResultsTables()
+{
+    if(this->info_variables->getPhase() == densification_phase)
+    {
+       this->tables->updateData_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
+    } else if (this->info_variables->getPhase() == shear_phase)
+    {
+       this->tables->updateData_StaticTable(ui->shearResult_tableWidget,densification_result_table);
+    }
+
+}
+
+void MainWindow::adjustVelocity_Distance()
+{
+    qDebug() << "Consegui clicar aqui";
+    if(this->info_variables->getPhase() == densification_phase)
+    {
+        this->previousIndex =  ui->insideExperiment_stack->currentIndex();
+        ui->insideExperiment_stack->setCurrentIndex(3);
+        //ui->initShear_FinishExperiment_toolButton->setVisible(false);
+    } else if (this->info_variables->getPhase() == shear_phase)
+    {
+        qDebug() << "Experimento Finalizado";
+        this->cancelExperiment();
+    }
+
+
+}
+
+void MainWindow::on_goBack_toolButton_clicked()
+{
+    ui->insideExperiment_stack->setCurrentIndex(previousIndex);
+}
+
 void MainWindow::initShearPhase()
 {
-    this->tables->updateData_StaticTable(ui->densificationResult_tableWidget,densification_result_table);
+   
+    // manda comandos
+    send_data->setCommand(4);
+    send_data->setVelocity(this->info_variables->shear_variables.getVelocity());
+    send_data->setDistance(this->info_variables->shear_variables.getDistance());
+    send_data->sendMessage();
+
+   
+    // altera estilo do botão 
+    this->setupButtons->changeInitShear_toFinishButton(ui->initShear_FinishExperiment_toolButton);
+    //this->ui->initShear_FinishExperiment_toolButton->setIcon(button_icons[icon]);
+
+    this->info_variables->changePhase();
+    this->ui->phase_label->setText("Fase: Cisalhamento");
+    ui->insideExperiment_stack->setCurrentIndex(1);
+    this->setupButtons->changeButton_style(ui->shear_button, shearButton_lightIcon, headerButton_lightBackgroundColor,0);
+    this->setupButtons->changeButton_style(ui->shearTable_toolButton, no_icon , phasesButton_lightBackgroundColor,2);
+    ui->shear_stack->setCurrentIndex(2);
+
+    
+    
 }
 void MainWindow::fillTextEditForTests()
 {
@@ -569,11 +644,13 @@ void MainWindow:: cancelExperiment()
 
     
 
-    //this->tables->clearStaticTables(ui->shearResult_tableWidget)
+    this->tables->clearStaticTables(ui->shearResult_tableWidget);
 
+    this->ui->velocityValue_label->setText("0");
+    this->ui->distanceValue_label->setText("0");
 
-
-
+    this->ui->initShear_FinishExperiment_toolButton->setChecked(false);
+    this->setupButtons->changeInitShear_toFinishButton(ui->initShear_FinishExperiment_toolButton);
 
     // QList<QTableWidget*> selectedTables = ui->mainStack->findChildren<QTableWidget*>();
     // for(QList<QTableWidget *>::iterator table = selectedTables.begin();table != selectedTables.end(); table++){
@@ -585,6 +662,82 @@ void MainWindow:: cancelExperiment()
     this->experiment_canceled = false;
 
 
+
+}
+
+
+void MainWindow::changeVelocity()
+{
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
+    QString buttons_names[] = {
+        "minus100Velocity_toolButton",
+        "minus10Velocity_toolButton",
+        "minus1Velocity_toolButton",
+        "plus1Velocity_toolButton",
+        "plus10Velocity_toolButton",
+        "plus100Velocity_toolButton"
+    };
+    int values[] = {-100,-10,-1,1,10,100};
+    int add=0;
+
+    for(unsigned long int i=0;i< sizeof(buttons_names)/sizeof(QString);i++)
+    {
+        if(buttonSender->objectName() == buttons_names[i])
+        {
+            add = values[i];
+        }
+    }
+
+    int32_t current_velocity = this->info_variables->shear_variables.getVelocity();
+    current_velocity += add;
+    if(current_velocity <= ((1<<16) -1)){
+        this->info_variables->shear_variables.setVelocity(current_velocity);
+        this->ui->velocityValue_label->setText(QString::number(this->info_variables->shear_variables.getVelocity()));
+    }
+
+
+}
+
+void MainWindow::changeDistance()
+{
+    QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
+    QString buttons_names[] = {
+        "minus100Distance_toolButton",
+        "minus10Distance_toolButton",
+        "minus1Distance_toolButton",
+        "plus1Distance_toolButton",
+        "plus10Distance_toolButton",
+        "plus100Distance_toolButton"
+    };
+    int values[] = {-100,-10,-1,1,10,100};
+    int add=0;
+
+    for(unsigned long int i=0;i< sizeof(buttons_names)/sizeof(QString);i++)
+    {
+        if(buttonSender->objectName() == buttons_names[i])
+        {
+            add = values[i];
+        }
+    }
+
+    int32_t current_distance = this->info_variables->shear_variables.getDistance();
+    current_distance += add;
+    if(current_distance <= ((1<<16) -1)){
+        this->info_variables->shear_variables.setDistance(current_distance);
+        this->ui->distanceValue_label->setText(QString::number(this->info_variables->shear_variables.getDistance()));
+    }
+
+
+}
+
+void MainWindow::enableShearInitButton(int index)
+{
+    bool isButtonVisible = ui->initShear_FinishExperiment_toolButton->isVisible();
+    if(isButtonVisible && index == 3){
+        ui->initShear_FinishExperiment_toolButton->setVisible(false);
+    } else if(index != 3 && !isButtonVisible){
+        ui->initShear_FinishExperiment_toolButton->setVisible(true);
+    }
 
 }
 

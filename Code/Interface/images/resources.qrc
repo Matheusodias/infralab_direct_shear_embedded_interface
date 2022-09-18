@@ -23,5 +23,6 @@
         <file>cancel.png</file>
         <file>moveLeft.png</file>
         <file>moveRight.png</file>
+        <file>finish.png</file>
     </qresource>
 </RCC>

@@ -4,7 +4,7 @@
 #include <QString>
 #include <QStringList>
 #include "densification.h"
-
+#include "shear.h"
 
 #define pi_value 3.1415f
 #define densification_phase 0
@@ -117,6 +117,7 @@ public:
     QString getDensificationDuration();
 
     Densification densification_variables;
+    Shear shear_variables;
 
     int getSample_period() const;
     void setSample_period(int newSample_period);

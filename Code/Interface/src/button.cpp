@@ -41,6 +41,7 @@ void Button::styleSheetConfiguration()
     QString disabled_positionButton_StyleSheet;
     QString cancelButton_StyleSheet;
     QString initShear_button_StyleSheet;
+    QString velocityPosition_button_StyleSheet;
 
     phasesButton_lightStyleSheet = "QToolButton{ background-color:white; border-bottom:3px solid #0D495C;"
                                          "border-right:3px solid #0D495C;border-top:2px solid #0D495C;"
@@ -106,6 +107,13 @@ void Button::styleSheetConfiguration()
                                    "QToolButton:pressed {background-color:#1B7A4F;}";
 
 
+
+    velocityPosition_button_StyleSheet = "QToolButton{ background-color:white; border-bottom:3px solid #0D495C;"
+                                  "border-right:2px solid #0D495C;border-top:2px solid #0D495C;"
+                                  "border-left:2px solid #0D495C;border-radius:15px;font: 700 13pt 'Ubuntu';"
+                                    "color: black; padding:3;}"
+                                   "QToolButton:pressed {background-color:#0D495C; color: white;}";
+
 //#3F953F
 //#295D29
 //#FF0000
@@ -124,6 +132,9 @@ void Button::styleSheetConfiguration()
 
     this->button_styleSheets[cancelButton_BackgroundColor] = cancelButton_StyleSheet;
     this->button_styleSheets[initShearButton_BackgroundColor] = initShear_button_StyleSheet;
+    this->button_styleSheets[velocityPositionBackgroundColor] = velocityPosition_button_StyleSheet;
+
+    
 
 }
 
@@ -142,6 +153,8 @@ void Button::imageConfiguration()
     this->button_images[shearButton_darkIcon] = ":dark_shear.png";
     this->button_images[infoButton_lightIcon] = ":light_info.png";
     this->button_images[infoButton_darkIcon] = ":dark_info.png";
+
+    this->button_images[finishButton_Icon] = ":finish.png";
 
 }
 
@@ -163,6 +176,8 @@ void Button::iconsConfiguration()
     this->button_icons[shearButton_darkIcon].addPixmap(QPixmap(this->button_images[shearButton_darkIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[infoButton_lightIcon].addPixmap(QPixmap(this->button_images[infoButton_lightIcon]),QIcon::Normal,QIcon::On);
     this->button_icons[infoButton_darkIcon].addPixmap(QPixmap(this->button_images[infoButton_darkIcon]),QIcon::Normal,QIcon::On);
+
+    this->button_icons[finishButton_Icon].addPixmap(QPixmap(this->button_images[finishButton_Icon]),QIcon::Normal,QIcon::On);
 }
 
 void Button::buttonSizeConfiguration()
@@ -183,6 +198,11 @@ void Button::buttonSizeConfiguration()
 
     this->buttonMaximumSize[initShearButton_size] = QSize(300, 80);
     this->buttonMinimumSize[initShearButton_size] = QSize(220, 30);
+
+
+    this->buttonMaximumSize[velocityPositionButton_size] = QSize(300, 80);
+    this->buttonMinimumSize[velocityPositionButton_size] = QSize(30, 10);
+
 
 }
 
@@ -277,6 +297,19 @@ void Button::initialButtonStyling(QToolButton * button, uint8_t style_option, ui
     button->setStyleSheet(this->button_styleSheets[style_option]);
     button->setMaximumSize(this->buttonMaximumSize[size]);
     button->setMinimumSize(this->buttonMinimumSize[size]);
+}
+
+void Button::changeInitShear_toFinishButton(QToolButton *button)
+{
+    if(button->isChecked()){
+        this->initialButtonStyling(button, continueButton_BackgroundColor , phases_buttonSize);
+        button->setText("Finalizar");
+        button->setIcon(button_icons[finishButton_Icon]);
+    } else {
+        this->initialButtonStyling(button, initShearButton_BackgroundColor, initShearButton_size);
+        button->setText("Iniciar cisalhamento");
+        button->setIcon(button_icons[continueButton_Icon]);
+    }
 }
 
 /**

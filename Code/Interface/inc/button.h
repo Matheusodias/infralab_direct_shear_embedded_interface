@@ -17,6 +17,7 @@
 #define moveButton_DisabledBackgroundColor 7 /*!< Número identificador do estilo do botão de mover desativado. */
 #define cancelButton_BackgroundColor 8 /*!< Número identificador do estilo do botão de cancelar o experimento.*/
 #define initShearButton_BackgroundColor 9 /*!< Número identificador do estilo do botão de iniciar o cisalhamento.*/
+#define velocityPositionBackgroundColor 10  /*!< Número identificador do estilo dos botões de alterar a posição e velocidade.*/
 
 #define historyButton_lightIcon 0 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background claro.*/
 #define historyButton_darkIcon 1 /*!< Número identificador do ícone do botão histórico para ser utilizado com o background escuro.*/
@@ -32,6 +33,7 @@
 #define shearButton_darkIcon 10
 #define infoButton_lightIcon 11
 #define infoButton_darkIcon 12
+#define finishButton_Icon 13
 
 #define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
 #define outsideExperiment_buttonSize 0
@@ -39,6 +41,7 @@
 #define phases_continueButtonSize 2
 #define cancelButton_size 3
 #define initShearButton_size 4
+#define velocityPositionButton_size 5
 
 /**
  * @brief Classe dos botões.
@@ -59,6 +62,7 @@ public:
     void pressureButton_style(QToolButton * pressure);
     void initialButtonStyling(QToolButton * button, uint8_t style_option, uint8_t size);
 
+    void changeInitShear_toFinishButton(QToolButton * button);
 
 private:
     QToolButton * clickedButton[3]; /*!< Botão do cabeçalho ou/e das etapas, que foi clicado. */

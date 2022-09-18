@@ -10,6 +10,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES +=  \
+    src/shear.cpp \
     src/densification.cpp \
     src/field.cpp \
     src/button.cpp \
@@ -33,7 +34,8 @@ HEADERS += \
     inc/threadcontroller.h \
     inc/experiment.h \
     inc/table.h \
-    inc/dbmanager.h
+    inc/dbmanager.h \
+    inc/shear.h
 
 
 FORMS += \

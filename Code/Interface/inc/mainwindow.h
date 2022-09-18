@@ -52,8 +52,19 @@ private slots:
 
     void on_releasePressure_toolButton_clicked();
 
+    void updateResultsTables();
+
+    void adjustVelocity_Distance();
 
     void initShearPhase();
+
+    void on_goBack_toolButton_clicked();
+
+    void changeVelocity();
+
+    void changeDistance();
+
+    void enableShearInitButton(int index);
 
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
@@ -63,12 +74,12 @@ private:
     ThreadController *receive_data;
     sendCommands *send_data;
     QTimer * timer;
-
+    int previousIndex;
     bool experiment_canceled = false;
 
     void fillTextEditForTests();
     void InitialConfiguration_OutsideExperimentHeaderButtons();
-    void InitialConfiguration_InsideExperimentHeaderButtons();
+    void InitialConfiguration_InsideExperimentButtons();
     void InitialConfiguration_PhasesButtons();
     void InitialConfiguration_PhasesFields();
     void InitialConfiguration_Tables();

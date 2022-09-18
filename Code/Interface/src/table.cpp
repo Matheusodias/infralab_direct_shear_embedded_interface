@@ -53,6 +53,23 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
         "Mudança de altura (mm)",
         "Volume Final adensamento (cm³)"
     };
+
+    QString shearResultLinesName[] = {
+        "Tempo total Cisalhamento",
+        "Carga de cisalhamento final (KPa)",
+        "Carga normal final (KPa)",
+        "Tensão de cisalhamento máxima (KPa)",
+        "Tensão normal máxima (KPa)",
+        "Deslocamento vertical total (cm)",
+        "Deslocamento horizontal total (cm)",
+        "Velocidade média(cm/min)",
+        "Mudança de altura(mm)",
+        "Volume final (cm³)"
+    };
+
+   
+
+
     
     for(long unsigned int i=0;i<sizeof(phasesLinesNames)/sizeof(QString);i++){
         this->lineNames[phases_table].push_back(phasesLinesNames[i]);
@@ -72,6 +89,10 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
 
     for(long unsigned int i=0;i<sizeof(densificationResultLinesName)/sizeof(QString);i++){
         this->lineNames[densification_result_table].push_back(densificationResultLinesName[i]);
+    }
+
+    for(long unsigned int i=0;i<sizeof(shearResultLinesName)/sizeof(QString);i++){
+        this->lineNames[shear_result_table].push_back(shearResultLinesName[i]);
     }
 
 
