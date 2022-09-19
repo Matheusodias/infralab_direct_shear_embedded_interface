@@ -85,8 +85,8 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     "CREATE TABLE %1 "
     "(shear_id  INTEGER NOT NULL,"
     "experiment_id INTEGER  NOT NULL,"
-    "vertical_displacement REAL NOT NULL," 
-    "vertical_load REAL NOT NULL,"
+    "horizontal_displacement REAL NOT NULL,"
+    "horizontal_load REAL NOT NULL,"
     "PRIMARY KEY(shear_id),"
     "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
     ).arg(this->table_name[shear_table]);
@@ -95,8 +95,8 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     QString(
         "INSERT INTO %1 ("
         "experiment_id,"
-        "vertical_displacement,"
-        "vertical_load)"
+        "horizontal_displacement,"
+        "horizontal_load)"
         "Values (?,?,?)"
     ).arg(this->table_name[shear_table]);
 
