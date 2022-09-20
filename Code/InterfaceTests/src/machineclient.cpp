@@ -76,7 +76,8 @@ void machineClient::sendMessages(int32_t i)
     dados.displacement[0] = 50.20 + i;
     dados.displacement[1] = 60.2 + i;
     dados.load[0] = 70.2 + i;        
-    dados.load[1] = 80.2 + i;   
+    dados.load[1] = 80.2 + i;
+    dados.state = 1;
 
     int value = write(socket_id, dados.payload, sizeof(machine_to_interface_message));
     if(value <=0){

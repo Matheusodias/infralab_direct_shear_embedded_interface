@@ -2,8 +2,12 @@
 #define SOCKET_LOCAL_H
 
 #include<stdint.h>
-//#include <QMetaType>
 
+//#define tests
+
+#ifdef tests
+ #include <QMetaType>
+#endif
 
 #define interface_payload_size 3 * sizeof(uint16_t) /*!< Tamanho do payload da mensagem enviada pela interface.*/
 #define machine_payload_size 6 * sizeof(uint32_t) /*!< Tamanho do payload da mensagem enviada pela máquina.*/
@@ -74,9 +78,10 @@ sample_number_diff
 
 
 
-
-//Q_DECLARE_METATYPE(interface_to_machine_message);
-//Q_DECLARE_METATYPE(machine_to_interface_message);
+#ifdef tests
+Q_DECLARE_METATYPE(interface_to_machine_message);
+Q_DECLARE_METATYPE(machine_to_interface_message);
+#endif
 
 
 

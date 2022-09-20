@@ -1,4 +1,4 @@
-#include "inc/table.h"
+#include "../../Interface/inc/table.h"
 #include <QHeaderView>
 #include <QDebug>
 Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shear)

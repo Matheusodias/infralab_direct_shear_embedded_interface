@@ -1,4 +1,4 @@
-#include "inc/field.h"
+#include "../../Interface/inc/field.h"
 #include <QLineEdit>
 #include <QLabel>
 #include <QDebug>

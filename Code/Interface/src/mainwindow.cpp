@@ -1,4 +1,4 @@
-#include "inc/mainwindow.h"
+#include "../../Interface/inc/mainwindow.h"
 #include "ui_mainwindow.h"
 #include "inc/field.h"
 #include<QDebug>
@@ -456,6 +456,8 @@ void MainWindow::adjustVelocity_Distance()
     qDebug() << "Consegui clicar aqui";
     if(this->info_variables->getPhase() == densification_phase)
     {
+        //ui->initShear_FinishExperiment_toolButton->
+        ui->initShear_FinishExperiment_toolButton->setChecked(true);
         this->previousIndex =  ui->insideExperiment_stack->currentIndex();
         ui->insideExperiment_stack->setCurrentIndex(3);
         //ui->initShear_FinishExperiment_toolButton->setVisible(false);

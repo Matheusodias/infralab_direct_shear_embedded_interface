@@ -1,4 +1,4 @@
-#include "inc/experiment.h"
+#include "../../Interface/inc/experiment.h"
 
 #include <cmath>
 #include <QDebug>

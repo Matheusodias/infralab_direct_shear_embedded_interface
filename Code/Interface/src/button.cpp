@@ -1,4 +1,4 @@
-#include "inc/button.h"
+#include "../../Interface/inc/button.h"
 #include <QGraphicsDropShadowEffect>
 #include <QDebug>
 #include <QToolButton>

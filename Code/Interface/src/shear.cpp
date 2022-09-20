@@ -1,4 +1,4 @@
-#include "inc/shear.h"
+#include "../../Interface/inc/shear.h"
 #include <time.h>
 #include <sys/time.h>
 Shear::Shear(QObject *parent)

@@ -1,4 +1,4 @@
-#include "inc/dbmanager.h"
+#include "../../Interface/inc/dbmanager.h"
 
 DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
 {

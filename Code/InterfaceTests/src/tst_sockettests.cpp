@@ -7,8 +7,16 @@
 #include "../Interface/inc/threadcontroller.h"
 #include "../Interface/inc/socket_local.h"
 #include "../Interface/inc/sendcommands.h"
+#include "../Interface/inc/experiment.h"
+#include "../Interface/inc/dbmanager.h"
+#include "../Interface/inc/densification.h"
+#include "../Interface/inc/shear.h"
+#include "../Interface/inc/field.h"
+#include "../Interface/inc/table.h"
 #include "inc/machineserver.h"
 #include <unistd.h>
+#include <QTableWidget>
+#define tests
 
 /**
  * @brief Classe de testes para o socket.
@@ -44,6 +52,10 @@ private:
     void compareStructIntElements(int result, int expected);
     void compareStructFloatElements(float result, float expected);
 
+    Experiment * info_variables;
+    Field * setupFields;
+    Table *tables;
+
 private slots:
     void initTestCase();
     void cleanupTestCase();
@@ -60,9 +72,19 @@ private slots:
 */
 SocketTests::SocketTests()
 {
-    this->receiveDataFromMachine = new ThreadController();
+    QTableWidget * ShearTable = new QTableWidget();
+    QTableWidget * DensificationTable = new QTableWidget();
+
+    this->info_variables = new Experiment();
+    this->setupFields = new Field(this->info_variables);
+    this->tables = new Table(this->info_variables,ShearTable,DensificationTable);
+
+
+    this->receiveDataFromMachine =new ThreadController(NULL,this->tables);
     this->receiveDataFromInterface = new machineServer();
     this->receiveDataFromInterface->init();
+
+
     qDebug() << "Cria instância do socket test";
 }
 
@@ -130,12 +152,13 @@ void SocketTests::test_receiveDataFromMachine()
 
     compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number,message.sample_number);
     //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number[1],message.sample_number[1]);
-    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time,message.date_time);
+    //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time,message.date_time);
     //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.date_time[1],message.date_time[1]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.displacement[0],message.displacement[0]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.displacement[1],message.displacement[1]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.load[0],message.load[0]);
     compareStructFloatElements(receiveDataFromMachine->receiveDataThread->machine_message.load[1],message.load[1]);
+    compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.state,message.state);
 }
 
 /**
@@ -150,15 +173,16 @@ void SocketTests::test_receiveDataFromMachine_data()
     QTest::addColumn<machine_to_interface_message>("message");
     
     machine_to_interface_message test_message[10000];
-    for(int i=0,j=0;i<100;i+=4,j++){
+    for(int i=0,j=0;i<100;i++,j++){
         test_message[j].sample_number = 10 + i;
         //test_message[j].sample_number[1] = 20 + i;
-        test_message[j].date_time = 30 + i;
+        //test_message[j].date_time = 30 + i;
         //test_message[j].date_time[1] = 40 + i;
         test_message[j].displacement[0] = 50.2 + i;
         test_message[j].displacement[1] = 60.2 + i;;
         test_message[j].load[0] = 70.2 + i;
         test_message[j].load[1] = 80.2 + i;
+        test_message[j].state = 1;
 
         QString test_name_temp = QString("Send %1").arg(j);
         std::string str = test_name_temp.toStdString();
@@ -176,6 +200,14 @@ void SocketTests::test_receiveDataFromMachine_data()
 void SocketTests::test_receiveDataFromInterface()
 {
     sendCommands test_sendData;
+
+    for(int i=0;i<20;i++){
+        if(!test_sendData.connectToMachine()){
+            QThread::msleep(500);
+        } else{
+          break;
+        }
+    }
 
     QFETCH(interface_to_machine_message, message_interface);
 
@@ -234,7 +266,7 @@ void SocketTests::test_receiveDataFromInterface_data()
     QTest::addColumn<interface_to_machine_message>("message_interface");
 
     interface_to_machine_message test_message[1000];
-    for(int i=0,j=0;i<10;i++,j++){
+    for(int i=0,j=0;i<100;i++,j++){
            test_message[i].command= i%3 + 1;
            switch (test_message[i].command)
            {
