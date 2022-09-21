@@ -55,6 +55,8 @@ private:
     Experiment * info_variables;
     Field * setupFields;
     Table *tables;
+    sendCommands test_sendData;
+    machineClient * test_sendDataMachine;
 
 private slots:
     void initTestCase();
@@ -84,6 +86,14 @@ SocketTests::SocketTests()
     this->receiveDataFromInterface = new machineServer();
     this->receiveDataFromInterface->init();
 
+    for(int i=0;i<20;i++){
+        if(!test_sendData.connectToMachine()){
+            QThread::msleep(500);
+        } else{
+          break;
+        }
+    }
+    test_sendDataMachine = new machineClient();
 
     qDebug() << "Cria instância do socket test";
 }
@@ -141,14 +151,14 @@ void SocketTests::cleanupTestCase()
  */
 void SocketTests::test_receiveDataFromMachine()
 {
-    machineClient test_sendData;
+
 
     QFETCH(int, number);
     QFETCH(machine_to_interface_message, message);
 
-    test_sendData.sendMessages(number);
+    test_sendDataMachine->sendMessages(number);
     //Tempo mínimo de intervalo entre um envio e outro
-    QThread::msleep(500);
+    QThread::msleep(1);
 
     compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number,message.sample_number);
     //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number[1],message.sample_number[1]);
@@ -199,15 +209,6 @@ void SocketTests::test_receiveDataFromMachine_data()
  */
 void SocketTests::test_receiveDataFromInterface()
 {
-    sendCommands test_sendData;
-
-    for(int i=0;i<20;i++){
-        if(!test_sendData.connectToMachine()){
-            QThread::msleep(500);
-        } else{
-          break;
-        }
-    }
 
     QFETCH(interface_to_machine_message, message_interface);
 
@@ -232,7 +233,7 @@ void SocketTests::test_receiveDataFromInterface()
    
     test_sendData.sendMessage();
     //Tempo mínimo de intervalo entre um envio e outro
-    QThread::msleep(1000);
+    QThread::msleep(1);
 
     compareStructIntElements(receiveDataFromInterface->interface_message.command,message_interface.command);
     //qDebug() << "Command = " << receiveDataFromInterface->interface_message.command << " " <<message_interface.command ;
