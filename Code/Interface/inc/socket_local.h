@@ -3,7 +3,7 @@
 
 #include<stdint.h>
 
-#define tests
+//#define tests
 
 #ifdef tests
  #include <QMetaType>

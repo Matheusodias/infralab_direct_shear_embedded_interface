@@ -126,6 +126,35 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
         "Values (?,?,?,?,?,?)"
     ).arg(this->table_name[extra_variables_table]);
 
+
+    this->create_table[sample_table] =
+    QString(
+        "CREATE TABLE %1 ("
+        "sample_id INTEGER NOT NULL,"
+        "sample_identification INTEGER NOT NULL,"
+        "experiment_id INTEGER  NOT NULL,"
+        "sample_preparations TEXT NOT NULL,"
+        "sample_period INTEGER,"
+        "sample_number_diff INTEGER,"
+        "sample_location TEXT NOT NULL,"
+        "sample_description TEXT NOT NULL,"
+        "PRIMARY KEY(sample_id),"
+        "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
+    ).arg(this->table_name[sample_table]);
+
+    this->insert_into_table[sample_table] =
+    QString(
+        "INSERT INTO %1 ("
+        "sample_identification,"
+        "experiment_id,"
+        "sample_preparations ,"
+        "sample_location,"
+        "sample_description)"
+        "Values (?,?,?,?,?)"
+    ).arg(this->table_name[sample_table]);
+
+
+
 /*
     1 cisalhamento e de adensamento
     
@@ -271,9 +300,12 @@ bool DBManager::selectExperimentId()
 bool DBManager::insertIntoTable(uint8_t option)
 {
     bool success = false;
+
+
+
     QSqlQuery query;
     query.prepare(this->insert_into_table[option]);
-
+    qDebug() << this->insert_into_table[option];
 
     if(option == experiment_table){
         this->insertValuesIntoBind_Experiment(&query);
@@ -283,11 +315,46 @@ bool DBManager::insertIntoTable(uint8_t option)
         this->insertValuesIntoBind_Shear(&query);
     } else if(option == extra_variables_table){
         this->insertValuesIntoBind_ExtraVariables(&query);
+    } else if(option == sample_table){
+        this->insertValuesIntoBind_SampleVariables(&query);
     }
     
 
     if(query.exec()){
         qDebug() << "Inserção concluída com sucesso.";
+        success = true;
+        if(option == experiment_table){
+            while(!this->selectExperimentId());
+        }
+    } else{
+        qDebug() << "Erro na inserção da tabela " << this->table_name[option] << ": " << query.lastError();
+    }
+    return success;
+
+}
+
+bool DBManager::updateTable(uint8_t option)
+{
+    bool success = false;
+    QString update;
+    QSqlQuery query;
+    if(option == sample_table){
+       update =  QString(
+            "UPDATE %1 "
+            "SET sample_period = :sample_period,"
+            "sample_number_diff = :sample_number_diff"
+            " WHERE experiment_id = %2"
+        ).arg(this->table_name[sample_table]).arg(this->experiment_id);
+        query.prepare(update);
+        insertValuesIntoBind_SampleVariablesUpdate(&query);
+    }
+
+
+
+    qDebug() << update;
+
+    if(query.exec()){
+        qDebug() << "Atualização concluída com sucesso.";
         success = true;
         if(option == experiment_table){
             while(!this->selectExperimentId());
@@ -327,6 +394,27 @@ void DBManager::insertValuesIntoBind_ExtraVariables(QSqlQuery *query)
     query->addBindValue(this->experiment_data->shear_variables.getVelocity());
     uint64_t duration = this->experiment_data->getDuration(true);
     query->addBindValue(QVariant::fromValue(duration));
+}
+
+void DBManager::insertValuesIntoBind_SampleVariables(QSqlQuery *query)
+{
+
+
+    query->addBindValue(this->experiment_data->getSample_id());
+    query->addBindValue(this->experiment_id);
+    query->addBindValue(this->experiment_data->getSample_preparations());
+    query->addBindValue(this->experiment_data->getSample_location());
+    query->addBindValue(this->experiment_data->getSample_description());
+
+
+
+
+}
+
+void DBManager::insertValuesIntoBind_SampleVariablesUpdate(QSqlQuery *query)
+{
+    query->bindValue(":sample_period",this->experiment_data->shear_variables.getSample_number_diff());
+    query->bindValue(":sample_number_diff",this->experiment_data->getSample_period());
 }
 
 

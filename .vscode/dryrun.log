@@ -1,4 +1,4 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory '/home/ivan/Documentos/2022/Codigo_TCC2'
 make: Leaving directory '/home/ivan/Documentos/2022/Codigo_TCC2'
  
