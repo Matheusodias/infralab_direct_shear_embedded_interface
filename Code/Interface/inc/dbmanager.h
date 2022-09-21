@@ -12,7 +12,7 @@
 #define experiment_table 0
 #define densification_table 1
 #define shear_table 2
-#define extra_variables_table 3
+#define final_variables_table 3
 #define sample_table 4
 
 class DBManager : public QObject
@@ -34,12 +34,12 @@ private:
     uint32_t experiment_id;
 
     QSqlDatabase prova_conceito_database;
-    QString table_name[5] = {"EXPERIMENT_TABLE","DENSIFICATION_TABLE","SHEAR_TABLE","EXTRA_VARIABLES_TABLE","SAMPLE_TABLE"};
+    QString table_name[5] = {"EXPERIMENT_TABLE","DENSIFICATION_TABLE","SHEAR_TABLE","FINAL_VARIABLES_TABLE","SAMPLE_TABLE"};
     
     void insertValuesIntoBind_Experiment(QSqlQuery *query);
     void insertValuesIntoBind_Densification(QSqlQuery *query);
     void insertValuesIntoBind_Shear(QSqlQuery *query);
-    void insertValuesIntoBind_ExtraVariables(QSqlQuery *query);
+    void insertValuesIntoBind_FinalVariables(QSqlQuery *query);
     void insertValuesIntoBind_SampleVariables(QSqlQuery *query);
     void insertValuesIntoBind_SampleVariablesUpdate(QSqlQuery *query);
 

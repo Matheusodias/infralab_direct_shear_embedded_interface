@@ -25,11 +25,7 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
     "specimen_type TEXT	NOT NULL,"
     "uscs_class TEXT NOT NULL,"
     "ashto_class TEXT NOT NULL,"
-    "sample_preparations TEXT NOT NULL,"
-    "sample_id INTEGER NOT NULL,"
     "boring_number INTEGER NOT NULL,"
-    "sample_location TEXT NOT NULL,"
-    "sample_description TEXT NOT NULL,"
     "initial_height REAL NOT NULL, "
     "initial_wet_weight REAL NOT NULL,"
     "initial_moisture REAL NOT NULL,"
@@ -50,12 +46,11 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
         "INSERT INTO %1 ("
         "name, operator_name, initial_time, test_type,"
         "specimen_type, uscs_class, ashto_class,"
-        "sample_preparations, sample_id, boring_number,"
-        "sample_location , sample_description, initial_height,"
+        "boring_number,initial_height,"
         "initial_wet_weight, initial_moisture, spgr_solids,"
         "plastic_limit, liquid_limit, initial_position,"
         "diameter, pressure)"
-        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        "Values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
     ).arg(this->table_name[experiment_table]);
 
     this->create_table[densification_table] =  QString(
@@ -100,31 +95,27 @@ DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
         "Values (?,?,?)"
     ).arg(this->table_name[shear_table]);
 
-    this->create_table[extra_variables_table] =
+    this->create_table[final_variables_table] =
     QString(
         "CREATE TABLE %1 ("
-        "extra_variables_id INTEGER NOT NULL,"
+        "final_variables_id INTEGER NOT NULL,"
         "experiment_id INTEGER  NOT NULL,"
-        "sample_period INTEGER NOT NULL,"
-        "sample_number_diff INTEGER NOT NULL,"
         "distance REAL NOT NULL,"
         "velocity REAL NOT NULL,"
         "duration INTEGER NOT NULL,"
-        "PRIMARY KEY(extra_variables_id),"
+        "PRIMARY KEY(final_variables_id),"
         "FOREIGN KEY(experiment_id) REFERENCES EXPERIMENT_TABLE(experiment_id));"
-    ).arg(this->table_name[extra_variables_table]);
+    ).arg(this->table_name[final_variables_table]);
 
-    this->insert_into_table[extra_variables_table] =
+    this->insert_into_table[final_variables_table] =
     QString(
         "INSERT INTO %1 ("
         "experiment_id,"
-        "sample_period,"
-        "sample_number_diff,"
         "distance,"
         "velocity,"
         "duration)"
-        "Values (?,?,?,?,?,?)"
-    ).arg(this->table_name[extra_variables_table]);
+        "Values (?,?,?,?)"
+    ).arg(this->table_name[final_variables_table]);
 
 
     this->create_table[sample_table] =
@@ -313,15 +304,15 @@ bool DBManager::insertIntoTable(uint8_t option)
         this->insertValuesIntoBind_Densification(&query);
     } else if(option == shear_table) {
         this->insertValuesIntoBind_Shear(&query);
-    } else if(option == extra_variables_table){
-        this->insertValuesIntoBind_ExtraVariables(&query);
+    } else if(option == final_variables_table){
+        this->insertValuesIntoBind_FinalVariables(&query);
     } else if(option == sample_table){
         this->insertValuesIntoBind_SampleVariables(&query);
     }
     
 
     if(query.exec()){
-        qDebug() << "Inserção concluída com sucesso.";
+        //qDebug() << "Inserção concluída com sucesso.";
         success = true;
         if(option == experiment_table){
             while(!this->selectExperimentId());
@@ -385,11 +376,9 @@ void DBManager::insertValuesIntoBind_Shear(QSqlQuery *query)
     query->addBindValue(this->experiment_data->shear_variables.getHorizontal_load());
 }
 
-void DBManager::insertValuesIntoBind_ExtraVariables(QSqlQuery *query)
+void DBManager::insertValuesIntoBind_FinalVariables(QSqlQuery *query)
 {
     query->addBindValue(this->experiment_id);
-    query->addBindValue(this->experiment_data->getSample_period());
-    query->addBindValue(this->experiment_data->shear_variables.getSample_number_diff());
     query->addBindValue(this->experiment_data->shear_variables.getDistance());
     query->addBindValue(this->experiment_data->shear_variables.getVelocity());
     uint64_t duration = this->experiment_data->getDuration(true);
@@ -413,8 +402,8 @@ void DBManager::insertValuesIntoBind_SampleVariables(QSqlQuery *query)
 
 void DBManager::insertValuesIntoBind_SampleVariablesUpdate(QSqlQuery *query)
 {
-    query->bindValue(":sample_period",this->experiment_data->shear_variables.getSample_number_diff());
-    query->bindValue(":sample_number_diff",this->experiment_data->getSample_period());
+    query->bindValue(":sample_number_diff",this->experiment_data->shear_variables.getSample_number_diff());
+    query->bindValue(":sample_period",this->experiment_data->getSample_period());
 }
 
 
@@ -429,11 +418,7 @@ void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
     query->addBindValue(this->experiment_data->getSpecimen_type());
     query->addBindValue(this->experiment_data->getUscs_class());
     query->addBindValue(this->experiment_data->getAshto_class());
-    query->addBindValue(this->experiment_data->getSample_preparations());
-    query->addBindValue(this->experiment_data->getSample_id());
     query->addBindValue(this->experiment_data->getBoring_number());
-    query->addBindValue(this->experiment_data->getSample_location());
-    query->addBindValue(this->experiment_data->getSample_description());
     query->addBindValue(this->experiment_data->getInitial_height());
     query->addBindValue(this->experiment_data->getInitial_wet_weight());
     query->addBindValue(this->experiment_data->getInitial_moisture());

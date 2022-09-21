@@ -92,7 +92,7 @@ void MainWindow::CreateDataseTables(){
         if(!my_db->tableExists(experiment_table)){my_db->createTable(experiment_table);}
         if(!my_db->tableExists(densification_table)){my_db->createTable(densification_table);}
         if(!my_db->tableExists(shear_table)){my_db->createTable(shear_table);}
-        if(!my_db->tableExists(extra_variables_table)){my_db->createTable(extra_variables_table);}
+        if(!my_db->tableExists(final_variables_table)){my_db->createTable(final_variables_table);}
         if(!my_db->tableExists(sample_table)){my_db->createTable(sample_table);}
 
     }
@@ -467,7 +467,7 @@ void MainWindow::adjustVelocity_Distance()
     } else if (this->info_variables->getPhase() == shear_phase)
     {
         if(my_db->isOpen()){
-            my_db->insertIntoTable(extra_variables_table);
+            my_db->insertIntoTable(final_variables_table);
         }
 
         qDebug() << "Experimento Finalizado";
