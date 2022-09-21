@@ -1,6 +1,4 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
-make: *** No rule to make target 'all'.  Stop.
-
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -8,7 +6,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Sep 16 14:30:29 2022
+# Make data base, printed on Wed Sep 21 10:23:21 2022
 
 # Variables
 
@@ -69,7 +67,7 @@ XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.93
+GNOME_TERMINAL_SERVICE = :1.153
 # makefile
 MAKEFLAGS = pqrR
 # makefile
@@ -99,13 +97,13 @@ MAKEFILE_LIST :=
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 5338
+VSCODE_PID = 10555
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3431,unix/ivan-550XDA:/tmp/.ICE-unix/3431
+SESSION_MANAGER = local/ivan-550XDA:@/tmp/.ICE-unix/3503,unix/ivan-550XDA:/tmp/.ICE-unix/3503
 # automatic
 *F = $(notdir $*)
 # environment
@@ -129,7 +127,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/300b40ce_af4f_4986_a346_a69946db4cba
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/9501adea_e84e_46b8_af37_f8a910a5dca5
 # environment
 MAKELEVEL := 0
 # default
@@ -171,7 +169,7 @@ LOGNAME = ivan
 # makefile
 .DEFAULT_GOAL := 
 # environment
-SYSTEMD_EXEC_PID = 3724
+SYSTEMD_EXEC_PID = 10087
 # environment
 DISPLAY = :0
 # environment
@@ -278,7 +276,6 @@ makefile:
 #  File has been updated.
 #  Failed to be updated.
 
- 
 # Not a target:
 GNUmakefile:
 #  Implicit rule search has been done.
@@ -298,8 +295,11 @@ GNUmakefile:
 # current buf: size = 8162 B / used = 140 B / count = 16 / avg = 8 B
 
 # strcache performance: lookups = 19 / hit rate = 15%
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 # hash-table stats:
 # Load=16/8192=0%, Rehash=0, Collisions=0/19=0%
-# Finished Make data base on Fri Sep 16 14:30:29 2022
+# Finished Make data base on Wed Sep 21 10:23:21 2022
 
  
