@@ -158,7 +158,7 @@ void SocketTests::test_receiveDataFromMachine()
 
     test_sendDataMachine->sendMessages(number);
     //Tempo mínimo de intervalo entre um envio e outro
-    QThread::msleep(1);
+    QThread::msleep(5);
 
     compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number,message.sample_number);
     //compareStructIntElements(receiveDataFromMachine->receiveDataThread->machine_message.sample_number[1],message.sample_number[1]);
@@ -183,7 +183,7 @@ void SocketTests::test_receiveDataFromMachine_data()
     QTest::addColumn<machine_to_interface_message>("message");
     
     machine_to_interface_message test_message[10000];
-    for(int i=0,j=0;i<100;i++,j++){
+    for(int i=0,j=0;i<10000;i++,j++){
         test_message[j].sample_number = 10 + i;
         //test_message[j].sample_number[1] = 20 + i;
         //test_message[j].date_time = 30 + i;
@@ -233,7 +233,7 @@ void SocketTests::test_receiveDataFromInterface()
    
     test_sendData.sendMessage();
     //Tempo mínimo de intervalo entre um envio e outro
-    QThread::msleep(1);
+    QThread::msleep(5);
 
     compareStructIntElements(receiveDataFromInterface->interface_message.command,message_interface.command);
     //qDebug() << "Command = " << receiveDataFromInterface->interface_message.command << " " <<message_interface.command ;
@@ -266,8 +266,8 @@ void SocketTests::test_receiveDataFromInterface_data()
 
     QTest::addColumn<interface_to_machine_message>("message_interface");
 
-    interface_to_machine_message test_message[1000];
-    for(int i=0,j=0;i<100;i++,j++){
+    interface_to_machine_message test_message[10000];
+    for(int i=0,j=0;i<10000;i++,j++){
            test_message[i].command= i%3 + 1;
            switch (test_message[i].command)
            {
