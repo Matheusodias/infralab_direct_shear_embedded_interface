@@ -28,14 +28,17 @@ Button::Button()
     this->clickedButton[1] = nullptr;
     this->clickedButton[2] = nullptr;
 }
-
+/**
+ * @brief Cria as folhas de estilo para os botões.
+ * 
+ */
 void Button::styleSheetConfiguration()
 {
-    QString headerButton_lightStyleSheet; /*!< Estilo do botão do header com cores claras. */
-    QString headerButton_darkStyleSheet; /*!< Estilo do botão do header com cores escuras. */
-    QString phasesButton_lightStyleSheet; /*!< Estilo do botão das etapas com cores escuras. */
-    QString phasesButton_darkStyleSheet; /*!< Estilo do botão das etapas com cores escuras. */
-    QString continueButton_StyleSheet; /*!< Estilo do botão de continuar da criação do experimento */
+    QString headerButton_lightStyleSheet; 
+    QString headerButton_darkStyleSheet; 
+    QString phasesButton_lightStyleSheet; 
+    QString phasesButton_darkStyleSheet; 
+    QString continueButton_StyleSheet; 
     QString green_pressureButton_StyleSheet;
     QString red_pressureButton_StyleSheet;
     QString disabled_positionButton_StyleSheet;
@@ -137,7 +140,10 @@ void Button::styleSheetConfiguration()
     
 
 }
-
+/**
+ * @brief Insere no array as imagens utilizadas na aplicação.
+ * 
+ */
 void Button::imageConfiguration()
 {
     this->button_images[historyButton_lightIcon] = ":light_history.png";
@@ -158,6 +164,10 @@ void Button::imageConfiguration()
 
 }
 
+/**
+ * @brief Adiciona as imagens aos ícones para facilitar a estilização.
+ * 
+ */
 void Button::iconsConfiguration()
 {
 
@@ -180,6 +190,11 @@ void Button::iconsConfiguration()
     this->button_icons[finishButton_Icon].addPixmap(QPixmap(this->button_images[finishButton_Icon]),QIcon::Normal,QIcon::On);
 }
 
+
+/**
+ * @brief Insere os valores mínimos e máximos do tamanho dos botões.
+ * 
+ */
 void Button::buttonSizeConfiguration()
 {
     this->buttonMaximumSize[outsideExperiment_buttonSize] = QSize(300, 80);
@@ -206,6 +221,11 @@ void Button::buttonSizeConfiguration()
 
 }
 
+/**
+ * @brief Responsável por alterar a página e o estilo dos botões do cabeçalho ao trocar de página.
+ * 
+ * @param insideExperiment Utilizado para trocar de StackWidget na troca de páginas.
+ */
 void Button::changeHeaderPage_InsideExperiment(QStackedWidget *insideExperiment)
 {
 
@@ -230,6 +250,12 @@ void Button::changeHeaderPage_InsideExperiment(QStackedWidget *insideExperiment)
 
 }
 
+/**
+ * @brief Responsável por alterar entre as páginas de gráficos/tabelas/resultados dentro da página Adensamento ou Cisalhamento.
+ * 
+ * @param insideExperiment Utilizado para trocar de StackWidget na troca de páginas.
+ * @param isDensificationPage Utilizado para identificar se é a página de Adensamento ou Cisalhamento
+ */
 void Button::changePage_InsideExperiment(QStackedWidget *insideExperiment, bool isDensificationPage)
 {
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender()); // retrieve the button you have clicked
@@ -290,7 +316,13 @@ void Button::setButton_style_icon(QToolButton * button, uint8_t style, uint8_t i
     return;
 }
 
-
+/**
+ * @brief Estilização inicial do botão, colocando-se sombra, estilo e tamanho.
+ * 
+ * @param button O botão que será alterado.
+ * @param style_option  A folha de estilo.
+ * @param size O tamanho do botão.
+ */
 void Button::initialButtonStyling(QToolButton * button, uint8_t style_option, uint8_t size)
 {
     this->setButtonShadow(button);
@@ -298,7 +330,11 @@ void Button::initialButtonStyling(QToolButton * button, uint8_t style_option, ui
     button->setMaximumSize(this->buttonMaximumSize[size]);
     button->setMinimumSize(this->buttonMinimumSize[size]);
 }
-
+/**
+ * @brief Altera a aparência do botão iniciar cisalhamento para finalizar o experimento.
+ * 
+ * @param button Botão que será alterado.
+ */
 void Button::changeInitShear_toFinishButton(QToolButton *button)
 {
     if(button->isChecked()){
@@ -312,12 +348,15 @@ void Button::changeInitShear_toFinishButton(QToolButton *button)
     }
 }
 
+
 /**
- * @brief Realiza a estilização dos botões encontrados no cabeçalho das páginas fora do experimento.
+ * @brief Realiza a estilização de botões dentro de 1 layout.
  * 
- * Essa estilização é realizada iterando sobre os elementos do layout do cabeçalho.
+ * Essa estilização é realizada iterando sobre os elementos do layout.
  * 
- * @param boxlayout Layout do cabeçalho das páginas fora do experimento.
+ * @param boxlayout Layout escolhido
+ * @param style_option Estilo dos botões escolhido
+ * @param size Tamanho dos botões escolhido
  */
 void Button::initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_option, uint8_t size)
 {
@@ -340,14 +379,22 @@ void Button::initialButtonStyling_Layout(QHBoxLayout * boxlayout, uint8_t style_
 }
 
 /**
- * @brief Altera a estilização do botão ao ser clicado.
- * 
- * Os botões do cabeçalho, das páginas fora do experimento, são alterados para
- * uma cor mais escura ao serem clicados e apenas um botão pode estar selecionado por vez.
+ * @brief 
  * 
  * 
  * @param current_button Botão que foi clicado
  * @param icon Ícone do botão clicado
+ */
+
+/**
+ * @brief Altera a estilização do botão ao ser clicado.
+ * 
+ * Os botões de página mudam de cor ao serem clicados
+ * 
+ * @param current_button Botão escolhido
+ * @param icon  Ícone do botão
+ * @param style Estilo do botão
+ * @param pos Identificação do cabeçalho de páginas atual 
  */
 void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8_t style, uint8_t pos)
 {
@@ -378,7 +425,13 @@ void Button::changeButton_style(QToolButton *current_button, uint8_t icon, uint8
     }
     return;
 }
-
+/**
+ * @brief Estilização dos botões de um Widget escolhido.
+ * 
+ * @param selectedWidget Widget escolhido.
+ * @param style_option Estilo do botão escolhido.
+ * @param size Tamanho do botão escolhido.
+ */
 void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_option, uint8_t size)
 {
     QList<QToolButton*> selectedButtons = selectedWidget->findChildren<QToolButton*>();
@@ -392,7 +445,12 @@ void Button::initialButtonStyling_Widget(QObject *selectedWidget, uint8_t style_
 
     return;
 }
-
+/**
+ * @brief Estilização do botão de início do experimento.
+ * 
+ * @param play_button Botão escolhido.
+ * @param enabled Se verdadeiro, o botão está habilitado, se falso, está desabilidado.
+ */
 void Button::initExperiment_ButtonStyle(QToolButton *play_button, bool enabled)
 {
     QString style;
@@ -413,6 +471,11 @@ void Button::initExperiment_ButtonStyle(QToolButton *play_button, bool enabled)
     play_button->setStyleSheet(style);
 }
 
+/**
+ * @brief Estilização do botão da pressão.
+ * 
+ * @param pressure Botão escolhido.
+ */
 void Button::pressureButton_style(QToolButton *pressure)
 {
     this->setButton_style_icon(pressure, pressureButton_GreenBackgroundColor, no_icon);

@@ -27,21 +27,21 @@
 #define configurationButton_darkIcon 5 /*!< Número identificador do ícone do botão configurações para ser utilizado com o background escuro.*/
 #define continueButton_Icon 6  /*!< Número identificador do ícone do botão continuar*/
 
-#define densificationButton_lightIcon 7
-#define densificationButton_darkIcon 8
-#define shearButton_lightIcon 9
-#define shearButton_darkIcon 10
-#define infoButton_lightIcon 11
-#define infoButton_darkIcon 12
-#define finishButton_Icon 13
+#define densificationButton_lightIcon 7 /*!< Número identificador do ícone do botão adensamento para ser utilizado com o background claro.*/
+#define densificationButton_darkIcon 8 /*!< Número identificador do ícone do botão adensamento para ser utilizado com o background escuro.*/
+#define shearButton_lightIcon 9 /*!< Número identificador do ícone do botão cisalhamento para ser utilizado com o background claro.*/
+#define shearButton_darkIcon 10 /*!< Número identificador do ícone do botão cisalhamento para ser utilizado com o background escuro.*/
+#define infoButton_lightIcon 11 /*!< Número identificador do ícone do botão informações para ser utilizado com o background claro.*/
+#define infoButton_darkIcon 12 /*!< Número identificador do ícone do botão informações para ser utilizado com o background escuro.*/
+#define finishButton_Icon 13 /*!< Número identificador do ícone do botão finalizar.*/
 
 #define no_icon 255 /*!< Número que informa que o botão não possui ícone. */
-#define outsideExperiment_buttonSize 0
-#define phases_buttonSize 1
-#define phases_continueButtonSize 2
-#define cancelButton_size 3
-#define initShearButton_size 4
-#define velocityPositionButton_size 5
+#define outsideExperiment_buttonSize 0   /*!< Número identificador do tamanho dos botões no cabeçalho . */
+#define phases_buttonSize 1 /*!< Número identificador do tamanho dos botões das fases (etapa1,etapa2 ...). */
+#define phases_continueButtonSize 2 /*!< Número identificador do tamanho dos botões de continuar . */
+#define cancelButton_size 3 /*!< Número identificador do tamanho do botão de cancelar o experimento . */
+#define initShearButton_size 4 /*!< Número identificador do tamanho do botão de iniciar o cisalhamento . */
+#define velocityPositionButton_size 5 /*!< Número identificador do tamanho dos botões de ajustar as variáveis de velocidade e distância . */
 
 /**
  * @brief Classe dos botões.
@@ -73,8 +73,8 @@ private:
     QIcon button_icons[20]; /*!< Array com os ícones dos botões. */
 
 
-    QSize buttonMaximumSize[10];
-    QSize buttonMinimumSize[10];
+    QSize buttonMaximumSize[10];  /*!< Array com os tamanhos máximos dos botões. */
+    QSize buttonMinimumSize[10]; /*!< Array com os tamanho mínimos dos botões. */
 
 
     void styleSheetConfiguration();
