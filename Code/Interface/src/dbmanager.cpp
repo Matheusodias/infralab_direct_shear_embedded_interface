@@ -1,5 +1,14 @@
 #include "../../Interface/inc/dbmanager.h"
 
+/**
+ * @brief Constrói um novo objeto da classe DBManager.
+ * 
+ * Esta classe cria o banco de dados, se ele não existir, e insere os valores nas variáveis
+ * this->create_table e this->insert_into_table.
+ * 
+ * @param path Nome do banco de dados com o caminho. Exemplo: home/user/databaseExperiment
+ * @param temp_experiment_data Ponteiro para a intância da classe Experiment inicializada na classe MainWindow.
+ */
 DBManager::DBManager(const QString & path,Experiment * temp_experiment_data)
 {
     this->experiment_data = temp_experiment_data;
@@ -213,6 +222,12 @@ Assim, não precisa salvar esse dado na tabela de cisalhamento
 
 }
 
+/**
+ * @brief Fecha o banco de dados e destrói a instância dele.
+ * 
+ * O arquivo do banco de dados não é detruído. 
+ * 
+ */
 DBManager::~DBManager()
 {
     if(this->prova_conceito_database.isOpen())
@@ -221,11 +236,24 @@ DBManager::~DBManager()
     }
 }
 
+/**
+ * @brief Verifica se o banco de dados está aberto.
+ * 
+ * @return true Caso esteja aberto.
+ * @return false Caso esteja fechado.
+ */
 bool DBManager::isOpen() const
 {
     return this->prova_conceito_database.isOpen();
 }
 
+/**
+ * @brief Cria uma tabela no banco de dados.
+ * 
+ * @param option Qual tabela será criada.
+ * @return true Se a operação foi bem sucedida.
+ * @return false Se a operação falhou.
+ */
 bool DBManager::createTable(uint8_t option)
 {
     bool success = false;
@@ -242,6 +270,13 @@ bool DBManager::createTable(uint8_t option)
     return success;
 }
 
+/**
+ * @brief Verifica se a tabela existe no banco de dados.
+ * 
+ * @param option A tabela escolhida.
+ * @return true  Se a operação foi bem sucedida.
+ * @return false  Se a operação falhou.
+ */
 bool DBManager::tableExists(uint8_t option)
 {
     bool success = false;
@@ -266,7 +301,17 @@ bool DBManager::tableExists(uint8_t option)
     }
     return success;
 }
-
+/**
+ * @brief Insere o valor da variável this->experiment_id após consulta no banco.
+ * 
+ * Esta função captura o maior valor do experiment_id da tabela EXPERIMENT_TABLE, e o utiliza
+ * como chave estrangeira nas outras tabelas. Esse esquema funciona atualmente, pois a chave
+ * primária da classe EXPERIMENT_TABLE é gerada automaticamente e é incremental, 1,2,3,4... e assim 
+ * por diante.
+ * 
+ * @return true Se a operação foi bem sucedida.
+ * @return false Se a operação falhou.
+ */
 bool DBManager::selectExperimentId()
 {
     bool success = false;
@@ -288,6 +333,13 @@ bool DBManager::selectExperimentId()
     return success;
 }
 
+/**
+ * @brief Insere dados em uma tabela escolhida.
+ * 
+ * @param option A tabelha escolhida.
+ * @return true Se a operação foi bem sucedida;
+ * @return false Se a operação falhou.
+ */
 bool DBManager::insertIntoTable(uint8_t option)
 {
     bool success = false;
@@ -323,7 +375,13 @@ bool DBManager::insertIntoTable(uint8_t option)
     return success;
 
 }
-
+/**
+ * @brief Atualiza os dados de uma tabela escolhida.
+ * 
+ * @param option A tabela escolhida.
+ * @return true Se a operação foi bem sucedida.
+ * @return false Se a operação falhou.
+ */
 bool DBManager::updateTable(uint8_t option)
 {
     bool success = false;
@@ -358,7 +416,11 @@ bool DBManager::updateTable(uint8_t option)
 }
 
 
-
+/**
+ * @brief Insere valores no bind da inserção da tabela DENSIFICATION_TABLE.
+ * 
+ * @param query Variável utilizada para executar operações SQL.
+ */
 void DBManager::insertValuesIntoBind_Densification(QSqlQuery *query)
 {
     query->addBindValue(this->experiment_id);
@@ -369,6 +431,11 @@ void DBManager::insertValuesIntoBind_Densification(QSqlQuery *query)
 
 }
 
+/**
+ * @brief Insere valores no bind da inserção da tabela SHEAR_TABLE.
+ * 
+ * @param query Variável utilizada para executar operações SQL.
+ */
 void DBManager::insertValuesIntoBind_Shear(QSqlQuery *query)
 {
     query->addBindValue(this->experiment_id);
@@ -376,6 +443,11 @@ void DBManager::insertValuesIntoBind_Shear(QSqlQuery *query)
     query->addBindValue(this->experiment_data->shear_variables.getHorizontal_load());
 }
 
+/**
+ * @brief Insere valores no bind da inserção da tabela FINAL_VARIABLES_TABLE.
+ * 
+ * @param query Variável utilizada para executar operações SQL.
+ */
 void DBManager::insertValuesIntoBind_FinalVariables(QSqlQuery *query)
 {
     query->addBindValue(this->experiment_id);
@@ -385,28 +457,37 @@ void DBManager::insertValuesIntoBind_FinalVariables(QSqlQuery *query)
     query->addBindValue(QVariant::fromValue(duration));
 }
 
+/**
+ * @brief Insere valores no bind da inserção da tabela SAMPLE_VARIABLES_TABLE.
+ * 
+ * @param query Variável utilizada para executar operações SQL.
+ */
 void DBManager::insertValuesIntoBind_SampleVariables(QSqlQuery *query)
 {
-
-
     query->addBindValue(this->experiment_data->getSample_id());
     query->addBindValue(this->experiment_id);
     query->addBindValue(this->experiment_data->getSample_preparations());
     query->addBindValue(this->experiment_data->getSample_location());
     query->addBindValue(this->experiment_data->getSample_description());
 
-
-
-
 }
 
+/**
+ * @brief Insere valores no bind da atualização da tabela SAMPLE_VARIABLES_TABLE.
+ * 
+ * @param query Variável utilizada para executar operações SQL.
+ */
 void DBManager::insertValuesIntoBind_SampleVariablesUpdate(QSqlQuery *query)
 {
     query->bindValue(":sample_number_diff",this->experiment_data->shear_variables.getSample_number_diff());
     query->bindValue(":sample_period",this->experiment_data->getSample_period());
 }
 
-
+/**
+ * @brief Insere valores no bind da inserção da tabela EXPERIMENT_TABLE.
+ * 
+ * @param query Variável utilizada para executar operações SQL.
+ */
 void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
 {
     
@@ -430,6 +511,11 @@ void DBManager::insertValuesIntoBind_Experiment(QSqlQuery *query)
     query->addBindValue(this->experiment_data->getPressure());
 }
 
+/**
+ * @brief Atualiza as tabelas de adensamento e cisalhamento.
+ * 
+ * Recebe o sinal data_arrived() da classe receiveData para executar a atualização.
+ */
 void DBManager::update_database_table()
 {   
     

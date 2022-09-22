@@ -9,12 +9,17 @@
 #include <QSqlRecord>
 #include "experiment.h"
 
-#define experiment_table 0
-#define densification_table 1
-#define shear_table 2
-#define final_variables_table 3
-#define sample_table 4
+#define experiment_table 0 /*!< Número identificador da tabela EXPERIMENT_TABLE. */
+#define densification_table 1 /*!< Número identificador da tabela DENSIFICATION_TABLE. */
+#define shear_table 2 /*!< Número identificador da tabela SHEAR_TABLE. */
+#define final_variables_table 3 /*!< Número identificador da tabela FINAL_VARIABLES_TABLE. */
+#define sample_table 4 /*!< Número identificador da tabela SAMPLE_TABLE. */
 
+/**
+ * @brief Classe do banco de dados.
+ * 
+ * Esta classe é responsável por administrar todas as operações relacionadas ao banco de dados.
+ */
 class DBManager : public QObject
 {
     Q_OBJECT
@@ -27,14 +32,14 @@ public:
     bool insertIntoTable(uint8_t option);
     bool updateTable(uint8_t option);
    
-    Experiment * experiment_data;
+    Experiment * experiment_data; /*!< Instância da classe Experiment utilizada para atualizar/inserir dados nas tabelas. */
 
 
 private:
-    uint32_t experiment_id;
+    uint32_t experiment_id; /*!< Id do experimento utilizado para preencher a chave estrangeira em outras tabelas. */
 
-    QSqlDatabase prova_conceito_database;
-    QString table_name[5] = {"EXPERIMENT_TABLE","DENSIFICATION_TABLE","SHEAR_TABLE","FINAL_VARIABLES_TABLE","SAMPLE_TABLE"};
+    QSqlDatabase prova_conceito_database; /*!< Variável do banco de dados. */
+    QString table_name[5] = {"EXPERIMENT_TABLE","DENSIFICATION_TABLE","SHEAR_TABLE","FINAL_VARIABLES_TABLE","SAMPLE_TABLE"}; /*!< Array com o nome das tabelas.*/
     
     void insertValuesIntoBind_Experiment(QSqlQuery *query);
     void insertValuesIntoBind_Densification(QSqlQuery *query);
@@ -43,8 +48,9 @@ private:
     void insertValuesIntoBind_SampleVariables(QSqlQuery *query);
     void insertValuesIntoBind_SampleVariablesUpdate(QSqlQuery *query);
 
-    QString create_table[5];
-    QString insert_into_table[6];
+    QString create_table[5]; /*!< Array com as strings utilizadas para criar as tabelas. */
+    QString insert_into_table[6]; /*!> Array com as string utilizadas para inserir dados nas tabelas. */
+    
 
     bool selectExperimentId();
 
