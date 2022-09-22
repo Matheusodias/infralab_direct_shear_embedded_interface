@@ -296,7 +296,7 @@ bool DBManager::insertIntoTable(uint8_t option)
 
     QSqlQuery query;
     query.prepare(this->insert_into_table[option]);
-    qDebug() << this->insert_into_table[option];
+    //qDebug() << this->insert_into_table[option];
 
     if(option == experiment_table){
         this->insertValuesIntoBind_Experiment(&query);

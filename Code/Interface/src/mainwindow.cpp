@@ -367,7 +367,7 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
     uint32_t diff = this->info_variables->densification_variables.getSample_number();
-    this->info_variables->setSample_period(5000);
+    this->info_variables->setSample_period(1000);
     this->info_variables->densification_variables.setDiff_sampleNumber_initExperiment(diff==0?diff:diff+1);
     
     
@@ -581,7 +581,7 @@ void MainWindow::fillTextEditForTests()
     ui->plastic_lineEdit->setText(array_data[i++]);
     ui->liquid_lineEdit->setText(array_data[i++]);
     ui->diameter_lineEdit->setText(array_data[i++]);
-    qDebug() << "Valor da pressure" << array_data[i];
+    //qDebug() << "Valor da pressure" << array_data[i];
     ui->pressure_lineEdit->setText(array_data[i++]);
     i=0;
 

@@ -88,7 +88,7 @@ QStringList Experiment::updateDensificationResultsTable()
     QStringList temporary_list = densification_variables.getDensificationResults();
     temporary_list[0] = this->getDuration_string(true);
     float final_height = this->initial_height - densification_variables.getVertical_displacement();
-    temporary_list[2] = QString::number(final_height);
+    temporary_list[2] = QString::number(final_height*10); // converte para milímetros
     float final_volume = final_height * this->getArea();
     temporary_list[4] = QString::number(final_volume);
 
