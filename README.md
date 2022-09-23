@@ -71,9 +71,9 @@ Para facilitar a execução desse programa na Raspberry Pi, foram feitas
     [Desktop Entry]
     Type=Application
     Name=machine
-    Exec= make -C [caminho absoluto até o Makefile]
+    Exec= [caminho até o arquivo]/compile.sh
     ```
-        Exemplo: Exec= make -C /home/pi/Documents/backupCodigoTCC2/Code
+        Exemplo: Exec= /home/pi/Documents/backupCodigoTCC2/Code/compile.sh
     3. Agora a Raspberry Pi irá executar automaticamente o código ao realizar o boot.   
 
 
