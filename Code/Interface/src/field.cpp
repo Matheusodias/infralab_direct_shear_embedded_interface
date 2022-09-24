@@ -4,22 +4,26 @@
 #include <QDebug>
 
 
-
+/**
+ * @brief Constrói uma nova instância da classe Field.
+ * 
+ * Insere os valores mínimos e máximos do campo de texto.
+ * 
+ * @param parent instância da classe experimento criada na classe MainWindow.
+ */
 Field::Field(Experiment *parent)
 {
 
     info_variables = parent;
     this->FieldMinimumSize[0] = QSize(100, 30);
     this->FieldMaximumSize[0] = QSize(1000, 100);
-
-
-
-
-
-
-
 }
-
+/**
+ * @brief Customização dos campos de texto com a label superior de um layout escolhido.
+ * 
+ * 
+ * @param gridLayout Layout escolhido.
+ */
 void Field::customizeField(QLayout *gridLayout)
 {
     QLayout *layout = gridLayout->layout();
@@ -41,7 +45,14 @@ void Field::customizeField(QLayout *gridLayout)
 
 }
 
-
+/**
+ * @brief Realiza a customização de um campo de texto e de uma label.
+ * 
+ * Conecta os campos de texto ao SLOT editingFinished().
+ * 
+ * @param label Label escolhida.
+ * @param lineEdit Campo de texto escolhido.
+ */
 void Field::customizeOneField(QLabel *label, QLineEdit *lineEdit){
     //lineEdit->setMaximumSize(this->lineEditMaximumSize[size]);
     lineEdit->setAlignment(Qt::AlignTop);
@@ -56,9 +67,14 @@ void Field::customizeOneField(QLabel *label, QLineEdit *lineEdit){
     label->setAlignment(Qt::AlignBottom);
 
 
-    connect(lineEdit, SIGNAL(editingFinished()),this, SLOT(setVariables()));
+    connect(lineEdit, SIGNAL(editingFinished()),this, SLOT(editingFinished));
 }
 
+/**
+ * @brief Limpa os campos de texto de uma layout escolhido.
+ * 
+ * @param gridLayout Layout escolhido.
+ */
 void Field::clearFields(QLayout *gridLayout)
 {
     QLayout *layout = gridLayout->layout();
@@ -74,6 +90,12 @@ void Field::clearFields(QLayout *gridLayout)
     }
 }
 
+/**
+ * @brief Define os valores das variáveis do experimento com base nos campos de texto.
+ * 
+ * Esse slot é disparado toda vez que o sinal 
+ * editingFinished() é emitido pelos campos de texto.
+ */
 void Field::setVariables()
 {
     QLineEdit* field = qobject_cast<QLineEdit*>(sender());
