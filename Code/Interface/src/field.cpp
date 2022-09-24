@@ -67,7 +67,7 @@ void Field::customizeOneField(QLabel *label, QLineEdit *lineEdit){
     label->setAlignment(Qt::AlignBottom);
 
 
-    connect(lineEdit, SIGNAL(editingFinished()),this, SLOT(editingFinished));
+    connect(lineEdit, SIGNAL(editingFinished()),this, SLOT(setVariables()));
 }
 
 /**
