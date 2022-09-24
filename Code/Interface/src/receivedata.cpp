@@ -3,14 +3,26 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
-
+/**
+ * @brief Constrói uma nova instância da classe receiveData.
+ * 
+ * Iguala o ponteiro da classe Table à instância criada na MainWindow.
+ * 
+ * @param parent Objeto pai
+ * @param shear_densification_variables instância criada na MainWindow da classe Table 
+ */
 receiveData::receiveData(QObject * parent,Table * shear_densification_variables): QThread(parent)
 {
     this->shear_densification_variables = shear_densification_variables;
     
 
 }
-
+/**
+ * @brief Destrói a instância da classe receiveData.
+ * 
+ * Fecha os sockets do servidor e cliente.
+ * 
+ */
 receiveData::~receiveData()
 {
     qDebug() << "Fechei o servidor";
@@ -19,6 +31,14 @@ receiveData::~receiveData()
     close(this->client_socket_id);
 }
 
+/**
+ * @brief Configuração inicial do socket servidor.
+ * 
+ * Nesta função se realiza toda a configuração inicial do socket servidor,
+ * para ser utilizada posteriormente.
+ * 
+ * @return uint8_t 0 em caso de erro e 1 para sucesso.
+ */
 uint8_t receiveData::initSocketServer()
 {
     this->errorOccurred=0;
@@ -49,7 +69,10 @@ uint8_t receiveData::initSocketServer()
 
     return 1;
 }
-
+/**
+ * @brief Inicia a thread.
+ * 
+ */
 void receiveData::init()
 {
     // qualquer operação antes do start pode ser posta aqui
@@ -60,6 +83,13 @@ void receiveData::init()
     }
 }
 
+/**
+ * @brief Roda a thread.
+ * 
+ * Esta função é chamada logo após o início da thread e
+ * o fim de sua execução significa o fim da thread.
+ * 
+ */
 void receiveData::run()
 {
     while(1){
@@ -83,7 +113,14 @@ void receiveData::run()
 
 }
 
-
+/**
+ * @brief Lê as mensagens enviadas pela camada de controle.
+ * 
+ * Além da leitura, esta função também define as variáveis de 
+ * adensamento e cisalhamento, atualiza as tabelas e envia um sinal 
+ * para o banco de dados salvar novos dados.
+ * 
+ */
 void receiveData::readClientMessage()
 {
     while(1){
