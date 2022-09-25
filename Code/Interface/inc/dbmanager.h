@@ -35,6 +35,8 @@ public:
     Experiment * experiment_data; /*!< Instância da classe Experiment utilizada para atualizar/inserir dados nas tabelas. */
 
 
+    uint32_t getExperiment_id() const;
+
 private:
     uint32_t experiment_id; /*!< Id do experimento utilizado para preencher a chave estrangeira em outras tabelas. */
 

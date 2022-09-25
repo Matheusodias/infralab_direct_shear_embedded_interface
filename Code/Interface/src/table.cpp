@@ -286,18 +286,6 @@ void Table::clearStaticTables(QTableWidget *table_widget)
     }
 }
 
-
-void Table::exportCSV()
-{
-    for(int i=0;i<shearTable->rowCount();i++){
-        for(int j=0;j<shearTable->columnCount();j++){
-            QTableWidgetItem * data = shearTable->item(i,j);
-            qDebug() <<"i = " <<i << " j = " << j << " " << data->text();
-        } 
-    }
-   
-}
-
 void Table::test()
 {
 

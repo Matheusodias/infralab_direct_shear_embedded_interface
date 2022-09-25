@@ -32,7 +32,7 @@ public:
     void clearDynamicTables(QTableWidget *table_widget);
     void clearStaticTables(QTableWidget *table_widget);
 
-    void exportCSV();
+
 
     void test();
 
@@ -49,6 +49,8 @@ private:
     QTableWidget *densificationTable;
     QTableWidget *shearTable;
 
+public slots:
+    void exportCSV(QTableWidget *table_widget);
 signals:
 
 };

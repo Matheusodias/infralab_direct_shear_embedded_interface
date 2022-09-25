@@ -415,6 +415,15 @@ bool DBManager::updateTable(uint8_t option)
 
 }
 
+/**
+ * @brief DBManager::getExperiment_id
+ * @return experiment_id da Tabela EXPERIMENT_TABLE no banco
+ */
+uint32_t DBManager::getExperiment_id() const
+{
+    return experiment_id;
+}
+
 
 /**
  * @brief Insere valores no bind da inserção da tabela DENSIFICATION_TABLE.

@@ -28,7 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->setupFields = new Field(this->info_variables);
     this->CreateDataseTables();
     this->tables = new Table(this->info_variables,ui->densification_tableWidget, ui->shear_tableWidget);
-
+    this->data_export = new exportData();
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
     InitialConfiguration_InsideExperimentButtons();
@@ -119,6 +119,7 @@ void MainWindow::InitialConfiguration_InsideExperimentButtons()
 
     this->setupButtons->initialButtonStyling(ui->initShear_toolButton, initShearButton_BackgroundColor, phases_buttonSize );
     this->setupButtons->initialButtonStyling(ui->goBack_toolButton, phasesButton_lightBackgroundColor, phases_buttonSize );
+    this->setupButtons->initialButtonStyling(ui->exportTable_toolButton, phasesButton_lightBackgroundColor, phases_continueButtonSize );
 
     this->setupButtons->initialButtonStyling_Layout(ui->adjustVelocity_Layout, velocityPositionBackgroundColor, velocityPositionButton_size);
     this->setupButtons->initialButtonStyling_Layout(ui->adjustDistance_Layout, velocityPositionBackgroundColor, velocityPositionButton_size);
@@ -141,6 +142,17 @@ void MainWindow::InitialConfiguration_InsideExperimentButtons()
 
 
     connect(ui->insideExperiment_stack, SIGNAL(currentChanged(int)),this, SLOT(enableShearInitButton(int)));
+
+    connect(ui->densification_stack, SIGNAL(currentChanged(int)),this, SLOT(changeExportOption_Densification(int)));
+    connect(ui->shear_stack, SIGNAL(currentChanged(int)),this, SLOT(changeExportOption_Shear(int)));
+
+    connect(ui->insideExperiment_stack, SIGNAL(currentChanged(int)),this, SLOT(enableExportButton(int)));
+
+    connect(ui->exportTable_toolButton, &QToolButton::clicked,  this->data_export, [this]{
+            this->data_export->exportCSV(chosenTable,my_db->getExperiment_id(),this->export_option);
+        }
+    );
+
 
 
 }
@@ -755,9 +767,69 @@ void MainWindow::enableShearInitButton(int index)
     bool isButtonVisible = ui->initShear_FinishExperiment_toolButton->isVisible();
     if(isButtonVisible && index == 3){
         ui->initShear_FinishExperiment_toolButton->setVisible(false);
+        ui->exportTable_toolButton->setVisible(false);
     } else if(index != 3 && !isButtonVisible){
         ui->initShear_FinishExperiment_toolButton->setVisible(true);
-    }
+    } 
+}
 
+void MainWindow::enableExportButton(int index)
+{
+    if(index==3){
+        ui->exportTable_toolButton->setVisible(false);
+    } else if(index ==2) {
+        this->export_option = 0;
+        ui->exportTable_toolButton->setVisible(true);
+        chosenTable = ui->info_tableWidget;
+    } else if(index == 1){
+        int inside_index = ui->shear_stack->currentIndex();
+
+        if(this->info_variables->getPhase() == densification_phase || inside_index ==0)
+        {
+            ui->exportTable_toolButton->setVisible(false);
+        } else {
+            chosenTable = (inside_index==1)? ui->shear_tableWidget :ui->shearResult_tableWidget;
+            this->export_option = inside_index + 2;
+            ui->exportTable_toolButton->setVisible(true);
+        }
+
+    } else if(index == 0){
+        int inside_index = ui->densification_stack->currentIndex();
+
+        if(inside_index >= 1){
+            chosenTable = (inside_index==1)? ui->densification_tableWidget:ui->densificationResult_tableWidget ;
+            this->export_option = inside_index;
+            ui->exportTable_toolButton->setVisible(true);
+        } else{
+            ui->exportTable_toolButton->setVisible(false);
+        }
+    }
+}
+
+void MainWindow::changeExportOption_Densification(int index)
+{
+
+    if(index >= 1){
+        chosenTable = (index==1)? ui->densification_tableWidget:ui->densificationResult_tableWidget ;
+        this->export_option = index;
+        ui->exportTable_toolButton->setVisible(true);
+    } else{
+        ui->exportTable_toolButton->setVisible(false);
+    }
+}
+
+void MainWindow::changeExportOption_Shear(int index)
+{
+    //qDebug() << "Dentro da página";
+    if(this->info_variables->getPhase() == densification_phase)
+    {
+        ui->exportTable_toolButton->setVisible(false);
+    } else if(index >= 1){
+        chosenTable = (index==1)? ui->shear_tableWidget :ui->shearResult_tableWidget;
+        this->export_option = index + 2;
+        ui->exportTable_toolButton->setVisible(true);
+    } else{
+        ui->exportTable_toolButton->setVisible(false);
+    }
 }
 

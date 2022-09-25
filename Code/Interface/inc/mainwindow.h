@@ -11,6 +11,7 @@
 #include "threadcontroller.h"
 #include "sendcommands.h"
 #include "dbmanager.h"
+#include "exportdata.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -29,7 +30,9 @@ public:
     ~MainWindow();
     Experiment * info_variables;
     DBManager * my_db;
-
+    exportData * data_export;
+    int export_option;
+    QTableWidget * chosenTable;
 private slots:
 
     void nextPhase();
@@ -65,6 +68,10 @@ private slots:
     void changeDistance();
 
     void enableShearInitButton(int index);
+    void enableExportButton(int index);
+
+    void changeExportOption_Densification(int index);
+    void changeExportOption_Shear(int index);
 
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
