@@ -219,6 +219,10 @@ void Button::buttonSizeConfiguration()
     this->buttonMinimumSize[velocityPositionButton_size] = QSize(30, 10);
 
 
+    this->buttonMaximumSize[exportButton_size] = QSize(200, 100);
+    this->buttonMinimumSize[exportButton_size] = QSize(160, 30);
+
+
 }
 
 /**

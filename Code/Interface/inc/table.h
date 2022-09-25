@@ -49,8 +49,6 @@ private:
     QTableWidget *densificationTable;
     QTableWidget *shearTable;
 
-public slots:
-    void exportCSV(QTableWidget *table_widget);
 signals:
 
 };

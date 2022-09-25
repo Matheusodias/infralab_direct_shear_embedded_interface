@@ -119,7 +119,7 @@ void MainWindow::InitialConfiguration_InsideExperimentButtons()
 
     this->setupButtons->initialButtonStyling(ui->initShear_toolButton, initShearButton_BackgroundColor, phases_buttonSize );
     this->setupButtons->initialButtonStyling(ui->goBack_toolButton, phasesButton_lightBackgroundColor, phases_buttonSize );
-    this->setupButtons->initialButtonStyling(ui->exportTable_toolButton, phasesButton_lightBackgroundColor, phases_continueButtonSize );
+    this->setupButtons->initialButtonStyling(ui->exportTable_toolButton, phasesButton_lightBackgroundColor, exportButton_size );
 
     this->setupButtons->initialButtonStyling_Layout(ui->adjustVelocity_Layout, velocityPositionBackgroundColor, velocityPositionButton_size);
     this->setupButtons->initialButtonStyling_Layout(ui->adjustDistance_Layout, velocityPositionBackgroundColor, velocityPositionButton_size);

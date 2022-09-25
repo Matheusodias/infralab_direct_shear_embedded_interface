@@ -24,5 +24,6 @@
         <file>moveLeft.png</file>
         <file>moveRight.png</file>
         <file>finish.png</file>
+        <file>download.png</file>
     </qresource>
 </RCC>

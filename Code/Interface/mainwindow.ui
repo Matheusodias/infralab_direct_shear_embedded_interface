@@ -914,7 +914,7 @@ color: #10576D;
          </widget>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="outside_experiment_bottom_layout" stretch="1,2,1,2,3">
+         <layout class="QHBoxLayout" name="outside_experiment_bottom_layout" stretch="1,2,2,1,3">
           <property name="spacing">
            <number>20</number>
           </property>
@@ -992,6 +992,19 @@ background-color: rgb(171, 26, 36);</string>
            <widget class="QToolButton" name="exportTable_toolButton">
             <property name="text">
              <string>Exportar Tabela</string>
+            </property>
+            <property name="icon">
+             <iconset resource="images/resources.qrc">
+              <normaloff>:/download.png</normaloff>:/download.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+            <property name="toolButtonStyle">
+             <enum>Qt::ToolButtonTextBesideIcon</enum>
             </property>
            </widget>
           </item>

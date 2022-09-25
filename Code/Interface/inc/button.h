@@ -42,7 +42,7 @@
 #define cancelButton_size 3 /*!< Número identificador do tamanho do botão de cancelar o experimento . */
 #define initShearButton_size 4 /*!< Número identificador do tamanho do botão de iniciar o cisalhamento . */
 #define velocityPositionButton_size 5 /*!< Número identificador do tamanho dos botões de ajustar as variáveis de velocidade e distância . */
-
+#define exportButton_size 6 /*!< Número identificador do tamanho do botão de exportar tabelas.*/
 /**
  * @brief Classe dos botões.
  * 
