@@ -181,7 +181,7 @@ void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option
             "background-color: white;"
             "alternate-background-color: #77A0AC;"
             "selection-background-color: #0D495C;"
-            "font:  15pt 'Ubuntu'; border:0px; }"
+            "font:  14pt 'Ubuntu'; border:0px; }"
             "QHeaderView { font: bold 13pt 'Ubuntu'; }"
         );
     } else{
@@ -219,7 +219,7 @@ void Table::updateData_DynamicTable(QStringList data, uint8_t option)
          item->setTextAlignment(Qt::AlignCenter);
          table_widget->setItem (table_widget->rowCount()-1,j,item);
      }
-
+     table_widget->scrollToBottom();
 
 }
 
