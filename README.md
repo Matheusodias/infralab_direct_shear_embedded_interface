@@ -29,6 +29,7 @@ Para rodar este código na raspberry pi 4 siga as etapas a seguir.
         1. O qt5-make pode não ser encontrado, mas ainda consegui executar o código.
     2. ``sudo apt install qt5-doc qt5-doc-html qtbase5-doc-html  qtbase5-examples `` 
     3. ``sudo apt install qtcreator ``
+    4. Instalação do módulo dos gráficos. ``sudo apt install libqt5charts5-dev``.
 
 ## Para rodar o código
 Para rodar o código, é possível utilizar 2 opções:
