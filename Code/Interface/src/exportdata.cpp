@@ -19,7 +19,6 @@ exportData::exportData(QObject *parent)
 
 exportData::~exportData()
 {
-    qDebug() << "Passei no destruct";
     system("git checkout main");
 }
 
