@@ -16,7 +16,10 @@ exportData::exportData(QObject *parent)
 {
     system("git checkout upload_csv");
 }
-
+/**
+ * @brief Destrói a instância de exportData e retorna para a branch main.
+ * 
+ */
 exportData::~exportData()
 {
     system("git checkout main");
