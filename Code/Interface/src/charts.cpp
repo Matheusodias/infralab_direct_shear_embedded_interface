@@ -48,7 +48,7 @@ void Charts::initialConfiguration(QVBoxLayout * layout, int option)
 
 void Charts:: updateDensificationCharts(int time, float vertical_displacement)
 {
-    qDebug() << "Estou aqui" <<time  << " " << vertical_displacement;
+    //qDebug() << "Estou aqui" <<time  << " " << vertical_displacement;
     series[densification_chart]->append(time, vertical_displacement);
     chart[densification_chart]->removeSeries(series[densification_chart]);
     chart[densification_chart]->addSeries(series[densification_chart]);
@@ -66,7 +66,7 @@ void Charts:: updateDensificationCharts(int time, float vertical_displacement)
 
 void Charts:: updateShearCharts(float horizontal_displacement, float vertical_displacement)
 {
-    qDebug() << "Estou aqui" <<horizontal_displacement  << " " << vertical_displacement;
+    //qDebug() << "Estou aqui" <<horizontal_displacement  << " " << vertical_displacement;
     series[shear_chart]->append(horizontal_displacement, vertical_displacement);
     chart[shear_chart]->removeSeries(series[shear_chart]);
     chart[shear_chart]->addSeries(series[shear_chart]);
