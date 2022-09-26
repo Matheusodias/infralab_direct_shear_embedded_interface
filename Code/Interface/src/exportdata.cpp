@@ -17,6 +17,13 @@ exportData::exportData(QObject *parent)
     system("git checkout upload_csv");
 }
 
+exportData::~exportData()
+{
+    qDebug() << "Passei no destruct";
+    system("git checkout main");
+}
+
+
 /**
  * @brief Essa função exporta o arquivo csv para o Github.
  * 

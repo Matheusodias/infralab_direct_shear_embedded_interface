@@ -14,6 +14,7 @@ class exportData : public QObject
     Q_OBJECT
 public:
     explicit exportData(QObject *parent = nullptr);
+    ~exportData();
 
 private:
     void write(QTableWidget *table_widget,QString filename);

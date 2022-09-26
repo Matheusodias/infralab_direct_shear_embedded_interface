@@ -105,14 +105,14 @@ void print_client_message(int client_socket)
             break;
         };
         
-        printf("Comando %d\n",message.command);
+        //printf("Comando %d\n",message.command);
         switch (message.command)
         {
             case 0: // comando 0 iniciar recebimento de dados da máquina (enabled, sample_period);
                 if(message.enabled == 1){
                     sample_time.tv_sec = message.sample_period/1000;
                     sample_time.tv_nsec = (message.sample_period%1000)*1000000;
-                    printf("liberei a thread\n");
+          //          printf("liberei a thread\n");
                     if(first_time){
                         pthread_create(&thread_le_comandos,NULL,&enviaDados, NULL);
                         first_time=0;
@@ -120,9 +120,9 @@ void print_client_message(int client_socket)
                     pthread_mutex_unlock(&lock);
                     
                 } else{
-                    printf("tentando pegar o lock\n");
+                    //printf("tentando pegar o lock\n");
                     pthread_mutex_lock(&lock);  
-                    printf("tentando pegar o lock2\n");
+                    //printf("tentando pegar o lock2\n");
                 }
                 
                 printf("Enabled = %d Sample Period= %d\n",message.enabled,message.sample_period);
@@ -148,10 +148,10 @@ void print_client_message(int client_socket)
             case 5: // comando 5 0(disabled, 0), 2(desligado) 4(distance=0,velocity=0);interromper/finalizar experimento desliga pressão
                 printf("End machine\n");
 
-                printf("tentando pegar o lock3\n");
+                //printf("tentando pegar o lock3\n");
                     sample_number=0;
                     pthread_mutex_lock(&lock);  
-                printf("tentando pegar o lock4\n");
+                //printf("tentando pegar o lock4\n");
                 
                 // end_server(SIGINT);
             break;
@@ -175,8 +175,8 @@ void * enviaDados(){
 
     strncpy(name.sa_data,client_socket_name,strlen(client_socket_name)+1);
     
-    printf("Nome = %s\n%s\n",name.sa_data,client_socket_name);
-    printf("Tamanho = %ld\n",strlen(name.sa_data) + 2);
+    //printf("Nome = %s\n%s\n",name.sa_data,client_socket_name);
+    //printf("Tamanho = %ld\n",strlen(name.sa_data) + 2);
 
     if(connect(client_socket_id, &name, strlen(name.sa_data) + sizeof(name.sa_family))!=0){
         printf("The last error message is: %s\n", strerror(errno));
@@ -218,7 +218,7 @@ void * enviaDados(){
         nanosleep(&sample_time, NULL);
     }
     close(client_socket_id);
-    printf("passei aqui");
+    //printf("passei aqui");
     pthread_exit(0);
 }
 
