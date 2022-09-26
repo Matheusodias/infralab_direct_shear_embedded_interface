@@ -251,7 +251,7 @@ color: #10576D;
         <item>
          <widget class="QStackedWidget" name="insideExperiment_stack">
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="densification_page">
            <property name="styleSheet">
@@ -310,22 +310,14 @@ color: #10576D;
             <item>
              <widget class="QStackedWidget" name="densification_stack">
               <property name="currentIndex">
-               <number>2</number>
+               <number>0</number>
               </property>
               <widget class="QWidget" name="densificationGraphs_page">
-               <widget class="QLabel" name="label_4">
-                <property name="geometry">
-                 <rect>
-                  <x>370</x>
-                  <y>110</y>
-                  <width>211</width>
-                  <height>17</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>gráficos adensamento</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_22">
+                <item>
+                 <layout class="QVBoxLayout" name="densificationGraphs_layout"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="densificationTable_page">
                <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -405,19 +397,11 @@ color: #10576D;
                <number>0</number>
               </property>
               <widget class="QWidget" name="shearGraphs_page">
-               <widget class="QLabel" name="label_9">
-                <property name="geometry">
-                 <rect>
-                  <x>370</x>
-                  <y>110</y>
-                  <width>211</width>
-                  <height>17</height>
-                 </rect>
-                </property>
-                <property name="text">
-                 <string>gráficos cisalhamento</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_21">
+                <item>
+                 <layout class="QVBoxLayout" name="shearGraphs_layout"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="shearTable_page">
                <layout class="QVBoxLayout" name="verticalLayout_13">

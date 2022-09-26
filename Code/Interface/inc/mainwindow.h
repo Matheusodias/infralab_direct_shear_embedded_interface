@@ -12,6 +12,7 @@
 #include "sendcommands.h"
 #include "dbmanager.h"
 #include "exportdata.h"
+#include "charts.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -83,6 +84,7 @@ private:
     QTimer * timer;
     int previousIndex;
     bool experiment_canceled = false;
+    Charts * charts_variables;
 
     void fillTextEditForTests();
     void InitialConfiguration_OutsideExperimentHeaderButtons();

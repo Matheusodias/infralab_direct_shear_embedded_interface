@@ -7,6 +7,7 @@
 #include "inc/experiment.h"
 #include <QSqlTableModel>
 #include <QTextEdit>
+#include "inc/charts.h"
 
 /**
  * @brief Constrói uma nova janela principal.
@@ -29,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     this->CreateDataseTables();
     this->tables = new Table(this->info_variables,ui->densification_tableWidget, ui->shear_tableWidget);
     this->data_export = new exportData();
+    this->charts_variables = new Charts();
 
     InitialConfiguration_OutsideExperimentHeaderButtons();
     InitialConfiguration_InsideExperimentButtons();
@@ -147,6 +149,9 @@ void MainWindow::InitialConfiguration_InsideExperimentButtons()
     connect(ui->shear_stack, SIGNAL(currentChanged(int)),this, SLOT(changeExportOption_Shear(int)));
 
     connect(ui->insideExperiment_stack, SIGNAL(currentChanged(int)),this, SLOT(enableExportButton(int)));
+
+    this->charts_variables->initialConfiguration(ui->densificationGraphs_layout);
+    connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateCharts(int, float)));
 
     connect(ui->exportTable_toolButton, &QToolButton::clicked,  this->data_export, [this]{
             this->data_export->exportCSV(chosenTable,my_db->getExperiment_id(),this->export_option);

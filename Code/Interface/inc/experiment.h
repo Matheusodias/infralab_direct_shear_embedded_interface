@@ -5,13 +5,15 @@
 #include <QStringList>
 #include "densification.h"
 #include "shear.h"
-
+#include <QObject>
 #define pi_value 3.1415f
 #define densification_phase 0
 #define shear_phase 1
 
-class Experiment
+class Experiment : public QObject
 {
+    Q_OBJECT
+
 public:
 
 
@@ -163,7 +165,8 @@ private:
     int sample_period;
 
 
-
+signals:
+    void updateDensificationChart(int time, float vertical_displacement);
 
 
 };

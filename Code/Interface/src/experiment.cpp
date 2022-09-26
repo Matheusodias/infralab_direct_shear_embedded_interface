@@ -80,6 +80,9 @@ QStringList Experiment:: updateDensificationTable()
     this->shear_variables.setDate(temporary_list[1]);
     this->shear_variables.setHour_min_sec_ms(temporary_list[2]);
 
+    uint64_t duration = this->getDuration(true);
+    emit updateDensificationChart(duration/1000, densification_variables.getVertical_displacement());
+
     return temporary_list;
 }
 
@@ -152,6 +155,7 @@ QString Experiment::getDuration_string(bool isDensification)
 {
    
     uint64_t duration = this->getDuration(isDensification);
+    
     uint64_t hours = (uint64_t)(duration/3600000);
     uint64_t minutes_calculation = (duration%3600000);
     uint64_t minutes = (uint64_t)(minutes_calculation/60000);
@@ -208,6 +212,7 @@ QString Experiment::hour_min_sec_ms()
     struct tm * time_seconds = localtime(&seconds);
     QString time_string = QString("%1:%2:%3:%4").arg(time_seconds->tm_hour).arg(time_seconds->tm_min)
     .arg(time_seconds->tm_sec).arg(this->getPresent_time_miliseconds());
+
     return time_string;
 }
 
