@@ -46,12 +46,12 @@ void Charts::initialConfiguration(QVBoxLayout * layout)
 
 void Charts:: updateCharts(int time, float vertical_displacement)
 {
-    qDebug() << "Estou aqui" <<time  << " " << vertical_displacement;
+    //qDebug() << "Estou aqui" <<time  << " " << vertical_displacement;
     series->append(time, vertical_displacement);
     chart->removeSeries(series);
     chart->addSeries(series);
     if(time > m_axisX->max()){
-        qDebug() << "entrei aqui";
+        //qDebug() << "entrei aqui";
         m_axisX->setMax(time);
         //chart->axes(Qt::Horizontal).at(0)->setMax(20+current_value);
     }

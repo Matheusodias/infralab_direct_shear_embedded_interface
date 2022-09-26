@@ -68,6 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->cancel_toolButton, SIGNAL(clicked()), this, SLOT(cancelExperiment()));
 
     fillTextEditForTests();
+    ui->exportTable_toolButton->setVisible(false);
 
 }
 
@@ -332,9 +333,9 @@ void MainWindow::changeOutsideExperimentPage()
 
 void MainWindow::changeInitialPositionValue()
 {
-    qDebug() << "Estou no displacement";
+    //qDebug() << "Estou no displacement";
     ui->initialPositionValue_label->setText(QString::number(receive_data->receiveDataThread->machine_message.displacement[1]));
-    qDebug() << receive_data->receiveDataThread->machine_message.displacement[1];
+    //qDebug() << receive_data->receiveDataThread->machine_message.displacement[1];
 }
 
 void MainWindow::onPositionButton_pressed()
@@ -473,7 +474,7 @@ void MainWindow::updateResultsTables()
 
 void MainWindow::adjustVelocity_Distance()
 {
-    qDebug() << "Consegui clicar aqui";
+    //qDebug() << "Consegui clicar aqui";
     if(this->info_variables->getPhase() == densification_phase)
     {
         //ui->initShear_FinishExperiment_toolButton->
@@ -780,6 +781,7 @@ void MainWindow::enableShearInitButton(int index)
 
 void MainWindow::enableExportButton(int index)
 {
+    qDebug() << "Mudei a página";
     if(index==3){
         ui->exportTable_toolButton->setVisible(false);
     } else if(index ==2) {
@@ -800,12 +802,13 @@ void MainWindow::enableExportButton(int index)
 
     } else if(index == 0){
         int inside_index = ui->densification_stack->currentIndex();
-
+        //qDebug() << "Dentro do adensamento";
         if(inside_index >= 1){
             chosenTable = (inside_index==1)? ui->densification_tableWidget:ui->densificationResult_tableWidget ;
             this->export_option = inside_index;
             ui->exportTable_toolButton->setVisible(true);
         } else{
+            //qDebug() << "Passei aqui2";
             ui->exportTable_toolButton->setVisible(false);
         }
     }
@@ -813,7 +816,7 @@ void MainWindow::enableExportButton(int index)
 
 void MainWindow::changeExportOption_Densification(int index)
 {
-
+    //qDebug() << "Dentro change Export densification";
     if(index >= 1){
         chosenTable = (index==1)? ui->densification_tableWidget:ui->densificationResult_tableWidget ;
         this->export_option = index;

@@ -14,7 +14,7 @@
 exportData::exportData(QObject *parent)
     : QObject{parent}
 {
-
+    system("git checkout upload_csv");
 }
 
 /**
@@ -56,7 +56,7 @@ void exportData::exportCSV(QTableWidget *table_widget, int file_identification, 
      const char *c_commit = ba_commit.data();
      strncat(commit, c_commit, strlen(c_commit));
      //qDebug() << commit;
-     char push[] = "git push origin main";
+     char push[] = "git push origin upload_csv";
      system(commit);
      system(push);
 }
