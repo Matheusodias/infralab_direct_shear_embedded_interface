@@ -167,6 +167,7 @@ private:
 
 signals:
     void updateDensificationChart(int time, float vertical_displacement);
+    void updateShearChart(float horizontal_displacement, float vertical_displacement);
 
 
 };

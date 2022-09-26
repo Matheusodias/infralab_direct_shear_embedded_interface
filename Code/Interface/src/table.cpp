@@ -219,7 +219,7 @@ void Table::updateData_DynamicTable(QStringList data, uint8_t option)
          item->setTextAlignment(Qt::AlignCenter);
          table_widget->setItem (table_widget->rowCount()-1,j,item);
      }
-     table_widget->scrollToBottom();
+     //table_widget->scrollToBottom();
 
 }
 

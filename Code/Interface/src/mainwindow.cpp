@@ -151,8 +151,10 @@ void MainWindow::InitialConfiguration_InsideExperimentButtons()
 
     connect(ui->insideExperiment_stack, SIGNAL(currentChanged(int)),this, SLOT(enableExportButton(int)));
 
-    this->charts_variables->initialConfiguration(ui->densificationGraphs_layout);
-    connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateCharts(int, float)));
+    this->charts_variables->initialConfiguration(ui->densificationGraphs_layout, densification_chart);
+    this->charts_variables->initialConfiguration(ui->shearGraphs_layout, shear_chart);
+    connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateDensificationCharts(int, float)));
+    connect(this->info_variables, SIGNAL(updateShearChart(float,float)), this->charts_variables, SLOT(updateShearCharts(float, float)));
 
     connect(ui->exportTable_toolButton, &QToolButton::clicked,  this->data_export, [this]{
             this->data_export->exportCSV(chosenTable,my_db->getExperiment_id(),this->export_option);
@@ -683,6 +685,13 @@ void MainWindow:: cancelExperiment()
     
 
     this->tables->clearStaticTables(ui->shearResult_tableWidget);
+
+    this->charts_variables->reset_Chart();
+    this->charts_variables->initialConfiguration(ui->densificationGraphs_layout, densification_chart);
+    this->charts_variables->initialConfiguration(ui->shearGraphs_layout, shear_chart);
+    connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateDensificationCharts(int, float)));
+    connect(this->info_variables, SIGNAL(updateShearChart(float,float)), this->charts_variables, SLOT(updateShearCharts(float, float)));
+
 
     this->ui->velocityValue_label->setText("0");
     this->ui->distanceValue_label->setText("0");

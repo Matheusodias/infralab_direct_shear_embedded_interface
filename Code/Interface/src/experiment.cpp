@@ -79,7 +79,6 @@ QStringList Experiment:: updateDensificationTable()
 
     this->shear_variables.setDate(temporary_list[1]);
     this->shear_variables.setHour_min_sec_ms(temporary_list[2]);
-
     uint64_t duration = this->getDuration(true);
     emit updateDensificationChart(duration/1000, densification_variables.getVertical_displacement());
 
@@ -105,6 +104,8 @@ QStringList Experiment:: updateShearTable()
     temporary_list[0] = QString::number(this->getShearSample_number());
     temporary_list[5] = QString::number(this->getNormalTension());
     temporary_list[6] = QString::number(this->getShearTension());
+
+    emit updateShearChart(this->shear_variables.getHorizontal_displacement(),this->densification_variables.getVertical_displacement());
 
     return temporary_list;
 }
