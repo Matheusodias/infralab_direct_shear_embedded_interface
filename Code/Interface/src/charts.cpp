@@ -1,5 +1,12 @@
 #include "inc/charts.h"
 
+/**
+ * @brief Constrói uma nova instância da classe Charts.
+ * 
+ * Define os títulos e nomes dos eixos dos gráficos.
+ * 
+ * @param parent 
+ */
 Charts::Charts(QObject *parent)
     : QObject{parent}
 {
@@ -12,6 +19,12 @@ Charts::Charts(QObject *parent)
     y_axis_title[1] = "Desloc. vertical (cm)";
 }
 
+/**
+ * @brief Cria um gráfico e o insere em um layout.
+ * 
+ * @param layout O layout escolhido.
+ * @param option O tipo de gráfico escolhido.
+ */
 void Charts::initialConfiguration(QVBoxLayout * layout, int option)
 {
     this->series[option] = new QSplineSeries(this);
@@ -46,6 +59,12 @@ void Charts::initialConfiguration(QVBoxLayout * layout, int option)
     layout->addWidget(chartView[option]);
 }
 
+/**
+ * @brief Atualiza o gráfico de adensamento ao receber o sinal updateDensificationChart().
+ * 
+ * @param time Tempo decorrido
+ * @param vertical_displacement Deslocamento vertical 
+ */
 void Charts:: updateDensificationCharts(int time, float vertical_displacement)
 {
     //qDebug() << "Estou aqui" <<time  << " " << vertical_displacement;
@@ -63,7 +82,12 @@ void Charts:: updateDensificationCharts(int time, float vertical_displacement)
     //chartView->update();
 }
 
-
+/**
+ * @brief Atualiza o gráfico de cisalhamento ao receber o sinal updateShearChart().
+ * 
+ * @param horizontal_displacement Deslocamento horizontal
+ * @param vertical_displacement Deslocamento vertical 
+ */
 void Charts:: updateShearCharts(float horizontal_displacement, float vertical_displacement)
 {
     //qDebug() << "Estou aqui" <<horizontal_displacement  << " " << vertical_displacement;
@@ -80,7 +104,13 @@ void Charts:: updateShearCharts(float horizontal_displacement, float vertical_di
     }
     //chartView->update();
 }
-
+/**
+ * @brief Apaga os gráficos atuais.
+ * 
+ * Esta deleção dos gráficos atuais é utilizada quando o experimento
+ * se encerra ou é cancelado, previnindo assim, que os dados do experimento
+ * antigo apareçam no novo.
+ */
 void Charts:: reset_Chart()
 {
    for(int i=0;i<2;i++){
