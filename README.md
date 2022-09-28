@@ -52,7 +52,7 @@ Para facilitar a execução desse programa na Raspberry Pi, foram feitas
     1. Execute no terminal ``sudo nano /usr/local/bin/keyboard.sh``
     2. Adicione o seguinte código abaixo
     ```
-        #!bin/bash
+        #!/bin/bash
         sleep 5
         /usr/bin/onboard 
     ```
