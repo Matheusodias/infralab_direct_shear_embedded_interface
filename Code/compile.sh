@@ -1,5 +1,5 @@
 #!/bin/bash
 
-make clean
-make
-make run -j 2
+make clean -C /home/infralab/backupCodigoTCC2/Code 
+make -C /home/infralab/backupCodigoTCC2/Code
+make -C /home/infralab/backupCodigoTCC2/Code run -j 2
