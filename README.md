@@ -1,5 +1,8 @@
 # backupCodigoTCC2
 
+## Versão QT: 5.15.12
+
+
 ## Configurações Iniciais
 Para rodar este código na raspberry pi 4 siga as etapas a seguir.
 
