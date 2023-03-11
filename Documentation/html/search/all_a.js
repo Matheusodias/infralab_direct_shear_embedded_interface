@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['m_5faxisx_0',['m_axisX',['../classCharts.html#a4f6fa69bb26446169d2b056328a0a6d0',1,'Charts']]],
+  ['m_5faxisy_1',['m_axisY',['../classCharts.html#ae6a849fb790357db840ea4d00996b4fc',1,'Charts']]],
+  ['machine_5fmessage_2',['machine_message',['../classreceiveData.html#a9995fa704dfa403a3b9a01769dd40e9c',1,'receiveData']]],
+  ['machine_5fpayload_5fsize_3',['machine_payload_size',['../socket__local_8h.html#a7452c7ed3bb4e65969039d74e12e123e',1,'socket_local.h']]],
+  ['machine_5fto_5finterface_5fmessage_4',['machine_to_interface_message',['../unionmachine__to__interface__message.html',1,'machine_to_interface_message'],['../socket__local_8h.html#a2c5816cefe4c555bd439528763d17540',1,'machine_to_interface_message():&#160;socket_local.h']]],
+  ['machineclient_5',['machineClient',['../classmachineClient.html',1,'machineClient'],['../classmachineClient.html#aa46db3faa6cbe60dfa3ac6dbc1541151',1,'machineClient::machineClient()']]],
+  ['machineclient_2ecpp_6',['machineclient.cpp',['../machineclient_8cpp.html',1,'']]],
+  ['machineclient_2eh_7',['machineclient.h',['../machineclient_8h.html',1,'']]],
+  ['machineserver_8',['machineServer',['../classmachineServer.html#af19e18b09aa4ce6a87d7b3fe19da9974',1,'machineServer::machineServer()'],['../classmachineServer.html',1,'machineServer']]],
+  ['machineserver_2ecpp_9',['machineserver.cpp',['../machineserver_8cpp.html',1,'']]],
+  ['machineserver_2eh_10',['machineserver.h',['../machineserver_8h.html',1,'']]],
+  ['machinetablevalues_11',['machineTablevalues',['../classTable.html#a6a30cb92a17a3366482e24400e07acee',1,'Table']]],
+  ['main_12',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main.cpp']]],
+  ['main_2ecpp_13',['main.cpp',['../main_8cpp.html',1,'']]],
+  ['mainwindow_14',['MainWindow',['../classMainWindow.html#a996c5a2b6f77944776856f08ec30858d',1,'MainWindow::MainWindow()'],['../classMainWindow.html',1,'MainWindow']]],
+  ['mainwindow_2ecpp_15',['mainwindow.cpp',['../mainwindow_8cpp.html',1,'']]],
+  ['mainwindow_2eh_16',['mainwindow.h',['../mainwindow_8h.html',1,'']]],
+  ['movebutton_5fdisabledbackgroundcolor_17',['moveButton_DisabledBackgroundColor',['../button_8h.html#acf8349aa944130a84db665b13a28eaa6',1,'button.h']]],
+  ['my_5fdb_18',['my_db',['../classMainWindow.html#a56f5efc1875f9b76b05a1d765a72b58a',1,'MainWindow']]]
+];

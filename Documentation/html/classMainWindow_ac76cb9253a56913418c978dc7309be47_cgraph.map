@@ -1,0 +1,6 @@
+<map id="MainWindow::CreateDataseTables" name="MainWindow::CreateDataseTables">
+<area shape="rect" id="node1" title=" " alt="" coords="5,49,208,90"/>
+<area shape="rect" id="node2" href="$classDBManager.html#abca0d677c037167a3b750186c9cc3041" title="Cria uma tabela no banco de dados." alt="" coords="256,5,437,32"/>
+<area shape="rect" id="node3" href="$classDBManager.html#a987f90b871cb3ae67cb89ea1cc324995" title="Verifica se o banco de dados está aberto." alt="" coords="271,56,422,83"/>
+<area shape="rect" id="node4" href="$classDBManager.html#ab3d3af8de32e78582ebd6cfa4adcdd9b" title="Verifica se a tabela existe no banco de dados." alt="" coords="257,107,436,133"/>
+</map>

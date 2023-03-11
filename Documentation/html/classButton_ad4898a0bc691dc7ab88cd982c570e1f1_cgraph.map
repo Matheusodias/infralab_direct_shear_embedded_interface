@@ -1,0 +1,4 @@
+<map id="Button::initialButtonStyling_Layout" name="Button::initialButtonStyling_Layout">
+<area shape="rect" id="node1" title="Realiza a estilização de botões dentro de 1 layout." alt="" coords="5,5,204,47"/>
+<area shape="rect" id="node2" href="$classButton.html#a690d8b24d0c0bc8c5f3ee6c292c2dcf9" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="252,13,439,39"/>
+</map>

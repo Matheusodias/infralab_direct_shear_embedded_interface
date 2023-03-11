@@ -1,0 +1,5 @@
+<map id="sendCommands::setPressure" name="sendCommands::setPressure">
+<area shape="rect" id="node1" title=" " alt="" coords="285,46,496,73"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a8221c31d614dddd7a191b467d577326b" title=" " alt="" coords="5,5,237,47"/>
+<area shape="rect" id="node3" href="$classSocketTests.html#ac4d0b8551eddcd0aff7cdef75344bad3" title="Teste que verifica se a interface está recebendo corretamente os dados da máquina." alt="" coords="28,71,215,112"/>
+</map>

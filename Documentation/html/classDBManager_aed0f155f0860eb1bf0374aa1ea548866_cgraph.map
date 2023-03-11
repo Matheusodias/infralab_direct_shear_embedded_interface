@@ -1,0 +1,7 @@
+<map id="DBManager::updateTable" name="DBManager::updateTable">
+<area shape="rect" id="node1" title="Atualiza os dados de uma tabela escolhida." alt="" coords="5,64,191,91"/>
+<area shape="rect" id="node2" href="$classDBManager.html#aadb37ef82eee978d11dae96918931902" title="Insere valores no bind da atualização da tabela SAMPLE_VARIABLES_TABLE." alt="" coords="247,27,462,69"/>
+<area shape="rect" id="node5" href="$classDBManager.html#a4909ed3ebcd5a1cbf6f714a2475f1e93" title="Insere o valor da variável this&#45;&gt;experiment_id após consulta no banco." alt="" coords="239,93,471,120"/>
+<area shape="rect" id="node3" href="$classShear.html#a2e06d7d6b124e7b94c4c81e7ad55b904" title=" " alt="" coords="519,5,741,32"/>
+<area shape="rect" id="node4" href="$classExperiment.html#aa89197398d9c167abffd0c5b542cef97" title=" " alt="" coords="543,57,717,98"/>
+</map>

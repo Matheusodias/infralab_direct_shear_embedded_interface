@@ -1,0 +1,4 @@
+<map id="machineServer::init" name="machineServer::init">
+<area shape="rect" id="node1" title="Função utilizada para realizar qualquer operação antes do início da thread." alt="" coords="236,5,385,32"/>
+<area shape="rect" id="node2" href="$classSocketTests.html#aa630bce8a280910056a3feef8b0e79c2" title="Contrutor da classe de testes do socket. Pode ser utilizado para instanciar classes,..." alt="" coords="5,5,188,32"/>
+</map>

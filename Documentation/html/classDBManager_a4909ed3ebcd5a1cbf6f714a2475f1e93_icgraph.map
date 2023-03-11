@@ -1,0 +1,11 @@
+<map id="DBManager::selectExperimentId" name="DBManager::selectExperimentId">
+<area shape="rect" id="node1" title="Insere o valor da variável this&#45;&gt;experiment_id após consulta no banco." alt="" coords="1067,141,1299,167"/>
+<area shape="rect" id="node2" href="$classDBManager.html#ad34a1240f36d06d51fdf8376ad260029" title="Insere dados em uma tabela escolhida." alt="" coords="816,111,1019,138"/>
+<area shape="rect" id="node8" href="$classDBManager.html#aed0f155f0860eb1bf0374aa1ea548866" title="Atualiza os dados de uma tabela escolhida." alt="" coords="825,166,1010,193"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="549,5,755,47"/>
+<area shape="rect" id="node6" href="$classMainWindow.html#a8221c31d614dddd7a191b467d577326b" title=" " alt="" coords="536,71,768,112"/>
+<area shape="rect" id="node7" href="$classDBManager.html#a21cbf98b7a26afb726f25e0bef65a664" title="Atualiza as tabelas de adensamento e cisalhamento." alt="" coords="543,136,761,177"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="251,100,488,141"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,107,203,134"/>
+<area shape="rect" id="node9" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="547,202,757,229"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="machineServer::run" name="machineServer::run">
+<area shape="rect" id="node1" title="É a função que roda durante toda a vida da thread." alt="" coords="5,13,155,39"/>
+<area shape="rect" id="node2" href="$classmachineServer.html#ad731f4de4a57038aa20ca06e556a9090" title="Lê as mensagens enviadas pelo cliente da interface." alt="" coords="203,5,360,47"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="machineClient::sendMessages" name="machineClient::sendMessages">
+<area shape="rect" id="node1" title="Envia mensagens para o servidor da interface caso a conexão no construtor tenha sucesso." alt="" coords="240,13,460,39"/>
+<area shape="rect" id="node2" href="$classSocketTests.html#ae950b24500faf2b6150e6275136d35cd" title="Teste que verifica se a interface está recebendo corretamente os dados da máquina." alt="" coords="5,5,192,47"/>
+</map>

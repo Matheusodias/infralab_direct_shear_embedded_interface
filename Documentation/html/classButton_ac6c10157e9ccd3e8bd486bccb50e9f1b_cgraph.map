@@ -1,0 +1,5 @@
+<map id="Button::changeInitShear_toFinishButton" name="Button::changeInitShear_toFinishButton">
+<area shape="rect" id="node1" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="5,5,184,47"/>
+<area shape="rect" id="node2" href="$classButton.html#aebb7f32f1ebbbbc0841972cf768b3e86" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="232,13,431,39"/>
+<area shape="rect" id="node3" href="$classButton.html#a690d8b24d0c0bc8c5f3ee6c292c2dcf9" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="479,13,665,39"/>
+</map>

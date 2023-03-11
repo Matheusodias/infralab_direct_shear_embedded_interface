@@ -1,0 +1,4 @@
+<map id="receiveData::init" name="receiveData::init">
+<area shape="rect" id="node1" title="Inicia a thread." alt="" coords="237,13,368,39"/>
+<area shape="rect" id="node2" href="$classThreadController.html#afdbcf3ff6e00d3eadea56fa3c44289ad" title="Construtor da classe Thread Controller." alt="" coords="5,5,189,47"/>
+</map>

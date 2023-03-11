@@ -1,0 +1,6 @@
+<map id="ThreadController::ThreadController" name="ThreadController::ThreadController">
+<area shape="rect" id="node1" title="Construtor da classe Thread Controller." alt="" coords="5,49,189,90"/>
+<area shape="rect" id="node2" href="$classreceiveData.html#adf1c698e28047066313d8c4f7f9bd664" title="Inicia a thread." alt="" coords="279,5,410,32"/>
+<area shape="rect" id="node3" href="$classreceiveData.html#a175439bb86e3dc83dbd3426ab720f48b" title="Configuração inicial do socket servidor." alt="" coords="237,56,452,83"/>
+<area shape="rect" id="node4" href="$classThreadController.html#ae345581b5f7adbe43fbf73eed6606481" title="Esse slot é disparado quando a thread da classe receiveData termina antes da classe ThreadController." alt="" coords="251,107,438,149"/>
+</map>

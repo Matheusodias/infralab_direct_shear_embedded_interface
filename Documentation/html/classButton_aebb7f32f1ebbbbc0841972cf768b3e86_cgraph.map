@@ -1,0 +1,4 @@
+<map id="Button::initialButtonStyling" name="Button::initialButtonStyling">
+<area shape="rect" id="node1" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="5,5,204,32"/>
+<area shape="rect" id="node2" href="$classButton.html#a690d8b24d0c0bc8c5f3ee6c292c2dcf9" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="252,5,439,32"/>
+</map>

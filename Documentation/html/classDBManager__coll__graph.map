@@ -1,0 +1,7 @@
+<map id="DBManager" name="DBManager">
+<area shape="rect" id="node1" title="Classe do banco de dados." alt="" coords="5,588,236,885"/>
+<area shape="rect" id="node2" title=" " alt="" coords="113,5,187,83"/>
+<area shape="rect" id="node3" href="$classExperiment.html" title=" " alt="" coords="172,375,357,525"/>
+<area shape="rect" id="node5" href="$classShear.html" title=" " alt="" coords="187,139,411,305"/>
+<area shape="rect" id="node4" href="$classDensification.html" title="Classe do adensamento." alt="" coords="435,132,670,312"/>
+</map>

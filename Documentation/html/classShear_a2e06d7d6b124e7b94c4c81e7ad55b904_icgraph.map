@@ -1,0 +1,12 @@
+<map id="Shear::getSample_number_diff" name="Shear::getSample_number_diff">
+<area shape="rect" id="node1" title=" " alt="" coords="1351,46,1573,73"/>
+<area shape="rect" id="node2" href="$classExperiment.html#af6b77658a07ecb80df96802953287a43" title=" " alt="" coords="1089,5,1301,47"/>
+<area shape="rect" id="node6" href="$classDBManager.html#aadb37ef82eee978d11dae96918931902" title="Insere valores no bind da atualização da tabela SAMPLE_VARIABLES_TABLE." alt="" coords="1088,71,1303,112"/>
+<area shape="rect" id="node3" href="$classExperiment.html#a15d1fa42d5311b9a80c96a1ebefcdcc8" title=" " alt="" coords="819,13,1040,39"/>
+<area shape="rect" id="node4" href="$classreceiveData.html#a6fc81b174e1a4fa5cc17cf787ebf02ca" title="Lê as mensagens enviadas pela camada de controle." alt="" coords="536,13,771,39"/>
+<area shape="rect" id="node5" href="$classreceiveData.html#a04031f07eff174633eacf28a4ef0dd5a" title="Roda a thread." alt="" coords="304,13,435,39"/>
+<area shape="rect" id="node7" href="$classDBManager.html#aed0f155f0860eb1bf0374aa1ea548866" title="Atualiza os dados de uma tabela escolhida." alt="" coords="837,78,1022,105"/>
+<area shape="rect" id="node8" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="548,78,759,105"/>
+<area shape="rect" id="node9" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="251,71,488,112"/>
+<area shape="rect" id="node10" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,78,203,105"/>
+</map>

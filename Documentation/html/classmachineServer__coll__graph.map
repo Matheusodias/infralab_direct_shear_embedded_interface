@@ -1,0 +1,5 @@
+<map id="machineServer" name="machineServer">
+<area shape="rect" id="node1" title="Classe que simula o servidor da máquina real." alt="" coords="20,189,223,384"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,27,83,105"/>
+<area shape="rect" id="node3" href="$unioninterface__to__machine__message.html" title="Essa union tem como objetivo facilitar o envio de mensagens da interface para a máquina." alt="" coords="107,5,291,127"/>
+</map>

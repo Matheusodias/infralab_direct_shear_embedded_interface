@@ -1,0 +1,5 @@
+<map id="Button::changePage_InsideExperiment" name="Button::changePage_InsideExperiment">
+<area shape="rect" id="node1" title="Responsável por alterar entre as páginas de gráficos/tabelas/resultados dentro da página Adensamento ..." alt="" coords="5,5,156,47"/>
+<area shape="rect" id="node2" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="204,5,367,47"/>
+<area shape="rect" id="node3" href="$classButton.html#abe0085dede1634da84daf8300a428cab" title="Altera o ícone e estilo do botão." alt="" coords="415,13,624,39"/>
+</map>

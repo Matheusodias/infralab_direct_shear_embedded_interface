@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['sample_5fdescription_0',['sample_description',['../classExperiment.html#a9d6699908f7694030c24a7d4bfba2d98',1,'Experiment']]],
+  ['sample_5fid_1',['sample_id',['../classExperiment.html#ae47297fb962ea28b051fd1b596b62afa',1,'Experiment']]],
+  ['sample_5flocation_2',['sample_location',['../classExperiment.html#af919e6f8cc7c711a3e8db729087dfd2b',1,'Experiment']]],
+  ['sample_5fnumber_3',['sample_number',['../unionmachine__to__interface__message.html#a0c28cff36bc972dd1e8c885cc049cd3e',1,'machine_to_interface_message::sample_number()'],['../classDensification.html#a80eaca909461bb3978da349648fbca70',1,'Densification::sample_number()']]],
+  ['sample_5fnumber_5fdiff_4',['sample_number_diff',['../classShear.html#ac5117305ee6ed0bfc3955ba6063ac261',1,'Shear']]],
+  ['sample_5fperiod_5',['sample_period',['../unioninterface__to__machine__message.html#aab192588dfef07ce659aa12b718421c2',1,'interface_to_machine_message::sample_period()'],['../classExperiment.html#a278253e468df6dbcd59c293ce685c2f8',1,'Experiment::sample_period()']]],
+  ['sample_5fpreparations_6',['sample_preparations',['../classExperiment.html#a2d981a411dda85b80b9a561382f2b79c',1,'Experiment']]],
+  ['sampling_5fperiod_7',['sampling_period',['../classsendCommands.html#a69baca17b4bd0fb25cd386cb088f5d8f',1,'sendCommands']]],
+  ['send_5fdata_8',['send_data',['../classMainWindow.html#a8ee41e9bf117da9f605a4e5ddd47ada6',1,'MainWindow']]],
+  ['series_9',['series',['../classCharts.html#aafd5451803f389f4b7976127a4f9bbb8',1,'Charts']]],
+  ['server_5fsocket_5fid_10',['server_socket_id',['../classreceiveData.html#add6c18deee92b29f6fe841b26055d6ef',1,'receiveData::server_socket_id()'],['../classmachineServer.html#afe98a8b796bb42434885b5b7fa3cc342',1,'machineServer::server_socket_id()']]],
+  ['server_5fsocket_5fname_11',['server_socket_name',['../classreceiveData.html#a1906a1e520602036810fb42b500121e1',1,'receiveData::server_socket_name()'],['../classmachineServer.html#ab233ad666aba4e69984c1dc8fb404076',1,'machineServer::server_socket_name()']]],
+  ['setupbuttons_12',['setupButtons',['../classMainWindow.html#a8ac7a663a463407786f0bc96b8432b9a',1,'MainWindow']]],
+  ['setupfields_13',['setupFields',['../classMainWindow.html#a2614f679c2a2cb6cbcb067b90b06113d',1,'MainWindow::setupFields()'],['../classSocketTests.html#af655d424666018f57d9b1bea49411219',1,'SocketTests::setupFields()']]],
+  ['shear_5fdensification_5fvariables_14',['shear_densification_variables',['../classreceiveData.html#abcc0413185d5abd5ee561cc0d58b4989',1,'receiveData']]],
+  ['shear_5fvariables_15',['shear_variables',['../classExperiment.html#a8bd616c071892a22d5817935d919f061',1,'Experiment']]],
+  ['sheartable_16',['shearTable',['../classTable.html#a71f880d926363ceef52b44b0431b72cd',1,'Table']]],
+  ['socket_5fid_17',['socket_id',['../classsendCommands.html#ac7c70a84924211dd4f425b53891de7b6',1,'sendCommands::socket_id()'],['../classmachineClient.html#ae17038dd9ff6410b0d828244a13b6495',1,'machineClient::socket_id()']]],
+  ['socket_5fname_18',['socket_name',['../classsendCommands.html#a62bf5fe9e92e48845d91f58b5ea7065d',1,'sendCommands::socket_name()'],['../classmachineClient.html#ac151b33181175832792a097556b155a9',1,'machineClient::socket_name()']]],
+  ['specimen_5ftype_19',['specimen_type',['../classExperiment.html#a330405279fc09ab0575dee49d5d5dbb5',1,'Experiment']]],
+  ['spgr_5fsolids_20',['spgr_solids',['../classExperiment.html#a5d475bbec402f27bc1df2ef4e9f00585',1,'Experiment']]],
+  ['state_21',['state',['../unionmachine__to__interface__message.html#ad506defda51f14770f77cb0481d5f563',1,'machine_to_interface_message']]]
+];

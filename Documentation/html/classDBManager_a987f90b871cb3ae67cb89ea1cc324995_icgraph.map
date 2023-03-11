@@ -1,0 +1,9 @@
+<map id="DBManager::isOpen" name="DBManager::isOpen">
+<area shape="rect" id="node1" title="Verifica se o banco de dados está aberto." alt="" coords="816,97,967,123"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="549,5,755,47"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#ac76cb9253a56913418c978dc7309be47" title=" " alt="" coords="268,115,471,156"/>
+<area shape="rect" id="node6" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="547,71,757,98"/>
+<area shape="rect" id="node7" href="$classMainWindow.html#a8221c31d614dddd7a191b467d577326b" title=" " alt="" coords="536,173,768,215"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="251,49,488,91"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,90,203,117"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="receiveData::readClientMessage" name="receiveData::readClientMessage">
+<area shape="rect" id="node1" title="Lê as mensagens enviadas pela camada de controle." alt="" coords="184,5,419,32"/>
+<area shape="rect" id="node2" href="$classreceiveData.html#a04031f07eff174633eacf28a4ef0dd5a" title="Roda a thread." alt="" coords="5,5,136,32"/>
+</map>

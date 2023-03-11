@@ -1,0 +1,14 @@
+<map id="Button::setButtonShadow" name="Button::setButtonShadow">
+<area shape="rect" id="node1" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="1555,202,1741,229"/>
+<area shape="rect" id="node2" href="$classButton.html#aebb7f32f1ebbbbc0841972cf768b3e86" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="1308,143,1507,170"/>
+<area shape="rect" id="node9" href="$classButton.html#ad4898a0bc691dc7ab88cd982c570e1f1" title="Realiza a estilização de botões dentro de 1 layout." alt="" coords="553,195,751,236"/>
+<area shape="rect" id="node12" href="$classButton.html#ab34728eb6fe613378c0d6916a543fb4c" title="Estilização dos botões de um Widget escolhido." alt="" coords="1308,253,1507,295"/>
+<area shape="rect" id="node3" href="$classButton.html#ac6c10157e9ccd3e8bd486bccb50e9f1b" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="1081,77,1260,119"/>
+<area shape="rect" id="node6" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="257,104,495,145"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#affdd275f1853acf7c50f0833478430a6" title=" " alt="" coords="803,34,1033,61"/>
+<area shape="rect" id="node8" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="813,89,1023,115"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="549,27,755,68"/>
+<area shape="rect" id="node7" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,145,203,171"/>
+<area shape="rect" id="node10" href="$classMainWindow.html#a15df3f5fc73b561784decece6db7b25d" title=" " alt="" coords="251,169,501,211"/>
+<area shape="rect" id="node11" href="$classMainWindow.html#a26796baa6beb8d518789aeabcd30de27" title=" " alt="" coords="257,235,495,276"/>
+</map>

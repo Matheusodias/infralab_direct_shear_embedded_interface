@@ -1,0 +1,9 @@
+<map id="Button::initialButtonStyling" name="Button::initialButtonStyling">
+<area shape="rect" id="node1" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="1300,113,1499,140"/>
+<area shape="rect" id="node2" href="$classButton.html#ac6c10157e9ccd3e8bd486bccb50e9f1b" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="1073,77,1252,118"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="251,55,488,97"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#affdd275f1853acf7c50f0833478430a6" title=" " alt="" coords="795,33,1025,60"/>
+<area shape="rect" id="node7" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="536,92,747,119"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="539,26,744,67"/>
+<area shape="rect" id="node6" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,33,203,60"/>
+</map>

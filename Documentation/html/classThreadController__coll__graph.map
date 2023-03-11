@@ -1,0 +1,11 @@
+<map id="ThreadController" name="ThreadController">
+<area shape="rect" id="node1" title="Classe que controla a thread criada por receiveData." alt="" coords="5,1147,232,1312"/>
+<area shape="rect" id="node2" title=" " alt="" coords="136,5,211,83"/>
+<area shape="rect" id="node5" href="$classTable.html" title=" " alt="" coords="135,588,356,797"/>
+<area shape="rect" id="node6" href="$classExperiment.html" title=" " alt="" coords="221,375,406,525"/>
+<area shape="rect" id="node8" href="$classShear.html" title=" " alt="" coords="236,139,460,305"/>
+<area shape="rect" id="node3" href="$classreceiveData.html" title="Classe que recebe os dados da camada de controle." alt="" coords="220,875,447,1084"/>
+<area shape="rect" id="node4" title=" " alt="" coords="380,654,457,731"/>
+<area shape="rect" id="node7" href="$classDensification.html" title="Classe do adensamento." alt="" coords="484,132,719,312"/>
+<area shape="rect" id="node9" href="$unionmachine__to__interface__message.html" title="Essa union tem como objetivo facilitar o envio de mensagem da máquina para a interface." alt="" coords="481,632,679,753"/>
+</map>

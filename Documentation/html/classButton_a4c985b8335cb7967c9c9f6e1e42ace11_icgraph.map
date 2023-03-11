@@ -1,0 +1,18 @@
+<map id="Button::changeButton_style" name="Button::changeButton_style">
+<area shape="rect" id="node1" title="Altera a estilização do botão ao ser clicado." alt="" coords="1088,231,1251,273"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#affdd275f1853acf7c50f0833478430a6" title=" " alt="" coords="809,5,1039,32"/>
+<area shape="rect" id="node6" href="$classButton.html#a5212b719527f925488b0ca0eb57e82fa" title="Responsável por alterar a página e o estilo dos botões do cabeçalho ao trocar de página." alt="" coords="825,122,1023,163"/>
+<area shape="rect" id="node8" href="$classMainWindow.html#a8caf6243445f79c400ba6bd21dd13d1a" title=" " alt="" coords="829,297,1019,324"/>
+<area shape="rect" id="node10" href="$classMainWindow.html#a15df3f5fc73b561784decece6db7b25d" title=" " alt="" coords="251,231,501,273"/>
+<area shape="rect" id="node12" href="$classMainWindow.html#a26796baa6beb8d518789aeabcd30de27" title=" " alt="" coords="257,374,495,415"/>
+<area shape="rect" id="node13" href="$classButton.html#a6a928d6c664a1e9ce81dd42538644737" title="Responsável por alterar entre as páginas de gráficos/tabelas/resultados dentro da página Adensamento ..." alt="" coords="849,57,999,98"/>
+<area shape="rect" id="node14" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="549,188,760,215"/>
+<area shape="rect" id="node15" href="$classMainWindow.html#af2e45ec6487a4e29d526bc595ce6279d" title=" " alt="" coords="564,457,745,484"/>
+<area shape="rect" id="node16" href="$classMainWindow.html#a8221c31d614dddd7a191b467d577326b" title=" " alt="" coords="808,509,1040,550"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="552,57,757,98"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,207,203,233"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="257,145,495,186"/>
+<area shape="rect" id="node7" href="$classMainWindow.html#a75c422d77aa7ebb8ed4ce157c8ae7d50" title=" " alt="" coords="551,122,758,163"/>
+<area shape="rect" id="node9" href="$classMainWindow.html#a4f62ea05074fb53c9d9abf15ed268cee" title=" " alt="" coords="549,290,760,331"/>
+<area shape="rect" id="node11" href="$classMainWindow.html#aac67d238f6aa97e90abe5644665061dd" title=" " alt="" coords="555,356,754,383"/>
+</map>

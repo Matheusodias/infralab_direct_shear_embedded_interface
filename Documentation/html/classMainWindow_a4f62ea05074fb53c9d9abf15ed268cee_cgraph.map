@@ -1,0 +1,52 @@
+<map id="MainWindow::changeOutsideExperimentPage" name="MainWindow::changeOutsideExperimentPage">
+<area shape="rect" id="node1" title=" " alt="" coords="5,427,216,468"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a8caf6243445f79c400ba6bd21dd13d1a" title=" " alt="" coords="264,434,455,461"/>
+<area shape="rect" id="node3" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="513,376,676,417"/>
+<area shape="rect" id="node5" href="$classTable.html#ab19f55d0556620922a35819f40ca03cc" title=" " alt="" coords="503,459,687,500"/>
+<area shape="rect" id="node4" href="$classButton.html#abe0085dede1634da84daf8300a428cab" title="Altera o ícone e estilo do botão." alt="" coords="735,365,944,391"/>
+<area shape="rect" id="node6" href="$classExperiment.html#a6af24e8d790bf042379a9eff8438168e" title=" " alt="" coords="752,1612,927,1653"/>
+<area shape="rect" id="node40" href="$classExperiment.html#ad35a585c489a6ee64cf8ec540a83f776" title=" " alt="" coords="752,640,927,681"/>
+<area shape="rect" id="node41" href="$classExperiment.html#aa6738c4a32308c6e7da6e06a50fa8a9d" title=" " alt="" coords="1724,425,1959,467"/>
+<area shape="rect" id="node45" href="$classExperiment.html#ad45ca83650aefa15065bb6a3d5ecbf24" title=" " alt="" coords="1724,192,1959,233"/>
+<area shape="rect" id="node7" href="$classExperiment.html#ae11d16f8a788b63c04dffbbcd43821b5" title=" " alt="" coords="998,1510,1213,1537"/>
+<area shape="rect" id="node10" href="$classExperiment.html#aaf6a9ca212a784d27aa163d6faea15bd" title=" " alt="" coords="2309,433,2465,459"/>
+<area shape="rect" id="node11" href="$classExperiment.html#a9040ea52901ce71872b35f8f4f58f08a" title=" " alt="" coords="1024,2212,1187,2253"/>
+<area shape="rect" id="node12" href="$classExperiment.html#a6c89b4ffbb81bcfd19cde19970ce59c9" title=" " alt="" coords="1021,2277,1189,2319"/>
+<area shape="rect" id="node13" href="$classExperiment.html#ad39d6ad7b59396a7f964fa42afee702b" title=" " alt="" coords="1012,2343,1199,2370"/>
+<area shape="rect" id="node14" href="$classExperiment.html#aa21e92c180c099145dae84cfb7fe1495" title=" " alt="" coords="1513,841,1676,883"/>
+<area shape="rect" id="node15" href="$classExperiment.html#aaef81923feb7765138910c32b13568d1" title=" " alt="" coords="1760,773,1923,815"/>
+<area shape="rect" id="node16" href="$classExperiment.html#aaf600848b5547d307c0a4696fb63c70f" title=" " alt="" coords="2037,739,2199,780"/>
+<area shape="rect" id="node17" href="$classExperiment.html#a3d1031bcacac162ddb02f69a1cbcb25d" title=" " alt="" coords="1024,2395,1187,2436"/>
+<area shape="rect" id="node18" href="$classExperiment.html#a3ff0baf87af56e9a2ed589d62729ca44" title=" " alt="" coords="1024,2460,1187,2501"/>
+<area shape="rect" id="node19" href="$classExperiment.html#acf81f7afae53ed0bacad09fb4685444b" title=" " alt="" coords="1024,2525,1187,2567"/>
+<area shape="rect" id="node20" href="$classExperiment.html#ae1b394d045f0b6f7144b22eef9a3d4e0" title=" " alt="" coords="1024,876,1187,917"/>
+<area shape="rect" id="node21" href="$classExperiment.html#a66f75a4abd577376385a10cdf98eb4fd" title=" " alt="" coords="1285,876,1447,917"/>
+<area shape="rect" id="node22" href="$classExperiment.html#a4c7f23dedb41d2695ca6144dbc987fd4" title=" " alt="" coords="1285,811,1447,852"/>
+<area shape="rect" id="node23" href="$classExperiment.html#a280825da487d688130770451a6ab003c" title=" " alt="" coords="1024,2095,1187,2136"/>
+<area shape="rect" id="node25" href="$classExperiment.html#a03e77dc80842601ec07cf0e969356cd1" title=" " alt="" coords="1024,1145,1187,1187"/>
+<area shape="rect" id="node26" href="$classExperiment.html#aaf6e33bc486a90c5b4b25802e4a9aec2" title=" " alt="" coords="1023,1211,1188,1252"/>
+<area shape="rect" id="node27" href="$classExperiment.html#ae8a007981bd1717a0075c8ae6d6bbd97" title=" " alt="" coords="1023,1277,1188,1303"/>
+<area shape="rect" id="node28" href="$classExperiment.html#a6cc387b02fe948552e462b8c5dd18db3" title=" " alt="" coords="992,1327,1219,1354"/>
+<area shape="rect" id="node29" href="$classExperiment.html#aaaa1c019d488e663ffea392fb6ccf0d5" title=" " alt="" coords="1021,1379,1190,1420"/>
+<area shape="rect" id="node30" href="$classExperiment.html#ab6b23be57f424400ac0d96a05a7b3ce1" title=" " alt="" coords="1014,1561,1197,1587"/>
+<area shape="rect" id="node31" href="$classExperiment.html#ae9d1b76b25dc7f5e7ab46c9fe703b3b0" title=" " alt="" coords="1018,1612,1193,1653"/>
+<area shape="rect" id="node32" href="$classExperiment.html#aa6ab77bc625c9d6459dfa3974ebaa5bb" title=" " alt="" coords="1008,1678,1203,1705"/>
+<area shape="rect" id="node33" href="$classExperiment.html#a619692dc653731b6322d8c950ec0ddbb" title=" " alt="" coords="1018,1729,1193,1771"/>
+<area shape="rect" id="node34" href="$classExperiment.html#ae4679485980d8fac459687ade84b019f" title=" " alt="" coords="1018,1795,1193,1836"/>
+<area shape="rect" id="node35" href="$classExperiment.html#a015893c7e906beda288fe73534a06417" title=" " alt="" coords="992,1861,1219,1887"/>
+<area shape="rect" id="node36" href="$classExperiment.html#ab431560c9c5ba8f716a58f47821b4edb" title=" " alt="" coords="1028,1912,1183,1953"/>
+<area shape="rect" id="node37" href="$classExperiment.html#a74480f4841118a354a42a128e3a0a21b" title=" " alt="" coords="1011,1978,1199,2005"/>
+<area shape="rect" id="node38" href="$classExperiment.html#a051f67a7253d96b8eec25b0e0ebe5829" title=" " alt="" coords="1027,2029,1184,2071"/>
+<area shape="rect" id="node39" href="$classExperiment.html#a6aad236da224e41699a639eeb1bc518a" title=" " alt="" coords="1022,1444,1189,1485"/>
+<area shape="rect" id="node8" href="$classExperiment.html#a9f478aa108f02dddab71820d7fe79218" title=" " alt="" coords="1279,1503,1453,1544"/>
+<area shape="rect" id="node9" href="$classExperiment.html#a3fdee918a879899a44436df570232c68" title=" " alt="" coords="1267,1451,1465,1478"/>
+<area shape="rect" id="node24" href="$classExperiment.html#a17efcf47483d162e3f9cb5d358d1a8ae" title=" " alt="" coords="1285,2095,1447,2136"/>
+<area shape="rect" id="node42" href="$classDensification.html#a6ef1e90d42a097ca83cdc7556d674736" title="Retorna alguns dos valores utilizados na tabela de resultados do adensamento." alt="" coords="2007,484,2229,525"/>
+<area shape="rect" id="node43" href="$classExperiment.html#a04b8a7b57e9b1f15b569a780056c984b" title=" " alt="" coords="2027,301,2209,343"/>
+<area shape="rect" id="node44" href="$classDensification.html#a9e31e5721650e32561d01a4acbcff4ea" title="Retorna o valor do deslocamento vertical." alt="" coords="2025,367,2211,408"/>
+<area shape="rect" id="node46" href="$classExperiment.html#a102979e2a1770705fc70121780647e8d" title=" " alt="" coords="2009,149,2227,175"/>
+<area shape="rect" id="node47" href="$classExperiment.html#aab03f5ae06bd6f0a8193e90e87730567" title=" " alt="" coords="2007,47,2229,74"/>
+<area shape="rect" id="node48" href="$classDensification.html#ae491dce1841d991c1b9d5f69c8fc0151" title="Retorna o valor da carga vertical." alt="" coords="2277,22,2497,49"/>
+<area shape="rect" id="node49" href="$classShear.html#a7a900134e08230a0ca120dd4f510d410" title=" " alt="" coords="2031,98,2205,125"/>
+<area shape="rect" id="node50" href="$classExperiment.html#aa86a4069a181600f13da23aae7ebc54e" title=" " alt="" coords="2012,199,2224,226"/>
+</map>

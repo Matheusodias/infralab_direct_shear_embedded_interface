@@ -1,0 +1,10 @@
+<map id="receiveData" name="receiveData">
+<area shape="rect" id="node1" title="Classe que recebe os dados da camada de controle." alt="" coords="104,875,331,1084"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,654,83,731"/>
+<area shape="rect" id="node3" href="$classTable.html" title=" " alt="" coords="107,588,328,797"/>
+<area shape="rect" id="node4" title=" " alt="" coords="169,5,244,83"/>
+<area shape="rect" id="node5" href="$classExperiment.html" title=" " alt="" coords="211,375,397,525"/>
+<area shape="rect" id="node7" href="$classShear.html" title=" " alt="" coords="244,139,468,305"/>
+<area shape="rect" id="node6" href="$classDensification.html" title="Classe do adensamento." alt="" coords="492,132,727,312"/>
+<area shape="rect" id="node8" href="$unionmachine__to__interface__message.html" title="Essa union tem como objetivo facilitar o envio de mensagem da máquina para a interface." alt="" coords="353,632,551,753"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="sendCommands::connectToMachine" name="sendCommands::connectToMachine">
+<area shape="rect" id="node1" title=" " alt="" coords="251,31,505,57"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,5,203,32"/>
+<area shape="rect" id="node3" href="$classSocketTests.html#aa630bce8a280910056a3feef8b0e79c2" title="Contrutor da classe de testes do socket. Pode ser utilizado para instanciar classes,..." alt="" coords="13,56,195,83"/>
+</map>

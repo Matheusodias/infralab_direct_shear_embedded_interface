@@ -1,0 +1,7 @@
+<map id="MainWindow::connectButtonToSlots_WithArguments" name="MainWindow::connectButtonToSlots_WithArguments">
+<area shape="rect" id="node1" title=" " alt="" coords="5,39,212,80"/>
+<area shape="rect" id="node2" href="$classButton.html#a5212b719527f925488b0ca0eb57e82fa" title="Responsável por alterar a página e o estilo dos botões do cabeçalho ao trocar de página." alt="" coords="260,5,459,47"/>
+<area shape="rect" id="node5" href="$classButton.html#a6a928d6c664a1e9ce81dd42538644737" title="Responsável por alterar entre as páginas de gráficos/tabelas/resultados dentro da página Adensamento ..." alt="" coords="284,71,435,112"/>
+<area shape="rect" id="node3" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="507,39,669,80"/>
+<area shape="rect" id="node4" href="$classButton.html#abe0085dede1634da84daf8300a428cab" title="Altera o ícone e estilo do botão." alt="" coords="717,46,927,73"/>
+</map>

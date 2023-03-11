@@ -1,0 +1,4 @@
+<map id="machineServer" name="machineServer">
+<area shape="rect" id="node1" title="Classe que simula o servidor da máquina real." alt="" coords="5,131,208,325"/>
+<area shape="rect" id="node2" title=" " alt="" coords="68,5,145,83"/>
+</map>

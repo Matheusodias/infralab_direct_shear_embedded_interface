@@ -1,0 +1,52 @@
+<map id="MainWindow::MainWindow" name="MainWindow::MainWindow">
+<area shape="rect" id="node1" title="Constrói uma nova janela principal." alt="" coords="5,1179,203,1206"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#affdd275f1853acf7c50f0833478430a6" title=" " alt="" coords="819,1090,1049,1117"/>
+<area shape="rect" id="node8" href="$classMainWindow.html#a0e07d79fd6b20607d7cdd1bb7f62dad5" title=" " alt="" coords="1127,619,1308,660"/>
+<area shape="rect" id="node34" href="$classMainWindow.html#af757d8fb90a83169f2287272d563787e" title=" " alt="" coords="279,1029,477,1071"/>
+<area shape="rect" id="node35" href="$classsendCommands.html#ae881a042bc1517fc757a68eba0a0b1d8" title=" " alt="" coords="251,1095,505,1122"/>
+<area shape="rect" id="node36" href="$classMainWindow.html#ac76cb9253a56913418c978dc7309be47" title=" " alt="" coords="277,1147,479,1188"/>
+<area shape="rect" id="node40" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="259,1269,497,1311"/>
+<area shape="rect" id="node47" href="$classMainWindow.html#a15df3f5fc73b561784decece6db7b25d" title=" " alt="" coords="253,1364,503,1405"/>
+<area shape="rect" id="node48" href="$classMainWindow.html#a26796baa6beb8d518789aeabcd30de27" title=" " alt="" coords="259,1429,497,1471"/>
+<area shape="rect" id="node49" href="$classMainWindow.html#ace1b33bc8f7ef9ba2e6ff2e9ff9293cf" title=" " alt="" coords="259,1495,497,1536"/>
+<area shape="rect" id="node50" href="$classMainWindow.html#a0572dabc3e5f9fe9137f86c17302a1e0" title=" " alt="" coords="259,1560,497,1601"/>
+<area shape="rect" id="node3" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="1136,1541,1299,1583"/>
+<area shape="rect" id="node4" href="$classButton.html#ac6c10157e9ccd3e8bd486bccb50e9f1b" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="1128,872,1307,913"/>
+<area shape="rect" id="node5" href="$classTable.html#ac5be0d5d2809b2fc68c3ede8d2e99ac8" title=" " alt="" coords="1120,938,1315,965"/>
+<area shape="rect" id="node6" href="$classField.html#abfb43e3e1759339de3f743745b45b654" title="Limpa os campos de texto de uma layout escolhido." alt="" coords="1152,989,1283,1015"/>
+<area shape="rect" id="node7" href="$classTable.html#a445e20c0a0cda03e23b4db2c36aa1eaa" title=" " alt="" coords="1130,1039,1305,1066"/>
+<area shape="rect" id="node28" href="$classCharts.html#ae9aac72b80ddb49e1815b0ec63eb6dc4" title="Cria um gráfico e o insere em um layout." alt="" coords="1119,1375,1315,1402"/>
+<area shape="rect" id="node29" href="$classMainWindow.html#a83c512585197b3f42f27f6047e7b4e18" title=" " alt="" coords="1097,1141,1337,1183"/>
+<area shape="rect" id="node30" href="$classsendCommands.html#a03950b488e1f0bd4f0c4802be7d2bc88" title=" " alt="" coords="1387,1151,1611,1178"/>
+<area shape="rect" id="node31" href="$classsendCommands.html#ac2379ecb47a657af12162a8ffa9f682b" title=" " alt="" coords="1387,1203,1610,1230"/>
+<area shape="rect" id="node32" href="$classCharts.html#a81e5f887e8a6ea879c30277d23fc1bba" title="Apaga os gráficos atuais." alt="" coords="1144,1258,1291,1285"/>
+<area shape="rect" id="node33" href="$classDensification.html#acc174731ebef3d079eb31352258235b8" title="Insere os dados recebidos nas variáveis da classe this&#45;&gt;sample_number, this&#45;&gt;vertical_displacement e ..." alt="" coords="1107,1309,1327,1351"/>
+<area shape="rect" id="node9" href="$classExperiment.html#ac02ab5d229426752e0f097d9b10bd9c1" title=" " alt="" coords="1417,371,1580,412"/>
+<area shape="rect" id="node10" href="$classExperiment.html#aca783f18464bd4725278d9f26e23f7f2" title=" " alt="" coords="1415,436,1582,477"/>
+<area shape="rect" id="node11" href="$classExperiment.html#aa55123c15635bf7b14d50c123fbfde0a" title=" " alt="" coords="1405,502,1592,529"/>
+<area shape="rect" id="node12" href="$classExperiment.html#a6f0d10d1ae234685688bd02fcd34f155" title=" " alt="" coords="1417,553,1580,595"/>
+<area shape="rect" id="node13" href="$classExperiment.html#a2f3e642a23b5d5a34d7a8fc3c38452c1" title=" " alt="" coords="1417,619,1580,660"/>
+<area shape="rect" id="node14" href="$classExperiment.html#a91303c81b624d2449279b2f884f3e9e8" title=" " alt="" coords="1417,684,1580,725"/>
+<area shape="rect" id="node15" href="$classExperiment.html#a60b57ab43676d057b43f27bafacfa651" title=" " alt="" coords="1417,749,1581,791"/>
+<area shape="rect" id="node16" href="$classExperiment.html#abb9a337aca5838393f2840dcbdfc29ac" title=" " alt="" coords="1417,815,1581,842"/>
+<area shape="rect" id="node17" href="$classExperiment.html#a4ba1e80653367e8c20ca3371642c79c9" title=" " alt="" coords="1385,866,1612,893"/>
+<area shape="rect" id="node18" href="$classExperiment.html#a02c8452be43b98f8b1a667920b2a9674" title=" " alt="" coords="1415,917,1583,959"/>
+<area shape="rect" id="node19" href="$classExperiment.html#a71552490f62d2a39f1edb8bb71bc242b" title=" " alt="" coords="1408,983,1589,1010"/>
+<area shape="rect" id="node20" href="$classExperiment.html#aa868c5acf73bc283f20827e63a393659" title=" " alt="" coords="1411,1035,1586,1076"/>
+<area shape="rect" id="node21" href="$classExperiment.html#aefa4c9f0202268c29a69e1e03b11c665" title=" " alt="" coords="1402,1101,1595,1127"/>
+<area shape="rect" id="node22" href="$classExperiment.html#acf1794055dc8096d5ef7b61e03c4f8d2" title=" " alt="" coords="1411,5,1586,47"/>
+<area shape="rect" id="node23" href="$classExperiment.html#acbdd1e9ae8f9f0ce3b9559725d5c7ea5" title=" " alt="" coords="1411,71,1586,112"/>
+<area shape="rect" id="node24" href="$classExperiment.html#a78b14acf93fd3e2e042078d2d63ee85a" title=" " alt="" coords="1386,137,1611,163"/>
+<area shape="rect" id="node25" href="$classExperiment.html#a91171da56d5482b5215267b14d9d8b7a" title=" " alt="" coords="1421,188,1576,229"/>
+<area shape="rect" id="node26" href="$classExperiment.html#acef56952e3fb838b2c3b28f027dfd63c" title=" " alt="" coords="1405,254,1592,281"/>
+<area shape="rect" id="node27" href="$classExperiment.html#aaed656001e9779b139a260d8cab10fea" title=" " alt="" coords="1421,305,1577,347"/>
+<area shape="rect" id="node37" href="$classDBManager.html#abca0d677c037167a3b750186c9cc3041" title="Cria uma tabela no banco de dados." alt="" coords="571,1031,753,1058"/>
+<area shape="rect" id="node38" href="$classDBManager.html#a987f90b871cb3ae67cb89ea1cc324995" title="Verifica se o banco de dados está aberto." alt="" coords="859,1141,1009,1167"/>
+<area shape="rect" id="node39" href="$classDBManager.html#ab3d3af8de32e78582ebd6cfa4adcdd9b" title="Verifica se a tabela existe no banco de dados." alt="" coords="573,981,751,1007"/>
+<area shape="rect" id="node41" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="559,1133,765,1175"/>
+<area shape="rect" id="node42" href="$classMainWindow.html#ae546629593e69d921d2b11e347936cc0" title=" " alt="" coords="553,1301,771,1327"/>
+<area shape="rect" id="node43" href="$classMainWindow.html#afd62c5218d2e8b4169c8aa7a37450c8d" title=" " alt="" coords="561,1352,763,1393"/>
+<area shape="rect" id="node44" href="$classMainWindow.html#a26e5cf9b0bfe140a28ddc36ab9761226" title=" " alt="" coords="561,1417,763,1459"/>
+<area shape="rect" id="node45" href="$classMainWindow.html#add01ef69577d59becb9db74c614ed55f" title=" " alt="" coords="556,1199,768,1226"/>
+<area shape="rect" id="node46" href="$classMainWindow.html#ae10ea7599790c12ff4da9a731544c3ac" title=" " alt="" coords="555,1483,769,1524"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="DBManager::insertValuesIntoBind_SampleVariablesUpdate" name="DBManager::insertValuesIntoBind_SampleVariablesUpdate">
+<area shape="rect" id="node1" title="Insere valores no bind da atualização da tabela SAMPLE_VARIABLES_TABLE." alt="" coords="1028,5,1243,47"/>
+<area shape="rect" id="node2" href="$classDBManager.html#aed0f155f0860eb1bf0374aa1ea548866" title="Atualiza os dados de uma tabela escolhida." alt="" coords="795,13,980,39"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="536,13,747,39"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="251,5,488,47"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,13,203,39"/>
+</map>

@@ -1,0 +1,52 @@
+<map id="MainWindow::InitialConfiguration_InsideExperimentButtons" name="MainWindow::InitialConfiguration_InsideExperimentButtons">
+<area shape="rect" id="node1" title=" " alt="" coords="5,1678,243,1719"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="297,1117,502,1158"/>
+<area shape="rect" id="node6" href="$classButton.html#aebb7f32f1ebbbbc0841972cf768b3e86" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="1135,132,1334,159"/>
+<area shape="rect" id="node12" href="$classCharts.html#ae9aac72b80ddb49e1815b0ec63eb6dc4" title="Cria um gráfico e o insere em um layout." alt="" coords="857,811,1053,837"/>
+<area shape="rect" id="node29" href="$classMainWindow.html#ae546629593e69d921d2b11e347936cc0" title=" " alt="" coords="291,1660,508,1687"/>
+<area shape="rect" id="node31" href="$classMainWindow.html#afd62c5218d2e8b4169c8aa7a37450c8d" title=" " alt="" coords="298,1958,501,1999"/>
+<area shape="rect" id="node32" href="$classMainWindow.html#a26e5cf9b0bfe140a28ddc36ab9761226" title=" " alt="" coords="298,1762,501,1803"/>
+<area shape="rect" id="node33" href="$classMainWindow.html#add01ef69577d59becb9db74c614ed55f" title=" " alt="" coords="293,1711,505,1737"/>
+<area shape="rect" id="node35" href="$classMainWindow.html#ae10ea7599790c12ff4da9a731544c3ac" title=" " alt="" coords="292,2023,507,2065"/>
+<area shape="rect" id="node36" href="$classMainWindow.html#a75c422d77aa7ebb8ed4ce157c8ae7d50" title=" " alt="" coords="296,241,503,282"/>
+<area shape="rect" id="node39" href="$classMainWindow.html#afd98b3f28546aaac27796e5efe8ee36e" title=" " alt="" coords="300,1827,499,1869"/>
+<area shape="rect" id="node40" href="$classMainWindow.html#aefa2341efbd1194726b6c2ef4c56bb24" title=" " alt="" coords="292,2089,507,2130"/>
+<area shape="rect" id="node41" href="$classButton.html#ad4898a0bc691dc7ab88cd982c570e1f1" title="Realiza a estilização de botões dentro de 1 layout." alt="" coords="1135,66,1334,107"/>
+<area shape="rect" id="node42" href="$classMainWindow.html#a3ccce9fc415ca9674d6fe20f907fa4a6" title=" " alt="" coords="566,1444,777,1471"/>
+<area shape="rect" id="node49" href="$classMainWindow.html#a8d84108e0fb9e6bb2e07a2ee3b5c2ce5" title=" " alt="" coords="296,1893,503,1934"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#affdd275f1853acf7c50f0833478430a6" title=" " alt="" coords="556,519,787,545"/>
+<area shape="rect" id="node18" href="$classExperiment.html#abc32b4f6ae60a461ca58eb34de12cf76" title=" " alt="" coords="589,1900,754,1927"/>
+<area shape="rect" id="node19" href="$classDBManager.html#ad34a1240f36d06d51fdf8376ad260029" title="Insere dados em uma tabela escolhida." alt="" coords="570,1033,773,1060"/>
+<area shape="rect" id="node28" href="$classDBManager.html#a987f90b871cb3ae67cb89ea1cc324995" title="Verifica se o banco de dados está aberto." alt="" coords="879,1124,1030,1151"/>
+<area shape="rect" id="node4" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="873,175,1036,217"/>
+<area shape="rect" id="node5" href="$classButton.html#ac6c10157e9ccd3e8bd486bccb50e9f1b" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="865,629,1044,670"/>
+<area shape="rect" id="node8" href="$classTable.html#ac5be0d5d2809b2fc68c3ede8d2e99ac8" title=" " alt="" coords="857,241,1052,268"/>
+<area shape="rect" id="node9" href="$classField.html#abfb43e3e1759339de3f743745b45b654" title="Limpa os campos de texto de uma layout escolhido." alt="" coords="889,292,1020,319"/>
+<area shape="rect" id="node10" href="$classTable.html#a445e20c0a0cda03e23b4db2c36aa1eaa" title=" " alt="" coords="867,343,1042,369"/>
+<area shape="rect" id="node11" href="$classMainWindow.html#a0e07d79fd6b20607d7cdd1bb7f62dad5" title=" " alt="" coords="864,394,1045,435"/>
+<area shape="rect" id="node13" href="$classMainWindow.html#a83c512585197b3f42f27f6047e7b4e18" title=" " alt="" coords="835,694,1075,735"/>
+<area shape="rect" id="node14" href="$classsendCommands.html#a03950b488e1f0bd4f0c4802be7d2bc88" title=" " alt="" coords="1123,701,1347,728"/>
+<area shape="rect" id="node15" href="$classsendCommands.html#ac2379ecb47a657af12162a8ffa9f682b" title=" " alt="" coords="1123,760,1346,787"/>
+<area shape="rect" id="node16" href="$classCharts.html#a81e5f887e8a6ea879c30277d23fc1bba" title="Apaga os gráficos atuais." alt="" coords="881,460,1028,487"/>
+<area shape="rect" id="node17" href="$classDensification.html#acc174731ebef3d079eb31352258235b8" title="Insere os dados recebidos nas variáveis da classe this&#45;&gt;sample_number, this&#45;&gt;vertical_displacement e ..." alt="" coords="845,511,1065,553"/>
+<area shape="rect" id="node7" href="$classButton.html#a690d8b24d0c0bc8c5f3ee6c292c2dcf9" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="1395,103,1581,129"/>
+<area shape="rect" id="node20" href="$classDBManager.html#a75ae2a9a6faa688125d1cd8e3e147d92" title="Insere valores no bind da inserção da tabela DENSIFICATION_TABLE." alt="" coords="849,1058,1060,1099"/>
+<area shape="rect" id="node22" href="$classDBManager.html#a7d0c9622b9cb16cad7d08d934a1bd396" title="Insere valores no bind da inserção da tabela EXPERIMENT_TABLE." alt="" coords="849,993,1060,1034"/>
+<area shape="rect" id="node23" href="$classDBManager.html#a4b31de2450dcac08382e5ba36b026dfc" title="Insere valores no bind da inserção da tabela FINAL_VARIABLES_TABLE." alt="" coords="849,1327,1060,1369"/>
+<area shape="rect" id="node26" href="$classDBManager.html#ae60cf7bdf747f5980661a33cc2d9bcfe" title="Insere valores no bind da inserção da tabela SAMPLE_VARIABLES_TABLE." alt="" coords="849,862,1060,903"/>
+<area shape="rect" id="node27" href="$classDBManager.html#aeaee5fac6ca1ab4ae3f4d7e56f59e955" title="Insere valores no bind da inserção da tabela SHEAR_TABLE." alt="" coords="849,927,1060,969"/>
+<area shape="rect" id="node21" href="$classDensification.html#ae4213034375eb9c6dd0e2658df3b6cbc" title="Retorna o valor do número de amostra atual." alt="" coords="1142,1163,1327,1205"/>
+<area shape="rect" id="node24" href="$classShear.html#ad1b6097331cfa92e7cc9da98e5a28fdf" title=" " alt="" coords="1162,1545,1307,1572"/>
+<area shape="rect" id="node25" href="$classShear.html#ab6d04af65955d80d8afa9b2a47062481" title=" " alt="" coords="1165,1799,1305,1825"/>
+<area shape="rect" id="node30" href="$classShear.html#a1b74562dbd797581939314cf00df7121" title=" " alt="" coords="599,1660,743,1687"/>
+<area shape="rect" id="node34" href="$classShear.html#ae7b0c633a54a3fd1aa70b3954b1eb737" title=" " alt="" coords="602,1799,741,1825"/>
+<area shape="rect" id="node37" href="$classButton.html#a5212b719527f925488b0ca0eb57e82fa" title="Responsável por alterar a página e o estilo dos botões do cabeçalho ao trocar de página." alt="" coords="572,175,771,217"/>
+<area shape="rect" id="node38" href="$classButton.html#a6a928d6c664a1e9ce81dd42538644737" title="Responsável por alterar entre as páginas de gráficos/tabelas/resultados dentro da página Adensamento ..." alt="" coords="596,241,747,282"/>
+<area shape="rect" id="node43" href="$classExperiment.html#af08e5bd3b0082f67b0302d7954604097" title=" " alt="" coords="859,1596,1050,1623"/>
+<area shape="rect" id="node44" href="$classsendCommands.html#a2cdfc04bda0735bf029dff73530c80e3" title=" " alt="" coords="849,1647,1061,1673"/>
+<area shape="rect" id="node45" href="$classShear.html#ac5c62c1f03a24e644f91310f4c762d83" title=" " alt="" coords="874,1697,1035,1724"/>
+<area shape="rect" id="node46" href="$classShear.html#a080fac05d3fd2e85ce81567f5575772b" title=" " alt="" coords="844,1393,1065,1420"/>
+<area shape="rect" id="node47" href="$classsendCommands.html#a71132768a57938877c53328773a4a7e6" title=" " alt="" coords="851,1444,1058,1471"/>
+<area shape="rect" id="node48" href="$classDBManager.html#aed0f155f0860eb1bf0374aa1ea548866" title="Atualiza os dados de uma tabela escolhida." alt="" coords="862,1495,1047,1521"/>
+<area shape="rect" id="node50" href="$classTable.html#ab19f55d0556620922a35819f40ca03cc" title=" " alt="" coords="579,1951,763,1993"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="Field::setVariables" name="Field::setVariables">
+<area shape="rect" id="node1" title="Define os valores das variáveis do experimento com base nos campos de texto." alt="" coords="976,13,1117,39"/>
+<area shape="rect" id="node2" href="$classField.html#a7f14ff7b5ee7149e4104fb63ec8e67c1" title="Realiza a customização de um campo de texto e de uma label." alt="" coords="743,13,928,39"/>
+<area shape="rect" id="node3" href="$classField.html#af2b557bde802869e0c45477d99cc6567" title="Customização dos campos de texto com a label superior de um layout escolhido." alt="" coords="536,13,695,39"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#ace1b33bc8f7ef9ba2e6ff2e9ff9293cf" title=" " alt="" coords="251,5,488,47"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,13,203,39"/>
+</map>

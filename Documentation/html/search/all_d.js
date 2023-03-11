@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['payload_0',['payload',['../unionmachine__to__interface__message.html#ac9d0ac956afa8073fe86a6850877a590',1,'machine_to_interface_message::payload()'],['../unioninterface__to__machine__message.html#a3efa1d418d98e495dfa0806be4573d33',1,'interface_to_machine_message::payload()']]],
+  ['phase_1',['phase',['../classExperiment.html#ac40ce42e49470860c7be3e1bcb15ee3c',1,'Experiment']]],
+  ['phases_5fbuttonsize_2',['phases_buttonSize',['../button_8h.html#abc39260694303bd08b33633ceb7ebef3',1,'button.h']]],
+  ['phases_5fcontinuebuttonsize_3',['phases_continueButtonSize',['../button_8h.html#ad95045298b4d85a02e5510ad200de3d1',1,'button.h']]],
+  ['phases_5ftable_4',['phases_table',['../table_8h.html#a8a82caec9ea49669cefe027e85c9ced5',1,'table.h']]],
+  ['phasesbutton_5fdarkbackgroundcolor_5',['phasesButton_darkBackgroundColor',['../button_8h.html#a57bb626d9c81da4cd7c599312ad37be1',1,'button.h']]],
+  ['phasesbutton_5flightbackgroundcolor_6',['phasesButton_lightBackgroundColor',['../button_8h.html#ad0e712a4db55bb72860f366809d97a57',1,'button.h']]],
+  ['pi_5fvalue_7',['pi_value',['../experiment_8h.html#aaf93360eb68e34301d1a20e95d04a22a',1,'experiment.h']]],
+  ['plastic_5flimit_8',['plastic_limit',['../classExperiment.html#a1091c615480afa7b6433e8d332e8b5cf',1,'Experiment']]],
+  ['present_5ftime_5fmiliseconds_9',['present_time_miliseconds',['../classExperiment.html#ac4aa1c4506bc40435cbdb456ead3f738',1,'Experiment']]],
+  ['present_5ftime_5fseconds_10',['present_time_seconds',['../classExperiment.html#a1372d332bd00fb4ff33d152a795f37ed',1,'Experiment']]],
+  ['pressure_11',['pressure',['../unioninterface__to__machine__message.html#a249023d12a32fc1a4de60aea40387752',1,'interface_to_machine_message::pressure()'],['../classExperiment.html#aba826800ffbfc6f9f05538f10d30c124',1,'Experiment::pressure()']]],
+  ['pressurebutton_5fgreenbackgroundcolor_12',['pressureButton_GreenBackgroundColor',['../button_8h.html#aa22b4adc13661d435fe09108ab317c67',1,'button.h']]],
+  ['pressurebutton_5fredbackgroundcolor_13',['pressureButton_RedBackgroundColor',['../button_8h.html#a4816a6183fe1b9e35bb222209909ef5e',1,'button.h']]],
+  ['pressurebutton_5fstyle_14',['pressureButton_style',['../classButton.html#a0136a519868fc03729f85d1aa317e8e7',1,'Button']]],
+  ['previousindex_15',['previousIndex',['../classMainWindow.html#a99d65f102dd847715c0d72cbcbf96203',1,'MainWindow']]],
+  ['prova_5fconceito_5fdatabase_16',['prova_conceito_database',['../classDBManager.html#ac2f43bd14d7b1f4af2eb8a120ac8719e',1,'DBManager']]],
+  ['publicvar_17',['publicVar',['../classQTstyle__Test.html#aabf7b2e9ed83ea44aca4d213baae06d3',1,'QTstyle_Test']]]
+];

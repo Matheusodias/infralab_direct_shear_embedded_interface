@@ -1,0 +1,4 @@
+<map id="ThreadController::receiveThreadFinishedSlot" name="ThreadController::receiveThreadFinishedSlot">
+<area shape="rect" id="node1" title="Esse slot é disparado quando a thread da classe receiveData termina antes da classe ThreadController." alt="" coords="237,5,424,47"/>
+<area shape="rect" id="node2" href="$classThreadController.html#afdbcf3ff6e00d3eadea56fa3c44289ad" title="Construtor da classe Thread Controller." alt="" coords="5,5,189,47"/>
+</map>

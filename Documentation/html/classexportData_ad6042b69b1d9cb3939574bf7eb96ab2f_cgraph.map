@@ -1,0 +1,4 @@
+<map id="exportData::exportCSV" name="exportData::exportCSV">
+<area shape="rect" id="node1" title="Essa função exporta o arquivo csv para o Github." alt="" coords="5,5,176,32"/>
+<area shape="rect" id="node2" href="$classexportData.html#a4eab41328916d09742569073aaa4a3a6" title="Escreve os dados de table_widget em um arquivo csv." alt="" coords="224,5,360,32"/>
+</map>

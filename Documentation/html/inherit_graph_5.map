@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" title=" " alt="" coords="5,233,80,260"/>
+<area shape="rect" id="node2" href="$classButton.html" title="Classe dos botões." alt="" coords="161,5,226,32"/>
+<area shape="rect" id="node3" href="$classCharts.html" title="Classe responsável pelos gráficos." alt="" coords="161,56,225,83"/>
+<area shape="rect" id="node4" href="$classDBManager.html" title="Classe do banco de dados." alt="" coords="144,107,243,133"/>
+<area shape="rect" id="node5" href="$classExperiment.html" title=" " alt="" coords="145,157,242,184"/>
+<area shape="rect" id="node6" href="$classField.html" title="Classe dos campos de texto." alt="" coords="167,208,220,235"/>
+<area shape="rect" id="node7" href="$classShear.html" title=" " alt="" coords="164,259,223,285"/>
+<area shape="rect" id="node8" href="$classSocketTests.html" title="Classe de testes para o socket." alt="" coords="144,309,243,336"/>
+<area shape="rect" id="node9" href="$classTable.html" title=" " alt="" coords="165,360,221,387"/>
+<area shape="rect" id="node10" href="$classThreadController.html" title="Classe que controla a thread criada por receiveData." alt="" coords="128,411,259,437"/>
+<area shape="rect" id="node11" href="$classexportData.html" title="Classe que exporta os dados para csv." alt="" coords="146,461,241,488"/>
+</map>

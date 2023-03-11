@@ -1,0 +1,12 @@
+<map id="Experiment::getPhase" name="Experiment::getPhase">
+<area shape="rect" id="node1" title=" " alt="" coords="819,177,984,203"/>
+<area shape="rect" id="node2" href="$classMainWindow.html#a7af4cc4d917959772fc3e61bea523aae" title=" " alt="" coords="551,136,756,177"/>
+<area shape="rect" id="node5" href="$classMainWindow.html#a26e5cf9b0bfe140a28ddc36ab9761226" title=" " alt="" coords="552,201,755,243"/>
+<area shape="rect" id="node6" href="$classMainWindow.html#afd98b3f28546aaac27796e5efe8ee36e" title=" " alt="" coords="554,5,753,47"/>
+<area shape="rect" id="node7" href="$classreceiveData.html#a6fc81b174e1a4fa5cc17cf787ebf02ca" title="Lê as mensagens enviadas pela camada de controle." alt="" coords="536,333,771,359"/>
+<area shape="rect" id="node9" href="$classDBManager.html#a21cbf98b7a26afb726f25e0bef65a664" title="Atualiza as tabelas de adensamento e cisalhamento." alt="" coords="544,267,763,308"/>
+<area shape="rect" id="node10" href="$classMainWindow.html#a8d84108e0fb9e6bb2e07a2ee3b5c2ce5" title=" " alt="" coords="550,71,757,112"/>
+<area shape="rect" id="node3" href="$classMainWindow.html#a8bb6e588c01a542f0144cd69e1556323" title=" " alt="" coords="251,104,488,145"/>
+<area shape="rect" id="node4" href="$classMainWindow.html#a996c5a2b6f77944776856f08ec30858d" title="Constrói uma nova janela principal." alt="" coords="5,111,203,138"/>
+<area shape="rect" id="node8" href="$classreceiveData.html#a04031f07eff174633eacf28a4ef0dd5a" title="Roda a thread." alt="" coords="304,333,435,359"/>
+</map>

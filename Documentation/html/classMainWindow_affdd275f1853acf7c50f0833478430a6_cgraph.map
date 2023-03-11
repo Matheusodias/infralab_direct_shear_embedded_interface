@@ -1,0 +1,38 @@
+<map id="MainWindow::cancelExperiment" name="MainWindow::cancelExperiment">
+<area shape="rect" id="node1" title=" " alt="" coords="5,361,236,388"/>
+<area shape="rect" id="node2" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="323,11,485,53"/>
+<area shape="rect" id="node4" href="$classButton.html#ac6c10157e9ccd3e8bd486bccb50e9f1b" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="315,270,493,311"/>
+<area shape="rect" id="node7" href="$classTable.html#ac5be0d5d2809b2fc68c3ede8d2e99ac8" title=" " alt="" coords="307,336,501,363"/>
+<area shape="rect" id="node8" href="$classField.html#abfb43e3e1759339de3f743745b45b654" title="Limpa os campos de texto de uma layout escolhido." alt="" coords="339,387,469,413"/>
+<area shape="rect" id="node9" href="$classTable.html#a445e20c0a0cda03e23b4db2c36aa1eaa" title=" " alt="" coords="317,437,491,464"/>
+<area shape="rect" id="node10" href="$classMainWindow.html#a0e07d79fd6b20607d7cdd1bb7f62dad5" title=" " alt="" coords="313,691,495,733"/>
+<area shape="rect" id="node30" href="$classCharts.html#ae9aac72b80ddb49e1815b0ec63eb6dc4" title="Cria um gráfico e o insere em um layout." alt="" coords="306,757,502,784"/>
+<area shape="rect" id="node31" href="$classMainWindow.html#a83c512585197b3f42f27f6047e7b4e18" title=" " alt="" coords="284,102,524,143"/>
+<area shape="rect" id="node33" href="$classsendCommands.html#a03950b488e1f0bd4f0c4802be7d2bc88" title=" " alt="" coords="573,123,797,149"/>
+<area shape="rect" id="node34" href="$classsendCommands.html#ac2379ecb47a657af12162a8ffa9f682b" title=" " alt="" coords="574,173,797,200"/>
+<area shape="rect" id="node35" href="$classCharts.html#a81e5f887e8a6ea879c30277d23fc1bba" title="Apaga os gráficos atuais." alt="" coords="331,808,477,835"/>
+<area shape="rect" id="node36" href="$classDensification.html#acc174731ebef3d079eb31352258235b8" title="Insere os dados recebidos nas variáveis da classe this&#45;&gt;sample_number, this&#45;&gt;vertical_displacement e ..." alt="" coords="294,859,514,901"/>
+<area shape="rect" id="node3" href="$classButton.html#abe0085dede1634da84daf8300a428cab" title="Altera o ícone e estilo do botão." alt="" coords="581,5,790,32"/>
+<area shape="rect" id="node5" href="$classButton.html#aebb7f32f1ebbbbc0841972cf768b3e86" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="586,224,785,251"/>
+<area shape="rect" id="node6" href="$classButton.html#a690d8b24d0c0bc8c5f3ee6c292c2dcf9" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="847,224,1033,251"/>
+<area shape="rect" id="node11" href="$classExperiment.html#ac02ab5d229426752e0f097d9b10bd9c1" title=" " alt="" coords="604,1174,767,1215"/>
+<area shape="rect" id="node12" href="$classExperiment.html#aca783f18464bd4725278d9f26e23f7f2" title=" " alt="" coords="602,1239,769,1281"/>
+<area shape="rect" id="node13" href="$classExperiment.html#aa55123c15635bf7b14d50c123fbfde0a" title=" " alt="" coords="592,1305,779,1332"/>
+<area shape="rect" id="node14" href="$classExperiment.html#a6f0d10d1ae234685688bd02fcd34f155" title=" " alt="" coords="604,1357,767,1398"/>
+<area shape="rect" id="node15" href="$classExperiment.html#a2f3e642a23b5d5a34d7a8fc3c38452c1" title=" " alt="" coords="604,275,767,317"/>
+<area shape="rect" id="node16" href="$classExperiment.html#a91303c81b624d2449279b2f884f3e9e8" title=" " alt="" coords="604,341,767,382"/>
+<area shape="rect" id="node17" href="$classExperiment.html#a60b57ab43676d057b43f27bafacfa651" title=" " alt="" coords="603,406,767,447"/>
+<area shape="rect" id="node18" href="$classExperiment.html#abb9a337aca5838393f2840dcbdfc29ac" title=" " alt="" coords="603,472,767,499"/>
+<area shape="rect" id="node19" href="$classExperiment.html#a4ba1e80653367e8c20ca3371642c79c9" title=" " alt="" coords="572,523,799,549"/>
+<area shape="rect" id="node20" href="$classExperiment.html#a02c8452be43b98f8b1a667920b2a9674" title=" " alt="" coords="601,574,769,615"/>
+<area shape="rect" id="node21" href="$classExperiment.html#a71552490f62d2a39f1edb8bb71bc242b" title=" " alt="" coords="595,640,776,667"/>
+<area shape="rect" id="node22" href="$classExperiment.html#aa868c5acf73bc283f20827e63a393659" title=" " alt="" coords="598,691,773,733"/>
+<area shape="rect" id="node23" href="$classExperiment.html#aefa4c9f0202268c29a69e1e03b11c665" title=" " alt="" coords="589,757,782,784"/>
+<area shape="rect" id="node24" href="$classExperiment.html#acf1794055dc8096d5ef7b61e03c4f8d2" title=" " alt="" coords="598,809,773,850"/>
+<area shape="rect" id="node25" href="$classExperiment.html#acbdd1e9ae8f9f0ce3b9559725d5c7ea5" title=" " alt="" coords="598,874,773,915"/>
+<area shape="rect" id="node26" href="$classExperiment.html#a78b14acf93fd3e2e042078d2d63ee85a" title=" " alt="" coords="573,940,798,967"/>
+<area shape="rect" id="node27" href="$classExperiment.html#a91171da56d5482b5215267b14d9d8b7a" title=" " alt="" coords="608,991,763,1033"/>
+<area shape="rect" id="node28" href="$classExperiment.html#acef56952e3fb838b2c3b28f027dfd63c" title=" " alt="" coords="592,1057,779,1084"/>
+<area shape="rect" id="node29" href="$classExperiment.html#aaed656001e9779b139a260d8cab10fea" title=" " alt="" coords="607,1109,763,1150"/>
+<area shape="rect" id="node32" href="$classButton.html#af7983ab8d7c20394e58bbb79ccb3d8a7" title="Estilização do botão de início do experimento." alt="" coords="601,57,770,98"/>
+</map>

@@ -1,0 +1,24 @@
+<map id="MainWindow::initShearPhase" name="MainWindow::initShearPhase">
+<area shape="rect" id="node1" title=" " alt="" coords="5,381,216,407"/>
+<area shape="rect" id="node2" href="$classButton.html#a4c985b8335cb7967c9c9f6e1e42ace11" title="Altera a estilização do botão ao ser clicado." alt="" coords="295,5,457,47"/>
+<area shape="rect" id="node4" href="$classButton.html#ac6c10157e9ccd3e8bd486bccb50e9f1b" title="Altera a aparência do botão iniciar cisalhamento para finalizar o experimento." alt="" coords="287,71,465,112"/>
+<area shape="rect" id="node7" href="$classExperiment.html#af08e5bd3b0082f67b0302d7954604097" title=" " alt="" coords="281,137,471,163"/>
+<area shape="rect" id="node8" href="$classShear.html#ad1b6097331cfa92e7cc9da98e5a28fdf" title=" " alt="" coords="303,187,449,214"/>
+<area shape="rect" id="node9" href="$classDensification.html#ae4213034375eb9c6dd0e2658df3b6cbc" title="Retorna o valor do número de amostra atual." alt="" coords="283,239,469,280"/>
+<area shape="rect" id="node10" href="$classShear.html#ab6d04af65955d80d8afa9b2a47062481" title=" " alt="" coords="306,305,446,331"/>
+<area shape="rect" id="node11" href="$classDBManager.html#a987f90b871cb3ae67cb89ea1cc324995" title="Verifica se o banco de dados está aberto." alt="" coords="301,355,451,382"/>
+<area shape="rect" id="node12" href="$classsendCommands.html#a03950b488e1f0bd4f0c4802be7d2bc88" title=" " alt="" coords="264,406,488,433"/>
+<area shape="rect" id="node13" href="$classsendCommands.html#ac2379ecb47a657af12162a8ffa9f682b" title=" " alt="" coords="265,457,487,483"/>
+<area shape="rect" id="node14" href="$classsendCommands.html#a2cdfc04bda0735bf029dff73530c80e3" title=" " alt="" coords="270,507,482,534"/>
+<area shape="rect" id="node15" href="$classShear.html#ac5c62c1f03a24e644f91310f4c762d83" title=" " alt="" coords="295,558,457,585"/>
+<area shape="rect" id="node16" href="$classShear.html#a080fac05d3fd2e85ce81567f5575772b" title=" " alt="" coords="265,609,487,635"/>
+<area shape="rect" id="node17" href="$classsendCommands.html#a71132768a57938877c53328773a4a7e6" title=" " alt="" coords="273,659,479,686"/>
+<area shape="rect" id="node18" href="$classDBManager.html#aed0f155f0860eb1bf0374aa1ea548866" title="Atualiza os dados de uma tabela escolhida." alt="" coords="283,710,469,737"/>
+<area shape="rect" id="node3" href="$classButton.html#abe0085dede1634da84daf8300a428cab" title="Altera o ícone e estilo do botão." alt="" coords="547,13,757,39"/>
+<area shape="rect" id="node5" href="$classButton.html#aebb7f32f1ebbbbc0841972cf768b3e86" title="Estilização inicial do botão, colocando&#45;se sombra, estilo e tamanho." alt="" coords="553,78,751,105"/>
+<area shape="rect" id="node6" href="$classButton.html#a690d8b24d0c0bc8c5f3ee6c292c2dcf9" title="Estiliza um QPushButton ou QToolButton para ter sombra." alt="" coords="834,78,1021,105"/>
+<area shape="rect" id="node19" href="$classDBManager.html#aadb37ef82eee978d11dae96918931902" title="Insere valores no bind da atualização da tabela SAMPLE_VARIABLES_TABLE." alt="" coords="545,673,759,715"/>
+<area shape="rect" id="node22" href="$classDBManager.html#a4909ed3ebcd5a1cbf6f714a2475f1e93" title="Insere o valor da variável this&#45;&gt;experiment_id após consulta no banco." alt="" coords="536,739,768,766"/>
+<area shape="rect" id="node20" href="$classShear.html#a2e06d7d6b124e7b94c4c81e7ad55b904" title=" " alt="" coords="816,651,1039,678"/>
+<area shape="rect" id="node21" href="$classExperiment.html#aa89197398d9c167abffd0c5b542cef97" title=" " alt="" coords="840,703,1015,744"/>
+</map>

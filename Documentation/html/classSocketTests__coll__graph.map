@@ -1,0 +1,17 @@
+<map id="SocketTests" name="SocketTests">
+<area shape="rect" id="node1" title="Classe de testes para o socket." alt="" coords="565,1404,817,1599"/>
+<area shape="rect" id="node2" title=" " alt="" coords="371,5,445,83"/>
+<area shape="rect" id="node3" href="$classThreadController.html" title="Classe que controla a thread criada por receiveData." alt="" coords="63,1161,289,1327"/>
+<area shape="rect" id="node6" href="$classTable.html" title=" " alt="" coords="465,588,687,797"/>
+<area shape="rect" id="node7" href="$classExperiment.html" title=" " alt="" coords="709,375,894,525"/>
+<area shape="rect" id="node9" href="$classShear.html" title=" " alt="" coords="729,139,953,305"/>
+<area shape="rect" id="node13" href="$classField.html" title="Classe dos campos de texto." alt="" coords="857,610,1058,775"/>
+<area shape="rect" id="node4" href="$classreceiveData.html" title="Classe que recebe os dados da camada de controle." alt="" coords="119,875,345,1084"/>
+<area shape="rect" id="node5" title=" " alt="" coords="348,654,425,731"/>
+<area shape="rect" id="node11" href="$classmachineServer.html" title="Classe que simula o servidor da máquina real." alt="" coords="313,1147,516,1341"/>
+<area shape="rect" id="node8" href="$classDensification.html" title="Classe do adensamento." alt="" coords="471,132,705,312"/>
+<area shape="rect" id="node10" href="$unionmachine__to__interface__message.html" title="Essa union tem como objetivo facilitar o envio de mensagem da máquina para a interface." alt="" coords="93,632,291,753"/>
+<area shape="rect" id="node12" href="$unioninterface__to__machine__message.html" title="Essa union tem como objetivo facilitar o envio de mensagens da interface para a máquina." alt="" coords="481,919,665,1040"/>
+<area shape="rect" id="node14" href="$classsendCommands.html" title=" " alt="" coords="541,1169,715,1319"/>
+<area shape="rect" id="node15" href="$classmachineClient.html" title="Classe que simula o envio de dados da máquina real." alt="" coords="995,1176,1223,1312"/>
+</map>

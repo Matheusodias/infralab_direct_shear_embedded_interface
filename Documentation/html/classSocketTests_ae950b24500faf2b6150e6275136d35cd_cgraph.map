@@ -1,0 +1,6 @@
+<map id="SocketTests::test_receiveDataFromMachine" name="SocketTests::test_receiveDataFromMachine">
+<area shape="rect" id="node1" title="Teste que verifica se a interface está recebendo corretamente os dados da máquina." alt="" coords="5,71,192,112"/>
+<area shape="rect" id="node2" href="$classSocketTests.html#aa55d4c208dd05b9d807899729493f123" title="Compara a variável result com a expected." alt="" coords="249,5,451,47"/>
+<area shape="rect" id="node3" href="$classSocketTests.html#a62c3e73e2c8f854ab2e263f875a627e3" title="Compara a variável result com a expected." alt="" coords="249,71,451,112"/>
+<area shape="rect" id="node4" href="$classmachineClient.html#a32c60b0f521f761ff7f68a53ba6dc21b" title="Envia mensagens para o servidor da interface caso a conexão no construtor tenha sucesso." alt="" coords="240,137,460,163"/>
+</map>

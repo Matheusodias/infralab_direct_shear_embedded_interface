@@ -1,0 +1,7 @@
+<map id="Button::Button" name="Button::Button">
+<area shape="rect" id="node1" title="Constrói um novo objeto da classe Button." alt="" coords="5,81,121,108"/>
+<area shape="rect" id="node2" href="$classButton.html#af258691911f15dfb47a1a3daa52f3f16" title="Insere os valores mínimos e máximos do tamanho dos botões." alt="" coords="169,5,399,32"/>
+<area shape="rect" id="node3" href="$classButton.html#ad2268ee3cd2cd894b17f33d8af672f26" title="Adiciona as imagens aos ícones para facilitar a estilização." alt="" coords="187,56,381,83"/>
+<area shape="rect" id="node4" href="$classButton.html#acb4ba469e8e7c2154dc887327566a533" title="Insere no array as imagens utilizadas na aplicação." alt="" coords="183,107,385,133"/>
+<area shape="rect" id="node5" href="$classButton.html#adb8f8199923d02dace610e2253e10039" title="Cria as folhas de estilo para os botões." alt="" coords="169,157,399,184"/>
+</map>
