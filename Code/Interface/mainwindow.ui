@@ -453,9 +453,9 @@ color: #10576D;
             <item>
              <layout class="QHBoxLayout" name="adjustVelocity_Layout" stretch="3,1,3,1,3,1,5,1,3,1,3,1,3">
               <item>
-               <widget class="QToolButton" name="minus100Velocity_toolButton">
+               <widget class="QToolButton" name="minus10Velocity_toolButton">
                 <property name="text">
-                 <string>-100</string>
+                 <string>-1</string>
                 </property>
                </widget>
               </item>
@@ -473,9 +473,9 @@ color: #10576D;
                </spacer>
               </item>
               <item>
-               <widget class="QToolButton" name="minus10Velocity_toolButton">
+               <widget class="QToolButton" name="minus5Velocity_toolButton">
                 <property name="text">
-                 <string>-10</string>
+                 <string>-0.5</string>
                 </property>
                </widget>
               </item>
@@ -495,7 +495,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="minus1Velocity_toolButton">
                 <property name="text">
-                 <string>-1</string>
+                 <string>-0.1</string>
                 </property>
                </widget>
               </item>
@@ -578,7 +578,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="plus1Velocity_toolButton">
                 <property name="text">
-                 <string>+1</string>
+                 <string>+0.1</string>
                 </property>
                </widget>
               </item>
@@ -596,9 +596,9 @@ color: #10576D;
                </spacer>
               </item>
               <item>
-               <widget class="QToolButton" name="plus10Velocity_toolButton">
+               <widget class="QToolButton" name="plus5Velocity_toolButton">
                 <property name="text">
-                 <string>+10</string>
+                 <string>+0.5</string>
                 </property>
                </widget>
               </item>
@@ -616,9 +616,9 @@ color: #10576D;
                </spacer>
               </item>
               <item>
-               <widget class="QToolButton" name="plus100Velocity_toolButton">
+               <widget class="QToolButton" name="plus10Velocity_toolButton">
                 <property name="text">
-                 <string>+100</string>
+                 <string>+1</string>
                 </property>
                </widget>
               </item>
@@ -642,7 +642,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="minus100Distance_toolButton">
                 <property name="text">
-                 <string>-100</string>
+                 <string>-10</string>
                 </property>
                </widget>
               </item>
@@ -662,7 +662,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="minus10Distance_toolButton">
                 <property name="text">
-                 <string>-10</string>
+                 <string>-1</string>
                 </property>
                </widget>
               </item>
@@ -682,7 +682,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="minus1Distance_toolButton">
                 <property name="text">
-                 <string>-1</string>
+                 <string>-0.1</string>
                 </property>
                </widget>
               </item>
@@ -777,7 +777,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="plus1Distance_toolButton">
                 <property name="text">
-                 <string>+1</string>
+                 <string>+0.1</string>
                 </property>
                </widget>
               </item>
@@ -797,7 +797,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="plus10Distance_toolButton">
                 <property name="text">
-                 <string>+10</string>
+                 <string>+1</string>
                 </property>
                </widget>
               </item>
@@ -817,7 +817,7 @@ color: #10576D;
               <item>
                <widget class="QToolButton" name="plus100Distance_toolButton">
                 <property name="text">
-                 <string>+100</string>
+                 <string>+10</string>
                 </property>
                </widget>
               </item>
@@ -1994,7 +1994,7 @@ color: #10576D;
                     <item>
                      <widget class="QLabel" name="pressure_label">
                       <property name="text">
-                       <string>Pressão</string>
+                       <string>Carga Normal</string>
                       </property>
                      </widget>
                     </item>
