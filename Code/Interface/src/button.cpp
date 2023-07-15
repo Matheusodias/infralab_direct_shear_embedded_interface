@@ -201,26 +201,26 @@ void Button::buttonSizeConfiguration()
     this->buttonMinimumSize[outsideExperiment_buttonSize] = QSize(130, 50);
 
     this->buttonMaximumSize[phases_buttonSize] = QSize(16777215, 16777215);
-    this->buttonMinimumSize[phases_buttonSize] = QSize(80, 40);
+    this->buttonMinimumSize[phases_buttonSize] = QSize(80, 35);
 
 
     this->buttonMaximumSize[phases_continueButtonSize] = QSize(200, 100);
-    this->buttonMinimumSize[phases_continueButtonSize] = QSize(140, 40);
+    this->buttonMinimumSize[phases_continueButtonSize] = QSize(140, 60);
 
 
     this->buttonMaximumSize[cancelButton_size] = QSize(300, 80);
-    this->buttonMinimumSize[cancelButton_size] = QSize(130, 40);
+    this->buttonMinimumSize[cancelButton_size] = QSize(130, 35);
 
     this->buttonMaximumSize[initShearButton_size] = QSize(300, 80);
-    this->buttonMinimumSize[initShearButton_size] = QSize(220, 40);
+    this->buttonMinimumSize[initShearButton_size] = QSize(220, 35);
 
 
     this->buttonMaximumSize[velocityPositionButton_size] = QSize(300, 80);
-    this->buttonMinimumSize[velocityPositionButton_size] = QSize(50, 40);
+    this->buttonMinimumSize[velocityPositionButton_size] = QSize(30, 10);
 
 
     this->buttonMaximumSize[exportButton_size] = QSize(200, 100);
-    this->buttonMinimumSize[exportButton_size] = QSize(160, 40);
+    this->buttonMinimumSize[exportButton_size] = QSize(160, 30);
 
 
 }
@@ -487,7 +487,6 @@ void Button::pressureButton_style(QToolButton *pressure)
 
 
 }
-
 
 
 
