@@ -15,5 +15,20 @@ Para rodar este código na raspberry pi 4 siga as etapas a seguir.
     3. ``sudo apt install qtcreator ``
     4. Instalação do módulo dos gráficos. ``sudo apt install libqt5charts5-dev``.
 
+## Autores
+
+Este projeto foi desenvolvido pelos alunos da Universidade de Brasília:
+
+- Sob a orientação do Prof. Dr. Guillermo Alvarez Bestard:
+  - Matheus Oliveira Dias (2023)
+  - Mateus Felipe Massa Pereira (2022)
+ 
+- Sob a orientação do Prof. Dr. Renato Coral Sampaio:
+  - Ivan Diniz Dobbin (2022)
+
+
+<p align="center">
+  <img src="Imagens/unb.png" alt="unb_logo" width="200" height="100">
+</p>
 
 
