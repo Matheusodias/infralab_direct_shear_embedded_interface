@@ -41,7 +41,7 @@ Table::Table(Experiment *parent, QTableWidget *densification, QTableWidget *shea
         "Altura inicial (cm)", "Peso úmido inicial (g)", "Umidade inicial (%)",
         "Peso específico dos sólidos (g/cm³)", "Limite de plasticidade (%)",
         "Limite de liquidez (%)", "Posição inicial (cm)", "Diamêtro (cm)",
-        "Pressão", "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
+        "Carga normal", "Área (cm²)", "Volume inicial (cm³)","Massa específica úmida inicial da amostra de solo (g/cm³)",
         "Massa específica seca inicial da amostra de solo (g/cm³)","Índice de vazios","Peso Específico da água",
         "Saturação inicial da amostra de solo (%)"
     };
@@ -181,7 +181,7 @@ void Table::initialConfig_DynamicTable(QTableWidget *table_widget,uint8_t option
             "background-color: white;"
             "alternate-background-color: #77A0AC;"
             "selection-background-color: #0D495C;"
-            "font:  14pt 'Ubuntu'; border:0px; }"
+            "font:  15pt 'Ubuntu'; border:0px; }"
             "QHeaderView { font: bold 13pt 'Ubuntu'; }"
         );
     } else{
@@ -219,7 +219,7 @@ void Table::updateData_DynamicTable(QStringList data, uint8_t option)
          item->setTextAlignment(Qt::AlignCenter);
          table_widget->setItem (table_widget->rowCount()-1,j,item);
      }
-     //table_widget->scrollToBottom();
+
 
 }
 
@@ -296,5 +296,4 @@ void Table::test()
         qDebug() << columnValues[i];
     }
 }
-
 
