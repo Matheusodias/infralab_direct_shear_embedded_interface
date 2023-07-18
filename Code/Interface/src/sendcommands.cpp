@@ -59,7 +59,7 @@ uint8_t sendCommands::connectToMachine()
     return 1;
 }
 
-void sendCommands::setPressure(uint8_t pressure)
+void sendCommands::setPressure(uint16_t pressure)
 {
     this->interface_message.pressure = pressure;
     //qDebug() << "Pressure = " << this->interface_message.pressure;
