@@ -3,6 +3,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <arpa/inet.h>
+
 /**
  * @brief Constrói uma nova instância da classe receiveData.
  * 
@@ -129,13 +130,12 @@ void receiveData::readClientMessage()
             //qDebug() << this->machine_message.sample_number == this->previous_sample_number;
             break;
         };
-        // qDebug() << "SampleNumber" << this->machine_message.sample_number;
-        // //qDebug() << "DateTime" << this->machine_message.date_time;
-        // qDebug() << "Displacement[0]" << this->machine_message.displacement[0];
-        // qDebug() << "Displacement[1]" << this->machine_message.displacement[1];
-        // qDebug() << "Load[0]" << this->machine_message.load[0];
-        // qDebug() << "Load[1]" << this->machine_message.load[1];
-        // qDebug() << "State" << this->machine_message.state << Qt::endl;
+         qDebug() << "SampleNumber" << this->machine_message.sample_number;
+        qDebug() << "Displacement[0]" << this->machine_message.displacement[0];
+         qDebug() << "Displacement[1]" << this->machine_message.displacement[1];
+         qDebug() << "Load[0]" << this->machine_message.load[0];
+         qDebug() << "Load[1]" << this->machine_message.load[1];
+         qDebug() << "State" << this->machine_message.state << Qt::endl;
 
         this->shear_densification_variables->table_variables->densification_variables.setDensificationVariables
             (this->machine_message.sample_number, this->machine_message.displacement[0], this->machine_message.load[0]);
@@ -151,7 +151,6 @@ void receiveData::readClientMessage()
             emit this->data_arrived();
         }
 
-        
         
         // = updateDensificationTable();
 
