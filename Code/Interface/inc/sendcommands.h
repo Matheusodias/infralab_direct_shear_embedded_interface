@@ -28,7 +28,7 @@ class sendCommands
         
         void setVelocity(int16_t velocity);
         void setDistance(int16_t distance);
-        void setPressure(uint8_t pressure);
+        void setPressure(uint16_t pressure);
         void setEnabled(uint8_t enabled);
         void setSamplingPeriod(uint16_t sample_period);
         int16_t getVelocity();
