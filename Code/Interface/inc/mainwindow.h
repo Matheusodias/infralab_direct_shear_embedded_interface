@@ -73,6 +73,8 @@ private slots:
 
     void changeExportOption_Densification(int index);
     void changeExportOption_Shear(int index);
+    
+    void sendExportCommand();
 
 private:
     Ui::MainWindow *ui; /*!< Instância da classe e serve para operar seus elementos, como botões.*/
