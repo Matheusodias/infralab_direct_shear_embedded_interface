@@ -11,12 +11,12 @@ Charts::Charts(QObject *parent)
     : QObject{parent}
 {
     chart_title[0] = "Tempo por deslocamento vertical";
-    chart_title[1] = "Deslocamento horizontal versus deslocamento vertical";
+    chart_title[1] = "Tensão Cisalhante versus Deslocamento Horizontal";
     x_axis_title[0] = "Tempo (s)";
     y_axis_title[0] =  "Desloc. vertical (cm)";
     
     x_axis_title[1] = "Desloc. horizontal (cm)";
-    y_axis_title[1] = "Desloc. vertical (cm)";
+    y_axis_title[1] = "Tensão Cisalhante (kPa)";
 }
 
 /**
@@ -32,12 +32,12 @@ void Charts::initialConfiguration(QVBoxLayout * layout, int option)
     m_axisY[option] = new QValueAxis();
 
     series[option]->append(0, 0);
-/* series[option]->append(2, 4);
-    series[option]->append(3, 8);
-    series[option]->append(7, 4);
-    series[option]->append(10, 5);
-    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
-*/
+//    series->append(2, 4);
+//    series->append(3, 8);
+//    series->append(7, 4);
+//    series->append(10, 5);
+//    *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+
     chart[option] = new QChart();
     chart[option]->legend()->hide();
     chart[option]->addSeries(series[option]);
@@ -53,6 +53,12 @@ void Charts::initialConfiguration(QVBoxLayout * layout, int option)
     
 //    chart->axes(Qt::Vertical).at(0)->setTitleText("Deslocamento vertical (cm)");
 //    chart->axes(Qt::Horizontal).at(0)->setTitleText("Tempo");
+
+
+
+    //QChartView *chartView = new QChartView(chart);
+    //chartView = new QChartView(chart);
+    //chartView->setRenderHint(QPainter::Antialiasing);
 
     chartView[option] = new QChartView(chart[option]);
     chartView[option]->setRenderHint(QPainter::Antialiasing);
@@ -104,6 +110,7 @@ void Charts:: updateShearCharts(float horizontal_displacement, float vertical_di
     }
     //chartView->update();
 }
+
 /**
  * @brief Apaga os gráficos atuais.
  * 
