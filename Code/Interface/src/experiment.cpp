@@ -105,7 +105,7 @@ QStringList Experiment:: updateShearTable()
     temporary_list[5] = QString::number(this->getNormalTension());
     temporary_list[6] = QString::number(this->getShearTension());
 
-    emit updateShearChart(this->shear_variables.getHorizontal_displacement(),this->densification_variables.getVertical_displacement());
+    emit updateShearChart(this->shear_variables.getHorizontal_displacement(),this->getShearTension());
 
     return temporary_list;
 }
@@ -186,15 +186,17 @@ uint32_t Experiment::getShearSample_number() const
 float Experiment::getNormalTension()
 {
     float normal_load = this->densification_variables.getVertical_load();
-    float area = this->getArea();
-    return   normal_load/area;
+    //float area = this->getArea();
+    //return   normal_load/area;
+    return   normal_load;
 }
 
 float Experiment::getShearTension()
 {
     float shear_load = this->shear_variables.getHorizontal_load();
-    float area = this->getArea();
-    return shear_load/area;
+    //float area = this->getArea();
+    //return shear_load/area;
+    return shear_load;
 }
 
 float Experiment::getAverageSpeed()
@@ -384,7 +386,7 @@ float Experiment::getSpgr_solids() const
     return spgr_solids;
 }
 
-void Experiment::setSpgr_solids(float newSpgr_solids)
+void Experiment::setSpgr_solids(float newSpgr_solids) // Massa especifica dos solidos
 {
     spgr_solids = newSpgr_solids;
 }
@@ -444,19 +446,19 @@ float Experiment::getinitial_volume()
 
 float Experiment::getinitial_wet_density()
 {
-    float value =  initial_wet_weight * getinitial_volume();
+    float value =  initial_wet_weight / getinitial_volume();
     return (std::isfinite(value))? value : 0;
 }
 
 float Experiment::getinitial_dry_density()
 {
-    float value =  ((getinitial_wet_density() * 100) / (100 + initial_moisture));
+    float value =  ((initial_wet_weight * 100) / (100 + initial_moisture)) / getinitial_volume();
     return (std::isfinite(value))? value : 0;
 }
 
 float Experiment::getinitial_void_ratio()
 {
-    float value =  ((spgr_solids/getinitial_dry_density()) - 1);
+    float value = (getinitial_volume() - (spgr_solids * ((initial_wet_weight * 100)/(100 + initial_moisture))))/ (spgr_solids * ((initial_wet_weight * 100)/(100 + initial_moisture)));
     return (std::isfinite(value))? value : 0;
 }
 
@@ -467,7 +469,7 @@ float Experiment::getwater_specific_weight()
 
 float Experiment::getinitial_saturation()
 {
-    float value =  (spgr_solids *  initial_moisture) / (getinitial_void_ratio() * getwater_specific_weight());
+    float value =  100*(getwater_specific_weight() * (initial_wet_weight - ((initial_wet_weight * 100)/(100 + initial_moisture)))) / (getinitial_volume() - (spgr_solids * ((initial_wet_weight * 100)/(100 + initial_moisture)))) ;
     return (std::isfinite(value))? value : 0;
 }
 
@@ -554,8 +556,6 @@ QString Experiment::getInitial_timeString()
  * /
  *
  */
-
-
 
 
 
