@@ -4,10 +4,13 @@
 #include<QDebug>
 #include <QLineEdit>
 #include <QSignalMapper>
+#include <QApplication>
+#include <QMessageBox>
 #include "inc/experiment.h"
 #include <QSqlTableModel>
 #include <QTextEdit>
 #include "inc/charts.h"
+
 
 /**
  * @brief Constrói uma nova janela principal.
@@ -60,16 +63,14 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(this->receive_data->receiveDataThread,SIGNAL(data_arrived()),this->my_db, SLOT(update_database_table()));
     
-
-
+    
     this->timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(changeInitialPositionValue()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(updateInitialPositionValue()));
 
     connect(ui->cancel_toolButton, SIGNAL(clicked()), this, SLOT(cancelExperiment()));
 
     fillTextEditForTests();
     ui->exportTable_toolButton->setVisible(false);
-
 }
 
 
@@ -151,16 +152,25 @@ void MainWindow::InitialConfiguration_InsideExperimentButtons()
 
     connect(ui->insideExperiment_stack, SIGNAL(currentChanged(int)),this, SLOT(enableExportButton(int)));
 
+    ////this->charts_variables->initialConfiguration(ui->densificationGraphs_layout);
+    ////connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateCharts(int, float)));
+    
+    //New Charts
     this->charts_variables->initialConfiguration(ui->densificationGraphs_layout, densification_chart);
     this->charts_variables->initialConfiguration(ui->shearGraphs_layout, shear_chart);
     connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateDensificationCharts(int, float)));
     connect(this->info_variables, SIGNAL(updateShearChart(float,float)), this->charts_variables, SLOT(updateShearCharts(float, float)));
 
-    connect(ui->exportTable_toolButton, &QToolButton::clicked,  this->data_export, [this]{
+
+    //connect(ui->exportTable_toolButton, &QToolButton::clicked,  this->data_export, [this]{
+    //        this->data_export->exportCSV(chosenTable,my_db->getExperiment_id(),this->export_option);
+    //    }
+    
+    /*connect(ui->exportTable_toolButton, &QToolButton::clicked,  this->data_export, [this]{
             this->data_export->exportCSV(chosenTable,my_db->getExperiment_id(),this->export_option);
         }
-    );
-
+    );*/
+    connect(ui->exportTable_toolButton, SIGNAL(clicked()),this, SLOT(sendExportCommand()));
 
 
 }
@@ -299,6 +309,24 @@ void MainWindow::changePage(QToolButton *buttonSender, QString buttons_name[6], 
         //this->tables->updateData_TablePhases(ui->phases_tableWidget);
         this->tables->updateData_StaticTable(ui->phases_tableWidget,phases_table);
     }
+    if(next_page == 4){
+        
+        send_data->setCommand(0);
+        send_data->setEnabled(1);
+        send_data->setArea(this->info_variables->getArea());
+        send_data->sendMessage();
+        
+        timer->start(400);
+    } else {
+    
+        send_data->setCommand(0);
+        send_data->setEnabled(0);
+        send_data->setArea(this->info_variables->getArea());
+        send_data->sendMessage();
+        
+        timer->stop();
+    }
+
 }
 
 void MainWindow::nextPhase()
@@ -313,6 +341,23 @@ void MainWindow::nextPhase()
     if(next_page == 3){
         //this->tables->updateData_TablePhases(ui->phases_tableWidget);
         this->tables->updateData_StaticTable(ui->phases_tableWidget,phases_table);
+    } 
+    if(next_page == 4){
+        
+        send_data->setCommand(0);
+        send_data->setEnabled(1);
+        send_data->setArea(this->info_variables->getArea());
+        send_data->sendMessage();
+        
+        timer->start(400);
+    } else {
+    
+        send_data->setCommand(0);
+        send_data->setEnabled(0);
+        send_data->setArea(this->info_variables->getArea());
+        send_data->sendMessage();
+        
+        timer->stop();
     }
 }
 
@@ -335,15 +380,15 @@ void MainWindow::changeOutsideExperimentPage()
 
 void MainWindow::changeInitialPositionValue()
 {
-    //qDebug() << "Estou no displacement";
+    qDebug() << "Estou no displacement";
     ui->initialPositionValue_label->setText(QString::number(receive_data->receiveDataThread->machine_message.displacement[1]));
-    //qDebug() << receive_data->receiveDataThread->machine_message.displacement[1];
+    qDebug() << receive_data->receiveDataThread->machine_message.displacement[1];
 }
 
 void MainWindow::onPositionButton_pressed()
 {
-    int sampling_period = 100;
-    timer->start(sampling_period);
+    //int sampling_period = 1000;
+    //timer->start(1000);
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
 
 
@@ -351,38 +396,42 @@ void MainWindow::onPositionButton_pressed()
     if(buttonSender->objectName() == "moveLeft_toolButton"){
         velocity *= -1;
     }
-    send_data->setCommand(0);
+    /*send_data->setCommand(0);
     send_data->setEnabled(1);
-    send_data->setSamplingPeriod(sampling_period);
-    send_data->sendMessage();
+    send_data->setArea(this->info_variables->getArea());
+    send_data->sendMessage();*/
 
     send_data->setCommand(1);
     send_data->setVelocity(velocity);
     send_data->sendMessage();
-
+    
+    //changeInitialPositionValue();
 
 }
 
 void MainWindow::onPositionButton_released()
 {
-
+    
     send_data->setCommand(1);
     send_data->setVelocity(0);
     send_data->sendMessage();
 
-    send_data->setCommand(0);
+    /*send_data->setCommand(0);
     send_data->setEnabled(0);
-    send_data->setSamplingPeriod(0);
+    send_data->setArea(this->info_variables->getArea());
     send_data->sendMessage();
 
 
     timer->stop();
+    changeInitialPositionValue();*/
 }
 
 
 
 void MainWindow::on_initExperiment_toolButton_clicked()
 {
+    QMessageBox::warning(nullptr, "Aviso", "A Fase de Adensamento vai começar! Não desligue o equipamento!");
+    //timer->stop();
     this->info_variables->setInitial_time(true);
     this->info_variables->setExperimentStarted(true);
     this->info_variables->setInitial_position(ui->initialPositionValue_label->text().toFloat());
@@ -411,10 +460,10 @@ void MainWindow::on_initExperiment_toolButton_clicked()
     send_data->setPressure(this->info_variables->getPressure());
     send_data->sendMessage();
 
-    send_data->setCommand(0);
+    /*send_data->setCommand(0);
     send_data->setEnabled(1);
-    send_data->setSamplingPeriod(this->info_variables->getSample_period());
-    send_data->sendMessage();
+    send_data->setArea(this->info_variables->getArea());
+    send_data->sendMessage();*/
 }
 
 
@@ -422,19 +471,26 @@ void MainWindow::on_releasePressure_toolButton_clicked()
 {
 
 
-
-
         bool isPositionButtonsEnable = !(ui->releasePressure_toolButton->isChecked());
         int style = 0;
         if(isPositionButtonsEnable){
             style = pressureButton_GreenBackgroundColor;
             ui->releasePressure_toolButton->setText("Liberar a baixa pressão");
+            this->send_data->setCommand(0);
+            this->send_data->setEnabled(0);
+            this->send_data->setArea(this->info_variables->getArea());
+            this->send_data->sendMessage();
         } else {
             style = pressureButton_RedBackgroundColor;
             ui->releasePressure_toolButton->setText("Parar a baixa pressão");
+            this->send_data->setCommand(0);
+            this->send_data->setEnabled(1);
+            this->send_data->setArea(this->info_variables->getArea());
+            this->send_data->sendMessage();
         }
 
         if(!this->experiment_canceled){
+            
             this->send_data->setCommand(2);
             this->send_data->sendMessage();
         }
@@ -476,7 +532,7 @@ void MainWindow::updateResultsTables()
 
 void MainWindow::adjustVelocity_Distance()
 {
-    //qDebug() << "Consegui clicar aqui";
+    qDebug() << "Consegui clicar aqui";
     if(this->info_variables->getPhase() == densification_phase)
     {
         //ui->initShear_FinishExperiment_toolButton->
@@ -504,7 +560,7 @@ void MainWindow::on_goBack_toolButton_clicked()
 
 void MainWindow::initShearPhase()
 {
-   
+    QMessageBox::warning(nullptr, "Aviso", "A Fase de Cisalhamento vai começar! Não desligue o equipamento!\nRemova os parafusos! Lembre-se de exportar os dados antes de finalizar o experimento!");
     // manda comandos
     send_data->setCommand(4);
     send_data->setVelocity(this->info_variables->shear_variables.getVelocity());
@@ -552,7 +608,7 @@ void MainWindow::fillTextEditForTests()
             "Locação da amostra",
             "Descrição da amostra",
             "500","2","3","4","5",
-            "6", "7", "8",
+            "6", "6.3", "250",
     };
 
     QStringList data2 = {
@@ -567,7 +623,7 @@ void MainWindow::fillTextEditForTests()
             "Locação da amostra",
             "Descrição da amostra",
             "5","8","2","3","4",
-            "12", "13", "14",
+            "12", "6.3", "200",
     };
 
     QStringList array_data;
@@ -639,7 +695,7 @@ void MainWindow::fillTextEditForTests()
 
 void MainWindow:: cancelExperiment()
 {
-    
+    timer->stop();
     this->experiment_canceled = true;
     // sockets
     send_data->setCommand(5);
@@ -685,13 +741,12 @@ void MainWindow:: cancelExperiment()
     
 
     this->tables->clearStaticTables(ui->shearResult_tableWidget);
-
+    
     this->charts_variables->reset_Chart();
     this->charts_variables->initialConfiguration(ui->densificationGraphs_layout, densification_chart);
     this->charts_variables->initialConfiguration(ui->shearGraphs_layout, shear_chart);
     connect(this->info_variables, SIGNAL(updateDensificationChart(int,float)), this->charts_variables, SLOT(updateDensificationCharts(int, float)));
     connect(this->info_variables, SIGNAL(updateShearChart(float,float)), this->charts_variables, SLOT(updateShearCharts(float, float)));
-
 
     this->ui->velocityValue_label->setText("0");
     this->ui->distanceValue_label->setText("0");
@@ -705,9 +760,10 @@ void MainWindow:: cancelExperiment()
     // }
 
     fillTextEditForTests();
-   
+    //timer->start(1);
     this->experiment_canceled = false;
-
+    
+    QMessageBox::warning(nullptr, "Aviso", "Experimento finalizado!");
 
 
 }
@@ -717,14 +773,14 @@ void MainWindow::changeVelocity()
 {
     QToolButton* buttonSender = qobject_cast<QToolButton*>(sender());
     QString buttons_names[] = {
-        "minus100Velocity_toolButton",
         "minus10Velocity_toolButton",
+        "minus5Velocity_toolButton",
         "minus1Velocity_toolButton",
         "plus1Velocity_toolButton",
-        "plus10Velocity_toolButton",
-        "plus100Velocity_toolButton"
+        "plus5Velocity_toolButton",
+        "plus10Velocity_toolButton"
     };
-    int values[] = {-100,-10,-1,1,10,100};
+    int values[] = {-10,-5,-1,1,5,10};
     int add=0;
 
     for(unsigned long int i=0;i< sizeof(buttons_names)/sizeof(QString);i++)
@@ -737,9 +793,10 @@ void MainWindow::changeVelocity()
 
     int32_t current_velocity = this->info_variables->shear_variables.getVelocity();
     current_velocity += add;
-    if(current_velocity <= ((1<<16) -1)){
+    //if(current_velocity <= ((1<<16) -1)){
+    if(current_velocity <= 38){
         this->info_variables->shear_variables.setVelocity(current_velocity);
-        this->ui->velocityValue_label->setText(QString::number(this->info_variables->shear_variables.getVelocity()));
+        this->ui->velocityValue_label->setText(QString::number(0.1*this->info_variables->shear_variables.getVelocity()));
     }
 
 
@@ -769,9 +826,10 @@ void MainWindow::changeDistance()
 
     int32_t current_distance = this->info_variables->shear_variables.getDistance();
     current_distance += add;
-    if(current_distance <= ((1<<16) -1)){
+    //if(current_distance <= ((1<<16) -1)){
+    if(current_distance <= 203){
         this->info_variables->shear_variables.setDistance(current_distance);
-        this->ui->distanceValue_label->setText(QString::number(this->info_variables->shear_variables.getDistance()));
+        this->ui->distanceValue_label->setText(QString::number(0.1*this->info_variables->shear_variables.getDistance()));
     }
 
 
@@ -790,7 +848,7 @@ void MainWindow::enableShearInitButton(int index)
 
 void MainWindow::enableExportButton(int index)
 {
-    qDebug() << "Mudei a página";
+    
     if(index==3){
         ui->exportTable_toolButton->setVisible(false);
     } else if(index ==2) {
@@ -811,13 +869,12 @@ void MainWindow::enableExportButton(int index)
 
     } else if(index == 0){
         int inside_index = ui->densification_stack->currentIndex();
-        //qDebug() << "Dentro do adensamento";
+
         if(inside_index >= 1){
             chosenTable = (inside_index==1)? ui->densification_tableWidget:ui->densificationResult_tableWidget ;
             this->export_option = inside_index;
             ui->exportTable_toolButton->setVisible(true);
         } else{
-            //qDebug() << "Passei aqui2";
             ui->exportTable_toolButton->setVisible(false);
         }
     }
@@ -825,7 +882,7 @@ void MainWindow::enableExportButton(int index)
 
 void MainWindow::changeExportOption_Densification(int index)
 {
-    //qDebug() << "Dentro change Export densification";
+
     if(index >= 1){
         chosenTable = (index==1)? ui->densification_tableWidget:ui->densificationResult_tableWidget ;
         this->export_option = index;
@@ -849,4 +906,70 @@ void MainWindow::changeExportOption_Shear(int index)
         ui->exportTable_toolButton->setVisible(false);
     }
 }
+
+void MainWindow::sendExportCommand(){
+    QMessageBox::warning(nullptr, "Aviso", "Certifique-se de que há um PenDrive inserido!");
+    
+    QFile file("sm_info.txt");
+    if (!file.open(QFile::Append | QFile::Text))
+    {
+        QMessageBox::warning(nullptr, "Aviso", "Houve um erro na exportação dos dados!");
+        qDebug() << "Could not open file for writing";
+        return;
+    }
+
+    QTextStream out(&file);
+
+    QList<QString> columnValues;
+
+    // Escrever conteúdo da tabela getAllData_forInfoTable
+    columnValues = this->tables->table_variables->getAllData_forInfoTable();
+    for (const QString& value : columnValues)
+    {
+        out << value << ",";
+    }
+    out << "\n";
+
+    // Escrever conteúdo da tabela updateDensificationResultsTable
+    columnValues = this->tables->table_variables->updateDensificationResultsTable();
+    for (const QString& value : columnValues)
+    {
+        out << value << ",";
+    }
+    out << "\n";
+
+    // Escrever conteúdo da tabela updateShearResultsTable
+    columnValues = this->tables->table_variables->updateShearResultsTable();
+    for (const QString& value : columnValues)
+    {
+        out << value << ",";
+    }
+    out << "\n";
+
+    file.flush();
+    file.close();
+    
+    send_data->setCommand(6);
+    send_data->sendMessage();
+    //this->data_export->exportCSV(chosenTable, my_db->getExperiment_id(), this->export_option);
+    QMessageBox::warning(nullptr, "Aviso", "Os dados do experimento foram exportados!");
+    
+}
+
+void MainWindow::updateInitialPositionValue(){
+
+    send_data->setCommand(0);
+    send_data->setEnabled(0);
+    send_data->setArea(this->info_variables->getArea());
+    send_data->sendMessage();
+
+    send_data->setCommand(0);
+    send_data->setEnabled(1);
+    send_data->setArea(this->info_variables->getArea());
+    send_data->sendMessage();
+
+    changeInitialPositionValue();
+    
+}
+
 
