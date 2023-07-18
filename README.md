@@ -28,7 +28,7 @@ Este projeto foi desenvolvido pelos alunos da Universidade de Brasília:
 
 
 <p align="center">
-  <img src="Imagens/unb.png" alt="unb_logo" width="200" height="100">
+  <img src="imagens/unb.png" alt="unb_logo" width="200" height="100">
 </p>
 
 
